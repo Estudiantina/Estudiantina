@@ -50,6 +50,16 @@ example: uncomment to hide the sliding bookmark panel
 }
 */
 
+.headerContainer {
+        background-image: linear-gradient(rgb(105, 105, 105), rgb(47, 79, 79));
+}
+
+
+#header {
+  
+    background: url("/images/logo_conectar-igualdad.png") no-repeat scroll left center transparent;
+}
+
 
 .entityActions .cssMenuPanel .menuh li.x-caution a,
 li.x-caution a {
