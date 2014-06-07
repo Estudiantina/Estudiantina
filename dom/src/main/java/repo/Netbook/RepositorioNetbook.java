@@ -22,7 +22,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     }
 
     public String iconName() {
-        return "SimpleObject";
+        return "netbook";
     }
 	
 	public Netbook ingresarNetbook(@Named("id de Netbook")final String idNetbook ,

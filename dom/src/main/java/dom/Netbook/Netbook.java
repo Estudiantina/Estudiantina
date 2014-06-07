@@ -30,6 +30,9 @@ public class Netbook {
 	private String direccionMac;
 	private String situacionDeNetbook;
 	
+    public String iconName() {
+        return "netbook";
+    }
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getDireccionMac() {
