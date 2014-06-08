@@ -89,7 +89,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
 	border-style: dashed;	
 }
 
-
+.loginPanel
+{
+	border-radius: 700px;
+	height: 240px;
+	border-radius: 700px 700px 700px 700px;
+	width: 240px;
+	padding: 46px;
+	background-image: linear-gradient(rgb(255, 255, 255), rgb(47, 79, 79));
+}
 
 .entityActions .cssMenuPanel .menuh li.x-caution a,
 li.x-caution a {
