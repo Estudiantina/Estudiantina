@@ -36,7 +36,6 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setFechaDeExpiracion(fechaDeExpiracion);
 	    netbook.setIdNetbook(idNetbook);
 	    netbook.setDireccionMac(direccionMac);
-	    
 	    netbook.setModelo(modelo);
 	    netbook.setNumeroDeSerie(numeroDeSerie);
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
