@@ -1,16 +1,14 @@
 package dom.SolicitudDeServicioTecnico;
 
 
-import java.util.Arrays;
+
 import java.util.Date;
-import java.util.List;
+
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MultiLine;
-import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
@@ -23,7 +21,7 @@ import dom.Netbook.Netbook;
         column="version")
 @ObjectType("SERVICIOTECNICO")
 
-public class DominioSolicitudServicioTecnico {
+public class SolicitudServicioTecnico {
     //public solicitante integrante de la institucion  
 	public String motivoDeSolicitud;
 	public Date fechaDeSolicitud;
