@@ -1,7 +1,9 @@
 package dom.SolicitudDeServicioTecnico;
 
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
@@ -46,6 +48,8 @@ public class DominioSolicitudServicioTecnico {
 		this.netbook = netbook;
 	}
 	
+	
+	
 	@Title
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getMotivoDeSolicitud() {
@@ -80,6 +84,7 @@ public class DominioSolicitudServicioTecnico {
 
     @Optional
 	@javax.jdo.annotations.Column(allowsNull="true")
+    @MultiLine
 	public String getSolucion() {
 		return solucion;
 	}
