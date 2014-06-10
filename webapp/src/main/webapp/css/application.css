@@ -79,6 +79,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
     
 }
 
+.bookmarkedPagesPanel #bookmarkedPagesSlidingDiv
+{
+	background: #e4f5fc; /* Old browsers */
+background: -moz-linear-gradient(left, #e4f5fc 0%, #bfe8f9 13%, #9fd8ef 39%, #2ab0ed 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#e4f5fc), color-stop(13%,#bfe8f9), color-stop(39%,#9fd8ef), color-stop(100%,#2ab0ed)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left, #e4f5fc 0%,#bfe8f9 13%,#9fd8ef 39%,#2ab0ed 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left, #e4f5fc 0%,#bfe8f9 13%,#9fd8ef 39%,#2ab0ed 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left, #e4f5fc 0%,#bfe8f9 13%,#9fd8ef 39%,#2ab0ed 100%); /* IE10+ */
+background: linear-gradient(to right, #e4f5fc 0%,#bfe8f9 13%,#9fd8ef 39%,#2ab0ed 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=1 ); /* IE6-9 */
+	border-radius: 10px;
+}
 
 
 #applicationActions .cssMenuPanel .menuh li
