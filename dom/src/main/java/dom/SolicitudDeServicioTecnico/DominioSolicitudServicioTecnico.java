@@ -11,6 +11,7 @@ import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.Title;
 
 
 import dom.Netbook.Netbook;
@@ -19,6 +20,7 @@ import dom.Netbook.Netbook;
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
 @ObjectType("SERVICIOTECNICO")
+
 public class DominioSolicitudServicioTecnico {
     //public solicitante integrante de la institucion  
 	public String motivoDeSolicitud;
@@ -26,7 +28,7 @@ public class DominioSolicitudServicioTecnico {
 	public String solucion;
 	public Date fechaDeSolucion;
 	public Integer prioridad;
-	public Netbook netbook = new Netbook();
+	public Netbook netbook ;
 	public String codigoSolicitud;
 	public String numeroTiquetRegistro;
 	public String comentario;
@@ -40,28 +42,8 @@ public class DominioSolicitudServicioTecnico {
 	public void setNetbook(Netbook netbook) {
 		this.netbook = netbook;
 	}
-	public DominioSolicitudServicioTecnico add (@Named("id de Netbook")final String idNetbook ,
-	@Named("Modelo")final String modelo,
-	@Named("Numero De Serie")final String numeroDeSerie,
-	@Named("Numero De Licencia de Windows")final String numeroLicenciaWindows,
-	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
-	@Named("Direccion Mac")final String direccionMac)
-	{
-		final Netbook mynetbook = container.newTransientInstance(Netbook.class);
-	    mynetbook.setFechaDeExpiracion(fechaDeExpiracion);
-	    mynetbook.setIdNetbook(idNetbook);
-	    mynetbook.setDireccionMac(direccionMac);
-	    mynetbook.setModelo(modelo);
-	    mynetbook.setNumeroDeSerie(numeroDeSerie);
-	    mynetbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-	    mynetbook.setSituacionDeNetbook("Entregada");
-	    
-	    
-	    container.persistIfNotAlready(mynetbook);
-	    
-		this.netbook= mynetbook;
-		return this;
-	}
+	
+	@Title
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getMotivoDeSolicitud() {
 		return motivoDeSolicitud;
