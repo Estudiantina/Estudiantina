@@ -34,6 +34,9 @@ public class DominioSolicitudServicioTecnico {
 	public String comentario;
 	
    
+	public String iconName() {
+        return "asistenciatecnica";
+    }
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Netbook getNetbook() {
