@@ -17,6 +17,11 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
         return "Netbook";
     }
     */
+    public String iconName() {
+        return "alumno";
+    }
+   
+    
 	
 	/**
 	 * Se realiza la carga de los alumno, con todos sus atributos.

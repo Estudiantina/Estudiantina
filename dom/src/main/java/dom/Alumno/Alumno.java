@@ -17,6 +17,10 @@ import dom.Persona.Persona;
 
 @ObjectType("ALUMNO")
 public class Alumno extends Persona{
+	
+	public String iconName() {
+        return "alumno";
+    }
 
 	private Date fechaIngreso;
 	private String nacionalidad;
