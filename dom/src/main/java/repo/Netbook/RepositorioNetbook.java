@@ -38,14 +38,14 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
         return allMatches(QueryDefault.create(Netbook.class, "traerTodo"));
     }
     /**
-     * TODO optimizar parametro para que solo busque por el ID y no muestre todo
+     * 
      * @param searchPhrase parametro de busqueda en el combo
      * del viewer para autocompletado
      * @return
      */
     @Hidden
     public List<Netbook> autoComplete(String searchPhrase) {        
-    	return allMatches(QueryDefault.create(Netbook.class, "traerTodo"));
+    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",searchPhrase));
     }
     /**
      * Crea y guarda una netbook en el sistema

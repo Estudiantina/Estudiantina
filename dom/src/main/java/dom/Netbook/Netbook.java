@@ -101,7 +101,6 @@ public class Netbook {
 	}
 	
 	@javax.inject.Inject
-
     private DomainObjectContainer container;
 	
 	
