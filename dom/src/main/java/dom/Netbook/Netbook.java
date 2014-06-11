@@ -38,7 +38,7 @@ import repo.Netbook.RepositorioNetbook;
 public class Netbook {
 	
 	private String idNetbook;
-	private Modelo modelo;
+	private ModeloNetbook modelo;
 	private String numeroDeSerie;
 	private String numeroLicenciaWindows;
 	private Date fechaDeExpiracion;
@@ -58,10 +58,10 @@ public class Netbook {
 		this.direccionMac = direccionMac;
 	}
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public Modelo getModelo() {
+	public ModeloNetbook getModelo() {
 		return modelo;
 	}
-	public void setModelo(Modelo modelo) {
+	public void setModelo(ModeloNetbook modelo) {
 		this.modelo = modelo;
 	}
 	@javax.jdo.annotations.Column(allowsNull="false")

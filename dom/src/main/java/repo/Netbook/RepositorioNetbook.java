@@ -20,7 +20,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 
 
-import dom.Netbook.Modelo;
+import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
 
 @Named("Administrar Netbook")
@@ -64,7 +64,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      * @return 
      */
 	public Netbook ingresarNetbook(@Named("id de Netbook")final String idNetbook ,
-	@Named("Modelo")final Modelo modelo,
+	@Named("Modelo")final ModeloNetbook modelo,
 	@Named("Numero De Serie")final String numeroDeSerie,
 	@Named("Numero De Licencia de Windows")final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
