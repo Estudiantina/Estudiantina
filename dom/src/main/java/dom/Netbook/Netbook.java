@@ -2,6 +2,7 @@ package dom.Netbook;
 
 
 import java.util.Date;
+import java.util.List;
 
 
 import javax.jdo.annotations.IdentityType;
@@ -13,9 +14,11 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.query.QueryDefault;
 
 import repo.Netbook.RepositorioNetbook;
 
@@ -26,7 +29,8 @@ import repo.Netbook.RepositorioNetbook;
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
 @ObjectType("NETBOOK")
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Netbook.Netbook ")})
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorId", language = "JDOQL", value = "SELECT FROM dom.Netbook.Netbook WHERE idNetbook== :idNetbook"),
+	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Netbook.Netbook ")})
 @AutoComplete(repository = RepositorioNetbook.class, action = "autoComplete")
 @Audited
 public class Netbook {
@@ -99,5 +103,6 @@ public class Netbook {
 	@javax.inject.Inject
     @SuppressWarnings("unused")
     private DomainObjectContainer container;
+	
 	
 }

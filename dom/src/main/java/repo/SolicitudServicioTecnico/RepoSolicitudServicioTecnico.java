@@ -12,6 +12,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 
 
+import dom.Netbook.Netbook;
 import dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico;
 
 
@@ -27,6 +28,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	
     
 	public SolicitudServicioTecnico solicitarServicioTecnico(
+			@Optional@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")String motivoDeSolicitud,
 			@Named("fecha de solicitud")Date fechaDeSolicitud,
 			@Named("fecha de solucion")Date fechaDeSolucion,
