@@ -18,6 +18,12 @@ import dom.Persona.Persona;
 @ObjectType("ALUMNO")
 public class Alumno extends Persona{
 	
+	/**
+	 * Identificacion del nombre del icono 
+	 * que aparecera en la UI
+	 * resources/icono.png
+	 * @return String nombre de icono
+	 */
 	public String iconName() {
         return "alumno";
     }
@@ -25,11 +31,7 @@ public class Alumno extends Persona{
 	private Date fechaIngreso;
 	private String nacionalidad;
 	
-	/**
-	 * Identificacion del nombre del icono que aparecera en la UI
-	 * 
-	 * @return String
-	 */
+	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Date getFechaIngreso() {

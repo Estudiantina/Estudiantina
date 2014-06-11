@@ -14,7 +14,7 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 
 	/*
 	public String getId() {
-        return "Netbook";
+        return "persona";
     }
     */
     public String iconName() {
@@ -45,7 +45,7 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 			@Named("CUIL")Long cuil,
 			@RegEx(validation = "[A-Za-z ]+")
 			@Named("NOMBRE")String nombre,
-			@RegEx(validation = "[A-Za-z ]+")
+			@RegEx(validation = "[A-Za-z]+")
 			@Named("APELLIDO")String apellido,
 			@RegEx(validation = "[0-9]+")
 			@Named("TELEFONO CELULAR")String telefonoCelular,

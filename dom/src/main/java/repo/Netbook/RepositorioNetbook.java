@@ -11,12 +11,16 @@ import java.util.List;
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.MaxLength;
+import org.apache.isis.applib.annotation.MinLength;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 
 
 
+import dom.Netbook.Modelo;
 import dom.Netbook.Netbook;
 
 @Named("Administrar Netbook")
@@ -30,6 +34,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     public String iconName() {
         return "netbook";
     }
+    
 	/**
 	 * muestra una lista de todas las Netbooks que existen
 	 * @return lista de Netbooks
@@ -37,6 +42,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     public List<Netbook> listaNetbooks() {
         return allMatches(QueryDefault.create(Netbook.class, "traerTodo"));
     }
+    
     /**
      * 
      * @param searchPhrase parametro de busqueda en el combo
@@ -55,14 +61,14 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      * @param numeroLicenciaWindows
      * @param fechaDeExpiracion
      * @param direccionMac
-     * @return
+     * @return 
      */
 	public Netbook ingresarNetbook(@Named("id de Netbook")final String idNetbook ,
-	@Named("Modelo")final String modelo,
+	@Named("Modelo")final Modelo modelo,
 	@Named("Numero De Serie")final String numeroDeSerie,
 	@Named("Numero De Licencia de Windows")final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
-	@Named("Direccion Mac")final String direccionMac)
+	@MaxLength(12)@MinLength(12)@RegEx(validation = "[A-Fa-f0-9 ]+")@Named("Direccion Mac")final String direccionMac)
 	{
 		final Netbook netbook = container.newTransientInstance(Netbook.class);
 	    netbook.setFechaDeExpiracion(fechaDeExpiracion);

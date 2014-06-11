@@ -15,7 +15,9 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 
+import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.MinLength;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Title;
 
@@ -36,7 +38,7 @@ import repo.Netbook.RepositorioNetbook;
 public class Netbook {
 	
 	private String idNetbook;
-	private String modelo;
+	private Modelo modelo;
 	private String numeroDeSerie;
 	private String numeroLicenciaWindows;
 	private Date fechaDeExpiracion;
@@ -46,19 +48,20 @@ public class Netbook {
     public String iconName() {
         return "netbook";
     }
-	
+    @MaxLength(12)
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getDireccionMac() {
 		return direccionMac;
 	}
+    
 	public void setDireccionMac(String direccionMac) {
 		this.direccionMac = direccionMac;
 	}
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getModelo() {
+	public Modelo getModelo() {
 		return modelo;
 	}
-	public void setModelo(String modelo) {
+	public void setModelo(Modelo modelo) {
 		this.modelo = modelo;
 	}
 	@javax.jdo.annotations.Column(allowsNull="false")
