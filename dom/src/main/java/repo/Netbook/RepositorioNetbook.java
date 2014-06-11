@@ -2,6 +2,7 @@ package repo.Netbook;
 
 
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -10,6 +11,9 @@ import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.query.QueryDefault;
+
+
 
 import dom.Netbook.Netbook;
 
@@ -25,6 +29,11 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
         return "netbook";
     }
 	
+    public List<Netbook> listaNetbooks() {
+        return allMatches(QueryDefault.create(Netbook.class, "traerTodo"));
+    }
+    
+    
 	public Netbook ingresarNetbook(@Named("id de Netbook")final String idNetbook ,
 	@Named("Modelo")final String modelo,
 	@Named("Numero De Serie")final String numeroDeSerie,
@@ -36,6 +45,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setFechaDeExpiracion(fechaDeExpiracion);
 	    netbook.setIdNetbook(idNetbook);
 	    netbook.setDireccionMac(direccionMac);
+	    
 	    netbook.setModelo(modelo);
 	    netbook.setNumeroDeSerie(numeroDeSerie);
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);

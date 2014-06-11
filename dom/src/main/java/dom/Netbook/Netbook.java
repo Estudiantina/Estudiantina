@@ -11,16 +11,24 @@ import javax.jdo.annotations.VersionStrategy;
 
 
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Audited;
+import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
-
 import org.apache.isis.applib.annotation.Title;
+
+import repo.Netbook.RepositorioNetbook;
+
+
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
 @ObjectType("NETBOOK")
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Netbook.Netbook ")})
+@AutoComplete(repository = RepositorioNetbook.class, action = "autoComplete")
+@Audited
 public class Netbook {
 	
 	private String idNetbook;
@@ -89,6 +97,7 @@ public class Netbook {
 	}
 	
 	@javax.inject.Inject
+    @SuppressWarnings("unused")
     private DomainObjectContainer container;
 	
 }
