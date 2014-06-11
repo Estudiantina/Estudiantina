@@ -16,6 +16,8 @@ import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 
 import org.apache.isis.applib.annotation.MaxLength;
+import org.apache.isis.applib.annotation.MemberGroupLayout;
+import org.apache.isis.applib.annotation.MemberGroups;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.MinLength;
 import org.apache.isis.applib.annotation.ObjectType;
@@ -35,6 +37,7 @@ import repo.Netbook.RepositorioNetbook;
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Netbook.Netbook ")})
 @AutoComplete(repository = RepositorioNetbook.class, action = "autoComplete")
 @Audited
+@MemberGroupLayout(columnSpans={3,3,0,6}, left={"Informacion De Hardware","Datos De Software"},middle={"Informacion General"} )
 public class Netbook {
 	
 	private String idNetbook;
@@ -50,7 +53,8 @@ public class Netbook {
     }
     @MaxLength(12)
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getDireccionMac() {
+	@MemberOrder(name="Informacion De Hardware", sequence="1")
+    public String getDireccionMac() {
 		return direccionMac;
 	}
     
@@ -58,27 +62,38 @@ public class Netbook {
 		this.direccionMac = direccionMac;
 	}
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(name="Informacion De Hardware", sequence="2")
 	public ModeloNetbook getModelo() {
 		return modelo;
 	}
 	public void setModelo(ModeloNetbook modelo) {
 		this.modelo = modelo;
 	}
+	
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(name="Datos De Software", sequence="1")
 	public String getNumeroDeSerie() {
 		return numeroDeSerie;
 	}
 	public void setNumeroDeSerie(String numeroDeSerie) {
 		this.numeroDeSerie = numeroDeSerie;
 	}
+	
+	
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(name="Datos De Software",sequence="2")
 	public String getNumeroLicenciaWindows() {
 		return numeroLicenciaWindows;
 	}
 	public void setNumeroLicenciaWindows(String numeroLicenciaWindows) {
 		this.numeroLicenciaWindows = numeroLicenciaWindows;
 	}
+	
+	
 	@javax.jdo.annotations.Column(allowsNull="true")
+	@MemberOrder(name="Informacion General",sequence="3")
 	public Date getFechaDeExpiracion() {
 		return fechaDeExpiracion;
 	}
@@ -86,6 +101,10 @@ public class Netbook {
 		this.fechaDeExpiracion = fechaDeExpiracion;
 	}
 	
+	
+	
+	
+	@MemberOrder(name="Informacion General",sequence="2")
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getSituacionDeNetbook() {
 		return situacionDeNetbook;
@@ -93,9 +112,13 @@ public class Netbook {
 	public void setSituacionDeNetbook(String situacionDeNetbook) {
 		this.situacionDeNetbook = situacionDeNetbook;
 	}
+	
+	
+	
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
     @Title(sequence="1")
-    @MemberOrder(sequence="1")
+    @MemberOrder(name="Informacion General",sequence="1")
 	public String getIdNetbook() {
 		return idNetbook;
 	}
