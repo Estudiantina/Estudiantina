@@ -101,6 +101,17 @@
 			<artifactId>isis-core-applib</artifactId>
 		</dependency>
 
+		<!-- dependencia necesaria para generar reportes  -->
+		<dependency>
+			<groupId>jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>3.5.3</version>
+		</dependency>
+		
+		
+		
+		
+		
 		<dependency>
             <groupId>org.apache.isis.objectstore</groupId>
 			<artifactId>isis-objectstore-jdo-applib</artifactId>

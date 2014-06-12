@@ -27,6 +27,9 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
     }
 	
     
+    
+    
+    
 	public SolicitudServicioTecnico solicitarServicioTecnico(
 			@Optional@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")String motivoDeSolicitud,

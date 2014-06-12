@@ -12,6 +12,7 @@ import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.value.Blob;
 
 
 import dom.Netbook.Netbook;
@@ -167,7 +168,7 @@ public class SolicitudServicioTecnico {
 		return comentario;
 	}
 
-
+    
 
 
 
@@ -176,6 +177,8 @@ public class SolicitudServicioTecnico {
 	}
 
 
+	
+	
 
 
 
