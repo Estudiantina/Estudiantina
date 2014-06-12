@@ -1,13 +1,17 @@
 package repo.Alumno;
 
 import java.util.Date;
+import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.query.QueryDefault;
 
 import dom.Alumno.Alumno;
+import dom.Alumno.Nacionalidad;
+
 
 @Named("Administrar Alumno")
 public class RepositorioAlumno extends AbstractFactoryAndRepository {
@@ -21,6 +25,14 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
         return "alumno";
     }
    
+    
+    /**
+	 * muestra una lista de todas los Alumnos que existen
+	 * @return lista de Alumnos
+	 */
+    public List<Alumno> listaAlumnos() {
+        return allMatches(QueryDefault.create(Alumno.class, "traerTodoAlumno"));
+    }
     
 	
 	/**
@@ -57,7 +69,7 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
 			@Named("FECHA INGRESO")Date fechaIngreso,
 			@RegEx(validation = "[A-Za-z ]+")
-			@Named("NACIONALIDAD")String nacionalidad
+			@Named("NACIONALIDAD")Nacionalidad nacionalidad
 			)
 	{
 	
@@ -72,7 +84,7 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 	alumno.setFechaNacimiento(fechaNacimiento);
 	alumno.setFechaIngreso(fechaIngreso);
 	alumno.setNacionalidad(nacionalidad);
-	
+		
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;

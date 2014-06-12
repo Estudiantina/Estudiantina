@@ -6,14 +6,25 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Audited;
+import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Title;
 
+import repo.Alumno.RepositorioAlumno;
 import dom.Persona.Persona;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
+
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno WHERE cuil == :cuil"),
+	@javax.jdo.annotations.Query(name = "traerTodoAlumno", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno")})
+@AutoComplete(repository = RepositorioAlumno.class, action = "autoComplete")
+@Audited
+
+
 
 @ObjectType("ALUMNO")
 public class Alumno extends Persona{
@@ -29,10 +40,10 @@ public class Alumno extends Persona{
     }
 
 	private Date fechaIngreso;
-	private String nacionalidad;
+	private Nacionalidad nacionalidad;
 	
 	
-	
+	@Title(sequence="9")
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Date getFechaIngreso() {
 		return fechaIngreso;
@@ -40,14 +51,16 @@ public class Alumno extends Persona{
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getNacionalidad() {
+	
+	@Title(sequence="10")
+	@javax.jdo.annotations.Column(allowsNull="false")	
+	public Nacionalidad getNacionalidad() {
 		return nacionalidad;
 	}
-	public void setNacionalidad(String nacionalidad) {
+	public void setNacionalidad(Nacionalidad nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-		
+
 	@javax.inject.Inject 
     DomainObjectContainer container;
 	
