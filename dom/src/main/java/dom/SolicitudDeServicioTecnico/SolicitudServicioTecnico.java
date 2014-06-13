@@ -5,13 +5,17 @@ package dom.SolicitudDeServicioTecnico;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Date;
 
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
+import javax.sql.rowset.serial.SerialBlob;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -190,7 +194,37 @@ public class SolicitudServicioTecnico {
 	}
 
     
-
+    /**
+     * TODO ImprimirReporte
+     * archivo incompleto para imprimir
+     * @return Reporte a imprimir
+     */
+	public Blob imprimir()
+	{
+		File resume = new File("SolicitudDeServicio.txt");
+		if (!(resume.exists()))
+		{
+		try {
+			resume.createNewFile();
+		} catch (IOException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+		
+		}
+		byte[] fileContent = new byte[(int) resume.length()];
+		try {
+		    FileInputStream fileInputStream = new FileInputStream(resume);
+		         
+		    fileInputStream.read(fileContent);
+		    fileInputStream.close();
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}	
+		Blob blob= new Blob("SolicitudDeServicio.txt","text/plain",fileContent);
+			
+		return blob;
+	}
 	
 
 
