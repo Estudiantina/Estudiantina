@@ -2,11 +2,24 @@ package dom.SolicitudDeServicioTecnico;
 
 
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Date;
 
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
+
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.ObjectType;
@@ -176,8 +189,8 @@ public class SolicitudServicioTecnico {
 		this.comentario = comentario;
 	}
 
+    
 
-	
 	
 
 

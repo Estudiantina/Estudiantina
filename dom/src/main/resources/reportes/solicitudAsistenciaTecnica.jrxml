@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="solicitudAsistenciaTecnica" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51708c1d-32fe-4e02-8bab-9299629fe672">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="103" width="555" height="2" uuid="70239316-c4cb-413a-8ac4-b2259d73e99b"/>
+			</line>
+			<staticText>
+				<reportElement x="339" y="54" width="215" height="20" uuid="7db1fd76-d500-4dd3-a2da-d7e663b33f47"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSEJO PROVINCIAL DE EDUCACIÓN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="18" y="10" width="436" height="20" uuid="981c13b3-c86e-4871-8365-df712b6edc67"/>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SOLICITUD ASISTENCIA TECNICA NETBOOK CONECTAR IGUALDAD-ANSES-Año]]></text>
+			</staticText>
+			<textField pattern="yyyy">
+				<reportElement x="443" y="10" width="100" height="20" uuid="8f467a39-9d88-4b42-97dd-9c50964f68a1"/>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
