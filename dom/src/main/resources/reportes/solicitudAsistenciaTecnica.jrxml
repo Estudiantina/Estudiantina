@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="solicitudAsistenciaTecnica" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51708c1d-32fe-4e02-8bab-9299629fe672">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="231"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -18,10 +18,17 @@
 				</textElement>
 				<text><![CDATA[CONSEJO PROVINCIAL DE EDUCACIÓN]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="381" y="74" width="100" height="20" uuid="7c50e4b4-6a5e-4e67-b37f-2068284c5c5f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVINCIA DE]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch">
+		<band height="53" splitType="Stretch">
 			<staticText>
 				<reportElement x="18" y="10" width="436" height="20" uuid="981c13b3-c86e-4871-8365-df712b6edc67"/>
 				<textElement>
@@ -39,10 +46,71 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="261" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="11" width="556" height="25" uuid="ea193a71-3276-498b-bc9e-7c5c511a0a4a"/>
+				<text><![CDATA[Apellido y nombres: .............................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="36" width="554" height="25" uuid="aa7f1e11-9ba5-4c4d-8bc2-036efcf223b6"/>
+				<text><![CDATA[CUIL/DNI: ............................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="61" width="554" height="25" uuid="9f83fee7-88c6-4d99-8ccf-0171d7e4b49d"/>
+				<text><![CDATA[Fecha de nacimiento: ...........................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="86" width="554" height="25" uuid="ffde922f-05db-4c37-b291-8b9706e09a39"/>
+				<text><![CDATA[Curso y división: ....................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="110" width="554" height="25" uuid="71c44bdd-1be9-4eaf-b04a-4619cb11bd7b"/>
+				<text><![CDATA[Numero de serie netbook: ......................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="136" width="554" height="60" uuid="5ef071e9-4bd1-4d60-ac93-90b4c26248e8"/>
+				<text><![CDATA[Motivo de
+solicitud: .................................................................................................................................................................
+................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="196" width="554" height="52" uuid="d1c32984-720a-4512-af55-7678dd9787c5"/>
+				<text><![CDATA[Firma y Aclaracion:
+
+...............................................................................................................................................................................]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="277" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="11" width="552" height="65" uuid="d6850f91-a112-4f02-a36f-2378c3e57f1c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="23" width="525" height="33" uuid="3d2a7274-cf69-48e6-9de4-1cb1dc19ae00"/>
+				<text><![CDATA[Recepciono:
+...........................................................................................................................................................................]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="0" y="102" width="554" height="141" uuid="cdac4e9e-2fb1-4d42-aedf-aa244c93c599"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="116" width="520" height="28" uuid="4977fea3-7c1c-459b-9bb9-456f1c9a18e4"/>
+				<text><![CDATA[Fecha ingreso web ANSES:..........................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="144" width="520" height="27" uuid="34132bc2-321f-44a0-bbbf-4352ba968ba5"/>
+				<text><![CDATA[Responsable ingreso web ANSES:..............................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="171" width="520" height="27" uuid="58ed21c8-80bc-4ec6-94f3-fb58219a7ea7"/>
+				<text><![CDATA[Fecha de Reparación:....................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="198" width="520" height="27" uuid="defd7d16-b050-4629-b23b-3c7122b3c0e3"/>
+				<text><![CDATA[Fecha,firma y aclaracion entrega netbook reparada:....................................................................................................................................................................................]]></text>
+			</staticText>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
