@@ -31,7 +31,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
     
     
 	public SolicitudServicioTecnico solicitarServicioTecnico(
-			@Optional@Named("Netbook")final Netbook netbook,
+			@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")String motivoDeSolicitud,
 			@Named("fecha de solicitud")Date fechaDeSolicitud,
 			@Named("fecha de solucion")Date fechaDeSolucion,
@@ -41,7 +41,8 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			@Named("Comentario")@Optional @MultiLine String comentario)
 	{
 		final SolicitudServicioTecnico servicioTecnico = container.newTransientInstance(SolicitudServicioTecnico.class);
-	    servicioTecnico.setCodigoSolicitud(codigoSolicitud);
+	    servicioTecnico.setNetbook(netbook);
+		servicioTecnico.setCodigoSolicitud(codigoSolicitud);
 	    servicioTecnico.setComentario(comentario);
 	    servicioTecnico.setFechaDeSolicitud(fechaDeSolicitud);
 	    servicioTecnico.setFechaDeSolucion(fechaDeSolucion);

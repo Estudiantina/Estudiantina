@@ -2,27 +2,18 @@ package dom.SolicitudDeServicioTecnico;
 
 
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
+
 import java.io.IOException;
-import java.io.OutputStream;
+
 import java.util.Date;
 
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
-import javax.sql.rowset.serial.SerialBlob;
 
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MultiLine;
@@ -56,7 +47,7 @@ public class SolicitudServicioTecnico {
         return "asistenciatecnica";
     }
 	
-	@javax.jdo.annotations.Column(allowsNull="true")
+	@javax.jdo.annotations.Column(allowsNull="false")
 	public Netbook getNetbook() {
 		return netbook;
 	}
