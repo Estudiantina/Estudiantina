@@ -1,10 +1,13 @@
 package dom.Persona;
 
 import java.util.Date;
+import java.util.List;
 
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Title;
+
+import dom.Netbook.Netbook;
 
 public interface IPersona {
 	
@@ -20,6 +23,11 @@ public interface IPersona {
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getNombre();
 	public void setNombre(String nombre);
+	
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public List<Netbook> getNetbook();
+	public void setNetbook(List<Netbook> netbook);
+	
 	
 	@Title(sequence="3")
 	@javax.jdo.annotations.Column(allowsNull="false")

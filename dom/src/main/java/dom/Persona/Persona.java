@@ -1,10 +1,14 @@
 package dom.Persona;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
 
 import org.apache.isis.applib.DomainObjectContainer;
+
+import dom.Netbook.Netbook;
 
 /**
  * Clase que representa la entidad Persona en el nuestro sistema.
@@ -23,8 +27,14 @@ public abstract	class Persona implements IPersona{
 	private String email;
 	private String domicilio;
 	private Date fechaNacimiento;
+	private List<Netbook> netbook= new ArrayList<Netbook>();
 	
-	
+	public List<Netbook> getNetbook() {
+		return netbook;
+	}
+	public void setNetbook(List<Netbook> netbook) {
+		this.netbook = netbook;
+	}
 	public Long getCuil() {
 		return cuil;
 	}

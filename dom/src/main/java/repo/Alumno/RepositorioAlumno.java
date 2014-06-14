@@ -1,5 +1,6 @@
 package repo.Alumno;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.Alumno.Alumno;
 import dom.Alumno.Nacionalidad;
+import dom.Netbook.Netbook;
 
 
 @Named("Administrar Alumno")
@@ -53,6 +55,7 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 	 */
 	
 	
+	
 	public Alumno ingresarAlumno (
 			@Named("CUIL")Long cuil,
 			@RegEx(validation = "[A-Za-z ]+")
@@ -69,7 +72,8 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
 			@Named("FECHA INGRESO")Date fechaIngreso,
 			@RegEx(validation = "[A-Za-z ]+")
-			@Named("NACIONALIDAD")Nacionalidad nacionalidad
+			@Named("NACIONALIDAD")Nacionalidad nacionalidad,
+			@Named("Netbook")Netbook netbook
 			)
 	{
 	
@@ -84,7 +88,9 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 	alumno.setFechaNacimiento(fechaNacimiento);
 	alumno.setFechaIngreso(fechaIngreso);
 	alumno.setNacionalidad(nacionalidad);
-		
+    List<Netbook> listanet = new ArrayList<Netbook>();
+    listanet.add(netbook);
+	alumno.setNetbook(listanet);
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
