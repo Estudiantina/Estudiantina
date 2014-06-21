@@ -12,6 +12,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.Alumno.Alumno;
+import dom.Alumno.EstadoDeAlumno;
 import dom.Alumno.Nacionalidad;
 import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
@@ -76,7 +77,8 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 			@RegEx(validation = "[A-Za-z ]+")
 			@Named("NACIONALIDAD")Nacionalidad nacionalidad,
 			@Optional@Named("Netbook")Netbook netbook,
-			@Optional@Named("Establecimiento") Establecimiento establecimiento
+			@Optional@Named("Establecimiento") Establecimiento establecimiento,
+			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno 			
 			)
 	{
 	
@@ -99,6 +101,8 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 	List<Establecimiento> listEstablecimiento = new ArrayList<Establecimiento>();
     listEstablecimiento.add(establecimiento);
     alumno.setEstablecimiento(listEstablecimiento);
+    
+    alumno.setEstadoDeAlumno(estadoDeAlumno);
 
 	container.persistIfNotAlready(alumno);
 	

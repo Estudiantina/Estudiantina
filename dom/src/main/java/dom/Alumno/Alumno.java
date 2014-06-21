@@ -45,7 +45,7 @@ public class Alumno extends Persona{
 	private Date fechaIngreso;
 	private List<Establecimiento> establecimiento = new ArrayList<Establecimiento>();
 	
-	
+	private EstadoDeAlumno estadoDeAlumno;
 	private Nacionalidad nacionalidad;
 	
 	
@@ -82,7 +82,21 @@ public class Alumno extends Persona{
 	
 	
 	
+	
+	@Title(sequence="12")
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public EstadoDeAlumno getEstadoDeAlumno() {
+		return estadoDeAlumno;
+	}
+	public void setEstadoDeAlumno(EstadoDeAlumno estadoDeAlumno) {
+		this.estadoDeAlumno = estadoDeAlumno;
+	}
 
+	
+	
+	
+	
+	
 	@javax.inject.Inject 
     DomainObjectContainer container;
 
