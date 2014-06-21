@@ -1,15 +1,25 @@
 package dom.Establecimiento;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Audited;
+import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+
+import repo.Alumno.RepositorioAlumno;
 
 
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
+@javax.jdo.annotations.Version(
+        strategy=VersionStrategy.VERSION_NUMBER, 
+        column="version")
 
+@AutoComplete(repository = RepositorioAlumno.class, action = "autoComplete")
+@Audited
 
-@ObjectType("NETBOOK")
+@ObjectType("Establecimiento")
 public class Establecimiento {
 	
 	private String nombre;
@@ -44,12 +54,7 @@ public class Establecimiento {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
+
 	
 	  private DomainObjectContainer container;
 
@@ -67,9 +72,4 @@ public class Establecimiento {
 	 		this.container = container;
 	 	}
 	
-	
-	
-	
-	
-
 }

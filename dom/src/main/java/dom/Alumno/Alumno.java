@@ -1,6 +1,8 @@
 package dom.Alumno;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
@@ -12,6 +14,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Title;
 
 import repo.Alumno.RepositorioAlumno;
+import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -40,7 +43,11 @@ public class Alumno extends Persona{
     }
 
 	private Date fechaIngreso;
+	private List<Establecimiento> establecimiento = new ArrayList<Establecimiento>();
+	
+	
 	private Nacionalidad nacionalidad;
+	
 	
 	
 	@Title(sequence="9")
@@ -60,8 +67,26 @@ public class Alumno extends Persona{
 	public void setNacionalidad(Nacionalidad nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
+	
+	
+	
+	
+	@Title(sequence="11")
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public List<Establecimiento> getEstablecimiento() {
+		return establecimiento;
+	}
+	public void setEstablecimiento(List<Establecimiento> establecimiento) {
+		this.establecimiento = establecimiento;
+	}
+	
+	
+	
 
 	@javax.inject.Inject 
     DomainObjectContainer container;
+
+
+
 	
 }

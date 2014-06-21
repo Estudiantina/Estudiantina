@@ -13,6 +13,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.Alumno.Alumno;
 import dom.Alumno.Nacionalidad;
+import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
 
 
@@ -74,7 +75,8 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 			@Named("FECHA INGRESO")Date fechaIngreso,
 			@RegEx(validation = "[A-Za-z ]+")
 			@Named("NACIONALIDAD")Nacionalidad nacionalidad,
-			@Optional@Named("Netbook")Netbook netbook
+			@Optional@Named("Netbook")Netbook netbook,
+			@Optional@Named("Establecimiento") Establecimiento establecimiento
 			)
 	{
 	
@@ -89,9 +91,15 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 	alumno.setFechaNacimiento(fechaNacimiento);
 	alumno.setFechaIngreso(fechaIngreso);
 	alumno.setNacionalidad(nacionalidad);
-    List<Netbook> listanet = new ArrayList<Netbook>();
+   
+	List<Netbook> listanet = new ArrayList<Netbook>();
     listanet.add(netbook);
 	alumno.setNetbook(listanet);
+	
+	List<Establecimiento> listEstablecimiento = new ArrayList<Establecimiento>();
+    listEstablecimiento.add(establecimiento);
+    alumno.setEstablecimiento(listEstablecimiento);
+
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
