@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
+import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
@@ -73,7 +74,7 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 			@Named("FECHA INGRESO")Date fechaIngreso,
 			@RegEx(validation = "[A-Za-z ]+")
 			@Named("NACIONALIDAD")Nacionalidad nacionalidad,
-			@Named("Netbook")Netbook netbook
+			@Optional@Named("Netbook")Netbook netbook
 			)
 	{
 	

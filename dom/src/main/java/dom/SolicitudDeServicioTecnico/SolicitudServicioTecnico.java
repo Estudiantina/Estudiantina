@@ -11,9 +11,15 @@ import java.io.IOException;
 import java.util.Date;
 
 
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MultiLine;
@@ -21,6 +27,9 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.value.Blob;
+
+
+
 
 
 import dom.Netbook.Netbook;
@@ -189,16 +198,20 @@ public class SolicitudServicioTecnico {
      * TODO ImprimirReporte
      * archivo incompleto para imprimir
      * @return Reporte a imprimir
+     * @throws JRException 
      */
-	public Blob imprimir()
+	public Blob imprimir() throws JRException
 	{
-		File resume = new File("SolicitudDeServicio.txt");
+		
+
+        
+		File resume = new File("solicitudAsistenciaTecnica.pdf");
 		if (!(resume.exists()))
 		{
 		try {
 			resume.createNewFile();
 		} catch (IOException e) {
-			// TODO Bloque catch generado automáticamente
+			
 			e.printStackTrace();
 		}
 		
@@ -212,7 +225,7 @@ public class SolicitudServicioTecnico {
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}	
-		Blob blob= new Blob("SolicitudDeServicio.txt","text/plain",fileContent);
+		Blob blob= new Blob("solicitudAsistenciaTecnica.pdf","application/pdf",fileContent);
 			
 		return blob;
 	}

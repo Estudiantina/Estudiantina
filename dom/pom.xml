@@ -101,14 +101,19 @@
 			<artifactId>isis-core-applib</artifactId>
 		</dependency>
 
-		<!-- dependencia necesaria para generar reportes  -->
+		<!-- dependencias nesesarias para generar reportes  -->
 		<dependency>
-			<groupId>jasperreports</groupId>
-			<artifactId>jasperreports</artifactId>
-			<version>3.5.3</version>
-		</dependency>
-		
-		
+		<groupId>net.sf.jasperreports</groupId>
+		<artifactId>jasperreports</artifactId>
+		<version>5.0.1</version>
+	</dependency>
+
+	  <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-all</artifactId>
+        <version>1.7.5</version>
+	</dependency>
+		<!-- fin de dependencias nesesarias para generar reportes  -->
 		
 		
 		
