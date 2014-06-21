@@ -17,7 +17,7 @@ import dom.Netbook.Netbook;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 
-public abstract	class Persona implements IPersona{
+public abstract	class Persona implements IntegranteDeLaInstitucion{
 
 	private Long cuil;
 	private String nombre;

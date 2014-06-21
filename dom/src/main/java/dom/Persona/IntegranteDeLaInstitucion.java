@@ -9,7 +9,7 @@ import org.apache.isis.applib.annotation.Title;
 
 import dom.Netbook.Netbook;
 
-public interface IPersona {
+public interface IntegranteDeLaInstitucion {
 	
 	
 	@MaxLength(12)

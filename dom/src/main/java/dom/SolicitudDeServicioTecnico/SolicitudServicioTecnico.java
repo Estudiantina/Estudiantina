@@ -11,27 +11,25 @@ import java.io.InputStream;
 import java.io.IOException;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
-import net.sf.jasperreports.engine.JRDataSource;
+
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperExportManager;
+
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanArrayDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.engine.util.JRLoader;
+
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import org.apache.isis.applib.DomainObjectContainer;
@@ -40,7 +38,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.value.Blob;
-import org.eclipse.jdt.core.dom.ThisExpression;
+
 
 
 
