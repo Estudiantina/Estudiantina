@@ -34,7 +34,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")String motivoDeSolicitud,
 			@Named("fecha de solicitud")Date fechaDeSolicitud,
-			@Named("fecha de solucion")Date fechaDeSolucion,
+			@Optional@Named("fecha de solucion")Date fechaDeSolucion,
 			@Named("prioridad")Integer prioridad,
 			@Named("Codigo de Solicitud")String codigoSolicitud,
 			@Named("Numero de Tiquet de Registro")String numeroTiquetRegistro,

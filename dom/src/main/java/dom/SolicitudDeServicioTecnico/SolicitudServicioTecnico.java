@@ -128,7 +128,8 @@ public class SolicitudServicioTecnico {
 
 
 
-    @javax.jdo.annotations.Column(allowsNull="false")
+    @javax.jdo.annotations.Column(allowsNull="true")
+    @Optional
 	public Date getFechaDeSolucion() {
 		return fechaDeSolucion;
 	}
