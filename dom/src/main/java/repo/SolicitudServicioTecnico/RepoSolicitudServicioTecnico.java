@@ -13,6 +13,7 @@ import org.apache.isis.applib.annotation.Optional;
 
 
 import dom.Netbook.Netbook;
+import dom.SolicitudDeServicioTecnico.Prioridad;
 import dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico;
 
 
@@ -35,7 +36,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			@Named("motivo de solicitud")String motivoDeSolicitud,
 			@Named("fecha de solicitud")Date fechaDeSolicitud,
 			@Optional@Named("fecha de solucion")Date fechaDeSolucion,
-			@Named("prioridad")Integer prioridad,
+			@Named("prioridad")Prioridad prioridad,
 			@Named("Codigo de Solicitud")String codigoSolicitud,
 			@Named("Numero de Tiquet de Registro")String numeroTiquetRegistro,
 			@Named("Comentario")@Optional @MultiLine String comentario)

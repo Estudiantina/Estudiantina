@@ -57,7 +57,7 @@ public class SolicitudServicioTecnico {
 	public Date fechaDeSolicitud;
 	public String solucion;
 	public Date fechaDeSolucion;
-	public Integer prioridad;
+	public Prioridad prioridad;
 	public Netbook netbook ;
 	public String codigoSolicitud;
 	public String numeroTiquetRegistro;
@@ -146,7 +146,7 @@ public class SolicitudServicioTecnico {
 
 
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public Integer getPrioridad() {
+	public Prioridad getPrioridad() {
 		return prioridad;
 	}
 
@@ -154,7 +154,7 @@ public class SolicitudServicioTecnico {
 
 
     
-	public void setPrioridad(Integer prioridad) {
+	public void setPrioridad(Prioridad prioridad) {
 		this.prioridad = prioridad;
 	}
 
