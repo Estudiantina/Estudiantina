@@ -41,7 +41,8 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			@Named("Comentario")@Optional @MultiLine String comentario)
 	{
 		final SolicitudServicioTecnico servicioTecnico = container.newTransientInstance(SolicitudServicioTecnico.class);
-	    servicioTecnico.setNetbook(netbook);
+	    
+		servicioTecnico.setNetbook(netbook);
 		servicioTecnico.setCodigoSolicitud(codigoSolicitud);
 	    servicioTecnico.setComentario(comentario);
 	    servicioTecnico.setFechaDeSolicitud(fechaDeSolicitud);
@@ -51,12 +52,8 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	    servicioTecnico.setSolucion("");
 	    servicioTecnico.setNumeroTiquetRegistro(numeroTiquetRegistro);
 	    
-		
-	    
 	    container.persistIfNotAlready(servicioTecnico);
-	    
-		return servicioTecnico;
-		
+		return servicioTecnico;	
 	}
 	
 	@javax.inject.Inject 

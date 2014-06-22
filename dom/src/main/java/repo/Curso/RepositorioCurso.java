@@ -7,6 +7,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
 
 import dom.Curso.Curso;
+import dom.Curso.Turno;
 
 
 @Named("Administrar Curso")
@@ -24,7 +25,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 			@Named("AÑO")final String ano,
 			@Named("ciclo lectivo")final Date cicloLectivo,
 			@Named("Division")final String division,
-			@Named("Turno")final String turno
+			@Named("Turno")final Turno turno
 			)
 	{
 		

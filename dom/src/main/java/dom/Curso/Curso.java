@@ -32,7 +32,7 @@ public class Curso {
 	private String ano;
 	private Date cicloLectivo;
 	private String division;
-	private String turno;
+	private Turno turno;
 		
 	@Title(sequence="1")
 	@javax.jdo.annotations.Column(allowsNull="false")
@@ -70,11 +70,11 @@ public class Curso {
 	
 	@Title(sequence="4")
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getTurno() {
+	public Turno getTurno() {
 		return turno;
 	}
 	
-	public void setTurno(final String turno) {
+	public void setTurno(final Turno turno) {
 		this.turno = turno;
 	}
 	
