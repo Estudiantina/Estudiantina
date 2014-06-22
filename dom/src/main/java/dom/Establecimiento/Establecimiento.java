@@ -7,8 +7,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
-
-import repo.Alumno.RepositorioAlumno;
+import repo.Establecimiento.RepositorioEstablecimiento;
 
 
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
@@ -16,7 +15,7 @@ import repo.Alumno.RepositorioAlumno;
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
 
-@AutoComplete(repository = RepositorioAlumno.class, action = "autoComplete")
+@AutoComplete(repository = RepositorioEstablecimiento.class, action = "autoComplete")
 @Audited
 
 @ObjectType("Establecimiento")
@@ -55,21 +54,8 @@ public class Establecimiento {
 	
 	
 
-	
+	   @javax.inject.Inject 
 	  private DomainObjectContainer container;
 
-	  /**
-	   * 
-	   */
-	 	protected DomainObjectContainer getContainer()	{
-	 		return container;
-	 	}
-	 	
-	 	/**
-	 	 * 
-	 	 */
-	 	public void setDomainObjectContainer(final DomainObjectContainer container){
-	 		this.container = container;
-	 	}
-	
+
 }

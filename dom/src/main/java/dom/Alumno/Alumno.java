@@ -11,6 +11,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
 
 import repo.Alumno.RepositorioAlumno;
@@ -32,6 +33,18 @@ import dom.Persona.Persona;
 @ObjectType("ALUMNO")
 public class Alumno extends Persona{
 	
+	
+	/**
+	 * metodo que indica el titulo en el viewer
+	 * super hace referencia a la clase Persona
+	 * 
+	 * @return devuelve como titulo el cuil del alumno 
+	 */
+	public String title()
+	{
+		return super.getCuil().toString()+" "+super.getNombre().toString()+" "+super.getApellido().toString();
+		
+	}
 	/**
 	 * Identificacion del nombre del icono 
 	 * que aparecera en la UI
@@ -42,6 +55,8 @@ public class Alumno extends Persona{
         return "alumno";
     }
 
+	
+	
 	private Date fechaIngreso;
 	private List<Establecimiento> establecimiento = new ArrayList<Establecimiento>();
 	
@@ -50,7 +65,7 @@ public class Alumno extends Persona{
 	
 	
 	
-	@Title(sequence="9")
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Date getFechaIngreso() {
 		return fechaIngreso;
@@ -59,7 +74,7 @@ public class Alumno extends Persona{
 		this.fechaIngreso = fechaIngreso;
 	}
 	
-	@Title(sequence="10")
+	
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public Nacionalidad getNacionalidad() {
 		return nacionalidad;
@@ -71,8 +86,9 @@ public class Alumno extends Persona{
 	
 	
 	
-	@Title(sequence="11")
-	@javax.jdo.annotations.Column(allowsNull="false")
+	
+	@javax.jdo.annotations.Column(allowsNull="true")
+	@Optional
 	public List<Establecimiento> getEstablecimiento() {
 		return establecimiento;
 	}
@@ -83,7 +99,7 @@ public class Alumno extends Persona{
 	
 	
 	
-	@Title(sequence="12")
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public EstadoDeAlumno getEstadoDeAlumno() {
 		return estadoDeAlumno;

@@ -76,8 +76,6 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 			@Named("FECHA INGRESO")Date fechaIngreso,
 			@RegEx(validation = "[A-Za-z ]+")
 			@Named("NACIONALIDAD")Nacionalidad nacionalidad,
-			@Optional@Named("Netbook")Netbook netbook,
-			@Optional@Named("Establecimiento") Establecimiento establecimiento,
 			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno 			
 			)
 	{
@@ -92,16 +90,7 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 	alumno.setDomicilio(domicilio);
 	alumno.setFechaNacimiento(fechaNacimiento);
 	alumno.setFechaIngreso(fechaIngreso);
-	alumno.setNacionalidad(nacionalidad);
-   
-	List<Netbook> listanet = new ArrayList<Netbook>();
-    listanet.add(netbook);
-	alumno.setNetbook(listanet);
-	
-	List<Establecimiento> listEstablecimiento = new ArrayList<Establecimiento>();
-    listEstablecimiento.add(establecimiento);
-    alumno.setEstablecimiento(listEstablecimiento);
-    
+	alumno.setNacionalidad(nacionalidad);    
     alumno.setEstadoDeAlumno(estadoDeAlumno);
 
 	container.persistIfNotAlready(alumno);
