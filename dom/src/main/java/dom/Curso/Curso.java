@@ -30,56 +30,54 @@ import repo.Curso.RepositorioCurso;
 
 public class Curso {
 	
-	private String ano;
-	private Date cicloLectivo;
-	private String division;
+	private String anoYdivision;
+	private int cicloLectivo;
 	private Turno turno;
 	
-	public String getId()
-	{
-		return this.cicloLectivo+" "+this.ano;		
-	}
 	@javax.jdo.annotations.Column(allowsNull="false")
-	@Title(sequence="3")
+	public String getAnoYdivision() {
+		return anoYdivision;
+	}
+
+
+	public void setAnoYdivision(String anoYdivision) {
+		this.anoYdivision = anoYdivision;
+	}
+
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public int getCicloLectivo() {
+		return cicloLectivo;
+	}
+
+
+	public void setCicloLectivo(int cicloLectivo) {
+		this.cicloLectivo = cicloLectivo;
+	}
+
+
+	public String title()
+	{
+		return anoYdivision+" "+turno.toString();
+	}
+	
+	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	
 	public Turno getTurno() {
 		return turno;
 	}
 	public void setTurno(Turno turno) {
 		this.turno = turno;
 	}
-	@Title(sequence="1")
-	@javax.jdo.annotations.Column(allowsNull="false")
-	@Named("Año")
-	public String getAno() {
-		return ano;
-	}
-	public void setAno(final String ano) {
-		this.ano = ano;
-	}
 	
 	
 	
-	@Title(sequence="2")
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public Date getCicloLectivo() {
-		return cicloLectivo;
-	}
-	public void setCicloLectivo(final Date cicloLectivo) {
-		this.cicloLectivo = cicloLectivo;
-	}
+	
+
 	
 	
 	
-	@Title(sequence="3")
-	  @MemberOrder(sequence="1")
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getDivision() {
-		return division;
-	}
-	public void setDivision(final String division) {
-		this.division = division;
-	}
-	
+
 	
 	
 	
