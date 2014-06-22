@@ -2,6 +2,7 @@ package dom.Curso;
 
 import java.util.Date;
 
+import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
@@ -28,14 +29,27 @@ import repo.Curso.RepositorioCurso;
 
 
 public class Curso {
-		
+	
 	private String ano;
 	private Date cicloLectivo;
 	private String division;
 	private Turno turno;
-		
+	
+	public String getId()
+	{
+		return this.cicloLectivo+" "+this.ano;		
+	}
+	@javax.jdo.annotations.Column(allowsNull="false")
+	@Title(sequence="3")
+	public Turno getTurno() {
+		return turno;
+	}
+	public void setTurno(Turno turno) {
+		this.turno = turno;
+	}
 	@Title(sequence="1")
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@Named("Año")
 	public String getAno() {
 		return ano;
 	}
@@ -68,15 +82,7 @@ public class Curso {
 	
 	
 	
-	@Title(sequence="4")
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public Turno getTurno() {
-		return turno;
-	}
 	
-	public void setTurno(final Turno turno) {
-		this.turno = turno;
-	}
 	
 	
 	
