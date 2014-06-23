@@ -29,13 +29,13 @@ import org.apache.isis.applib.query.QueryDefault;
 
 
 
-import com.google.common.base.Objects;
+
 
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
 
 
-@SuppressWarnings("deprecation")
+
 @Named("Administrar Netbook")
 public class RepositorioNetbook extends AbstractFactoryAndRepository {
 

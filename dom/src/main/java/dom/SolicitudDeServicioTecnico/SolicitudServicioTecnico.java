@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.IOException;
 
 import java.util.Date;
+import java.util.HashMap;
 
 
 
@@ -44,8 +45,12 @@ import org.apache.isis.applib.value.Blob;
 
 
 
+import dom.Alumno.Alumno;
+import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL", value = "SELECT FROM repo.Netbook.SolicitudServicioTecnico")})
+
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
@@ -210,32 +215,26 @@ public class SolicitudServicioTecnico {
     /**
      * TODO ImprimirReporte
      * archivo incompleto para imprimir
+     * el metodo funciona pero esta hardcodeado
      * @return Reporte a imprimir
      * @throws JRException 
      * @throws FileNotFoundException 
      */
-	public Blob imprimir() throws JRException, FileNotFoundException
+	public Blob imprimir(Establecimiento establecimiento,Alumno alumno) throws JRException, FileNotFoundException
 	{
-		
-		
-		/*JasperReport jr = JasperCompileManager.compileReport("reportes/solicitudAsistenciaTecnica.jrxml");
-		//para no compilarlo
-		//JasperReport jr = (JasperReport) JRLoader.loadObject("solicitudAsistenciaTecnica.jasper");
-		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("nombre",this.getNetbook().getModelo().toString());
-		JRExporter exporter = new JRPdfExporter();
-		JasperPrint jp = JasperFillManager.fillReport(jr, map);
-		exporter.setParameter(JRExporterParameter.JASPER_PRINT,jp); 
-		exporter.setParameter(JRExporterParameter.OUTPUT_FILE,new java.io.File("/tmp/solicitudAsistenciaTecnica.pdf"));
-		exporter.exportReport();*/
 		Object[] obj= new Object[1];
 		obj[0]="";
+		HashMap< String,Object> parametros = new HashMap<String, Object>();
+		parametros.put("motivoSolicitud", this.getMotivoDeSolicitud());
+		parametros.put("numeroSerieNetbook", this.getNetbook().getNumeroDeSerie());
+		
+		
 		JRBeanArrayDataSource jrDataSource= new JRBeanArrayDataSource(obj);
 		File file = new File("reportes/solicitudAsistenciaTecnica.jrxml");
 		InputStream input = new FileInputStream(file);
 		JasperDesign jd = JRXmlLoader.load(input);
 		JasperReport reporte = JasperCompileManager.compileReport(jd);
-		JasperPrint print = JasperFillManager.fillReport(reporte, null,jrDataSource);
+		JasperPrint print = JasperFillManager.fillReport(reporte, parametros,jrDataSource);
 		
 		JRExporter exporter = new JRPdfExporter();
 		exporter.setParameter(JRExporterParameter.JASPER_PRINT,print); 

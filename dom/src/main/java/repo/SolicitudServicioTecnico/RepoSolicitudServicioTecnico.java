@@ -1,6 +1,7 @@
 package repo.SolicitudServicioTecnico;
 
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -10,6 +11,7 @@ import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.query.QueryDefault;
 
 
 import dom.Netbook.Netbook;
@@ -56,6 +58,11 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	    container.persistIfNotAlready(servicioTecnico);
 		return servicioTecnico;	
 	}
+	
+	public List<SolicitudServicioTecnico> listadeSolicitudes() {
+        return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerPorPrioridad"));
+    }
+	
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;
