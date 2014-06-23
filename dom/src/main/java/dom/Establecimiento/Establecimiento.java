@@ -26,6 +26,12 @@ public class Establecimiento {
 	private String direccion;
 	private String telefono;
 	
+	public String title()
+	{
+		return this.nombre;
+		
+	}
+	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getNombre() {
