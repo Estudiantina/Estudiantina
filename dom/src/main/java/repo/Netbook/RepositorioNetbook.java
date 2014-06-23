@@ -8,6 +8,8 @@ import java.util.List;
 
 
 
+
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
@@ -17,12 +19,18 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
+import org.apache.isis.applib.filter.Filter;
 
 
+
+
+
+import com.google.common.base.Objects;
 
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
 
+@SuppressWarnings("deprecation")
 @Named("Administrar Netbook")
 public class RepositorioNetbook extends AbstractFactoryAndRepository {
 
@@ -84,6 +92,41 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    
 		return netbook;
 	}
+	
+	
+	/**
+	 * Busqueda de Netbook por Id 
+	 * 
+	 * se retorna la net completa
+	 * 
+	 * @param netbook
+	 * 
+	 * @return List<Netbook>
+	 * 
+	 */
+	
+	@Named("Buscar Netbook")
+	public List<Netbook> busquedaDeNetbook (@Named("Id de Netbook") final String idNet){
+		{
+		
+		final List<Netbook> nroDeIdDeNetbook = allMatches(Netbook.class, 
+				new Filter<Netbook>(){
+			@Override
+			public boolean accept (final Netbook netbook){
+				return Objects.equal (netbook.getIdNetbook(), idNet);
+			}
+			
+		});
+	
+	if (nroDeIdDeNetbook.size()==0){
+		getContainer().warnUser("No se encuentra la Netbook registrada");
+	}else {
+		return autoComplete(idNet);
+	}
+	return null;
+	}
+}
+	
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;
