@@ -21,7 +21,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
-import org.apache.isis.applib.filter.Filter;
+
 
 
 
@@ -110,28 +110,9 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 * 
 	 */
 	
-	@Named("Buscar Netbook")
-	public List<Netbook> busquedaDeNetbook (@Named("Id de Netbook") final String idNet){
-		{
-		
-		final List<Netbook> nroDeIdDeNetbook = allMatches(Netbook.class, 
-				new Filter<Netbook>(){
-			@Override
-			public boolean accept (final Netbook netbook){
-				return Objects.equal (netbook.getIdNetbook(), idNet);
-			}
-			
-		});
 	
-	if (nroDeIdDeNetbook.size()==0){
-		getContainer().warnUser("No se encuentra la Netbook registrada");
-	}else {
-		
-		return listaNetbookPorId(idNet);
-	}
-	return null;
-	}
-}
+	
+
 	
 	/**
      * 
@@ -139,7 +120,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      * 
      * @return
      */
-    @Hidden
+	@Named("Buscar Netbook")
     public List<Netbook> listaNetbookPorId(String idNet) {        
     	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet));
     }

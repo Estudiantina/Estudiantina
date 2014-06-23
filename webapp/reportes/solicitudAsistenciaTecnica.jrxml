@@ -3,6 +3,11 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<style name="Heading 1" fontSize="16" isBold="true"/>
+	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
+	<style name="Heading 3" fontSize="14" isBold="true"/>
+	<style name="Heading 4" fontSize="12" isBold="true" isItalic="true"/>
+	<style name="Default"/>
 	<variable name="nombre" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -38,10 +43,11 @@
 				<text><![CDATA[SOLICITUD ASISTENCIA TECNICA NETBOOK CONECTAR IGUALDAD-ANSES-Año]]></text>
 			</staticText>
 			<textField pattern="yyyy">
-				<reportElement x="443" y="10" width="100" height="20" uuid="8f467a39-9d88-4b42-97dd-9c50964f68a1"/>
+				<reportElement style="Default" x="443" y="10" width="100" height="20" uuid="55365410-1814-4f64-8325-96bf492e64e8"/>
 				<textElement>
-					<font isBold="true" isUnderline="false"/>
+					<font isBold="true"/>
 				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
