@@ -10,6 +10,8 @@ import java.util.List;
 
 
 
+
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
@@ -25,10 +27,13 @@ import org.apache.isis.applib.filter.Filter;
 
 
 
+
+
 import com.google.common.base.Objects;
 
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
+
 
 @SuppressWarnings("deprecation")
 @Named("Administrar Netbook")
@@ -121,11 +126,26 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	if (nroDeIdDeNetbook.size()==0){
 		getContainer().warnUser("No se encuentra la Netbook registrada");
 	}else {
-		return autoComplete(idNet);
+		
+		return listaNetbookPorId(idNet);
 	}
 	return null;
 	}
 }
+	
+	/**
+     * 
+     * @param idNetbooks parametro de busqueda trae la netbook
+     * 
+     * @return
+     */
+    @Hidden
+    public List<Netbook> listaNetbookPorId(String idNet) {        
+    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet));
+    }
+	
+    
+	
 	
 	
 	@javax.inject.Inject 
