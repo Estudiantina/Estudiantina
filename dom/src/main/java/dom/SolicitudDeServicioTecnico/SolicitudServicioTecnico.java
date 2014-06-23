@@ -220,7 +220,7 @@ public class SolicitudServicioTecnico {
      * @throws JRException 
      * @throws FileNotFoundException 
      */
-	public Blob imprimir(Establecimiento establecimiento,Alumno alumno) throws JRException, FileNotFoundException
+	public Blob imprimir() throws JRException, FileNotFoundException
 	{
 		Object[] obj= new Object[1];
 		obj[0]="";

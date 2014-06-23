@@ -12,7 +12,7 @@ import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
-import org.apache.isis.applib.annotation.Title;
+
 
 import repo.Alumno.RepositorioAlumno;
 import dom.Establecimiento.Establecimiento;
@@ -22,8 +22,8 @@ import dom.Persona.Persona;
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
-
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno WHERE cuil == :cuil"),
+//TODO hacer consulta traerPorcuil 
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno"),
 	@javax.jdo.annotations.Query(name = "traerTodoAlumno", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno")})
 @AutoComplete(repository = RepositorioAlumno.class, action = "autoComplete")
 @Audited
@@ -42,7 +42,7 @@ public class Alumno extends Persona{
 	 */
 	public String title()
 	{
-		return super.getCuil().toString()+" "+super.getNombre().toString()+" "+super.getApellido().toString();
+		return this.getNombre().toString()+" "+this.getApellido().toString();
 		
 	}
 	/**

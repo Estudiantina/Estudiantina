@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 
@@ -63,7 +64,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
         return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerPorPrioridad"));
     }
 	
-	
+    
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }

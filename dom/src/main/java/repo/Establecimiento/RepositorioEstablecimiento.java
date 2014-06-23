@@ -1,11 +1,16 @@
 package repo.Establecimiento;
 
+import java.util.List;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.query.QueryDefault;
 
 
 import dom.Establecimiento.Establecimiento;
+
 @Named("Administrar Establecimientos")
 public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 	
@@ -34,6 +39,11 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 		return establecimiento;
 		
 	}
+	
+	@Hidden
+    public List<Establecimiento> autoComplete(String searchPhrase) {        
+    	return allMatches(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",searchPhrase));
+    }
 	
 	
 	@javax.inject.Inject 

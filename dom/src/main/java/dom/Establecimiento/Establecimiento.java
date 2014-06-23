@@ -14,7 +14,8 @@ import repo.Establecimiento.RepositorioEstablecimiento;
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
-
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento WHERE nombre== :nombre"),
+	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento ")})
 @AutoComplete(repository = RepositorioEstablecimiento.class, action = "autoComplete")
 @Audited
 

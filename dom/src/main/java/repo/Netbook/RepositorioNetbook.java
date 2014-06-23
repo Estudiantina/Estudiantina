@@ -68,7 +68,12 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     }
     /**
      * Crea y guarda una netbook en el sistema
-     * @param idNetbook
+     * las propiedades de la netbook
+     * son ingresadas por los parametros
+     * del metodo mediante el viewer y
+     * asignados al un objeto de tipo netbook
+     * el cual se va a persistir
+     * @param idNetbook 
      * @param modelo
      * @param numeroDeSerie
      * @param numeroLicenciaWindows
@@ -122,7 +127,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      */
 	@Named("Buscar Netbook")
     public List<Netbook> listaNetbookPorId(String idNet) {        
-    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet));
+    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId"/*,"idNetbook",idNet*/));
     }
 	
     

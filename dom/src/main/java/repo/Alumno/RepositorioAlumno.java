@@ -1,11 +1,12 @@
 package repo.Alumno;
 
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
-import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.Hidden;
+
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
@@ -14,8 +15,6 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.Alumno.Alumno;
 import dom.Alumno.EstadoDeAlumno;
 import dom.Alumno.Nacionalidad;
-import dom.Establecimiento.Establecimiento;
-import dom.Netbook.Netbook;
 
 
 @Named("Administrar Alumno")
@@ -98,7 +97,11 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 	return alumno;
 	
 	}
-	
+	//TODO AutoCompletar HARDCODEADA
+	@Hidden
+    public List<Alumno> autoComplete(String searchPhrase) {        
+    	return allMatches(QueryDefault.create(Alumno.class, "traerTodoAlumno"/*,"cuil",searchPhrase*/));
+    }
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;
