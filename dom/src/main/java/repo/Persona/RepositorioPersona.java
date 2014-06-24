@@ -15,17 +15,18 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.Alumno.Alumno;
 import dom.Alumno.EstadoDeAlumno;
 import dom.Alumno.Nacionalidad;
+import dom.Netbook.Netbook;
 import dom.Persona.Persona;
 
 
 @Named("Administrar Personas")
 public class RepositorioPersona extends AbstractFactoryAndRepository {
 
-	/*
+	
 	public String getId() {
         return "persona";
     }
-    */
+    
     public String iconName() {
         return "alumno";
     }
@@ -100,12 +101,13 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	}
 	
+    //TODO autocompletar con persona en vez de con alumno
 	@Hidden
-    public List<Alumno> autoComplete(Long searchPhrase) {        
-    	return allMatches(QueryDefault.create(Alumno.class, "traerTodoAlumno","cuil",searchPhrase));
+    public List<Alumno> autoComplete(String searchPhrase) {        
+    	Long temp = Long.parseLong(searchPhrase);
+		return allMatches(QueryDefault.create(Alumno.class, "traerPorcuil","cuil",temp));
     }
-	
-	
+
 	
 	
 	@javax.inject.Inject 

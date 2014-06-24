@@ -15,7 +15,9 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 
 
+import dom.Alumno.Alumno;
 import dom.Netbook.Netbook;
+
 import dom.SolicitudDeServicioTecnico.Prioridad;
 import dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico;
 
@@ -35,6 +37,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
     
     
 	public SolicitudServicioTecnico solicitarServicioTecnico(
+			@Named("Persona")final Alumno persona ,
 			@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")String motivoDeSolicitud,
 			@Named("fecha de solicitud")Date fechaDeSolicitud,
@@ -45,7 +48,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			@Named("Comentario")@Optional @MultiLine String comentario)
 	{
 		final SolicitudServicioTecnico servicioTecnico = container.newTransientInstance(SolicitudServicioTecnico.class);
-	    
+	    servicioTecnico.setPersona(persona);
 		servicioTecnico.setNetbook(netbook);
 		servicioTecnico.setCodigoSolicitud(codigoSolicitud);
 	    servicioTecnico.setComentario(comentario);

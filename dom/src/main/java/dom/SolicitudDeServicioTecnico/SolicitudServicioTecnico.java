@@ -41,7 +41,9 @@ import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.value.Blob;
 
 
+import dom.Alumno.Alumno;
 import dom.Netbook.Netbook;
+import dom.Persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL", value = "SELECT FROM repo.Netbook.SolicitudServicioTecnico")})
 
@@ -51,7 +53,8 @@ import dom.Netbook.Netbook;
 @ObjectType("SERVICIOTECNICO")
 
 public class SolicitudServicioTecnico {
-    //public solicitante integrante de la institucion  
+    //public solicitante integrante de la institucion
+	private Alumno persona;
 	private String motivoDeSolicitud;
 	private Date fechaDeSolicitud;
 	private String solucion;
@@ -62,7 +65,15 @@ public class SolicitudServicioTecnico {
 	private String numeroTiquetRegistro;
 	private String comentario;
 	
-   
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public Alumno getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Alumno persona) {
+		this.persona = persona;
+	}
+
 	public String iconName() {
         return "asistenciatecnica";
     }
