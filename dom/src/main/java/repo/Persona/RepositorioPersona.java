@@ -15,6 +15,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.Alumno.Alumno;
 import dom.Alumno.EstadoDeAlumno;
 import dom.Alumno.Nacionalidad;
+import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
 import dom.Persona.Persona;
 
@@ -62,6 +63,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	
 	public Alumno ingresarAlumno (
+			@Named("Establecimiento") final Establecimiento establecimiento,
 			@Named("CUIL")Long cuil,
 			@RegEx(validation = "[A-Za-z ]+")
 			@Named("NOMBRE")String nombre,
@@ -83,6 +85,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	{
 	
 		final Alumno alumno = container.newTransientInstance(Alumno.class);
+	alumno.setEstablecimiento(establecimiento);
 	alumno.setCuil(cuil);
 	alumno.setNombre(nombre);
 	alumno.setApellido(apellido);

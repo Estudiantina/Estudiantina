@@ -41,7 +41,7 @@ import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.value.Blob;
 
 
-import dom.Alumno.Alumno;
+
 import dom.Netbook.Netbook;
 import dom.Persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)

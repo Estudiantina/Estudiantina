@@ -1,8 +1,8 @@
 package dom.Alumno;
 
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.List;
+
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
@@ -58,7 +58,7 @@ public class Alumno extends Persona{
 	
 	
 	private Date fechaIngreso;
-	private List<Establecimiento> establecimiento = new ArrayList<Establecimiento>();
+	private Establecimiento establecimiento = new Establecimiento();
 	
 	private EstadoDeAlumno estadoDeAlumno;
 	private Nacionalidad nacionalidad;
@@ -89,10 +89,10 @@ public class Alumno extends Persona{
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
 	@Optional
-	public List<Establecimiento> getEstablecimiento() {
+	public Establecimiento getEstablecimiento() {
 		return establecimiento;
 	}
-	public void setEstablecimiento(List<Establecimiento> establecimiento) {
+	public void setEstablecimiento(Establecimiento establecimiento) {
 		this.establecimiento = establecimiento;
 	}
 	
