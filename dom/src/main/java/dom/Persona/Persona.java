@@ -9,6 +9,10 @@ import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Audited;
+import org.apache.isis.applib.annotation.AutoComplete;
+
+import repo.Persona.RepositorioPersona;
 
 import dom.Netbook.Netbook;
 
@@ -19,7 +23,10 @@ import dom.Netbook.Netbook;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.SUBCLASS_TABLE)
-public abstract	class Persona implements IntegranteDeLaInstitucion{
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona")})
+@AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
+@Audited
+public class Persona implements IntegranteDeLaInstitucion{
 
 	private Long cuil;
 	private String nombre;

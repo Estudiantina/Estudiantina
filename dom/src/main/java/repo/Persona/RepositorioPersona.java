@@ -15,6 +15,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.Alumno.Alumno;
 import dom.Alumno.EstadoDeAlumno;
 import dom.Alumno.Nacionalidad;
+import dom.Persona.Persona;
 
 
 @Named("Administrar Personas")
@@ -30,14 +31,15 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     }
    
     
+    
+    
     /**
-	 * muestra una lista de todas los Alumnos que existen
+	 * muestra una lista de todas las Personas que existen
 	 * @return lista de Alumnos
 	 */
-    public List<Alumno> listaAlumnos() {
-        return allMatches(QueryDefault.create(Alumno.class, "traerTodoAlumno"));
+    public List<Persona> listarPersonas() {
+        return allMatches(QueryDefault.create(Persona.class, "traerPersonas"));
     }
-    
 	
 	/**
 	 * Se realiza la carga de los alumno, con todos sus atributos.
