@@ -52,15 +52,15 @@ import dom.Netbook.Netbook;
 
 public class SolicitudServicioTecnico {
     //public solicitante integrante de la institucion  
-	public String motivoDeSolicitud;
-	public Date fechaDeSolicitud;
-	public String solucion;
-	public Date fechaDeSolucion;
-	public Prioridad prioridad;
-	public Netbook netbook ;
-	public String codigoSolicitud;
-	public String numeroTiquetRegistro;
-	public String comentario;
+	private String motivoDeSolicitud;
+	private Date fechaDeSolicitud;
+	private String solucion;
+	private Date fechaDeSolucion;
+	private Prioridad prioridad;
+	private Netbook netbook ;
+	private String codigoSolicitud;
+	private String numeroTiquetRegistro;
+	private String comentario;
 	
    
 	public String iconName() {
