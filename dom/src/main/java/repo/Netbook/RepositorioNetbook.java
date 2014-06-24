@@ -126,8 +126,8 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      * @return
      */
 	@Named("Buscar Netbook")
-    public List<Netbook> listaNetbookPorId(String idNet) {        
-    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId"/*,"idNetbook",idNet*/));
+    public List<Netbook> listaNetbookPorId(@Named("Id de Netbook")String idNet) {        
+    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet));
     }
 	
     
