@@ -23,7 +23,9 @@ import dom.Netbook.Netbook;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.SUBCLASS_TABLE)
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona")})
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona"),
+	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona WHERE cuil== :cuil")	
+})
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 public class Persona implements IntegranteDeLaInstitucion{

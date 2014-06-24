@@ -54,7 +54,7 @@ import dom.Persona.Persona;
 
 public class SolicitudServicioTecnico {
     //public solicitante integrante de la institucion
-	private Alumno persona;
+	private Persona persona;
 	private String motivoDeSolicitud;
 	private Date fechaDeSolicitud;
 	private String solucion;
@@ -66,11 +66,11 @@ public class SolicitudServicioTecnico {
 	private String comentario;
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public Alumno getPersona() {
+	public Persona getPersona() {
 		return persona;
 	}
 
-	public void setPersona(Alumno persona) {
+	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
 
