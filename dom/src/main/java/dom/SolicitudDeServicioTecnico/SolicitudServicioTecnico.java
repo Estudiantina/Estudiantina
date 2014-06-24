@@ -232,8 +232,12 @@ public class SolicitudServicioTecnico {
 		HashMap< String,Object> parametros = new HashMap<String, Object>();
 		parametros.put("motivoSolicitud", this.getMotivoDeSolicitud());
 		parametros.put("numeroSerieNetbook", this.getNetbook().getNumeroDeSerie());
-		
-		
+		parametros.put("apellidoYnombre", this.getPersona().getApellido()+" "+this.getPersona().getNombre());
+		parametros.put("cuilDni", this.getPersona().getCuil());
+		//TODO establecer parametro de curso y division
+		//parametros.put("cursoYdivision", this.getPersona());
+		//TODO formatear la fecha de nacimiento
+		parametros.put("fechaDeNacimiento", this.getPersona().getFechaNacimiento());
 		JRBeanArrayDataSource jrDataSource= new JRBeanArrayDataSource(obj);
 		File file = new File("reportes/solicitudAsistenciaTecnica.jrxml");
 		InputStream input = new FileInputStream(file);
