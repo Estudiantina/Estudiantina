@@ -17,6 +17,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.Alumno.Alumno;
 import dom.Netbook.Netbook;
+import dom.Persona.Persona;
 
 import dom.SolicitudDeServicioTecnico.Prioridad;
 import dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico;
@@ -37,7 +38,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
     
     
 	public SolicitudServicioTecnico solicitarServicioTecnico(
-			@Named("Persona")final Alumno persona ,
+			@Named("Persona")final Persona persona ,
 			@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")String motivoDeSolicitud,
 			@Named("fecha de solicitud")Date fechaDeSolicitud,

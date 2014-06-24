@@ -46,6 +46,18 @@ public class Persona implements IntegranteDeLaInstitucion{
 	public void setNetbook(List<Netbook> netbook) {
 		this.netbook = netbook;
 	}
+	
+	
+	/**
+	 * Identificacion del nombre del icono 
+	 * que aparecera en la UI
+	 * resources/icono.png
+	 * @return String nombre de icono
+	 */
+	public String iconName() {
+        return "alumno";
+    }
+
 	public String title()
 	{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
