@@ -46,6 +46,13 @@ public class Persona implements IntegranteDeLaInstitucion{
 	public void setNetbook(List<Netbook> netbook) {
 		this.netbook = netbook;
 	}
+	public String title()
+	{
+		return this.getNombre().toString()+" "+this.getApellido().toString();
+		
+	}
+	
+	
 	public Long getCuil() {
 		return cuil;
 	}
