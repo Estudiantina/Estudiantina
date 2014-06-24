@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.InheritanceStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
 
@@ -16,7 +18,7 @@ import dom.Netbook.Netbook;
  */
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
-
+@Inheritance(strategy=InheritanceStrategy.SUBCLASS_TABLE)
 public abstract	class Persona implements IntegranteDeLaInstitucion{
 
 	private Long cuil;

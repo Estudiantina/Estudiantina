@@ -97,11 +97,14 @@ public class RepositorioAlumno extends AbstractFactoryAndRepository {
 	return alumno;
 	
 	}
-	//TODO AutoCompletar HARDCODEADA
+	
 	@Hidden
-    public List<Alumno> autoComplete(String searchPhrase) {        
-    	return allMatches(QueryDefault.create(Alumno.class, "traerTodoAlumno"/*,"cuil",searchPhrase*/));
+    public List<Alumno> autoComplete(Long searchPhrase) {        
+    	return allMatches(QueryDefault.create(Alumno.class, "traerTodoAlumno","cuil",searchPhrase));
     }
+	
+	
+	
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;

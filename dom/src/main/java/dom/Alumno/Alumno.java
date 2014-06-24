@@ -23,7 +23,7 @@ import dom.Persona.Persona;
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
 //TODO hacer consulta traerPorcuil 
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno"),
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno WHERE cuil== :cuil"),
 	@javax.jdo.annotations.Query(name = "traerTodoAlumno", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno")})
 @AutoComplete(repository = RepositorioAlumno.class, action = "autoComplete")
 @Audited

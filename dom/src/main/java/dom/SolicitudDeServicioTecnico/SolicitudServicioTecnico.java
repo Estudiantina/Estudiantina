@@ -41,12 +41,6 @@ import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.value.Blob;
 
 
-
-
-
-
-import dom.Alumno.Alumno;
-import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL", value = "SELECT FROM repo.Netbook.SolicitudServicioTecnico")})
