@@ -1,4 +1,4 @@
-package repo.Alumno;
+package repo.Persona;
 
 
 import java.util.Date;
@@ -17,8 +17,8 @@ import dom.Alumno.EstadoDeAlumno;
 import dom.Alumno.Nacionalidad;
 
 
-@Named("Administrar Alumno")
-public class RepositorioAlumno extends AbstractFactoryAndRepository {
+@Named("Administrar Personas")
+public class RepositorioPersona extends AbstractFactoryAndRepository {
 
 	/*
 	public String getId() {
