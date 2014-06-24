@@ -39,7 +39,6 @@ import org.apache.wicket.request.Response;
 import org.apache.wicket.request.http.WebRequest;
 
 import org.apache.isis.viewer.wicket.ui.app.registry.ComponentFactoryRegistrar;
-import org.apache.isis.viewer.wicket.ui.pages.PageClassList;
 import org.apache.isis.viewer.wicket.viewer.IsisWicketApplication;
 import org.apache.isis.viewer.wicket.viewer.integration.wicket.AuthenticatedWebSessionForIsis;
 import org.apache.isis.viewer.wicket.viewer.registries.pages.PageClassListDefault;
