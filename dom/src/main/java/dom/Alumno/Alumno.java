@@ -11,11 +11,11 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
-import org.apache.isis.applib.annotation.Optional;
+
 
 
 import repo.Persona.RepositorioPersona;
-import dom.Establecimiento.Establecimiento;
+
 import dom.Persona.Persona;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -32,7 +32,6 @@ import dom.Persona.Persona;
 
 @ObjectType("ALUMNO")
 public class Alumno extends Persona{
-	
 	
 	/**
 	 * metodo que indica el titulo en el viewer
@@ -58,7 +57,7 @@ public class Alumno extends Persona{
 	
 	
 	private Date fechaIngreso;
-	private Establecimiento establecimiento = new Establecimiento();
+	
 	
 	private EstadoDeAlumno estadoDeAlumno;
 	private Nacionalidad nacionalidad;
@@ -87,14 +86,7 @@ public class Alumno extends Persona{
 	
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="true")
-	@Optional
-	public Establecimiento getEstablecimiento() {
-		return establecimiento;
-	}
-	public void setEstablecimiento(Establecimiento establecimiento) {
-		this.establecimiento = establecimiento;
-	}
+	
 	
 	
 	

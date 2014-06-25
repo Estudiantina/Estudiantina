@@ -16,7 +16,6 @@ import dom.Alumno.Alumno;
 import dom.Alumno.EstadoDeAlumno;
 import dom.Alumno.Nacionalidad;
 import dom.Establecimiento.Establecimiento;
-import dom.Netbook.Netbook;
 import dom.Persona.Persona;
 
 

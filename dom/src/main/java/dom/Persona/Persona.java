@@ -11,9 +11,11 @@ import javax.jdo.annotations.InheritanceStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Optional;
 
 import repo.Persona.RepositorioPersona;
 
+import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
 
 /**
@@ -39,7 +41,7 @@ public class Persona implements IntegranteDeLaInstitucion{
 	private String domicilio;
 	private Date fechaNacimiento;
 	private List<Netbook> netbook= new ArrayList<Netbook>();
-	
+	private Establecimiento establecimiento;
 	public List<Netbook> getNetbook() {
 		return netbook;
 	}
@@ -47,6 +49,15 @@ public class Persona implements IntegranteDeLaInstitucion{
 		this.netbook = netbook;
 	}
 	
+	
+	@javax.jdo.annotations.Column(allowsNull="true")
+	@Optional
+	public Establecimiento getEstablecimiento() {
+		return establecimiento;
+	}
+	public void setEstablecimiento(Establecimiento establecimiento) {
+		this.establecimiento = establecimiento;
+	}
 	
 	/**
 	 * Identificacion del nombre del icono 
