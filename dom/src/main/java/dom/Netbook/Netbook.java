@@ -3,8 +3,6 @@ package dom.Netbook;
 
 import java.util.Date;
 
-
-
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
@@ -38,6 +36,7 @@ public class Netbook {
 	private Date fechaDeExpiracion;
 	private String direccionMac;
 	private String situacionDeNetbook;
+	private estadoDeNetbook estado;
 	
     public String iconName() {
         return "netbook";
@@ -117,6 +116,17 @@ public class Netbook {
 		this.idNetbook = idNetbook;
 	}
 	
+	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	//@MemberOrder(name="Estado de la Netbook",sequence="3")
+	public estadoDeNetbook getEstadoNetbook() {
+		return estado;
+	}
+	public void setEstadoNetbook(estadoDeNetbook estadoNetbook) {
+		this.estado = estadoNetbook;
+	}
+
+
 	@javax.inject.Inject
     private DomainObjectContainer container;
 	

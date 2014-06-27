@@ -4,14 +4,6 @@ package repo.Netbook;
 import java.util.Date;
 import java.util.List;
 
-
-
-
-
-
-
-
-
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
@@ -23,17 +15,9 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 
 
-
-
-
-
-
-
-
-
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
-
+import dom.Netbook.estadoDeNetbook;
 
 
 @Named("Administrar Netbook")
@@ -81,12 +65,14 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      * @param direccionMac
      * @return 
      */
-	public Netbook ingresarNetbook(@Named("id de Netbook")final String idNetbook ,
+	public Netbook ingresarNetbook(
+	@Named("id de Netbook")final String idNetbook,
 	@Named("Modelo")final ModeloNetbook modelo,
 	@Named("Numero De Serie")final String numeroDeSerie,
 	@Named("Numero De Licencia de Windows")final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
-	@MaxLength(12)@MinLength(12)@RegEx(validation = "[A-Fa-f0-9 ]+")@Named("Direccion Mac")final String direccionMac)
+	@MaxLength(12)@MinLength(12)@RegEx(validation = "[A-Fa-f0-9 ]+") @Named("Direccion Mac")final String direccionMac,
+	@Named("Estado de la Netbook")final estadoDeNetbook estadoNetbook)
 	{
 		final Netbook netbook = container.newTransientInstance(Netbook.class);
 	    netbook.setFechaDeExpiracion(fechaDeExpiracion);
@@ -96,6 +82,8 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setNumeroDeSerie(numeroDeSerie);
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
 	    netbook.setSituacionDeNetbook("Entregada");
+	    netbook.setEstadoNetbook(estadoNetbook);
+	   
 	    
 	    
 	    container.persistIfNotAlready(netbook);
