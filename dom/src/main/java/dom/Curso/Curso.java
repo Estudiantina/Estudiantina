@@ -1,17 +1,15 @@
 package dom.Curso;
 
-import java.util.Date;
 
-import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
-import org.apache.isis.applib.annotation.MemberOrder;
+
 import org.apache.isis.applib.annotation.ObjectType;
-import org.apache.isis.applib.annotation.Title;
+
 
 import repo.Curso.RepositorioCurso;
 
