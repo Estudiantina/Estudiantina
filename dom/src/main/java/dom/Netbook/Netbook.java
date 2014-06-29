@@ -36,7 +36,7 @@ public class Netbook {
 	private Date fechaDeExpiracion;
 	private String direccionMac;
 	private String situacionDeNetbook;
-	private estadoDeNetbook estado;
+	private SituacionDeNetbook estado;
 	
     public String iconName() {
         return "netbook";
@@ -119,10 +119,10 @@ public class Netbook {
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	@MemberOrder(name="Informacion General",sequence="2")
-	public estadoDeNetbook getEstadoNetbook() {
+	public SituacionDeNetbook getEstadoNetbook() {
 		return estado;
 	}
-	public void setEstadoNetbook(estadoDeNetbook estadoNetbook) {
+	public void setEstadoNetbook(SituacionDeNetbook estadoNetbook) {
 		this.estado = estadoNetbook;
 	}
 

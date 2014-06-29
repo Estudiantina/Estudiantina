@@ -17,7 +17,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
-import dom.Netbook.estadoDeNetbook;
+import dom.Netbook.SituacionDeNetbook;
 
 
 @Named("Administrar Netbook")
@@ -72,7 +72,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	@Named("Numero De Licencia de Windows")final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
 	@MaxLength(12)@MinLength(12)@RegEx(validation = "[A-Fa-f0-9 ]+") @Named("Direccion Mac")final String direccionMac,
-	@Named("Estado de la Netbook")final estadoDeNetbook estadoNetbook)
+	@Named("Estado de la Netbook")final SituacionDeNetbook estadoNetbook)
 	{
 		final Netbook netbook = container.newTransientInstance(Netbook.class);
 	    netbook.setFechaDeExpiracion(fechaDeExpiracion);

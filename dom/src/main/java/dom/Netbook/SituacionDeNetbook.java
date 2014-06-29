@@ -1,6 +1,6 @@
 package dom.Netbook;
 
-public enum estadoDeNetbook {
+public enum SituacionDeNetbook {
 	
 	ROBADA, DEPOSITO_RESIGNAR, DEPOSITO_ROTA, DEPOSITO_STOCK, POSEE_TITULAR, SERVICIO_TECNICO_BSAS
 
