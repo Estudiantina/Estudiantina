@@ -32,7 +32,7 @@ import repo.Netbook.RepositorioNetbook;
 public class Netbook {
 	
 	private String idNetbook;
-	private ModeloNetbook modelo;
+	private ModeloNetbook modelo; //TODO cambiar modelo por marca
 	private String numeroDeSerie;
 	private String numeroLicenciaWindows;
 	private Date fechaDeExpiracion;
