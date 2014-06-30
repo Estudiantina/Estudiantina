@@ -61,7 +61,10 @@
 				<textFieldExpression><![CDATA[$P{telefono}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement style="Heading 1" x="18" y="11" width="218" height="31" uuid="867dafb3-1a37-41dc-b6c6-0f94eed263ff"/>
+				<reportElement style="Heading 1" x="18" y="11" width="275" height="31" uuid="867dafb3-1a37-41dc-b6c6-0f94eed263ff"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{nombreInstitucion}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">

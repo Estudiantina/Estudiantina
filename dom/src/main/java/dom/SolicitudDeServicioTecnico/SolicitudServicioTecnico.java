@@ -35,13 +35,16 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MultiLine;
+import org.apache.isis.applib.annotation.NotPersisted;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
 
 
 
+import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
 import dom.Persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -234,8 +237,12 @@ public class SolicitudServicioTecnico {
 		parametros.put("numeroSerieNetbook", this.getNetbook().getNumeroDeSerie());
 		parametros.put("apellidoYnombre", this.getPersona().getApellido()+" "+this.getPersona().getNombre());
 		parametros.put("cuilDni", this.getPersona().getCuil());
+		Persona per = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
+		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",per.getEstablecimiento().getNombre()));
 		//TODO establecer parametro de curso y division
-		//parametros.put("cursoYdivision", this.getPersona());
+		parametros.put("nombreInstitucion", establecimiento.getNombre());
+		parametros.put("direccionDeLaInstitucion",establecimiento.getDireccion());
+		parametros.put("telefono",establecimiento.getTelefono());
 		//TODO formatear la fecha de nacimiento
 		parametros.put("fechaDeNacimiento", this.getPersona().getFechaNacimiento());
 		JRBeanArrayDataSource jrDataSource= new JRBeanArrayDataSource(obj);
