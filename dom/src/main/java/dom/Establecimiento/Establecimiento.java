@@ -1,6 +1,7 @@
 package dom.Establecimiento;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Query;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
@@ -15,6 +16,7 @@ import repo.Establecimiento.RepositorioEstablecimiento;
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento WHERE nombre== :nombre"),
+	@Query(name="traerlikePorNombre", language="JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento WHERE nombre.startsWith(:nombre) range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento ")})
 @AutoComplete(repository = RepositorioEstablecimiento.class, action = "autoComplete")
 @Audited

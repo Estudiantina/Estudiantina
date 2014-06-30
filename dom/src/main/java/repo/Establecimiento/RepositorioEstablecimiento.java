@@ -46,7 +46,7 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 	
 	@Hidden
     public List<Establecimiento> autoComplete(String searchPhrase) {        
-    	return allMatches(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",searchPhrase));
+    	return allMatches(QueryDefault.create(Establecimiento.class, "traerlikePorNombre","nombre",searchPhrase));
     }
 	
 	
