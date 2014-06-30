@@ -29,6 +29,7 @@ import repo.Curso.RepositorioCurso;
 public class Curso {
 	
 	private String anoYdivision;
+	//TODO separar ano y division
 	private int cicloLectivo;
 	private Turno turno;
 	
