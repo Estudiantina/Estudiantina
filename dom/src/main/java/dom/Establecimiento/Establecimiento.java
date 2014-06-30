@@ -31,6 +31,9 @@ public class Establecimiento {
 		return this.nombre;
 		
 	}
+	public String iconName() {
+        return "edificio";
+    }
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getEmail() {
 		return email;
