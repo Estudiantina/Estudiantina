@@ -25,12 +25,24 @@ public class Establecimiento {
 	private String nombre;
 	private String direccion;
 	private String telefono;
-	
+	private String email;
 	public String title()
 	{
 		return this.nombre;
 		
 	}
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")

@@ -25,7 +25,8 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 	public Establecimiento ingresarEstablecimiento (
 			@Named("direccion")final String direccion,
 			@Named("nombre")final String nombre,
-			@Named("Telefono")final String telefono
+			@Named("Telefono")final String telefono,
+			@Named("email")final String email
 			)
 	{
 		
@@ -33,7 +34,7 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 		establecimiento.setDireccion(direccion); 
 		establecimiento.setNombre(nombre);
 		establecimiento.setTelefono(telefono);
-		
+		establecimiento.setEmail(email);
 		container.persistIfNotAlready(establecimiento);
 		
 		return establecimiento;
