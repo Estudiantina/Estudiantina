@@ -1,6 +1,7 @@
 package dom.Curso;
 
 
+import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
@@ -29,11 +30,11 @@ import repo.Curso.RepositorioCurso;
 public class Curso {
 	
 	private String anoYdivision;
-	//TODO separar ano y division
+	//TODO separar año y division
 	private int cicloLectivo;
 	private Turno turno;
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="false")	
 	public String getAnoYdivision() {
 		return anoYdivision;
 	}
