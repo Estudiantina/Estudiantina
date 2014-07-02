@@ -128,10 +128,6 @@ public class Netbook {
 		this.estado = estadoNetbook;
 	}
 
-	public String accion(Netbook net)
-	{
-		return net.numeroDeSerie;
-	}
 
 
 	@javax.inject.Inject
