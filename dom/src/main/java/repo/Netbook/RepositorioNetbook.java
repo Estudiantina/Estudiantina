@@ -47,8 +47,15 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      * @return
      */
     @Hidden
-    public List<Netbook> autoComplete(String searchPhrase) {        
+    public List<Netbook> autoComplete(String searchPhrase) { 
+    	if (searchPhrase=="")
+    	{
+    	return null;//para optimizar el rendimiento y que no busque lista completa	
+    	}
+    	else
+    	{
     	return allMatches(QueryDefault.create(Netbook.class, "traerlikePorId","idNetbook",searchPhrase));
+    	}
     }
     /**
      * Crea y guarda una netbook en el sistema
