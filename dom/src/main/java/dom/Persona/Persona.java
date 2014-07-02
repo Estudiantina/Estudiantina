@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -74,7 +75,12 @@ public class Persona implements IntegranteDeLaInstitucion{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 		
 	}
-	
+	@Named("añadir netbook")
+	public Persona anadirNetbook(Netbook netbook)
+	{
+		this.netbook.add(netbook);
+		return this;
+	}
 	
 	public Long getCuil() {
 		return cuil;
