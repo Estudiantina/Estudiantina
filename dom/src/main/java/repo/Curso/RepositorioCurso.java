@@ -17,6 +17,10 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
         return "Curso";
     }
     
+	
+	public String iconName() {
+        return "curso";
+    }
 	/**
 	 * muestra los curso 
 	 * @return lista de los Curso

@@ -34,6 +34,11 @@ public class Curso {
 	private int cicloLectivo;
 	private Turno turno;
 	
+	
+	public String iconName() {
+        return "curso";
+    }
+	
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public String getAnoYdivision() {
 		return anoYdivision;
