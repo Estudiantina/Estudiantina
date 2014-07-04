@@ -1,7 +1,6 @@
 package dom.Curso;
 
 
-import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
