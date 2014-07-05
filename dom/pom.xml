@@ -101,6 +101,14 @@
 			<artifactId>isis-core-applib</artifactId>
 		</dependency>
 
+
+	<dependency>
+	<groupId>javax.mail</groupId>
+	<artifactId>mail</artifactId>
+	<version>1.4.7</version>
+	</dependency>
+		
+		
 		<!-- dependencias nesesarias para generar reportes  -->
 		<dependency>
 		<groupId>net.sf.jasperreports</groupId>
