@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Query;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
@@ -14,15 +15,18 @@ import org.apache.isis.applib.annotation.ObjectType;
 import repo.BaseDeConocimiento.RepositorioBaseDeConocimiento;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
-
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
+//TODO hacer consulta traerPorcuil 
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerTodoLaBase",
+    language = "JDOQL", value = "SELECT FROM dom.BaseDeConocimiento.BaseDeConocimiento")})
+
 
 @AutoComplete(repository = RepositorioBaseDeConocimiento.class, action = "autoComplete")
 @Audited
 
-@ObjectType("Informacion De Interes")
+@ObjectType("NOVEDAD")
 public class BaseDeConocimiento {
 	
 	private String titulo;
@@ -84,6 +88,6 @@ public class BaseDeConocimiento {
   
 	
 	
-	@javax.inject.Inject 
-	  DomainObjectContainer container;    
+	@javax.inject.Inject
+    private DomainObjectContainer container;
 }

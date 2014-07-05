@@ -7,8 +7,10 @@ import javax.inject.Named;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.query.QueryDefault;
 
 import dom.BaseDeConocimiento.BaseDeConocimiento;
+import dom.Persona.Persona;
 
 
 
@@ -43,6 +45,15 @@ public class RepositorioBaseDeConocimiento  extends AbstractFactoryAndRepository
 	return baseDeConocimiento;
 	
 	}
+	
+
+    /**
+	 * trae toda la  lista de conocimiento de la base de datos
+	 * @return lista de Base de Conocimiento
+	 */
+    public List<BaseDeConocimiento> listarBaseDeConocimiento() {
+        return allMatches(QueryDefault.create(BaseDeConocimiento.class, "traerTodoLaBase"));
+    }
 	
 
 	@javax.inject.Inject 
