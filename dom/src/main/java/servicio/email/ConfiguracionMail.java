@@ -11,7 +11,7 @@ public class ConfiguracionMail {
     private String usuario;
     private String password;
     private boolean auth;
-    private Properties props = new Properties();
+    
 	
     
     
@@ -137,42 +137,17 @@ public class ConfiguracionMail {
 
 
 
-	public Properties getProps() {
-		return props;
-	}
-
-
-
-
-
-
-
-	public void setProps(Properties props) {
-		this.props = props;
-	}
-
-
-
-
-
-
-
-	public void mailFactory()
+	public static Properties mailFactory()
 	{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/configuracionemail.xml");
 		ConfiguracionMail configuracionMail = (ConfiguracionMail) context.getBean("gmail");
-		this.host=configuracionMail.host;
-		this.auth=configuracionMail.auth;
-		this.password=configuracionMail.password;
-		this.props=configuracionMail.props;
-		this.puerto=configuracionMail.puerto;
-		this.tls=configuracionMail.tls;
-		this.usuario=configuracionMail.usuario;
-		context.close();
-		props.put("mail.smtp.host", this.host);
-        props.setProperty("mail.smtp.starttls.enable", ""+this.tls);
-        props.setProperty("mail.smtp.port", ""+this.puerto);
-        props.setProperty("mail.smtp.user", this.usuario);
-        props.setProperty("mail.smtp.auth", ""+this.auth);
+	    Properties props = new Properties();
+		props.put("mail.smtp.host", configuracionMail.host);
+        props.setProperty("mail.smtp.starttls.enable", ""+configuracionMail.tls);
+        props.setProperty("mail.smtp.port", ""+configuracionMail.puerto);
+        props.setProperty("mail.smtp.user", configuracionMail.usuario);
+        props.setProperty("mail.smtp.auth", ""+configuracionMail.auth);
+        context.close();
+        return props;
 	}
 }
