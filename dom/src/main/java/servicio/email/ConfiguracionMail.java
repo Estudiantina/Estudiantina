@@ -8,8 +8,6 @@ public class ConfiguracionMail {
     private String puerto;
     private String host;
     private boolean tls;
-    private String usuario;
-    private String password;
     private boolean auth;
     
 	
@@ -77,39 +75,10 @@ public class ConfiguracionMail {
 
 
 
-	public String getUsuario() {
-		return usuario;
-	}
 
 
 
 
-
-
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-
-
-
-
-
-
-	public String getPassword() {
-		return password;
-	}
-
-
-
-
-
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 
 
@@ -143,10 +112,12 @@ public class ConfiguracionMail {
 		ConfiguracionMail configuracionMail = (ConfiguracionMail) context.getBean("gmail");
 	    Properties props = new Properties();
 		props.put("mail.smtp.host", configuracionMail.host);
-        props.setProperty("mail.smtp.starttls.enable", ""+configuracionMail.tls);
         props.setProperty("mail.smtp.port", ""+configuracionMail.puerto);
-        props.setProperty("mail.smtp.user", configuracionMail.usuario);
         props.setProperty("mail.smtp.auth", ""+configuracionMail.auth);
+        props.setProperty("mail.smtp.starttls.enable", ""+configuracionMail.tls);
+        props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false");
+
         context.close();
         return props;
 	}
