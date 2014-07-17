@@ -3,7 +3,6 @@ package dom.Alumno;
 
 import java.util.Date;
 
-
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
@@ -14,8 +13,8 @@ import org.apache.isis.applib.annotation.ObjectType;
 
 
 
-import repo.Persona.RepositorioPersona;
 
+import repo.Persona.RepositorioPersona;
 import dom.Persona.Persona;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -50,10 +49,29 @@ public class Alumno extends Persona{
 	 * resources/icono.png
 	 * @return String nombre de icono
 	 */
-	public String iconName() {
-        return "alumno";
-    }
-
+		
+	   public String iconName() {
+	       if (getEstadoDeAlumno() == EstadoDeAlumno.REGULAR) {
+	    	   return "alumno";
+	       } else {
+	    	   if (getEstadoDeAlumno() == EstadoDeAlumno.RECURSANTE) {
+	        	   return "alumno";
+	           } else {
+	        	   if (getEstadoDeAlumno()== EstadoDeAlumno.PASE){
+	        		   return "atencion";
+	        	   }else {
+	        		   if (getEstadoDeAlumno()== EstadoDeAlumno.LIBRE){
+		        		   return "atencion1";
+	        	   }
+	           }
+	       }
+	       }
+		return "alumno";
+	   }
+	    	
+	    	
+	   
+	   
 	
 	
 	private Date fechaIngreso;

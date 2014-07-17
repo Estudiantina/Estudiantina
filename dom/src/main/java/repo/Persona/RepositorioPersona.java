@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.annotation.Hidden;
-
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
@@ -27,10 +26,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
         return "persona";
     }
     
-    public String iconName() {
+	public String iconName() {
         return "alumno";
-    }
-   
+    }   
     
     
     
