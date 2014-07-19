@@ -28,6 +28,9 @@ public class Establecimiento {
 	private String direccion;
 	private String telefono;
 	private String email;
+	private String cue;
+	
+	
 	public String title()
 	{
 		return this.nombre;
@@ -36,6 +39,8 @@ public class Establecimiento {
 	public String iconName() {
         return "edificio";
     }
+	
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getEmail() {
 		return email;
@@ -76,9 +81,22 @@ public class Establecimiento {
 		this.telefono = telefono;
 	}
 	
+		/**
+	 * la CUE es la identificacion la escuela solo en la provincia de neuquen
+	 * **/
 	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getCue() {
+		return cue;
+	}
+	public void setCue(String cue) {
+		this.cue = cue;
+	}
 
-	   @javax.inject.Inject 
+
+
+
+	@javax.inject.Inject 
 	  private DomainObjectContainer container;
 
 

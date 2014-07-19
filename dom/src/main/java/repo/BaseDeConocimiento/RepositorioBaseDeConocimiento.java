@@ -1,5 +1,6 @@
 package repo.BaseDeConocimiento;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,23 +10,30 @@ import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.query.QueryDefault;
 
+
+
+
+import com.sun.activation.viewers.ImageViewer;
+
 import dom.BaseDeConocimiento.BaseDeConocimiento;
-import dom.Persona.Persona;
 
 
-
-@Named("Base de Conocimiento")
+@Named("BASE DE CONOCIMIENTO")
 public class RepositorioBaseDeConocimiento  extends AbstractFactoryAndRepository {
 
+	public String getId() {
+        return "BaseDeConocimiento";
+    }
 		
 		
 	public BaseDeConocimiento ingresarNuevoTema (
-			@Named("titulo")String titulo,
-			@Named("imagen")String imagen ,
-			@Named("descripcion")String descripcion,
-			@Named("paginas web")String url,
-			//@Named ("categoria")List<String>categorias,
-			@Named("fecha ingreso")Date fecha
+			@Named("titulo")final String titulo,
+			@Named("imagen")final String imagen ,
+			@Named("descripcion")final String descripcion,
+			@Named("paginas web")final String url,
+			//@Named ("categoria")final List<String> categorias,
+			@Named("fecha ingreso")final Date fecha,
+			@Named("imagens") ImageViewer imagenes
 			
 			)
 	{
@@ -38,6 +46,7 @@ public class RepositorioBaseDeConocimiento  extends AbstractFactoryAndRepository
 	baseDeConocimiento.setUrl(url);
 	//baseDeConocimiento.setCategorias(categorias);
 	baseDeConocimiento.setFecha(fecha);
+	baseDeConocimiento.setImagenes(imagenes);
 
 		
 	container.persistIfNotAlready(baseDeConocimiento);

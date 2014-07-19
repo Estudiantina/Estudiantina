@@ -7,30 +7,27 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-
 import java.io.IOException;
-
 import java.util.Date;
 import java.util.HashMap;
 
 
 
-import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.VersionStrategy;
 
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Query;
+import javax.jdo.annotations.VersionStrategy;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
-
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanArrayDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
-
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import org.apache.isis.applib.DomainObjectContainer;
@@ -43,19 +40,25 @@ import org.apache.isis.applib.value.Blob;
 
 
 
+
 import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
 import dom.Persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL", value = "SELECT FROM repo.Netbook.SolicitudServicioTecnico")})
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL",
+          value = "SELECT FROM repo.Netbook.SolicitudServicioTecnico"),
+	@Query(name="taerTipoDeSoluciones", language="JDOQL", 
+	      value = "SELECT FROM dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.startsWith(:motivoDeSolicitud) range 0, 5")})
 
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
+
 @ObjectType("SERVICIOTECNICO")
 
 public class SolicitudServicioTecnico {
-    //public solicitante integrante de la institucion
+    
+	//public solicitante integrante de la institucion
 	private Persona persona;
 	private String motivoDeSolicitud;
 	private Date fechaDeSolicitud;

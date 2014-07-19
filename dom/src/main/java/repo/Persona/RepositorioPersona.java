@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
@@ -72,7 +73,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("TELEFONO FIJO")String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")String email,
-			@Named("DOMICILIO")String domicilio,
+		
+			@Named("DOMICILIO")	@MultiLine String domicilio,
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
 			@Named("FECHA INGRESO")Date fechaIngreso,
 			@RegEx(validation = "[A-Za-z ]+")

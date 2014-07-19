@@ -25,11 +25,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
         return "asistenciatecnica";
     }
 	
-    
-    
-    
-    
-	public SolicitudServicioTecnico solicitarServicioTecnico(
+    public SolicitudServicioTecnico solicitarServicioTecnico(
 			@Named("Persona")final Persona persona ,
 			
 			@Named("Netbook")final Netbook netbook,
@@ -61,6 +57,20 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	public List<SolicitudServicioTecnico> listadeSolicitudes() {
         return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerPorPrioridad"));
     }
+	
+	
+	/**
+	 * metodo que trae todas las reparaciones
+	 * con su soluciones
+	 * 
+	 * @return devuelve como titulo la solucion 
+	 */
+	@Named("Buscar Soluciones")
+		public List<SolicitudServicioTecnico> listaDeSoluciones (@Named ("tema")final String traerPorTema){
+			
+			return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "taerTipoDeSoluciones", "motivoDeSolicitud", traerPorTema));
+		}
+		
 	
     
 	@javax.inject.Inject 

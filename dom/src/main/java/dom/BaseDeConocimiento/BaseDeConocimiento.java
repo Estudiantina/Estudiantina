@@ -1,5 +1,7 @@
 package dom.BaseDeConocimiento;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +13,9 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+//import org.apache.isis.applib.annotation.Title;
+
+import com.sun.activation.viewers.ImageViewer;
 
 import repo.BaseDeConocimiento.RepositorioBaseDeConocimiento;
 
@@ -27,16 +32,28 @@ import repo.BaseDeConocimiento.RepositorioBaseDeConocimiento;
 @Audited
 
 @ObjectType("NOVEDAD")
+
 public class BaseDeConocimiento {
+	
 	
 	private String titulo;
    	private String imagen;
 	private String descripcion;
 	private String url;
-	private List<String> categorias;
+	private List<String> categorias = new ArrayList<String>();
     private Date fecha;
+    private ImageViewer imagenes;
+    
+    
+    public String title()
+	{
+		return this.titulo;
+		
+	}
+    
 	
     @javax.jdo.annotations.Column(allowsNull="false")
+    //@Title(sequence="1")
     public String getTitulo() {
 		return titulo;
 	}
@@ -69,6 +86,7 @@ public class BaseDeConocimiento {
 		this.url = url;
 	}
 	
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public List<String> getCategorias() {
 		return categorias;
@@ -87,7 +105,16 @@ public class BaseDeConocimiento {
 	}
   
 	
-	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public ImageViewer getImagenes() {
+		return imagenes;
+	}
+	public void setImagenes(ImageViewer imagenes) {
+		this.imagenes = imagenes;
+	}
+
+
+
 	@javax.inject.Inject
-    private DomainObjectContainer container;
+    DomainObjectContainer container;
 }

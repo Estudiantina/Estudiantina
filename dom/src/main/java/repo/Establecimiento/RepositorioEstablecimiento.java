@@ -5,9 +5,11 @@ import java.util.List;
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
-
 
 import dom.Establecimiento.Establecimiento;
 
@@ -26,10 +28,15 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 	 * @return lista de los Curso
 	 */
 	public Establecimiento ingresarEstablecimiento (
-			@Named("direccion")final String direccion,
+			@Named("direccion")@MultiLine final String direccion,
+		//	@RegEx(validation = "[A-Za-z]+")
 			@Named("nombre")final String nombre,
+			@RegEx(validation = "[0-9]+")
 			@Named("Telefono")final String telefono,
-			@Named("email")final String email
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+			@Named("email")final String email,
+			@RegEx(validation = "[0-9]+")
+			@Named("CUE") final String cue
 			)
 	{
 		
@@ -38,6 +45,8 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 		establecimiento.setNombre(nombre);
 		establecimiento.setTelefono(telefono);
 		establecimiento.setEmail(email);
+		establecimiento.setCue(cue);
+		
 		container.persistIfNotAlready(establecimiento);
 		
 		return establecimiento;
