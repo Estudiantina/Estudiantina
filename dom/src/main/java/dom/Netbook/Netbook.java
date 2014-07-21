@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
+import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
@@ -107,7 +108,7 @@ public class Netbook {
 	
 	
 	
-	
+	@Unique
 	@javax.jdo.annotations.Column(allowsNull="false")
     @Title(sequence="1")
     @MemberOrder(name="Informacion General",sequence="1")
