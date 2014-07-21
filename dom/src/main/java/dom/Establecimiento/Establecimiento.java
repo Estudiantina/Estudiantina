@@ -2,6 +2,7 @@ package dom.Establecimiento;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
+import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
@@ -84,7 +85,7 @@ public class Establecimiento {
 		/**
 	 * la CUE es la identificacion la escuela solo en la provincia de neuquen
 	 * **/
-	
+	@Unique
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getCue() {
 		return cue;

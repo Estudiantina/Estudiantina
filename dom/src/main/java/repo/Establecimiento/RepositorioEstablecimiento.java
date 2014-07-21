@@ -28,7 +28,7 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 	 * @return lista de los Curso
 	 */
 	public Establecimiento ingresarEstablecimiento (
-			@Named("direccion")@MultiLine final String direccion,
+			@Named("direccion") final String direccion,
 		//	@RegEx(validation = "[A-Za-z]+")
 			@Named("nombre")final String nombre,
 			@RegEx(validation = "[0-9]+")
