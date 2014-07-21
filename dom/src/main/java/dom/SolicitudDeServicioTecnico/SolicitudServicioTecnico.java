@@ -16,6 +16,7 @@ import java.util.HashMap;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
+import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
 
 import net.sf.jasperreports.engine.JRException;
@@ -184,7 +185,7 @@ public class SolicitudServicioTecnico {
 
 
 
-
+    @Unique
 	public void setCodigoSolicitud(String codigoSolicitud) {
 		this.codigoSolicitud = codigoSolicitud;
 	}
