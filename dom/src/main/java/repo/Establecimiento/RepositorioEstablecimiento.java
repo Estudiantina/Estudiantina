@@ -53,6 +53,12 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 		return establecimiento;
 		
 	}
+	/**
+	 * retorna una consulta que devuelve la 
+	 * lista completa de los establecimentos
+	 * estudiantiles que existen en el sistema
+	 * @return establecimientos
+	 */
 	@Named("Ver Establecimientos")
 	public List<Establecimiento> listadeEstablecimientos() {
         return allMatches(QueryDefault.create(Establecimiento.class, "traerTodos"));
