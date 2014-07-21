@@ -12,6 +12,7 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.Establecimiento.Establecimiento;
+import dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico;
 
 @Named("Administrar Establecimientos")
 public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
@@ -52,6 +53,10 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 		return establecimiento;
 		
 	}
+	@Named("Ver Establecimientos")
+	public List<Establecimiento> listadeEstablecimientos() {
+        return allMatches(QueryDefault.create(Establecimiento.class, "traerTodos"));
+    }
 	
 	@Hidden
     public List<Establecimiento> autoComplete(String searchPhrase) {        
