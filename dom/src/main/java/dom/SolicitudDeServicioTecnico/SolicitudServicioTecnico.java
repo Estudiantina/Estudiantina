@@ -49,7 +49,7 @@ import dom.Persona.Persona;
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL",
           value = "SELECT FROM repo.Netbook.SolicitudServicioTecnico"),
 	@Query(name="taerTipoDeSoluciones", language="JDOQL", 
-	      value = "SELECT FROM dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.startsWith(:motivoDeSolicitud) range 0, 5")})
+	      value = "SELECT FROM dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 range 0, 5")})
 
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
