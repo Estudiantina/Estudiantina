@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.Inheritance;
-import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Unique;
 
 import org.apache.isis.applib.DomainObjectContainer;

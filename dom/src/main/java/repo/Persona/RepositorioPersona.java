@@ -18,6 +18,7 @@ import dom.Alumno.Nacionalidad;
 import dom.Docente.Docente;
 import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
+import dom.Tecnico.Tecnico;
 
 
 @Named("Administrar Personas")
@@ -58,9 +59,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * 
 	 * @return Alumno
 	 */
-	
-	
-	
 	public Alumno ingresarAlumno (
 			@Named("Establecimiento") final Establecimiento establecimiento,
 			@Named("CUIL")Long cuil,
@@ -101,6 +99,38 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
+	
+	}
+	public Tecnico ingresarTecnico (
+			@Named("Establecimiento") final Establecimiento establecimiento,
+			@Named("CUIL") final Long cuil,
+			@RegEx(validation = "[A-Za-z ]+")
+			@Named("NOMBRE")final String nombre,
+			@RegEx(validation = "[A-Za-z]+")
+			@Named("APELLIDO")final String apellido,
+			@RegEx(validation = "[0-9]+")
+			@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")
+			@Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+			@Named("CORREO ELECTRONICO")final String email,
+			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("FECHA NACIMIENTO")Date fechaNacimiento
+			)
+	{
+		final Tecnico tecnico = container.newTransientInstance(Tecnico.class);
+		tecnico.setApellido(apellido);
+		tecnico.setCuil(cuil);
+		tecnico.setDomicilio(domicilio);
+		tecnico.setEmail(email);
+		tecnico.setEstablecimiento(establecimiento);
+		tecnico.setNombre(nombre);
+		tecnico.setTelefinoFijo(telefinoFijo);
+		tecnico.setTelefonoCelular(telefonoCelular);
+		container.persistIfNotAlready(tecnico);
+	
+	
+	return tecnico;
 	
 	}
 
