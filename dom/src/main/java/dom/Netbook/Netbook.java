@@ -132,6 +132,7 @@ public class Netbook {
 
 	@javax.inject.Inject
     private DomainObjectContainer container;
-	
+
+	//TODO	Andresrabo Agregar historial de reparaciones
 	
 }
