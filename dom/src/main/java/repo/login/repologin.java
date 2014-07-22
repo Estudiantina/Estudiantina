@@ -1,12 +1,13 @@
 package repo.login;
 
-import javax.inject.Named;
+
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.value.Password;
 
-import dom.Curso.Curso;
+
 import dom.Persona.Persona;
 import dom.login.Login;
 @Named("Administracion De Cuentas")
