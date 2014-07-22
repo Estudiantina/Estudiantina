@@ -13,13 +13,15 @@ import org.apache.isis.applib.annotation.ObjectType;
 
 import repo.Curso.RepositorioCurso;
 
+
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column = "version")
 
 @javax.jdo.annotations.DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY)
-
+@javax.jdo.annotations.Queries({
+	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Curso.Curso")})
 @ObjectType("CURSO")
 
 @AutoComplete(repository =  RepositorioCurso.class, action = "autoComplete")
@@ -73,21 +75,6 @@ public class Curso {
 	public void setTurno(Turno turno) {
 		this.turno = turno;
 	}
-	
-	
-	
-	
-
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
 	
   private DomainObjectContainer container;
 

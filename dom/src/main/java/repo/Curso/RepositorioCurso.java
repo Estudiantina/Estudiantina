@@ -2,9 +2,12 @@ package repo.Curso;
 
 
 
+import java.util.List;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.query.QueryDefault;
 
 import dom.Curso.Curso;
 import dom.Curso.Turno;
@@ -42,6 +45,14 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		return curso;
 		
 	}
+	
+	/**
+	 * muestra una lista de todos las Cursos que existen
+	 * @return lista de Netbooks
+	 */
+    public List<Curso> listaCursos() {
+        return allMatches(QueryDefault.create(Curso.class, "traerTodo"));
+    }
 	
 	
 	@javax.inject.Inject 

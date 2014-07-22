@@ -15,6 +15,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.Alumno.Alumno;
 import dom.Alumno.EstadoDeAlumno;
 import dom.Alumno.Nacionalidad;
+import dom.Directivo.Directivo;
 import dom.Docente.Docente;
 import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
@@ -44,7 +45,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     }
 	
 	/**
-	 * Se realiza la carga de los alumno, con todos sus atributos.
+	 * Se realiza la carga de los alumnos, con todos sus atributos.
 	 * 
 	 * @param cuil
 	 * @param nombre
@@ -101,6 +102,19 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return alumno;
 	
 	}
+	/**
+	 * 
+	 * @param establecimiento
+	 * @param cuil
+	 * @param nombre
+	 * @param apellido
+	 * @param telefonoCelular
+	 * @param telefinoFijo
+	 * @param email
+	 * @param domicilio
+	 * @param fechaNacimiento
+	 * @return
+	 */
 	public Tecnico ingresarTecnico (
 			@Named("Establecimiento") final Establecimiento establecimiento,
 			@Named("CUIL") final Long cuil,
@@ -115,7 +129,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO")	@MultiLine final String domicilio,
-			@Named("FECHA NACIMIENTO")Date fechaNacimiento
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento
 			)
 	{
 		final Tecnico tecnico = container.newTransientInstance(Tecnico.class);
@@ -134,6 +148,39 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	}
 
+	public Directivo ingresarDirectivo (
+			@Named("Establecimiento") final Establecimiento establecimiento,
+			@Named("CUIL") final Long cuil,
+			@RegEx(validation = "[A-Za-z ]+")
+			@Named("NOMBRE")final String nombre,
+			@RegEx(validation = "[A-Za-z]+")
+			@Named("APELLIDO")final String apellido,
+			@RegEx(validation = "[0-9]+")
+			@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")
+			@Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+			@Named("CORREO ELECTRONICO")final String email,
+			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento
+			)
+	{
+		final Directivo directivo = container.newTransientInstance(Directivo.class);
+		directivo.setApellido(apellido);
+		directivo.setCuil(cuil);
+		directivo.setDomicilio(domicilio);
+		directivo.setEmail(email);
+		directivo.setEstablecimiento(establecimiento);
+		directivo.setNombre(nombre);
+		directivo.setTelefinoFijo(telefinoFijo);
+		directivo.setTelefonoCelular(telefonoCelular);
+		container.persistIfNotAlready(directivo);
+	
+	
+	return directivo;
+	
+	}
+	
 	
 	
 	public Docente ingresarDocente (
