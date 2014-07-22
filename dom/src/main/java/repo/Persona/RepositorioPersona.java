@@ -119,7 +119,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")final String email,
-			@Named("DOMICILIO")	@MultiLine final String domicilio 			
+			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("Cargo") final String cargo
 			)
 	{
 		final Docente docente = container.newTransientInstance(Docente.class);

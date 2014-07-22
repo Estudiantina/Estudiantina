@@ -1,5 +1,7 @@
 package dom.Docente;
 
+import java.util.List;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.VersionStrategy;
 
@@ -10,6 +12,8 @@ import org.apache.isis.applib.annotation.ObjectType;
 
 import repo.Persona.RepositorioPersona;
 
+import dom.Curso.Curso;
+import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Version(
@@ -33,8 +37,37 @@ public class Docente extends Persona{
 		
 	}
 
-	public 
+	public String cargo;
+	public List<Establecimiento> establecimientos;
 	
+	
+	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getCargo() {
+		return cargo;
+	}
+
+
+
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+
+
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public List<Establecimiento> getEstablecimientos() {
+		return establecimientos;
+	}
+
+
+
+
+	public void setEstablecimientos(List<Establecimiento> establecimientos) {
+		this.establecimientos = establecimientos;
+	}
+
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
