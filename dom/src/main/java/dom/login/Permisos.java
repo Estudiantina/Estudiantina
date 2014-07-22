@@ -1,6 +1,6 @@
 package dom.login;
 
-public class permisos {
+public class Permisos {
 private  String permiso;
 
 public String getPermiso() {

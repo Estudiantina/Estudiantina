@@ -1,18 +1,19 @@
 package dom.login;
 
+import javax.jdo.annotations.Unique;
+
 import org.apache.isis.applib.value.Password;
 
 import dom.Persona.Persona;
 
-public class login {
+public class Login {
 private String usuario;
 private Password password;
 private Persona persona;
-
+@Unique
 public Persona getPersona() {
 	return persona;
 }
-
 public void setPersona(Persona persona) {
 	this.persona = persona;
 }

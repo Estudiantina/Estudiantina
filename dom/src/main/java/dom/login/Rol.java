@@ -1,18 +1,18 @@
 package dom.login;
 
-public class rol {
+public class Rol {
 private String rol;
-private permisos permisos;
+private Permisos permisos;
 public String getRol() {
 	return rol;
 }
 public void setRol(String rol) {
 	this.rol = rol;
 }
-public permisos getPermisos() {
+public Permisos getPermisos() {
 	return permisos;
 }
-public void setPermisos(permisos permisos) {
+public void setPermisos(Permisos permisos) {
 	this.permisos = permisos;
 }
 
