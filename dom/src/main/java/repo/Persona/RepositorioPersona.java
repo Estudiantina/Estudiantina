@@ -15,6 +15,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.Alumno.Alumno;
 import dom.Alumno.EstadoDeAlumno;
 import dom.Alumno.Nacionalidad;
+import dom.Docente.Docente;
 import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
 
@@ -100,6 +101,40 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
+	
+	}
+
+	
+	
+	public Docente ingresarDocente (
+			@Named("Establecimiento") final Establecimiento establecimiento,
+			@Named("CUIL") final Long cuil,
+			@RegEx(validation = "[A-Za-z ]+")
+			@Named("NOMBRE")final String nombre,
+			@RegEx(validation = "[A-Za-z]+")
+			@Named("APELLIDO")final String apellido,
+			@RegEx(validation = "[0-9]+")
+			@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")
+			@Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+			@Named("CORREO ELECTRONICO")final String email,
+			@Named("DOMICILIO")	@MultiLine final String domicilio 			
+			)
+	{
+		final Docente docente = container.newTransientInstance(Docente.class);
+		docente.setApellido(apellido);
+		docente.setCuil(cuil);
+		docente.setDomicilio(domicilio);
+		docente.setEmail(email);
+		docente.setEstablecimiento(establecimiento);
+		docente.setNombre(nombre);
+		docente.setTelefinoFijo(telefinoFijo);
+		docente.setTelefonoCelular(telefonoCelular);
+		container.persistIfNotAlready(docente);
+	
+	
+	return docente;
 	
 	}
 	
