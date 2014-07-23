@@ -7,14 +7,21 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberGroupLayout;
 import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.annotation.When;
+import org.apache.isis.applib.annotation.Where;
+
 import repo.Netbook.RepositorioNetbook;
 
 
@@ -32,6 +39,7 @@ import repo.Netbook.RepositorioNetbook;
 @MemberGroupLayout(columnSpans={3,3,0,6}, left={"Informacion De Hardware","Datos De Software"},middle={"Informacion General"} )
 public class Netbook {
 	
+	
 	private String idNetbook;
 	private ModeloNetbook modelo; //TODO reemplazar por marca desde dominio
 	private String numeroDeSerie;
@@ -40,6 +48,10 @@ public class Netbook {
 	private String direccionMac;
 	private String situacionDeNetbook;
 	private SituacionDeNetbook estado;
+	
+	private String numeroDeActaDeRobo;
+	
+
 	
     public String iconName() {
         return "netbook";
@@ -96,7 +108,6 @@ public class Netbook {
 	
 	
 	
-	
 	@MemberOrder(name="Informacion General",sequence="2")
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getSituacionDeNetbook() {
@@ -129,6 +140,33 @@ public class Netbook {
 		this.estado = estadoNetbook;
 	}
 
+
+	@Optional
+	@javax.jdo.annotations.Column(allowsNull="true")
+	@MemberOrder(name="Informacion General",sequence="4")
+	public String getNumeroDeActaDeRobo() {
+		return numeroDeActaDeRobo;
+	}
+	
+	public void setNumeroDeActaDeRobo(String numeroDeActaDeRobo) {
+		this.numeroDeActaDeRobo = numeroDeActaDeRobo;
+	}
+	
+     public boolean hideNumeroDeActaDeRobo() {
+		
+		if (estado.equals(SituacionDeNetbook.ROBADA))
+		{
+		 return false;
+		}
+		else
+		{
+		
+		return true;
+		}
+	}
+
+
+    
 
 
 	@javax.inject.Inject

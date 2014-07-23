@@ -80,6 +80,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
 	@MaxLength(12)@MinLength(12)@RegEx(validation = "[A-Fa-f0-9 ]+") @Named("Direccion Mac")final String direccionMac,
 	@Named("Estado de la Netbook")final SituacionDeNetbook estadoNetbook)
+
 	{
 		final Netbook netbook = container.newTransientInstance(Netbook.class);
 	    netbook.setFechaDeExpiracion(fechaDeExpiracion);
@@ -90,6 +91,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
 	    netbook.setSituacionDeNetbook("Entregada");
 	    netbook.setEstadoNetbook(estadoNetbook);
+	
 	   
 	    
 	    
@@ -109,9 +111,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 * @return List<Netbook>
 	 * 
 	 */
-	
-	
-	
+
 
 	
 	/**
