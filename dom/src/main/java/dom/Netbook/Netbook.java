@@ -2,6 +2,7 @@ package dom.Netbook;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
@@ -11,6 +12,7 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberGroupLayout;
@@ -18,9 +20,16 @@ import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.PublishedAction;
+import org.apache.isis.applib.services.eventbus.EventBusService;
+import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.When;
 import org.apache.isis.applib.annotation.Where;
+import org.apache.isis.applib.query.QueryDefault;
+
+
+
 
 import repo.Netbook.RepositorioNetbook;
 
@@ -85,6 +94,31 @@ public class Netbook {
 		this.numeroDeSerie = numeroDeSerie;
 	}
 	
+	@Bulk //para que ejecute la accion en una lista masiva de objetos
+	@PublishedAction // para que muestre la accion en la lista de objetos
+	@Named("eliminar netbook")
+	public List<Netbook> eliminar() {
+		//if (confirmar==true)
+		//{
+        container.removeIfNotAlready(this);
+        container.informUser("las netbook selecionadas fueron eliminadas");
+		/*}
+		else
+		{
+			container.informUser("se ha cancelado la eliminacion");	
+		}*/
+        // invalid to return 'this' (cannot render a deleted object)
+        return this.traerTodas(); 
+    }
+	
+	
+	
+    @Programmatic
+    public List<Netbook> traerTodas() {
+        return container.allMatches(
+            new QueryDefault<Netbook>(Netbook.class, 
+                    "traerTodo"));
+    }
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
