@@ -69,7 +69,7 @@ public class Netbook {
         return "netbook";
     }
     @MaxLength(12)
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="false",length=13)
 	@MemberOrder(name="Informacion De Hardware", sequence="1")
     public String getDireccionMac() {
 		return direccionMac;
