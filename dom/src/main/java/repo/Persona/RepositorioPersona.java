@@ -217,8 +217,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	}
 	
     //TODO autocompletar con persona en vez de con alumno
-	@Hidden
-    public List<Persona> autoComplete(String searchPhrase) {        
+	@Named("Buscar Persona")
+    public List<Persona> autoComplete(@Named("Ingrese CUIL")String searchPhrase) {        
     	Long temp = Long.parseLong(searchPhrase);
 		return allMatches(QueryDefault.create(Persona.class, "traerPorcuil","cuil",temp));
     }
