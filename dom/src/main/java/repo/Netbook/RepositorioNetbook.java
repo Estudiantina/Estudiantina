@@ -1,6 +1,5 @@
 package repo.Netbook;
 
-
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +12,8 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
+
+
 
 
 import dom.Netbook.ModeloNetbook;
@@ -48,7 +49,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      */
     @Hidden
     public List<Netbook> autoComplete(String searchPhrase) { 
-    	if (searchPhrase=="")
+    	if (searchPhrase==null)
     	{
     	return null;//para optimizar el rendimiento y que no busque lista completa	
     	}
@@ -99,6 +100,48 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    
 		return netbook;
 	}
+	/**
+	 * metodo que valida los parametros cuando una nueva netbook es creada
+	 * @param idNetbook
+	 * @param modelo
+	 * @param numeroDeSerie
+	 * @param numeroLicenciaWindows
+	 * @param fechaDeExpiracion
+	 * @param direccionMac
+	 * @param estadoNetbook
+	 * @return
+	 */
+	
+	public String validateIngresarNetbook(final String idNetbook,
+			final ModeloNetbook modelo,
+			final String numeroDeSerie,
+			final String numeroLicenciaWindows,
+			final Date fechaDeExpiracion,
+			final String direccionMac,
+			final SituacionDeNetbook estadoNetbook) {
+        return validarDatosDeNetbook(numeroDeSerie,numeroLicenciaWindows,fechaDeExpiracion,direccionMac);
+    }
+	/**
+	 * 
+	 * @param numeroDeSerie
+	 * @param numeroLicenciaWindows
+	 * @param fechaDeExpiracion
+	 * @param direccionMac
+	 * @return mensajes de validacion al usuario en caso de ser nulo es porque la validacion es correcta 
+	 */
+	public static String validarDatosDeNetbook(String numeroDeSerie,String numeroLicenciaWindows,Date fechaDeExpiracion,String direccionMac)
+	{
+		//validar fecha de expiracion
+		Date fechahoy = new Date();
+		if(fechahoy.equals(fechaDeExpiracion)||fechahoy.after(fechaDeExpiracion))
+		{
+			return "debe ingresar una fecha de expiracion correcta";
+		}
+		else
+		{
+		return null;
+		}
+	}
 	
 	
 	/**
@@ -111,15 +154,6 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 * @return List<Netbook>
 	 * 
 	 */
-
-
-	
-	/**
-     * 
-     * @param idNetbooks parametro de busqueda trae la netbook
-     * 
-     * @return
-     */
 	@Named("Buscar Netbook")
     public List<Netbook> listaNetbookPorId(@Named("Id de Netbook")String idNet) {        
     	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet));
