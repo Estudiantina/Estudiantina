@@ -12,6 +12,7 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
@@ -31,6 +32,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 
 
+
 import repo.Netbook.RepositorioNetbook;
 
 
@@ -46,6 +48,7 @@ import repo.Netbook.RepositorioNetbook;
 @AutoComplete(repository = RepositorioNetbook.class, action = "autoComplete")
 @Audited
 @MemberGroupLayout(columnSpans={3,3,0,6}, left={"Informacion De Hardware","Datos De Software"},middle={"Informacion General"} )
+@Bookmarkable
 public class Netbook {
 	
 	

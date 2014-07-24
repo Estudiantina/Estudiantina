@@ -14,6 +14,7 @@ import java.util.HashMap;
 
 
 
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
@@ -32,12 +33,14 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
+
 
 
 
@@ -56,7 +59,7 @@ import dom.Persona.Persona;
         column="version")
 
 @ObjectType("SERVICIOTECNICO")
-
+@Bookmarkable
 public class SolicitudServicioTecnico {
     
 	//public solicitante integrante de la institucion

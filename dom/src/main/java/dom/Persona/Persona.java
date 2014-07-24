@@ -11,10 +11,10 @@ import javax.jdo.annotations.Unique;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Optional;
 
 import repo.Persona.RepositorioPersona;
-
 import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
 
@@ -30,6 +30,7 @@ import dom.Netbook.Netbook;
 })
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
+@Bookmarkable
 public class Persona implements IntegranteDeLaInstitucion{
 
 	private Long cuil;
