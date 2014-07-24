@@ -88,7 +88,7 @@ public class Netbook {
 	}
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="false",length=50)
 	@MemberOrder(name="Datos De Software", sequence="1")
 	public String getNumeroDeSerie() {
 		return numeroDeSerie;
