@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -250,8 +251,8 @@ public class SolicitudServicioTecnico {
 		parametros.put("direccionDeLaInstitucion",establecimiento.getDireccion());
 		parametros.put("telefono",establecimiento.getTelefono());
 		parametros.put("Email",establecimiento.getEmail());
-		//TODO formatear la fecha de nacimiento
-		parametros.put("fechaDeNacimiento", this.getPersona().getFechaNacimiento());
+		SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MMM/yyyy/");
+		parametros.put("fechaDeNacimiento", formatofecha.format(this.getPersona().getFechaNacimiento()));
 		JRBeanArrayDataSource jrDataSource= new JRBeanArrayDataSource(obj);
 		File file = new File("reportes/solicitudAsistenciaTecnica.jrxml");
 		InputStream input = new FileInputStream(file);
