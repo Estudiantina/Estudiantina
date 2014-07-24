@@ -79,7 +79,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	@Named("Numero De Serie")final String numeroDeSerie,
 	@Named("Numero De Licencia de Windows")final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
-	@MaxLength(12)@MinLength(12)@RegEx(validation = "[A-Fa-f0-9 ]+") @Named("Direccion Mac")final String direccionMac,
+	@MaxLength(17)@RegEx(validation = "[A-Fa-f0-9 ]+") @Named("Direccion Mac")final String direccionMac,
 	@Named("Estado de la Netbook")final SituacionDeNetbook estadoNetbook)
 
 	{
@@ -135,11 +135,18 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 		Date fechahoy = new Date();
 		if(fechahoy.equals(fechaDeExpiracion)||fechahoy.after(fechaDeExpiracion))
 		{
-			return "debe ingresar una fecha de expiracion correcta";
+			return "debe ingresar una fecha de expiracion correcta no puede expirar el dia de hoy";
 		}
 		else
 		{
-		return null;
+			if (direccionMac.length()!=17)
+			{
+				return "la direccion mac debe tener 17 caracteres";
+			}
+			else
+			{
+		         return null;
+			}
 		}
 	}
 	
