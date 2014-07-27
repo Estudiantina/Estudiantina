@@ -39,9 +39,6 @@ import repo.Netbook.RepositorioNetbook;
 
 
 @javax.jdo.annotations.PersistenceCapable()
-@javax.jdo.annotations.Version(
-        strategy=VersionStrategy.VERSION_NUMBER, 
-        column="version")
 @ObjectType("NETBOOK")
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorId", language = "JDOQL", value = "SELECT FROM dom.Netbook.Netbook WHERE idNetbook== :idNetbook"),
 @Query(name="traerlikePorId", language="JDOQL", value = "SELECT FROM dom.Netbook.Netbook WHERE idNetbook.startsWith(:idNetbook) range 0, 4"),
@@ -61,7 +58,6 @@ public class Netbook {
 	private String direccionMac;
 	private String situacionDeNetbook;
 	private SituacionDeNetbook estadoNetbook;
-	
 	private String numeroDeActaDeRobo;
 	
 
