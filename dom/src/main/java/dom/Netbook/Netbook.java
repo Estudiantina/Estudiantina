@@ -89,7 +89,7 @@ public class Netbook {
 	}
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="false",length=50)
+	@javax.jdo.annotations.Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software", sequence="1")
 	public String getNumeroDeSerie() {
 		return numeroDeSerie;
@@ -102,16 +102,9 @@ public class Netbook {
 	@PublishedAction // para que muestre la accion en la lista de objetos
 	@Named("eliminar netbook")
 	public List<Netbook> eliminar() {
-		//if (confirmar==true)
-		//{
         container.removeIfNotAlready(this);
         container.informUser("las netbook selecionadas fueron eliminadas");
-		/*}
-		else
-		{
-			container.informUser("se ha cancelado la eliminacion");	
-		}*/
-        // invalid to return 'this' (cannot render a deleted object)
+
         return this.traerTodas(); 
     }
 	
