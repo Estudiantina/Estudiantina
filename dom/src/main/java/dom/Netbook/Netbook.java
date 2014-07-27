@@ -60,7 +60,7 @@ public class Netbook {
 	private Date fechaDeExpiracion;
 	private String direccionMac;
 	private String situacionDeNetbook;
-	private SituacionDeNetbook estado;
+	private SituacionDeNetbook estadoNetbook;
 	
 	private String numeroDeActaDeRobo;
 	
@@ -149,7 +149,6 @@ public class Netbook {
 	}
 	
 	
-	
 	@Unique
 	@javax.jdo.annotations.Column(allowsNull="false",length=10)
     @Title(sequence="1")
@@ -166,10 +165,10 @@ public class Netbook {
 	@javax.jdo.annotations.Column(allowsNull="false",length=10)
 	@MemberOrder(name="Informacion General",sequence="2")
 	public SituacionDeNetbook getEstadoNetbook() {
-		return estado;
+		return estadoNetbook;
 	}
 	public void setEstadoNetbook(SituacionDeNetbook estadoNetbook) {
-		this.estado = estadoNetbook;
+		this.estadoNetbook = estadoNetbook;
 	}
 
 
@@ -186,7 +185,7 @@ public class Netbook {
 	
      public boolean hideNumeroDeActaDeRobo() {
 		
-		if (estado.equals(SituacionDeNetbook.ROBADA))
+		if (estadoNetbook.equals(SituacionDeNetbook.ROBADA))
 		{
 		 return false;
 		}
