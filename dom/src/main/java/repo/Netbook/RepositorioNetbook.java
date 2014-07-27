@@ -74,7 +74,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      * @return 
      */
 	public Netbook ingresarNetbook(
-	@Named("id de Netbook")final String idNetbook,
+	@Named("id de Netbook")@MaxLength(10)final String idNetbook,
 	@Named("Modelo")final ModeloNetbook modelo,
 	@Named("Numero De Serie")final String numeroDeSerie,
 	@Named("Numero De Licencia de Windows")final String numeroLicenciaWindows,

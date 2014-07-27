@@ -38,7 +38,7 @@ import repo.Netbook.RepositorioNetbook;
 
 
 
-@javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
+@javax.jdo.annotations.PersistenceCapable()
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
@@ -70,7 +70,7 @@ public class Netbook {
         return "netbook";
     }
     
-	@javax.jdo.annotations.Column(allowsNull="false",length=12)
+	@javax.jdo.annotations.Column(allowsNull="false",length=17)
 	@MemberOrder(name="Informacion De Hardware", sequence="1")
     public String getDireccionMac() {
 		return direccionMac;
@@ -149,10 +149,11 @@ public class Netbook {
 	}
 	
 	
-	@PrimaryKey
+	
 	@Unique
 	@javax.jdo.annotations.Column(allowsNull="false",length=10)
     @Title(sequence="1")
+	@MaxLength(10)
     @MemberOrder(name="Informacion General",sequence="1")
 	public String getIdNetbook() {
 		return idNetbook;
