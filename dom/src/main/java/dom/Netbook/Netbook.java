@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
@@ -155,9 +156,9 @@ public class Netbook {
 	}
 	
 	
-	
+	@PrimaryKey
 	@Unique
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="false",length=10)
     @Title(sequence="1")
     @MemberOrder(name="Informacion General",sequence="1")
 	public String getIdNetbook() {
