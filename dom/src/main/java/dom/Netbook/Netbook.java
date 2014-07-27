@@ -118,7 +118,7 @@ public class Netbook {
     }
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software",sequence="2")
 	public String getNumeroLicenciaWindows() {
 		return numeroLicenciaWindows;
@@ -140,7 +140,7 @@ public class Netbook {
 	
 	
 	@MemberOrder(name="Informacion General",sequence="2")
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="false",length=10)
 	public String getSituacionDeNetbook() {
 		return situacionDeNetbook;
 	}
@@ -162,7 +162,7 @@ public class Netbook {
 	}
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="false",length=10)
 	@MemberOrder(name="Informacion General",sequence="2")
 	public SituacionDeNetbook getEstadoNetbook() {
 		return estado;
@@ -173,7 +173,7 @@ public class Netbook {
 
 
 	@Optional
-	@javax.jdo.annotations.Column(allowsNull="true")
+	@javax.jdo.annotations.Column(allowsNull="true",length=30)
 	@MemberOrder(name="Informacion General",sequence="4")
 	public String getNumeroDeActaDeRobo() {
 		return numeroDeActaDeRobo;
