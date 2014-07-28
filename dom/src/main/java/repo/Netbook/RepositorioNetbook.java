@@ -76,8 +76,8 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	public Netbook ingresarNetbook(
 	@Named("id de Netbook")@MaxLength(10)final String idNetbook,
 	@Named("Modelo")final ModeloNetbook modelo,
-	@Named("Numero De Serie")final String numeroDeSerie,
-	@Named("Numero De Licencia de Windows")final String numeroLicenciaWindows,
+	@Named("Numero De Serie")@MaxLength(30)final String numeroDeSerie,
+	@Named("Numero De Licencia de Windows")@MaxLength(30)final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
 	@MaxLength(17)@RegEx(validation = "[A-Fa-f0-9 ]+") @Named("Direccion Mac")final String direccionMac,
 	@Named("Estado de la Netbook")final SituacionDeNetbook estadoNetbook)
