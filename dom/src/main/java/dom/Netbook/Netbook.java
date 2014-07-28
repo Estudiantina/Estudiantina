@@ -4,18 +4,14 @@ package dom.Netbook;
 import java.util.Date;
 import java.util.List;
 
-import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
-import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
-import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberGroupLayout;
 import org.apache.isis.applib.annotation.MemberOrder;
@@ -23,11 +19,8 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.PublishedAction;
-import org.apache.isis.applib.services.eventbus.EventBusService;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.Title;
-import org.apache.isis.applib.annotation.When;
-import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
 
 

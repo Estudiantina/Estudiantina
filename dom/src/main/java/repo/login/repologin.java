@@ -9,9 +9,6 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Password;
-
-
-import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
 import dom.login.Login;
 @Named("Administracion De Cuentas")
