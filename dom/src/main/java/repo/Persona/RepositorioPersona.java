@@ -136,6 +136,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tecnico.setCuil(cuil);
 		tecnico.setDomicilio(domicilio);
 		tecnico.setEmail(email);
+		tecnico.setFechaNacimiento(fechaNacimiento);
 		tecnico.setEstablecimiento(establecimiento);
 		tecnico.setNombre(nombre);
 		tecnico.setTelefinoFijo(telefinoFijo);

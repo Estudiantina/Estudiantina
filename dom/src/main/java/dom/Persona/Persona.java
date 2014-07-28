@@ -72,7 +72,8 @@ public class Persona implements IntegranteDeLaInstitucion{
 	 * @return String nombre de icono
 	 */
 	public String iconName() {
-        return "alumno";
+        
+		return "alumno";
     }
 
 	public String title()
