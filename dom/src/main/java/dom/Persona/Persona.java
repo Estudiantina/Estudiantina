@@ -5,12 +5,17 @@ import java.util.Date;
 import java.util.List;
 
 import javax.inject.Named;
+import javax.jdo.annotations.Discriminator;
+import javax.jdo.annotations.DiscriminatorStrategy;
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Unique;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
+import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 
 import repo.Persona.RepositorioPersona;
@@ -23,13 +28,14 @@ import dom.Netbook.Netbook;
  */
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
-
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona"),
 	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona WHERE cuil== :cuil")	
 })
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @Bookmarkable
+@ObjectType("Persona")
 public class Persona implements IntegranteDeLaInstitucion{
 
 	private Long cuil;

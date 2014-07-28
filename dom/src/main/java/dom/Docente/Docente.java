@@ -1,5 +1,6 @@
 package dom.Docente;
-
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.InheritanceStrategy;
 import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
@@ -16,6 +17,7 @@ import repo.Persona.RepositorioPersona;
 import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
