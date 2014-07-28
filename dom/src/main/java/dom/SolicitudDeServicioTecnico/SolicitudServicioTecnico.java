@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 
 
@@ -35,9 +36,13 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Bookmarkable;
+import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.MultiLine;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.Programmatic;
+import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
@@ -294,7 +299,21 @@ public class SolicitudServicioTecnico {
 	}
 	
 
+	@Bulk //para que ejecute la accion en una lista masiva de objetos
+	@PublishedAction // para que muestre la accion en la lista de objetos
+	@Named("eliminar Solicitud")
+	public List<SolicitudServicioTecnico> eliminar() {
+        container.removeIfNotAlready(this);
+        container.informUser("las Solicitudes selecionadas fueron eliminadas");
 
+        return this.traerTodas(); 
+    }
+    @Programmatic
+    public List<SolicitudServicioTecnico> traerTodas() {
+        return container.allMatches(
+            new QueryDefault<SolicitudServicioTecnico>(SolicitudServicioTecnico.class, 
+                    "traerPorPrioridad"));
+    }
 
 	@javax.inject.Inject 
     DomainObjectContainer container;
