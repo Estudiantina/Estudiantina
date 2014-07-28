@@ -1,6 +1,7 @@
 package dom.login;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
 
@@ -37,6 +38,7 @@ public String getUsuario() {
 public void setUsuario(String usuario) {
 	this.usuario = usuario;
 }
+
 @javax.jdo.annotations.Column(allowsNull="False")
 public Password getPassword() {
 	return password;

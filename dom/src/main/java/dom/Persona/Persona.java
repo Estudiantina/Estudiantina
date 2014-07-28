@@ -15,8 +15,12 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
+import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.Programmatic;
+import org.apache.isis.applib.annotation.PublishedAction;
+import org.apache.isis.applib.query.QueryDefault;
 
 import repo.Persona.RepositorioPersona;
 import dom.Establecimiento.Establecimiento;
@@ -138,6 +142,22 @@ public class Persona implements IntegranteDeLaInstitucion{
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	
+	
+	@Bulk //para que ejecute la accion en una lista masiva de objetos
+	@PublishedAction // para que muestre la accion en la lista de objetos
+	@Named("eliminar netbook")
+	public List<Persona> eliminar() {
+        container.removeIfNotAlready(this);
+        container.informUser("las personas selecionadas fueron eliminadas");
+
+        return this.traerTodas(); 
+    }
+    @Programmatic
+    public List<Persona> traerTodas() {
+        return container.allMatches(
+            new QueryDefault<Persona>(Persona.class, 
+                    "traerPersonas"));
+    }
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
