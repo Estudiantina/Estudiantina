@@ -147,6 +147,17 @@
             <scope>test</scope>
 		</dependency>
 
+		<!--dependencias necesarias para ver los mapas  -->
+		<dependency>
+        <groupId>com.danhaywood.isis.wicket</groupId>
+        <artifactId>danhaywood-isis-wicket-gmap3-applib</artifactId>
+    	</dependency>
+    	
+		<dependency>
+        <groupId>com.danhaywood.isis.wicket</groupId>
+        <artifactId>danhaywood-isis-wicket-gmap3-service</artifactId>
+    	</dependency>
+		    
         <!-- Bytecode libraries (for mocking) -->
         <dependency>
             <groupId>asm</groupId>

@@ -5,22 +5,29 @@ import java.util.Date;
 import java.util.List;
 
 import javax.inject.Named;
-import javax.jdo.annotations.Discriminator;
-import javax.jdo.annotations.DiscriminatorStrategy;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+import javax.jdo.annotations.Persistent;
+
 import javax.jdo.annotations.Unique;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.MemberGroupLayout;
+import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.query.QueryDefault;
+import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
+import com.danhaywood.isis.wicket.gmap3.applib.Location;
+import com.danhaywood.isis.wicket.gmap3.service.LocationLookupService;
 
 import repo.Persona.RepositorioPersona;
 import dom.Establecimiento.Establecimiento;
@@ -40,7 +47,7 @@ import dom.Netbook.Netbook;
 @Audited
 @Bookmarkable
 @ObjectType("Persona")
-public class Persona implements IntegranteDeLaInstitucion{
+public class Persona implements IntegranteDeLaInstitucion,Locatable{
 
 	private Long cuil;
 	private String nombre;
@@ -52,12 +59,26 @@ public class Persona implements IntegranteDeLaInstitucion{
 	private Date fechaNacimiento;
 	private List<Netbook> netbook= new ArrayList<Netbook>();
 	private Establecimiento establecimiento;
+	
+	@Persistent
+	private Location location;
+    @Hidden
+	@Optional
+    public Location getLocation() {
+        return location;
+    }
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+    
+    
 	public List<Netbook> getNetbook() {
 		return netbook;
 	}
 	public void setNetbook(List<Netbook> netbook) {
 		this.netbook = netbook;
 	}
+
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
@@ -133,6 +154,8 @@ public class Persona implements IntegranteDeLaInstitucion{
 		return domicilio;
 	}
 	public void setDomicilio(String domicilio) {
+		LocationLookupService loc = new LocationLookupService();
+		setLocation(loc.lookup(domicilio));
 		this.domicilio = domicilio;
 	}
 	public Date getFechaNacimiento() {

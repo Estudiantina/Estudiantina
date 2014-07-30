@@ -249,7 +249,12 @@
             </exclusion>
           </exclusions>
         </dependency>
-
+        <!-- dependencias de mapas  -->
+        <dependency>
+        <groupId>com.danhaywood.isis.wicket</groupId>
+        <artifactId>danhaywood-isis-wicket-gmap3-ui</artifactId>
+    	</dependency>
+    	
     </dependencies>
 
 </project>

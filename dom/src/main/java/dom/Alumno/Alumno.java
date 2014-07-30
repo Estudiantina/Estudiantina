@@ -4,12 +4,20 @@ package dom.Alumno;
 import java.util.Date;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.VersionStrategy;
-
+import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
+import com.danhaywood.isis.wicket.gmap3.applib.Location;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Optional;
+
+import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
+import com.danhaywood.isis.wicket.gmap3.applib.Location;
+
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 
@@ -31,7 +39,7 @@ import dom.Persona.Persona;
 
 
 @ObjectType("ALUMNO")
-public class Alumno extends Persona{
+public class Alumno extends Persona implements Locatable{
 	
 	/**
 	 * metodo que indica el titulo en el viewer
@@ -80,7 +88,16 @@ public class Alumno extends Persona{
 	
 	private EstadoDeAlumno estadoDeAlumno;
 	private Nacionalidad nacionalidad;
-	
+	@Persistent
+	private Location location;
+    @Optional
+    @MemberOrder(name="Datos De Localizacion", sequence = "10")
+    public Location getLocation() {
+        return location;
+    }
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 	
 	
 	
