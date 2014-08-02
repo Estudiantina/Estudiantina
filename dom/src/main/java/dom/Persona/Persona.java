@@ -181,6 +181,25 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
             new QueryDefault<Persona>(Persona.class, 
                     "traerPersonas"));
     }
+    
+
+    /**
+     * esta funcion es para reasignar netbook, por lo cual debera buscar la net 
+     * para eliminar de la lista y luego asiganar una nueva
+     * @param net
+     * @return netbook
+     */
+    
+    
+	@Bulk //para que ejecute la accion en una lista masiva de objetos
+	@PublishedAction // para que muestre la accion en la lista de objetos
+	@Named("Reasignar Netbook")
+	public Persona reasignarNetbook(Netbook  net) {
+			this.netbook.remove(net);   
+			return this;
+		}
+
+    
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
