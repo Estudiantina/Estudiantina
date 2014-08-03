@@ -79,6 +79,9 @@ public class SolicitudServicioTecnico {
 	private String codigoSolicitud;
 	private String numeroTiquetRegistro;
 	private String comentario;
+	private EstadoDeSolicitud estadoDeSolicitud;
+	
+	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Persona getPersona() {
@@ -314,6 +317,20 @@ public class SolicitudServicioTecnico {
             new QueryDefault<SolicitudServicioTecnico>(SolicitudServicioTecnico.class, 
                     "traerPorPrioridad"));
     }
+
+    /**
+     * Este atributo es para asignar un estado a la netbook que se va a reparar
+     * @return EstadoDeSolicitud
+     */
+    
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public EstadoDeSolicitud getEstadoDeSolicitud() {
+		return estadoDeSolicitud;
+	}
+
+	public void setEstadoDeSolicitud(EstadoDeSolicitud estadoDeSolicitud) {
+		this.estadoDeSolicitud = estadoDeSolicitud;
+	}
 
 	@javax.inject.Inject 
     DomainObjectContainer container;

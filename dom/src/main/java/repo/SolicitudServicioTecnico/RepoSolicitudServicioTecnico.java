@@ -2,15 +2,17 @@ package repo.SolicitudServicioTecnico;
 
 import java.util.Date;
 import java.util.List;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
+
 import dom.Netbook.Netbook;
 import dom.Persona.Persona;
-
+import dom.SolicitudDeServicioTecnico.EstadoDeSolicitud;
 import dom.SolicitudDeServicioTecnico.Prioridad;
 import dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico;
 
@@ -35,7 +37,8 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			@Named("prioridad")Prioridad prioridad,
 			@Named("Codigo de Solicitud")String codigoSolicitud,
 			@Named("Numero de Tiquet de Registro")String numeroTiquetRegistro,
-			@Named("Comentario")@Optional @MultiLine String comentario)
+			@Named("Comentario")@Optional @MultiLine String comentario,
+            @Named("Estado de solicitud") final EstadoDeSolicitud estadoDeSolicitud)
 	{
 		final SolicitudServicioTecnico servicioTecnico = container.newTransientInstance(SolicitudServicioTecnico.class);
 	    
@@ -49,6 +52,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	    servicioTecnico.setPrioridad(prioridad);
 	    servicioTecnico.setSolucion("");
 	    servicioTecnico.setNumeroTiquetRegistro(numeroTiquetRegistro);
+	    servicioTecnico.setEstadoDeSolicitud(estadoDeSolicitud);
 	    
 	    container.persistIfNotAlready(servicioTecnico);
 		return servicioTecnico;	
