@@ -1,13 +1,19 @@
 package dom.login;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
 
+
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.value.Password;
+import org.bouncycastle.util.encoders.Hex;
 
 import dom.Persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
@@ -19,7 +25,7 @@ import dom.Persona.Persona;
 @ObjectType("Login")
 public class Login {
 private String usuario;
-private Password password;
+private String password;
 private Persona persona;
 @Unique
 @javax.jdo.annotations.Column(allowsNull="False")
@@ -40,12 +46,21 @@ public void setUsuario(String usuario) {
 }
 
 @javax.jdo.annotations.Column(allowsNull="False")
-public Password getPassword() {
-	return password;
-}
-
-public void setPassword(Password password) {
-	this.password = password;
+public void setPassword(String password){
+	MessageDigest md = null;
+	try {
+		md = MessageDigest.getInstance("SHA-256");
+	} catch (NoSuchAlgorithmException e) {
+		e.printStackTrace();
+	}
+	try {
+		md.update(password.getBytes("UTF-8"));
+	} catch (UnsupportedEncodingException e) {
+		e.printStackTrace();
+	}
+	byte[] digest = md.digest();
+	
+	this.password = new String(Hex.encode(digest));	
 }
 
 }
