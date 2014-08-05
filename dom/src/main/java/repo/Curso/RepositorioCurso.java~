@@ -13,7 +13,7 @@ import dom.Curso.Curso;
 import dom.Curso.Turno;
 
 
-@Named("Cursos")
+@Named("Administrar Curso")
 public class RepositorioCurso extends AbstractFactoryAndRepository{
 	
 	public String getId() {
