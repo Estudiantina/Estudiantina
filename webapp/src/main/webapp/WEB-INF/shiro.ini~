@@ -1,0 +1,99 @@
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+
+[main]
+
+
+sha256Matcher = org.apache.shiro.authc.credential.Sha256CredentialsMatcher
+iniRealm.credentialsMatcher = $sha256Matcher
+
+ds = org.postgresql.ds.PGPoolingDataSource
+ds.serverName = localhost
+# 0 is the default port
+ds.databaseName = isis
+ds.user = isis
+ds.password = isis
+
+# Next, configure Shiro to use that to extract credentials
+jdbcRealm = org.apache.shiro.realm.jdbc.JdbcRealm
+jdbcRealm.dataSource = $ds
+jdbcRealm.permissionsLookupEnabled = true
+jdbcRealm.authenticationQuery = SELECT password FROM "Usuario" WHERE nombre = ?
+jdbcRealm.userRolesQuery = select a.nombre from "Rol" a, "Usuario" b where a."Rol_ID"=b."rol_Rol_ID_OID" and b.nombre= ?
+jdbcRealm.permissionsQuery = SELECT permiso FROM "Permiso" WHERE "listaPermiso_Rol_ID_OID" = (SELECT "Rol_ID" FROM "Rol" WHERE nombre = ?)
+
+# optional mapping from physical groups to logical application roles
+#ldapRealm.rolesByGroup = \
+#    LDN_USERS: user_role,\
+#    NYK_USERS: user_role,\
+#    HKG_USERS: user_role,\
+#    GLOBAL_ADMIN: admin_role,\
+#    DEMOS: self-install_role
+
+ldapRealm.permissionsByRole=\
+   user_role = *:ToDoItemsJdo:*:*,\
+               *:ToDoItem:*:*; \
+   self-install_role = *:ToDoItemsFixturesService:install:* ; \
+   admin_role = *
+
+# to use ldap...
+# (see docs for details of how to setup users/groups in Apache Directory Studio).
+#securityManager.realms = $ldapRealm
+
+# to use .ini file
+securityManager.realms = $iniRealm
+
+
+
+# -----------------------------------------------------------------------------
+# Users and their assigned roles
+#
+# Each line conforms to the format defined in the
+# org.apache.shiro.realm.text.TextConfigurationRealm#setUserDefinitions JavaDoc
+# -----------------------------------------------------------------------------
+
+[users]
+# user = password, role1, role2, role3, ...
+
+
+tecnico = 2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b, usuario_administrador
+alumno = 2bb80d537b1da3e38bd30361aa855686bde0eacd7162fef6a25fe97bf527a25b, usuario_alumno
+
+
+
+# -----------------------------------------------------------------------------
+# Roles with assigned permissions
+# 
+# Each line conforms to the format defined in the
+# org.apache.shiro.realm.text.TextConfigurationRealm#setRoleDefinitions JavaDoc
+# -----------------------------------------------------------------------------
+
+[roles]
+# role = perm1, perm2, perm3, ...
+# perm in format: packageName:className:memberName:r,w
+
+
+
+usuario_alumno = dom.Netbook:Netbook:*:*,\
+                 dom.Persona:*:*:*,\
+                 dom.Alumno:*:*:*,\
+                 dom.Establecimiento:Establecimiento:*:*,\
+                 repo.Persona:RepositorioPersona:listarPersonas:*,\
+				 repo.SolicitudServicioTecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*
+usuario_administrador = *
