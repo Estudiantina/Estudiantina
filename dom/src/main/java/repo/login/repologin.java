@@ -11,6 +11,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Password;
 import dom.Persona.Persona;
 import dom.login.Login;
+import dom.login.Rol;
 @Named("Cuentas")
 public class repologin extends AbstractFactoryAndRepository {	
 	public String iconName()
@@ -27,6 +28,21 @@ public class repologin extends AbstractFactoryAndRepository {
 		container.persistIfNotAlready(login);
 		return login;
 	}
+	
+	@Named("dar de alta a un rol")
+	public Rol altaRol (@Named("usuario")String rol)
+	{
+		final Rol mirol = container.newTransientInstance(Rol.class);
+		mirol.setRol(rol);
+		container.persistIfNotAlready(mirol);
+		return mirol;
+	}
+	@Named("listar Roles")
+	public List<Rol> verRoles ()
+	{
+		return allMatches(QueryDefault.create(Rol.class, "TraerRoles"));
+	}
+	
 	
 	
 	public List<Login> modificarUsuario(@Named("usuario")String usuario)
