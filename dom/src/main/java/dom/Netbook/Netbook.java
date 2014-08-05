@@ -151,7 +151,7 @@ public class Netbook {
 	}
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="false",length=10)
+	@javax.jdo.annotations.Column(allowsNull="false",length=20)
 	@MemberOrder(name="Informacion General",sequence="2")
 	public SituacionDeNetbook getEstadoNetbook() {
 		return estadoNetbook;
