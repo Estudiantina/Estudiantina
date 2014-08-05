@@ -10,7 +10,7 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 import dom.Establecimiento.Establecimiento;
 
-@Named("Administrar Establecimientos")
+@Named("Establecimientos")
 public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 	
 	public String getId() {
