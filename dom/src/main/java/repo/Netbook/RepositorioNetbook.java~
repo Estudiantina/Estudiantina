@@ -20,7 +20,7 @@ import dom.Netbook.Netbook;
 import dom.Netbook.SituacionDeNetbook;
 
 
-@Named("Netbook")
+@Named("Administrar Netbook")
 public class RepositorioNetbook extends AbstractFactoryAndRepository {
 
 
