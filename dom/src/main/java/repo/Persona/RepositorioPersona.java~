@@ -209,6 +209,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setNombre(nombre);
 		docente.setTelefinoFijo(telefinoFijo);
 		docente.setTelefonoCelular(telefonoCelular);
+                docente.setCargo(cargo);
 		container.persistIfNotAlready(docente);
 	
 	

@@ -21,7 +21,7 @@ import dom.Persona.Persona;
 import dom.Tecnico.Tecnico;
 
 
-@Named("Administrar Personas")
+@Named("Personas")
 public class RepositorioPersona extends AbstractFactoryAndRepository {
 
 	
