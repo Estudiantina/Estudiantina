@@ -117,7 +117,7 @@ public class Netbook {
 	}
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="true")
 	@Optional
 	@MemberOrder(name="Informacion General",sequence="3")
 	public Date getFechaDeExpiracion() {
