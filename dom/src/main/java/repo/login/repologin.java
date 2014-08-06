@@ -43,14 +43,34 @@ public class repologin extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Rol.class, "TraerRoles"));
 	}
 	
+	@Named("listar Usuarios")
+	public List<Login> verUsuarios ()
+	{
+		return allMatches(QueryDefault.create(Login.class, "todasLasCuentas"));
+	}
 	
-	
+	/**
+	 * metodo que busca un usuario
+	 * para que lo pueda modificar 
+	 * @param usuario
+	 * @return
+	 */
 	public List<Login> modificarUsuario(@Named("usuario")String usuario)
 	{
 		return allMatches(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",usuario));
 		
 	}
 	
+	/**TODO en vez de traer todos los roles corregir para que traiga solo por un rol
+	 *  
+	 * @param searchPhrase
+	 * @return
+	 */
+	@Named("Buscar Rol")
+    public List<Rol> autoCompletarRol(@Named("Ingrese Rol")String searchPhrase) {        
+    	
+		return allMatches(QueryDefault.create(Rol.class, "TraerRoles"));
+    }
 	
 	
 	@javax.inject.Inject 

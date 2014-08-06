@@ -6,14 +6,13 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.Persistent;
+
 import javax.jdo.annotations.Unique;
-import javax.jdo.annotations.VersionStrategy;
 
 
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
-import org.apache.isis.applib.value.Password;
 import org.bouncycastle.util.encoders.Hex;
 
 import dom.Persona.Persona;
@@ -64,7 +63,8 @@ public void setPassword(String password){
 
 	private Rol rol;
 
-	@Column(allowsNull = "false")
+	@Column(allowsNull = "true")
+	@Optional
 	public Rol getRol() {
 		return rol;
 	}
@@ -74,6 +74,7 @@ public void setPassword(String password){
 	}
 
 
+	
 
 
 }
