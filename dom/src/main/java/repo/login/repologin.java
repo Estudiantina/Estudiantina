@@ -37,12 +37,20 @@ public class repologin extends AbstractFactoryAndRepository {
 		container.persistIfNotAlready(mirol);
 		return mirol;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	@Named("listar Roles")
 	public List<Rol> verRoles ()
 	{
 		return allMatches(QueryDefault.create(Rol.class, "TraerRoles"));
 	}
-	
+	/**
+	 * muestra una lista de todos los usuarios 
+	 * de usuarios 
+	 * @return
+	 */
 	@Named("listar Usuarios")
 	public List<Login> verUsuarios ()
 	{

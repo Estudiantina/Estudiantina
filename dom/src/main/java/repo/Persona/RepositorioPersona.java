@@ -19,6 +19,7 @@ import dom.Docente.Docente;
 import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
 import dom.Tecnico.Tecnico;
+import dom.login.Login;
 
 
 @Named("Personas")
@@ -43,6 +44,14 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
         return allMatches(QueryDefault.create(Persona.class, "traerPersonas"));
     }
 	
+    @Named("Ver Mis Datos")
+    public Persona VerMisDatos() {
+    	Login log =firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",container.getUser().getName()));
+    	return log.getPersona();
+    }
+    
+    
+    
 	/**
 	 * Se realiza la carga de los alumnos, con todos sus atributos.
 	 * 
