@@ -22,6 +22,7 @@ import dom.Persona.Persona;
 @ObjectType("Login")
 public class Login {
 private String usuario;
+@SuppressWarnings("unused")
 private String password;
 private Persona persona;
 @Unique
