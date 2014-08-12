@@ -107,6 +107,7 @@ public class SolicitudServicioTecnico {
 
 	
 	
+	
 	@Title
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getMotivoDeSolicitud() {

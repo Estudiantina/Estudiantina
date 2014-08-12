@@ -8,6 +8,8 @@ import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
+import org.apache.isis.applib.value.Password;
+
 import dom.Persona.Persona;
 import dom.login.Login;
 import dom.login.Rol;
@@ -18,12 +20,12 @@ public class repologin extends AbstractFactoryAndRepository {
 		return "seguridad";	
 	}
 	@Named("dar de alta a un usuario")
-	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")String password,@Named("Persona")Persona persona)
+	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")Password password,@Named("Persona")Persona persona)
 	{
 		final Login login = container.newTransientInstance(Login.class);
 		login.setPersona(persona);
 		login.setUsuario(usuario);
-		login.setPassword(password);
+		login.setPassword(password.getPassword());
 		container.persistIfNotAlready(login);
 		return login;
 	}
