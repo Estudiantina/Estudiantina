@@ -52,7 +52,6 @@ public class Netbook {
 	private String situacionDeNetbook;
 	private SituacionDeNetbook estadoNetbook;
 	private String numeroDeActaDeRobo;
-	private String historialDeReparaciones;
 
 	
     public String iconName() {
@@ -185,18 +184,6 @@ public class Netbook {
 		return true;
 		}
      }
-     
-	@MemberOrder(name="Informacion General",sequence="2")
-	@javax.jdo.annotations.Column(allowsNull="true",length=30)
-	public String getHistorialDeReparaciones() {
-		return historialDeReparaciones;
-	}
-	public void setHistorialDeReparaciones(String historialDeReparaciones) {
-		this.historialDeReparaciones = historialDeReparaciones;
-	}
-	
-
-
     
 
 
