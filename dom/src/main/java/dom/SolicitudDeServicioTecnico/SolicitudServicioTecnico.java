@@ -66,7 +66,11 @@ import dom.Persona.Persona;
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
-
+@javax.jdo.annotations.Uniques({
+    @javax.jdo.annotations.Unique(
+            name="SolicitudServicioTecnico_Campos_unicos", 
+            members={"codigoSolicitud","numeroTiquetRegistro"})
+})
 @ObjectType("SERVICIOTECNICO")
 @Bookmarkable
 public class SolicitudServicioTecnico {
