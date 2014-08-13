@@ -40,9 +40,13 @@ import repo.Netbook.RepositorioNetbook;
 @Audited
 @MemberGroupLayout(columnSpans={3,3,0,6}, left={"Informacion De Hardware","Datos De Software"},middle={"Informacion General"} )
 @Bookmarkable
+@javax.jdo.annotations.Uniques({
+    @javax.jdo.annotations.Unique(
+            name="Netbook_Campos_unicos", 
+            members={"numeroDeSerie","idNetbook","numeroLicenciaWindows"})
+})
 
 public class Netbook {
-	
 	
 	private String idNetbook;
 	private ModeloNetbook modelo; //TODO reemplazar por marca desde dominio
