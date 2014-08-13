@@ -41,6 +41,13 @@ import dom.Netbook.Netbook;
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona"),
 	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona WHERE cuil== :cuil")	
 })
+
+@javax.jdo.annotations.Uniques({
+    @javax.jdo.annotations.Unique(
+            name="Persona_Campos_Unicos", 
+            members={"cuil","telefonoCelular","telefino","email"})
+})
+
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @Bookmarkable
