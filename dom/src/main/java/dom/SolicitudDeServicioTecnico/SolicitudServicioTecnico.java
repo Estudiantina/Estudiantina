@@ -47,10 +47,13 @@ import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
 
+import servicio.email.Email;
 
 
 
 
+
+import dom.Email.CuentaMail;
 import dom.Establecimiento.Establecimiento;
 import dom.Netbook.Netbook;
 import dom.Persona.Persona;
@@ -302,6 +305,23 @@ public class SolicitudServicioTecnico {
 		return blob;
 		
 	}
+	@Named("Avisar Netbook Reparada")
+	public SolicitudServicioTecnico AvisarPorMailQueEstaLista()
+	{
+		String mensaje ="Hola "+this.getPersona().getNombre()+" "+this.getPersona().getApellido()+"\n";
+		mensaje += "\n Nos Comunicamos para informale que";
+		mensaje += "\n ya se finalizo la reparacion de la Netbook";
+		mensaje += "\n el motivo por el cual se habia pedido la reparacion es: \n"+this.comentario+"\n \n";
+		mensaje += "\n esperamos que se acerque a nuestro establecimiento \n";
+		
+		final CuentaMail mimail = container.firstMatch(QueryDefault.create(CuentaMail.class, "traerTodo"));
+		Email.enviarEmail(mimail,mimail.getUsuario(), this.getPersona().getEmail(), "informe de netbook Reparada -("+this.motivoDeSolicitud+")", mensaje);
+	    container.informUser("Se Ha enviado un email avisando que la Netbook fue Reparada");
+		
+		return this;
+	}
+	
+	
 	
 
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
