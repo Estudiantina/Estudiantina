@@ -19,6 +19,11 @@ import dom.Persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "buscarPorUsuario", language = "JDOQL", value = "SELECT FROM dom.Login.Login WHERE usuario== :usuario"),
 	@javax.jdo.annotations.Query(name = "todasLasCuentas", language = "JDOQL", value = "SELECT FROM dom.Login.Login")})
+@javax.jdo.annotations.Uniques({
+    @javax.jdo.annotations.Unique(
+            name="Login_Campos_unicos", 
+            members={"usuario","password"})
+})
 @ObjectType("Login")
 public class Login {
 private String usuario;
