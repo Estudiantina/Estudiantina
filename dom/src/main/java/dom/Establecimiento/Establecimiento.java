@@ -18,7 +18,7 @@ import repo.Establecimiento.RepositorioEstablecimiento;
         column="version")
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento WHERE nombre== :nombre"),
 	@Query(name="traerTodos", language="JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento ") ,
-			@Query(name="traerlikePorNombre", language="JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento WHERE nombre.startsWith(:nombre) range 0, 4"),
+			@Query(name="traerlikePorNombre", language="JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento WHERE nombre.indexOf(:nombre) >= 0 range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento ")})
 @AutoComplete(repository = RepositorioEstablecimiento.class, action = "autoComplete")
 @Audited
