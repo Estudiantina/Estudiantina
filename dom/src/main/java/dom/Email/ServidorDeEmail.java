@@ -16,6 +16,12 @@ import repo.login.repologin;
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Email.ServidorDeEmail ")})
 @AutoComplete(repository = repologin.class, action = "autoCompletarServidorMail")
 @Named("Servidor De Email")
+@javax.jdo.annotations.Uniques({
+    @javax.jdo.annotations.Unique(
+            name="Servidor_Campos_unicos", 
+            members={"host","nombreServer"})
+})
+
 public class ServidorDeEmail {
 
 	private String nombreServer;

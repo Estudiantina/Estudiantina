@@ -22,7 +22,7 @@ import repo.login.repologin;
 
 @javax.jdo.annotations.Uniques({
     @javax.jdo.annotations.Unique(
-            name="Email_Campos_Mail", 
+            name="Email_Campos_unicos", 
             members={"nombreCuenta","usuario","clave"})
 })
 

@@ -40,6 +40,7 @@ import repo.Netbook.RepositorioNetbook;
 @Audited
 @MemberGroupLayout(columnSpans={3,3,0,6}, left={"Informacion De Hardware","Datos De Software"},middle={"Informacion General"} )
 @Bookmarkable
+
 public class Netbook {
 	
 	
