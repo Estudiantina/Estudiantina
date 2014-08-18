@@ -10,6 +10,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 
+import dom.HistorialReparaciones.HistorialReparaciones;
 import dom.Netbook.Netbook;
 import dom.Persona.Persona;
 import dom.SolicitudDeServicioTecnico.EstadoDeSolicitud;
@@ -27,18 +28,17 @@ public class RepoHistorialReparaciones extends AbstractFactoryAndRepository {
         return "asistenciatecnica";
     }
 	
-    public SolicitudServicioTecnico solicitarServicioTecnico(
+    public HistorialReparaciones solicitarHistorialReparaciones(
 			@Named("Persona")final Persona persona ,
 			
 			@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")String motivoDeSolicitud,
 			@Named("fecha de solicitud")Date fechaDeSolicitud,
 			@Optional@Named("fecha de solucion")Date fechaDeSolucion,
-			@Named("prioridad")Prioridad prioridad,
 			@Named("Codigo de Solicitud")String codigoSolicitud,
 			@Named("Numero de Tiquet de Registro")String numeroTiquetRegistro,
-			@Named("Comentario")@Optional @MultiLine String comentario,
-            @Named("Estado de solicitud") final EstadoDeSolicitud estadoDeSolicitud)
+			@Named("Comentario")@Optional @MultiLine String comentario
+			)
 	{
 		final SolicitudServicioTecnico servicioTecnico = container.newTransientInstance(SolicitudServicioTecnico.class);
 	    
@@ -49,10 +49,8 @@ public class RepoHistorialReparaciones extends AbstractFactoryAndRepository {
 	    servicioTecnico.setFechaDeSolicitud(fechaDeSolicitud);
 	    servicioTecnico.setFechaDeSolucion(fechaDeSolucion);
 	    servicioTecnico.setMotivoDeSolicitud(motivoDeSolicitud);
-	    servicioTecnico.setPrioridad(prioridad);
 	    servicioTecnico.setSolucion("");
 	    servicioTecnico.setNumeroTiquetRegistro(numeroTiquetRegistro);
-	    servicioTecnico.setEstadoDeSolicitud(estadoDeSolicitud);
 	    
 	    container.persistIfNotAlready(servicioTecnico);
 		return servicioTecnico;	
