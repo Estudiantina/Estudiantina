@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoComodato" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c773cb5-3261-4506-b1f7-bf1e4b7413e0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="director" class="java.lang.String"/>
+	<parameter name="dniDirector" class="java.lang.String"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="54" y="18" width="463" height="37" uuid="9e3e4e9a-f00c-474c-9c27-e333f34cc404"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTRATO DE COMODATO ESCUELA SECUNDARIA / INSTITUTO DE
+FORMACION DOCENTE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="568">
+			<staticText>
+				<reportElement x="13" y="22" width="527" height="546" uuid="dbf5068e-0766-4eab-89cd-49033733ef34"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el
+Sr./a:………………………………………..,DNI Nº…….…….….., en su
+carácter de Director/a/Rector/a de la Escuela/Instituto
+………..……………....……..,Nº……...,Distrito Escolar:………………de la
+Ciudad de……………….……….........…Provincia de………………….…. con
+domicilio en ………………..…..………..,en adelante “EL COMODANTE” y
+por la otra la/el Señora/Señor………. ……..…………..DNI
+………….……,con domicilio en la calle ………………...……………….piso…..,
+dpto….…,de la ciudad..…….…..…………………………….……,Provincia
+de…….…………..…… ; por sí, como mayor de edad o menor emancipado,
+o en su carácter de madre/padre/tutora/tutor/representante legal
+de…………..…..…DNl……………,alumna/o del curso……., división..……,
+turno…..., del establecimiento educativo……….……….……………, sito en la
+calle ………….…………….., N° …., de la ciudad de ……………….…
+provincia de………………, en adelante “EL COMODATARIO”, ambos
+mayores de edad y hábiles para este acto, convienen en celebrar el presente
+CONTRATO DE COMODATO, sujeto a las siguientes cláusulas y
+condiciones:
+PRIMERA: EL COMODANTE da en COMODATO al COMODATARIO, y
+éste acepta, una laptop educativa Marca……………. Modelo………...
+Numero de Serie………………………….. .
+SEGUNDA: EL COMODATARIO destinará la laptop que recibe en
+COMODATO a fines educativos en su carácter de estudiante y para el uso
+de su grupo familiar, en el marco del PROGRAMA CONECTAR
+IGUALDAD.COM.AR, procurando familiarizar a todo integrante de su hogar
+con las nuevas tecnologías. La entrega del equipamiento implica única y
+exclusivamente la facultad de uso sobre el mismo, el que deberá realizarse
+conforme a su destino. ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="54" y="36" width="100" height="14" uuid="dc8ec345-d0c4-4b1a-84ee-abe5f1362068"/>
+				<textFieldExpression><![CDATA[$P{director}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="36" width="100" height="20" uuid="5ea89445-5dc5-40b8-b408-7407354a5702"/>
+				<textFieldExpression><![CDATA[$P{dniDirector}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50"/>
+	</pageFooter>
+</jasperReport>
