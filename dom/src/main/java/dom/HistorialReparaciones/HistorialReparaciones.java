@@ -109,10 +109,6 @@ public class HistorialReparaciones {
 		this.netbook = netbook;
 	}
 	
-
-	
-	
-	
 	@Title
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getMotivoDeSolicitud() {
@@ -120,13 +116,9 @@ public class HistorialReparaciones {
 	}
 
 
-
-
-
 	public void setMotivoDeSolicitud(String motivoDeSolicitud) {
 		this.motivoDeSolicitud = motivoDeSolicitud;
 	}
-
 
 
 
@@ -226,15 +218,9 @@ public class HistorialReparaciones {
 	}
 
     
-    /**
-     * TODO ImprimirReporte
-     * archivo incompleto para imprimir
-     * el metodo funciona pero esta hardcodeado
-     * @return Reporte a imprimir
-     * @throws JRException 
-     * @throws FileNotFoundException 
-     */
-	public Blob imprimir() throws JRException, FileNotFoundException
+	/* ToDo adecuar a este reporte
+	 * public Blob imprimir() throws JRException, FileNotFoundException
+	 
 	{
 		Object[] obj= new Object[1];
 		obj[0]="";
@@ -290,7 +276,7 @@ public class HistorialReparaciones {
 			
 		return blob;
 		
-	}
+	}*/
 	/*@Named("Avisar Netbook Reparada")
 	public HistorialReparaciones AvisarPorMailQueEstaLista()
 	{
