@@ -254,9 +254,8 @@ public class SolicitudServicioTecnico {
      */
 	public Blob imprimir() throws JRException, FileNotFoundException
 	{
-		Object[] obj= new Object[1];
-		obj[0]="";
-		HashMap< String,Object> parametros = new HashMap<String, Object>();
+		
+		HashMap<String,Object> parametros = new HashMap<String, Object>();
 		parametros.put("motivoSolicitud", this.getMotivoDeSolicitud());
 		parametros.put("numeroSerieNetbook", this.getNetbook().getNumeroDeSerie());
 		parametros.put("apellidoYnombre", this.getPersona().getApellido()+" "+this.getPersona().getNombre());
@@ -269,44 +268,9 @@ public class SolicitudServicioTecnico {
 		parametros.put("telefono",establecimiento.getTelefono());
 		parametros.put("Email",establecimiento.getEmail());
 		SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MMM/yyyy/");
-		parametros.put("fechaDeNacimiento", formatofecha.format(this.getPersona().getFechaNacimiento()));
-		JRBeanArrayDataSource jrDataSource= new JRBeanArrayDataSource(obj);
-		File file = new File("reportes/solicitudAsistenciaTecnica.jrxml");
-		InputStream input = new FileInputStream(file);
-		JasperDesign jd = JRXmlLoader.load(input);
-		JasperReport reporte = JasperCompileManager.compileReport(jd);
-		JasperPrint print = JasperFillManager.fillReport(reporte, parametros,jrDataSource);
+		parametros.put("fechaDeNacimiento", formatofecha.format(this.getPersona().getFechaNacimiento()));		
 		
-		JRExporter exporter = new JRPdfExporter();
-		exporter.setParameter(JRExporterParameter.JASPER_PRINT,print); 
-		exporter.setParameter(JRExporterParameter.OUTPUT_FILE,new java.io.File("/tmp/solicitudAsistenciaTecnica.pdf"));
-		exporter.exportReport();
-		
-		
-        
-		File resume = new File("/tmp/solicitudAsistenciaTecnica.pdf");
-		if (!(resume.exists()))
-		{
-		try {
-			resume.createNewFile();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-		
-		}
-		byte[] fileContent = new byte[(int) resume.length()];
-		try {
-		    FileInputStream fileInputStream = new FileInputStream(resume);
-		         
-		    fileInputStream.read(fileContent);
-		    fileInputStream.close();
-		} catch (Exception e) {
-		    e.printStackTrace();
-		}	
-		Blob blob= new Blob("solicitudAsistenciaTecnica.pdf","application/pdf",fileContent);
-			
-		return blob;
+		return servicio.Reporte.GeneradorReporte.generarReporte("reportes/solicitudAsistenciaTecnica.jrxml", parametros, "Solicitud");
 		
 	}
 	@Named("Avisar Netbook Reparada")
