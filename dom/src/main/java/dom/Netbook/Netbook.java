@@ -1,11 +1,16 @@
 package dom.Netbook;
 
 
+import java.io.FileNotFoundException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
+
+import net.sf.jasperreports.engine.JRException;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
@@ -27,6 +32,10 @@ import org.apache.isis.applib.query.QueryDefault;
 
 
 
+import org.apache.isis.applib.value.Blob;
+
+import dom.Establecimiento.Establecimiento;
+import dom.Persona.Persona;
 import repo.Netbook.RepositorioNetbook;
 
 
@@ -48,6 +57,8 @@ import repo.Netbook.RepositorioNetbook;
 
 public class Netbook {
 	
+	
+
 	private String idNetbook;
 	private ModeloNetbook modelo; //TODO reemplazar por marca desde dominio
 	private String numeroDeSerie;
@@ -57,13 +68,20 @@ public class Netbook {
 	private String situacionDeNetbook;
 	private SituacionDeNetbook estadoNetbook;
 	private String numeroDeActaDeRobo;
+	
+	// Persona persona = new Persona();
+	
 
 	
     public String iconName() {
         return "netbook";
     }
     
-	@javax.jdo.annotations.Column(allowsNull="false",length=17)
+	
+    
+
+    
+    @javax.jdo.annotations.Column(allowsNull="false",length=17)
 	@MemberOrder(name="Informacion De Hardware", sequence="1")
     public String getDireccionMac() {
 		return direccionMac;
@@ -177,6 +195,12 @@ public class Netbook {
 		this.numeroDeActaDeRobo = numeroDeActaDeRobo;
 	}
 	
+	/**
+	 * cuando selecciona el estado robado 
+	 * se agrega la opcion para agregar nro de acta de robo y datos
+	 * @return
+	 */
+	
      public boolean hideNumeroDeActaDeRobo() {
 		
 		if (estadoNetbook.equals(SituacionDeNetbook.ROBADA))
@@ -190,6 +214,43 @@ public class Netbook {
 		}
      }
     
+   /**
+    * al seleccionar al estado de migracion se activa 
+    * la opcion de imprimir acta de migracion
+    * @return
+    */
+     public boolean hideImprimirActaMigracion() {
+ 		
+ 		if (estadoNetbook.equals(SituacionDeNetbook.MIGRADA))
+ 		{
+ 		 return false;
+ 		}
+ 		else
+ 		{
+ 		
+ 		return true;
+ 		}
+      }
+     
+     /**
+      * TODO ImprimirReporte
+      * archivo incompleto para imprimir
+      * el metodo esta incompleto solo para prueba
+      * @return Reporte a imprimir
+      * @throws JRException 
+      * @throws FileNotFoundException 
+      */
+     
+    public Blob imprimirActaMigracion() throws JRException, FileNotFoundException
+ 	{
+ 		
+ 		HashMap<String,Object> parametros = new HashMap<String, Object>();
+ 		parametros.put("nombreDirector",  this.getDireccionMac() );
+ 		
+ 		return servicio.Reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
+ 		
+ 	}
+     
 
 
 	@javax.inject.Inject
