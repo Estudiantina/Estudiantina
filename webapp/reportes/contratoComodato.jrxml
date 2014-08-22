@@ -5,10 +5,17 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="director" class="java.lang.String"/>
 	<parameter name="dniDirector" class="java.lang.String"/>
+	<parameter name="establecimiento" class="java.lang.String"/>
+	<parameter name="numeroEstablecimiento" class="java.lang.String"/>
+	<parameter name="ciudad" class="java.lang.String"/>
+	<parameter name="provincia" class="java.lang.String"/>
+	<parameter name="domicilio" class="java.lang.String"/>
+	<parameter name="distritoEscolar" class="java.lang.String"/>
+	<parameter name="parameter1" class="java.lang.String"/>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="54" y="18" width="463" height="37" uuid="9e3e4e9a-f00c-474c-9c27-e333f34cc404"/>
+				<reportElement x="36" y="19" width="463" height="37" uuid="9e3e4e9a-f00c-474c-9c27-e333f34cc404"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
@@ -18,9 +25,9 @@ FORMACION DOCENTE]]></text>
 		</band>
 	</title>
 	<detail>
-		<band height="568">
+		<band height="432">
 			<staticText>
-				<reportElement x="13" y="22" width="527" height="546" uuid="dbf5068e-0766-4eab-89cd-49033733ef34"/>
+				<reportElement x="14" y="22" width="527" height="398" uuid="dbf5068e-0766-4eab-89cd-49033733ef34"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -51,7 +58,9 @@ de su grupo familiar, en el marco del PROGRAMA CONECTAR
 IGUALDAD.COM.AR, procurando familiarizar a todo integrante de su hogar
 con las nuevas tecnologías. La entrega del equipamiento implica única y
 exclusivamente la facultad de uso sobre el mismo, el que deberá realizarse
-conforme a su destino. ]]></text>
+conforme a su destino.
+
+]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="54" y="36" width="100" height="14" uuid="dc8ec345-d0c4-4b1a-84ee-abe5f1362068"/>
@@ -61,9 +70,33 @@ conforme a su destino. ]]></text>
 				<reportElement x="284" y="36" width="100" height="20" uuid="5ea89445-5dc5-40b8-b408-7407354a5702"/>
 				<textFieldExpression><![CDATA[$P{dniDirector}]]></textFieldExpression>
 			</textField>
+			<break>
+				<reportElement x="0" y="429" width="100" height="1" uuid="1550ce08-d428-4ae0-a374-3dc306e2016d"/>
+			</break>
+			<textField>
+				<reportElement x="14" y="63" width="113" height="16" uuid="77c9fad3-fe72-4d3d-aa18-7f809d1528d5"/>
+				<textFieldExpression><![CDATA[$P{establecimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="63" width="49" height="20" uuid="9486c568-c76f-4cf0-8bac-ca123c81808e"/>
+				<textFieldExpression><![CDATA[$P{numeroEstablecimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="85" y="77" width="100" height="20" uuid="40d06309-91ef-4ba3-b107-aff909664687"/>
+				<textFieldExpression><![CDATA[$P{ciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="64" width="100" height="20" uuid="02640f87-5454-43de-b07a-c11f1a0e89e4"/>
+				<textFieldExpression><![CDATA[$P{distritoEscolar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="78" width="100" height="20" uuid="69b0e9c3-bd81-4e46-b899-afcec42af131"/>
+				<textFieldExpression><![CDATA[$P{provincia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="91" width="133" height="20" uuid="d9aafb7d-9516-4605-a082-b8d3c90b8c42"/>
+				<textFieldExpression><![CDATA[$P{domicilio}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
-	<pageFooter>
-		<band height="50"/>
-	</pageFooter>
 </jasperReport>

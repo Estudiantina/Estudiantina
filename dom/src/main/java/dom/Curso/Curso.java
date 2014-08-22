@@ -10,6 +10,8 @@ import org.apache.isis.applib.annotation.AutoComplete;
 
 import org.apache.isis.applib.annotation.ObjectType;
 
+import dom.Establecimiento.Establecimiento;
+
 
 import repo.Curso.RepositorioCurso;
 
@@ -34,8 +36,17 @@ public class Curso {
 	//TODO separar año y division
 	private int cicloLectivo;
 	private Turno turno;
+	private Establecimiento establecimiento;
 	
-	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public Establecimiento getEstablecimiento() {
+		return establecimiento;
+	}
+
+	public void setEstablecimiento(Establecimiento establecimiento) {
+		this.establecimiento = establecimiento;
+	}
+
 	public String iconName() {
         return "curso";
     }

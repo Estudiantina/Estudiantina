@@ -11,6 +11,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.Curso.Curso;
 import dom.Curso.Turno;
+import dom.Establecimiento.Establecimiento;
 
 
 @Named("Cursos")
@@ -29,9 +30,11 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 	 * @return lista de los Curso
 	 */
 	public Curso ingresarCurso (
+			@Named("Establecimiento")final Establecimiento establecimiento,
 			@Named("AÑO y division")final String anoYdivision,
 			@Named("ciclo lectivo")final int cicloLectivo,
 			@Named("Turno")final Turno turno
+			
 			)
 	{
 		
@@ -39,7 +42,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		curso.setAnoYdivision(anoYdivision); 
 		curso.setCicloLectivo(cicloLectivo);
 		curso.setTurno(turno);
-		
+		curso.setEstablecimiento(establecimiento);
 		container.persistIfNotAlready(curso);
 		
 		return curso;
