@@ -2,6 +2,7 @@ package dom.Alumno;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Persistent;
@@ -17,13 +18,14 @@ import org.apache.isis.applib.annotation.Optional;
 
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
-
+import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 
 
 
 import repo.Persona.RepositorioPersona;
+import dom.Curso.Curso;
 import dom.Persona.Persona;
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -79,10 +81,22 @@ public class Alumno extends Persona implements Locatable{
 	   }
 	    	
 	    	
-	   
+    private List<Curso> cursos;
+    
 	   
 	
-	
+
+
+    @Column(allowsNull="true")
+    @Optional
+	public List<Curso> getCursos() {
+		return cursos;
+	}
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
+	}
+
+
 	private Date fechaIngreso;
 	
 	
