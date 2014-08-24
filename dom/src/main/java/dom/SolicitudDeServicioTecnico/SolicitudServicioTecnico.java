@@ -60,7 +60,9 @@ import dom.Persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL",
           value = "SELECT FROM repo.Netbook.SolicitudServicioTecnico"),
-	@Query(name="taerTipoDeSoluciones", language="JDOQL", 
+	@Query(name="traerHistorial", language="JDOQL",
+	value = "SELECT FROM dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico WHERE netbook == :netbookBusqueda"),
+          @Query(name="taerTipoDeSoluciones", language="JDOQL", 
 	      value = "SELECT FROM dom.SolicitudDeServicioTecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 range 0, 5")})
 
 @javax.jdo.annotations.Version(

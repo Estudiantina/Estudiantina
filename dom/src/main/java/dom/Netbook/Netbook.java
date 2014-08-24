@@ -43,7 +43,7 @@ import repo.Netbook.RepositorioNetbook;
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorId", language = "JDOQL", value = "SELECT FROM dom.Netbook.Netbook WHERE idNetbook== :idNetbook"),
-@Query(name="traerlikePorId", language="JDOQL", value = "SELECT FROM dom.Netbook.Netbook WHERE idNetbook.startsWith(:idNetbook) range 0, 4"),
+@Query(name="traerlikePorId", language="JDOQL", value = "SELECT FROM dom.Netbook.Netbook WHERE idNetbook.indexOf(:idNetbook) >=0 range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Netbook.Netbook ")})
 @AutoComplete(repository = RepositorioNetbook.class, action = "autoComplete")
 @Audited

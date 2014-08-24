@@ -62,6 +62,11 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
         return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerPorPrioridad"));
     }
 	
+	@Named("Historial de Reparaciones")
+	public List<SolicitudServicioTecnico> verHistorialReparaciones(Netbook netbook) {
+	
+		return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerHistorial", "netbookBusqueda", netbook));
+	}
 	
 	/**
 	 * metodo que trae todas las reparaciones
