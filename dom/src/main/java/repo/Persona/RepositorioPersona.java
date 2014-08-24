@@ -1,10 +1,12 @@
 package repo.Persona;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
@@ -49,6 +51,10 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     	Login log =firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",container.getUser().getName()));
     	return log.getPersona();
     }
+    
+    
+
+    
     
     
     

@@ -18,6 +18,7 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.NotPersisted;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Programmatic;
@@ -64,7 +65,18 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	private Date fechaNacimiento;
 	private List<Netbook> netbook= new ArrayList<Netbook>();
 	private Establecimiento establecimiento;
-	
+	/**
+	 * propiedad necesaria para 
+	 * ver la geolocalizacion geografica de una persona
+	 */
+	public List<Persona> localizacion;
+	@NotPersisted	
+	public List<Persona> getLocalizacion() {
+		List<Persona> persona = new ArrayList<Persona>();
+		persona.add(this);
+		return persona;
+	}
+
 	@Persistent
 	private Location location;
     @Hidden
@@ -204,6 +216,13 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 			return this;
 		}
 
+    /**
+     * metodo para geolocalizar
+     * persona.
+     * @return
+     */
+    
+    
     
 	@javax.inject.Inject 
     DomainObjectContainer container;
