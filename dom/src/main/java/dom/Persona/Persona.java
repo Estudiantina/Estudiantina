@@ -68,6 +68,8 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	/**
 	 * propiedad necesaria para 
 	 * ver la geolocalizacion geografica de una persona
+	 * no persiste en la base de datos
+	 * solo es utilizada en el Viewer
 	 */
 	public List<Persona> localizacion;
 	@NotPersisted	
@@ -77,6 +79,12 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 		return persona;
 	}
 
+	/**
+	 * propiedad necesaria para 
+	 * ver la geolocalizacion geografica de una o varias 
+	 * personas
+	 * Se persiste en la base de datos
+	 */
 	@Persistent
 	private Location location;
     @Hidden
@@ -118,11 +126,25 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 		return "alumno";
     }
 
+	/**
+	 * titulo que se muestra en el objeto de la persona
+	 * @return nombre y apellido de la persona
+	 */
 	public String title()
 	{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 		
 	}
+	
+	/**
+	 * Metodo toString SobreEscrito
+	 * @return nombre y apellido de la persona
+	 */
+	public String toString()
+	{
+		return this.getNombre().toString()+" "+this.getApellido().toString();
+	}
+	
 	@Named("añadir netbook")
 	public Persona anadirNetbook(Netbook netbook)
 	{
