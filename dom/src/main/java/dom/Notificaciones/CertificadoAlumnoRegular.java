@@ -13,6 +13,6 @@ public class CertificadoAlumnoRegular extends Notificaciones{
 
 	public String title()
 	{
-		return this.getPersona().toString()+" "+this.getPersona().toString();
+		return "Pedido Certificado -"+this.getPersona().toString();
 	}
 }

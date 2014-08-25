@@ -17,7 +17,7 @@ import dom.Notificaciones.Notificaciones;
 import dom.login.Login;
 
 
-@Named("Notificaciones")
+@Named("Solicitudes")
 public class RepoNotificaciones extends AbstractFactoryAndRepository {
 
 	
@@ -56,10 +56,13 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 	}
 
 
-	@Named("Notificaciones actuales")
-	public List<Notificaciones> verNotificaciones(LocalDate fechaAnterior,LocalDate fechaPosterior)
+	@Named("Notificaciones de Hoy")
+	public List<Notificaciones> verNotificaciones()
 	{	
-			
+		LocalDate fechaAnterior = LocalDate.now().minusDays(2); 
+ 
+		LocalDate fechaPosterior = LocalDate.now().minusDays(-1);
+		
 		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesEntreFechas","fechaAnterior",fechaAnterior,"fechaPosterior",fechaPosterior));
 		
 	}
