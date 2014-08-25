@@ -171,7 +171,13 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet));
     }
 	
-    
+    /**
+     * Metodo que se encarga encarga de Notificar
+     * Que se esta Solicitando una Netbook Prestada
+     * Por algun Motivo
+     * @param motivo motivo justificatorio para prestar netbook
+     * @return Solicitud realizada
+     */
 	public String solicitarNetbookPrestada(@Named("motivo")String motivo)
 	{
 		final SolicitudNetbookPrestada solicitud = container.newTransientInstance(SolicitudNetbookPrestada.class);

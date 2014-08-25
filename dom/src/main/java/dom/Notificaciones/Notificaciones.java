@@ -30,7 +30,14 @@ public class Notificaciones {
 	
 
     public String iconName() {
-        return "notificacionVista";
+        if (vista==false)
+        {
+    	return "notificacionVista";
+        }
+        else
+        {
+        return "notificacionAceptada";	
+        }
     }
     
     @Column(allowsNull="false")
