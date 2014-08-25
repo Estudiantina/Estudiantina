@@ -11,6 +11,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
+import org.joda.time.LocalDate;
 
 
 
@@ -18,6 +19,9 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
 import dom.Netbook.SituacionDeNetbook;
+import dom.Notificaciones.SolicitudNetbookPrestada;
+import dom.Persona.Persona;
+import dom.login.Login;
 
 
 @Named("Netbook")
@@ -168,6 +172,19 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     }
 	
     
+	public String solicitarNetbookPrestada(@Named("motivo")String motivo)
+	{
+		final SolicitudNetbookPrestada solicitud = container.newTransientInstance(SolicitudNetbookPrestada.class);
+		solicitud.setDetallesYobservaciones(motivo);
+		solicitud.setFechaNotificacion(LocalDate.now());
+		Login login = container.firstMatch(QueryDefault.create(Login.class,"buscarPorUsuario","usuario",container.getUser().getName())) ;
+		solicitud.setPersona(login.getPersona());
+		container.persistIfNotAlready(solicitud);
+		container.informUser("La Solicitud ha sido realizada");
+		return "Solicitud realizada";
+	}
+	
+	
 	
 	
 	
