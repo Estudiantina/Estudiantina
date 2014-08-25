@@ -10,14 +10,15 @@ import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.value.Date;
+import org.joda.time.LocalDate;
 
 import dom.Persona.Persona;
 import javax.jdo.annotations.Column;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerNotificaciones", language = "JDOQL", value = "SELECT FROM dom.Notificaciones.Notificaciones"),
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerNotificaciones", language = "JDOQL", value = "SELECT FROM dom.Notificaciones.Notificaciones ORDER BY vista ASCENDING"),
 	@javax.jdo.annotations.Query(name = "traerNotificacionesNoLeidas", language = "JDOQL", value = "SELECT FROM dom.Notificaciones.Notificaciones WHERE vista == false"),
-	@javax.jdo.annotations.Query(name = "traerNotificacionesEntreFechas", language = "JDOQL", value = "SELECT FROM dom.Notificaciones.Notificaciones WHERE fechaNotificacion.dateValue().after(:fechaAnterior) ||  fechaNotificacion.dateValue().before(:fechaPosterior) PARAMETERS Date fechaAnterior, Date fechaPosterior import org.apache.isis.applib.value.Date ")
+	@javax.jdo.annotations.Query(name = "traerNotificacionesEntreFechas", language = "JDOQL", value = "SELECT FROM dom.Notificaciones.Notificaciones WHERE this.fechaNotificacion >= :fechaAnterior &&  this.fechaNotificacion <= :fechaPosterior ORDER BY vista ASCENDING ")
 })
 
 @Bookmarkable
@@ -25,7 +26,7 @@ import javax.jdo.annotations.Column;
 public class Notificaciones {
 
 	private boolean vista;
-	private Date fechaNotificacion;
+	private LocalDate fechaNotificacion;
     private Persona persona;
     private String detallesYobservaciones;
 	
@@ -54,11 +55,11 @@ public class Notificaciones {
 	}
 	@Column(allowsNull="false")
 	@Persistent
-	public Date getFechaNotificacion() {
+	public LocalDate getFechaNotificacion() {
 		return fechaNotificacion;
 	}
 
-	public void setFechaNotificacion(Date fechaNotificacion) {
+	public void setFechaNotificacion(LocalDate fechaNotificacion) {
 		this.fechaNotificacion = fechaNotificacion;
 	}
 	@Column(allowsNull="false")

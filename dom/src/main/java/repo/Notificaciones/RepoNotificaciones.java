@@ -10,6 +10,7 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Date;
 import org.apache.isis.applib.annotation.Named;
+import org.joda.time.LocalDate;
 
 import dom.Notificaciones.CertificadoAlumnoRegular;
 import dom.Notificaciones.Notificaciones;
@@ -30,7 +31,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		certificadoAlumnoRegular.setDetallesYobservaciones(detalles);	
 		String usuarioActual = container.getUser().getName();
 		Login login = firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",usuarioActual));
-		Date fecha = new Date();
+		LocalDate fecha = new LocalDate();
 		certificadoAlumnoRegular.setFechaNotificacion(fecha);
 		certificadoAlumnoRegular.setPersona(login.getPersona());
 		certificadoAlumnoRegular.setVista(false);//la notificacion todavia no esta vista
@@ -55,6 +56,13 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 	}
 
 
+	@Named("Notificaciones actuales")
+	public List<Notificaciones> verNotificaciones(LocalDate fechaAnterior,LocalDate fechaPosterior)
+	{	
+			
+		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesEntreFechas","fechaAnterior",fechaAnterior,"fechaPosterior",fechaPosterior));
+		
+	}
 
 	@javax.inject.Inject 
     DomainObjectContainer container;
