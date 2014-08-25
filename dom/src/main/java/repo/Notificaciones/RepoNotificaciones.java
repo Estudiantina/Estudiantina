@@ -2,14 +2,14 @@ package repo.Notificaciones;
 
 import java.util.List;
 
-import javax.inject.Named;
+
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
-import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Date;
+import org.apache.isis.applib.annotation.Named;
 
 import dom.Notificaciones.CertificadoAlumnoRegular;
 import dom.Notificaciones.Notificaciones;
