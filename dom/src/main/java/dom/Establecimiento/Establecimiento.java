@@ -55,6 +55,10 @@ public class Establecimiento {
 
 
 	
+	public String toString()
+	{
+		return nombre;		
+	}
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")

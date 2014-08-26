@@ -2,6 +2,7 @@ package dom.Curso;
 
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
@@ -23,13 +24,12 @@ import repo.Curso.RepositorioCurso;
 
 @javax.jdo.annotations.DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY)
 @javax.jdo.annotations.Queries({
-	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Curso.Curso")})
+	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Curso.Curso"),
+	@javax.jdo.annotations.Query(name = "traerCursoPorlikeAnio", language = "JDOQL", value = "SELECT FROM dom.Curso.Curso WHERE anoYdivision.indexOf(:anoYdivision) >=0 range 0, 4")
+	})
 @ObjectType("CURSO")
-
 @AutoComplete(repository =  RepositorioCurso.class, action = "autoComplete")
 @Audited
-
-
 public class Curso {
 	
 	private String anoYdivision;
@@ -51,11 +51,13 @@ public class Curso {
         return "curso";
     }
 	
+	@Unique
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public String getAnoYdivision() {
 		return anoYdivision;
 	}
 
+	
 
 	public void setAnoYdivision(String anoYdivision) {
 		this.anoYdivision = anoYdivision;
@@ -74,7 +76,7 @@ public class Curso {
 
 	public String title()
 	{
-		return anoYdivision+" "+turno.toString();
+		return anoYdivision+" "+cicloLectivo;
 	}
 	
 	
@@ -86,6 +88,7 @@ public class Curso {
 	public void setTurno(Turno turno) {
 		this.turno = turno;
 	}
+	
 	
   private DomainObjectContainer container;
 

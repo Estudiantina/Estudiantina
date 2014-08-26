@@ -86,7 +86,7 @@ public class Alumno extends Persona implements Locatable{
 	   
 	
 
-
+    
     @Column(allowsNull="true")
     @Optional
 	public List<Curso> getCursos() {
@@ -96,6 +96,12 @@ public class Alumno extends Persona implements Locatable{
 		this.cursos = cursos;
 	}
 
+	
+	public Alumno agregarCurso(Curso curso)
+	{
+		this.cursos.add(curso);
+		return this;
+	}
 
 	private Date fechaIngreso;
 	

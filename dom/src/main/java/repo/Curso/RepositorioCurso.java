@@ -12,6 +12,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.Curso.Curso;
 import dom.Curso.Turno;
 import dom.Establecimiento.Establecimiento;
+import dom.Netbook.Netbook;
 
 
 @Named("Cursos")
@@ -48,7 +49,17 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		return curso;
 		
 	}
-	
+	/**
+	 * autocompletar campos de Cursos
+	 * @param busqueda parametro de busqueda de cursos por 
+	 * año Y division del curso 
+	 * @return lista de cursos
+	 */
+	public List<Curso> autoComplete(String busqueda)
+	{
+		return allMatches(QueryDefault.create(Curso.class, "traerCursoPorlikeAnio","anoYdivision",busqueda));
+		
+	}
 	/**
 	 * muestra una lista de todos las Cursos que existen
 	 * @return lista de Netbooks
