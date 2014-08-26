@@ -23,6 +23,7 @@ import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
@@ -30,6 +31,7 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
 
@@ -79,6 +81,7 @@ public class SolicitudServicioTecnico {
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@Hidden(where = Where.ALL_TABLES)
 	public Persona getPersona() {
 		return persona;
 	}
@@ -112,14 +115,14 @@ public class SolicitudServicioTecnico {
 
 
 
-
+	
 	public void setMotivoDeSolicitud(String motivoDeSolicitud) {
 		this.motivoDeSolicitud = motivoDeSolicitud;
 	}
 
 
 
-
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Date getFechaDeSolicitud() {
 		return fechaDeSolicitud;
@@ -138,6 +141,7 @@ public class SolicitudServicioTecnico {
     @Optional
 	@javax.jdo.annotations.Column(allowsNull="true")
     @MultiLine
+    @Hidden(where = Where.ALL_TABLES)
 	public String getSolucion() {
 		return solucion;
 	}
@@ -152,7 +156,7 @@ public class SolicitudServicioTecnico {
 
 
 
-
+	@Hidden(where = Where.ALL_TABLES)
     @javax.jdo.annotations.Column(allowsNull="true")
     @Optional
 	public Date getFechaDeSolucion() {
@@ -169,7 +173,7 @@ public class SolicitudServicioTecnico {
 
 
 
-
+	@Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Prioridad getPrioridad() {
 		return prioridad;
@@ -185,7 +189,7 @@ public class SolicitudServicioTecnico {
 
 
 
-
+	@Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getCodigoSolicitud() {
 		return codigoSolicitud;
@@ -201,7 +205,7 @@ public class SolicitudServicioTecnico {
 
 
 
-
+    @Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getNumeroTiquetRegistro() {
 		return numeroTiquetRegistro;
@@ -216,7 +220,7 @@ public class SolicitudServicioTecnico {
 	}
 
 
-
+	@Hidden(where = Where.ALL_TABLES)
     @MultiLine
     @javax.jdo.annotations.Column(allowsNull="true")
 	public String getComentario() {

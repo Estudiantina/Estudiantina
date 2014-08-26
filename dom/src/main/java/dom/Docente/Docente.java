@@ -4,14 +4,11 @@ import javax.jdo.annotations.InheritanceStrategy;
 import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.VersionStrategy;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
-
 import repo.Persona.RepositorioPersona;
 
 import dom.Establecimiento.Establecimiento;

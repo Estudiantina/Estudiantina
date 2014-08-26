@@ -3,8 +3,6 @@ package dom.Establecimiento;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
-import javax.jdo.annotations.VersionStrategy;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
@@ -13,9 +11,6 @@ import repo.Establecimiento.RepositorioEstablecimiento;
 
 
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
-@javax.jdo.annotations.Version(
-        strategy=VersionStrategy.VERSION_NUMBER, 
-        column="version")
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento WHERE nombre== :nombre"),
 	@Query(name="traerTodos", language="JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento ") ,
 			@Query(name="traerlikePorNombre", language="JDOQL", value = "SELECT FROM dom.Establecimiento.Establecimiento WHERE nombre.indexOf(:nombre) >= 0 range 0, 4"),

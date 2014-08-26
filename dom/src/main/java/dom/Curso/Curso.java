@@ -1,27 +1,34 @@
 package dom.Curso;
 
 
-import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.Unique;
-import javax.jdo.annotations.VersionStrategy;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
+import javax.inject.Named;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Join;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.Unique;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Render;
 
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Render.Type;
 
+import dom.Alumno.Alumno;
 import dom.Establecimiento.Establecimiento;
+import dom.Netbook.Netbook;
+import dom.Persona.Persona;
 
 
 import repo.Curso.RepositorioCurso;
 
 
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
-@javax.jdo.annotations.Version(
-        strategy=VersionStrategy.VERSION_NUMBER, 
-        column = "version")
-
 @javax.jdo.annotations.DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY)
 @javax.jdo.annotations.Queries({
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Curso.Curso"),
@@ -37,7 +44,20 @@ public class Curso {
 	private int cicloLectivo;
 	private Turno turno;
 	private Establecimiento establecimiento;
-	
+	private List<Alumno> listaAlumnos = new ArrayList<Alumno>();;
+	/*
+	@Persistent
+	@Render(Type.EAGERLY)
+	@Join
+	public List<Alumno> getListaAlumnos() {
+		return listaAlumnos;
+	}
+
+	public void setListaAlumnos(List<Alumno> listaAlumnos) {
+		this.listaAlumnos = listaAlumnos;
+	}*/
+
+
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Establecimiento getEstablecimiento() {
 		return establecimiento;

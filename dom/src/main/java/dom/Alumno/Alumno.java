@@ -1,10 +1,15 @@
 package dom.Alumno;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.VersionStrategy;
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
@@ -13,6 +18,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Render;
@@ -31,9 +37,6 @@ import dom.Curso.Curso;
 import dom.Persona.Persona;
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
-@javax.jdo.annotations.Version(
-        strategy=VersionStrategy.VERSION_NUMBER, 
-        column="version")
 //TODO hacer consulta traerPorcuil 
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno WHERE cuil== :cuil"),
 	@javax.jdo.annotations.Query(name = "traerTodoAlumno", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno")})
@@ -82,16 +85,15 @@ public class Alumno extends Persona implements Locatable{
 		return "alumno";
 	   }
 	    	
-	    	
-    private List<Curso> cursos;
+	/*@javax.jdo.annotations.Persistent(mappedBy="anoYdivision")*/
+	@Persistent
+    private List<Curso> cursos = new ArrayList<Curso>();;
     
 	   
 	
 
-    
-    @Column(allowsNull="true")
-    @Optional
     @Render(Type.EAGERLY)
+    @Join
 	public List<Curso> getCursos() {
 		return cursos;
 	}
@@ -100,9 +102,11 @@ public class Alumno extends Persona implements Locatable{
 	}
 
 	
-	public Alumno agregarCurso(Curso curso)
+	public Alumno agregarCurso(@Named("curso") Curso curso)
 	{
+		List<Curso> cursos = this.getCursos();
 		cursos.add(curso);
+		this.setCursos(cursos);
 		return this;
 	}
 
