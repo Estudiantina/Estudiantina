@@ -17,6 +17,7 @@ import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberGroupLayout;
 import org.apache.isis.applib.annotation.MemberOrder;
@@ -26,6 +27,7 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
 
 
@@ -83,6 +85,8 @@ public class Netbook {
     
     @javax.jdo.annotations.Column(allowsNull="false",length=17)
 	@MemberOrder(name="Informacion De Hardware", sequence="1")
+    
+    @Hidden(where = Where.ALL_TABLES)//no la muestra la direccion mac cuando estan todas las tablas
     public String getDireccionMac() {
 		return direccionMac;
 	}
@@ -102,6 +106,7 @@ public class Netbook {
 	
 	@javax.jdo.annotations.Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software", sequence="1")
+	@Hidden(where = Where.ALL_TABLES)
 	public String getNumeroDeSerie() {
 		return numeroDeSerie;
 	}
@@ -131,6 +136,7 @@ public class Netbook {
 	
 	@javax.jdo.annotations.Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software",sequence="2")
+	@Hidden(where = Where.ALL_TABLES)
 	public String getNumeroLicenciaWindows() {
 		return numeroLicenciaWindows;
 	}
@@ -142,6 +148,7 @@ public class Netbook {
 	@javax.jdo.annotations.Column(allowsNull="true")
 	@Optional
 	@MemberOrder(name="Informacion General",sequence="3")
+	@Hidden(where = Where.ALL_TABLES)
 	public Date getFechaDeExpiracion() {
 		return fechaDeExpiracion;
 	}
@@ -187,6 +194,7 @@ public class Netbook {
 	@Optional
 	@javax.jdo.annotations.Column(allowsNull="true",length=30)
 	@MemberOrder(name="Informacion General",sequence="4")
+	@Hidden(where = Where.ALL_TABLES)//oculta el numero de acta de robo en las tablas
 	public String getNumeroDeActaDeRobo() {
 		return numeroDeActaDeRobo;
 	}
