@@ -23,6 +23,8 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PublishedAction;
+import org.apache.isis.applib.annotation.Render;
+import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
@@ -72,7 +74,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	 * solo es utilizada en el Viewer
 	 */
 	public List<Persona> localizacion;
-	@NotPersisted	
+	@NotPersisted
 	public List<Persona> getLocalizacion() {
 		List<Persona> persona = new ArrayList<Persona>();
 		persona.add(this);
@@ -96,7 +98,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
         this.location = location;
     }
     
-    
+    @Render(Type.EAGERLY)
 	public List<Netbook> getNetbook() {
 		return netbook;
 	}

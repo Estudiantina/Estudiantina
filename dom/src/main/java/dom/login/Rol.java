@@ -8,7 +8,10 @@ import javax.jdo.annotations.Query;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.annotation.Render.Type;
+
 import repo.login.repologin;
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
 @Query(name="TraerRoles", language="JDOQL", value = "SELECT FROM dom.Login.Rol")
@@ -28,17 +31,18 @@ public String getRol() {
 public void setRol(String rol) {
 	this.rol = rol;
 }
-    @javax.jdo.annotations.Column(allowsNull="true")
+    @javax.jdo.annotations.Column(allowsNull="true")//permite que no tenga ningun permiso
 	private List<Permisos> listaPermiso = new ArrayList<Permisos>();
-
-	public List<Permisos> getLPermiso() {
+    @Render(Type.EAGERLY)// lista la lista de permisos cuando a penas se carga
+	public List<Permisos> getListaPermiso() {
 		return listaPermiso;
 	}
-
-	public void setListaPermiso(final List<Permisos> listaPermiso) {
+	public void setListaPermiso(List<Permisos> listaPermiso) {
 		this.listaPermiso = listaPermiso;
 	}
-	
+    
+    
+    
 	
 	public Rol aniadirPermiso(String permiso)
 	{
@@ -49,6 +53,7 @@ public void setRol(String rol) {
 		this.listaPermiso.add(mipermiso);
 		return this;
 	}
+
 
 	@javax.inject.Inject 
     DomainObjectContainer container;

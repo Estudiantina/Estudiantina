@@ -15,6 +15,8 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.Render;
+import org.apache.isis.applib.annotation.Render.Type;
 
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
@@ -89,6 +91,7 @@ public class Alumno extends Persona implements Locatable{
     
     @Column(allowsNull="true")
     @Optional
+    @Render(Type.EAGERLY)
 	public List<Curso> getCursos() {
 		return cursos;
 	}
@@ -99,7 +102,7 @@ public class Alumno extends Persona implements Locatable{
 	
 	public Alumno agregarCurso(Curso curso)
 	{
-		this.cursos.add(curso);
+		cursos.add(curso);
 		return this;
 	}
 
