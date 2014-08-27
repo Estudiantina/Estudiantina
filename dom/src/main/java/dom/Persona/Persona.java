@@ -206,7 +206,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	}
 	public void setDomicilio(String domicilio) {
 		LocationLookupService loc = new LocationLookupService();
-		setLocation(loc.lookup(domicilio));
+		setLocation(loc.lookup(domicilio+", "+localidad.getLocalidad()));
 		this.domicilio = domicilio;
 	}
 	public Date getFechaNacimiento() {
