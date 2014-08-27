@@ -26,6 +26,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Programmatic;
+import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
@@ -85,7 +86,7 @@ public class Netbook {
     
     @javax.jdo.annotations.Column(allowsNull="false",length=17)
 	@MemberOrder(name="Informacion De Hardware", sequence="1")
-    
+    @RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]")
     @Hidden(where = Where.ALL_TABLES)//no la muestra la direccion mac cuando estan todas las tablas
     public String getDireccionMac() {
 		return direccionMac;
