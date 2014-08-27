@@ -11,4 +11,5 @@ integtests/bin/*
 dom/bin/*
 *.class
 webapp/bin/*
-dom/src/main/resources/reportes/solicitudAsistenciaTecnica.pdf
+/webapp/reportes/*.pdf
+/webapp/reportes/*.jasper
