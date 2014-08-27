@@ -3,7 +3,12 @@ package dom.Localidad;
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.IdentityType;
 
+import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+
+import repo.Localidad.RepositorioLocalidad;
+import repo.Netbook.RepositorioNetbook;
+
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Queries;
@@ -13,8 +18,10 @@ import javax.jdo.annotations.Unique;
 
 @DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY)
 @Queries({
-	@Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.Localidad.Departamento WHERE nombreDepartamento == :nombre")})
+	@Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.Localidad.Departamento WHERE nombreDepartamento.indexOf(:nombre) >= 0 range 0,4 "),
+	@Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Localidad.Departamento")})
 @ObjectType("Departamentos")
+@AutoComplete(repository = RepositorioLocalidad.class, action = "autoCompletarDepartamento")
 public class Departamento {
 
 	private String nombreDepartamento;
@@ -39,5 +46,10 @@ public class Departamento {
 		this.nombreDepartamento = nombreDepartamento;
 	}
 	
+	public String title()
+	{
+		return nombreDepartamento;
+		
+	}
 	
 }

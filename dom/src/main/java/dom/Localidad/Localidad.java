@@ -4,7 +4,11 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Unique;
 
 
+import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+
+import repo.Localidad.RepositorioLocalidad;
+
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Queries;
 import javax.jdo.annotations.DatastoreIdentity;
@@ -17,7 +21,7 @@ import javax.jdo.annotations.Query;
 	@Query(name = "traerPorCodigoPostal", language = "JDOQL", value = "SELECT FROM dom.Localidad.Localidad WHERE codigoPostal == :codigo"),
 	@Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Localidad.Localidad")
 	})
-
+@AutoComplete(repository = RepositorioLocalidad.class, action = "autoCompletarLocalidad")
 @ObjectType("Localidades")
 public class Localidad {
 	private String codigoPostal;
@@ -59,6 +63,7 @@ public class Localidad {
 	public void setLocalidad(String localidad) {
 		this.localidad = localidad;
 	}
+
 
 
 	
