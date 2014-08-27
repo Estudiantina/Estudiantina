@@ -10,7 +10,7 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Persistent;
-
+import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Unique;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
@@ -32,6 +32,7 @@ import com.danhaywood.isis.wicket.gmap3.service.LocationLookupService;
 
 import repo.Persona.RepositorioPersona;
 import dom.Establecimiento.Establecimiento;
+import dom.Localidad.Localidad;
 import dom.Netbook.Netbook;
 
 /**
@@ -67,6 +68,15 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	private Date fechaNacimiento;
 	private List<Netbook> netbook= new ArrayList<Netbook>();
 	private Establecimiento establecimiento;
+	private Localidad localidad;
+	@Column(allowsNull="true")
+	public Localidad getLocalidad() {
+		return localidad;
+	}
+	public void setLocalidad(Localidad localidad) {
+		this.localidad = localidad;
+	}
+
 	/**
 	 * propiedad necesaria para 
 	 * ver la geolocalizacion geografica de una persona

@@ -19,6 +19,7 @@ import dom.Alumno.Nacionalidad;
 import dom.Directivo.Directivo;
 import dom.Docente.Docente;
 import dom.Establecimiento.Establecimiento;
+import dom.Localidad.Localidad;
 import dom.Persona.Persona;
 import dom.Tecnico.Tecnico;
 import dom.login.Login;
@@ -87,8 +88,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("TELEFONO FIJO")String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")String email,
-		
 			@Named("DOMICILIO")	@MultiLine String domicilio,
+			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
 			@Named("FECHA INGRESO")Date fechaIngreso,
 			@RegEx(validation = "[A-Za-z ]+")
@@ -110,7 +111,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	alumno.setFechaIngreso(fechaIngreso);
 	alumno.setNacionalidad(nacionalidad);    
     alumno.setEstadoDeAlumno(estadoDeAlumno);
-
+    alumno.setLocalidad(localidad);
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
@@ -143,6 +144,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")final Date fechaNacimiento
 			)
 	{
@@ -156,6 +158,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tecnico.setNombre(nombre);
 		tecnico.setTelefinoFijo(telefinoFijo);
 		tecnico.setTelefonoCelular(telefonoCelular);
+		tecnico.setLocalidad(localidad);
 		container.persistIfNotAlready(tecnico);
 	
 	
@@ -177,6 +180,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")final Date fechaNacimiento
 			)
 	{
@@ -189,6 +193,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		directivo.setNombre(nombre);
 		directivo.setTelefinoFijo(telefinoFijo);
 		directivo.setTelefonoCelular(telefonoCelular);
+		directivo.setLocalidad(localidad);
 		container.persistIfNotAlready(directivo);
 	
 	
@@ -212,6 +217,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("Cargo") final String cargo
 			)
 	{
@@ -224,7 +230,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setNombre(nombre);
 		docente.setTelefinoFijo(telefinoFijo);
 		docente.setTelefonoCelular(telefonoCelular);
-                docente.setCargo(cargo);
+        docente.setCargo(cargo);
+        docente.setLocalidad(localidad);
 		container.persistIfNotAlready(docente);
 	
 	

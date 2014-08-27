@@ -7,6 +7,8 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+import javax.jdo.annotations.Column;
+import dom.Localidad.Localidad;
 import repo.Establecimiento.RepositorioEstablecimiento;
 
 
@@ -26,8 +28,14 @@ public class Establecimiento {
 	private String telefono;
 	private String email;
 	private String cue;
-	
-	
+	private Localidad localidad;
+	@Column(allowsNull="false")
+	public Localidad getLocalidad() {
+		return localidad;
+	}
+	public void setLocalidad(Localidad localidad) {
+		this.localidad = localidad;
+	}
 	public String title()
 	{
 		return this.nombre;

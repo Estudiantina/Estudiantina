@@ -9,6 +9,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 import dom.Establecimiento.Establecimiento;
+import dom.Localidad.Localidad;
 
 @Named("Establecimientos")
 public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
@@ -33,7 +34,8 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("email")final String email,
 			@RegEx(validation = "[0-9]+")
-			@Named("CUE") final String cue
+			@Named("CUE") final String cue,
+			@Named("Cod Postal Ciudad")Localidad localidad
 			)
 	{
 		
@@ -43,7 +45,7 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 		establecimiento.setTelefono(telefono);
 		establecimiento.setEmail(email);
 		establecimiento.setCue(cue);
-		
+		establecimiento.setLocalidad(localidad);
 		container.persistIfNotAlready(establecimiento);
 		
 		return establecimiento;

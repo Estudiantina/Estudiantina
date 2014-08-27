@@ -13,7 +13,6 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.Curso.Curso;
 import dom.Curso.Turno;
 import dom.Establecimiento.Establecimiento;
-import dom.Netbook.Netbook;
 
 
 @Named("Cursos")
