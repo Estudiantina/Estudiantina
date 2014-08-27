@@ -1,0 +1,14 @@
+.classpath
+.project
+.settings/
+target/
+datanucleus.log
+dom/target-ide/*
+integtests/target-ide/*
+webapp/target-ide/*
+fixture/bin/*
+integtests/bin/*
+dom/bin/*
+*.class
+webapp/bin/*
+/webapp/reportes/*.pdf

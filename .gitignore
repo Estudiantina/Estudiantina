@@ -11,3 +11,5 @@ integtests/bin/*
 dom/bin/*
 *.class
 webapp/bin/*
+/webapp/reportes/*.pdf
+/webapp/reportes/*.jasper

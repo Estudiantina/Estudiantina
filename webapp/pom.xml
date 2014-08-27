@@ -156,17 +156,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>estudiantina-fixture</artifactId>
-            <exclusions>
-                <exclusion>
-                    <!-- so don't pick up transitive dependency to asm 4.0.0 -->
-                    <groupId>org.datanucleus</groupId>
-                    <artifactId>datanucleus-enhancer</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        
         
         <!-- other isis components -->
         <dependency>
@@ -220,18 +210,19 @@
           JDBC drivers 
           (for jdo objectstore)
           -->
+        <!--  
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
         </dependency>
-
-        <!-- 
+        -->
+         
         <dependency>
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>9.1-901.jdbc4</version>
         </dependency>
-         -->
+         
 
         <!-- 
         mvn install:install-file -Dfile=sqljdbc4.jar \
@@ -258,7 +249,12 @@
             </exclusion>
           </exclusions>
         </dependency>
-
+        <!-- dependencias de mapas  -->
+        <dependency>
+        <groupId>com.danhaywood.isis.wicket</groupId>
+        <artifactId>danhaywood-isis-wicket-gmap3-ui</artifactId>
+    	</dependency>
+    	
     </dependencies>
 
 </project>

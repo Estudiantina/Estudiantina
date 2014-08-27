@@ -100,7 +100,42 @@
 			<groupId>org.apache.isis.core</groupId>
 			<artifactId>isis-core-applib</artifactId>
 		</dependency>
+		<!--dependencia spring beans  -->
+		   <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-beans</artifactId>
+		<version>3.2.3.RELEASE</version>
+   		</dependency>
+            
+   		<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>3.2.3.RELEASE</version>
+  	    </dependency>
+		
+        <!--dependencia nesesarias para envio de emails  -->
+        <dependency>
+		<groupId>javax.mail</groupId>
+		<artifactId>mail</artifactId>
+		<version>1.4.7</version>
+		</dependency>
+        
+		<!-- dependencias nesesarias para generar reportes  -->
+		<dependency>
+		<groupId>net.sf.jasperreports</groupId>
+		<artifactId>jasperreports</artifactId>
+		<version>5.0.1</version>
+	</dependency>
 
+	  <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-all</artifactId>
+        <version>1.7.5</version>
+	</dependency>
+		<!-- fin de dependencias nesesarias para generar reportes  -->
+		
+		
+		
 		<dependency>
             <groupId>org.apache.isis.objectstore</groupId>
 			<artifactId>isis-objectstore-jdo-applib</artifactId>
@@ -112,6 +147,17 @@
             <scope>test</scope>
 		</dependency>
 
+		<!--dependencias necesarias para ver los mapas  -->
+		<dependency>
+        <groupId>com.danhaywood.isis.wicket</groupId>
+        <artifactId>danhaywood-isis-wicket-gmap3-applib</artifactId>
+    	</dependency>
+    	
+		<dependency>
+        <groupId>com.danhaywood.isis.wicket</groupId>
+        <artifactId>danhaywood-isis-wicket-gmap3-service</artifactId>
+    	</dependency>
+		    
         <!-- Bytecode libraries (for mocking) -->
         <dependency>
             <groupId>asm</groupId>
