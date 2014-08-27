@@ -1,78 +1,66 @@
 package dom.Localidad;
 
 import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.VersionStrategy;
+import javax.jdo.annotations.Unique;
 
-import org.apache.isis.applib.DomainObjectContainer;
-import org.apache.isis.applib.annotation.Audited;
-import org.apache.isis.applib.annotation.AutoComplete;
+
 import org.apache.isis.applib.annotation.ObjectType;
+import javax.jdo.annotations.Column;
+import javax.jdo.annotations.Queries;
+import javax.jdo.annotations.DatastoreIdentity;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Query;
+@PersistenceCapable(identityType = IdentityType.DATASTORE)
 
-import repo.Curso.RepositorioCurso;
-
-
-
-@javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
-
-@javax.jdo.annotations.DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY)
-@javax.jdo.annotations.Queries({
-	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Localidad.Localidad")})
+@DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY)
+@Queries({
+	@Query(name = "traerPorCodigoPostal", language = "JDOQL", value = "SELECT FROM dom.Localidad.Localidad WHERE codigoPostal == :codigo"),
+	@Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Localidad.Localidad")
+	})
 
 @ObjectType("Localidad")
-
-@AutoComplete(repository =  RepositorioCurso.class, action = "autoComplete")
-@Audited
-
 public class Localidad {
+	private String codigoPostal;
+	private String localidad;
+	private Departamento departamento;
 	
-	private String Localidad;
-	private Provincia provincia;
 	
-	
+	@Column(allowsNull="false")
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
 	public String title()
 	{
-		return Localidad+" "+provincia.toString();
+		return this.codigoPostal+" "+this.localidad;
 	}
-	
-	
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getLocalidad() {
-		return Localidad;
-	}
-	public void setLocalidad(String localidad) {
-		Localidad = localidad;
-	}
-	
-	
-	
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public Provincia getProvincia() {
-		return provincia;
-	}
-	public void setProvincia(Provincia provincia) {
-		this.provincia = provincia;
-	}
-	
-	
-	
-	
-	
-	 private DomainObjectContainer container;
 
-	 /**
-	  * 
-	  */
-		protected DomainObjectContainer getContainer()	{
-			return container;
-		}
-		
-		/**
-		 * 
-		 */
-		public void setDomainObjectContainer(final DomainObjectContainer container){
-			this.container = container;
-		}
-	
+    @Unique
+    @Column(allowsNull="false")
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
+
+	@Column(allowsNull="false")
+	public String getLocalidad() {
+		return localidad;
+	}
+
+
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+
+
 	
 	
 

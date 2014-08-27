@@ -1,45 +1,35 @@
 package dom.Localidad;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Column;
+import javax.jdo.annotations.Unique;
 
-import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.ObjectType;
+import javax.jdo.annotations.PersistenceCapable;
 
-@javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
-
-
-
+@PersistenceCapable(identityType = IdentityType.DATASTORE)
+@ObjectType("Provincia")
 public class Provincia {
 	
-	private String Provincia;
+	private String nombreProvincia;
 	
-	
-
-	public String getProvincia() {
-		return Provincia;
-	}
-
-	public void setProvincia(String provincia) {
-		Provincia = provincia;
+	@Unique
+	@Column(allowsNull="false")
+	public String getNombreProvincia() {
+		return nombreProvincia;
 	}
 	
-	
-	
-	
-	 private DomainObjectContainer container;
+	public void setNombreProvincia(String nombreProvincia) {
+		this.nombreProvincia = nombreProvincia;
+	}
 
-	 /**
-	  * 
-	  */
-		protected DomainObjectContainer getContainer()	{
-			return container;
-		}
-		
-		/**
-		 * 
-		 */
-		public void setDomainObjectContainer(final DomainObjectContainer container){
-			this.container = container;
-		}
-	
+
+
+
+
+	public String title()
+	{
+		return this.nombreProvincia;
+	}
 
 }
