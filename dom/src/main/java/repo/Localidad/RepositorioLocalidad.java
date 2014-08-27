@@ -13,7 +13,7 @@ import dom.Localidad.Departamento;
 import dom.Localidad.Localidad;
 import dom.Localidad.Provincia;
 
-@Named("Administrar Localidad")
+@Named("Localidades")
 public class RepositorioLocalidad extends AbstractFactoryAndRepository{
 	
 	public String getId() {
