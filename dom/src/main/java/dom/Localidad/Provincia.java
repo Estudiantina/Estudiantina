@@ -8,7 +8,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import javax.jdo.annotations.PersistenceCapable;
 
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
-@ObjectType("Provincia")
+@ObjectType("Provincias")
 public class Provincia {
 	
 	private String nombreProvincia;

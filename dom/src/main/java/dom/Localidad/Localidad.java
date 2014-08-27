@@ -18,7 +18,7 @@ import javax.jdo.annotations.Query;
 	@Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Localidad.Localidad")
 	})
 
-@ObjectType("Localidad")
+@ObjectType("Localidades")
 public class Localidad {
 	private String codigoPostal;
 	private String localidad;
