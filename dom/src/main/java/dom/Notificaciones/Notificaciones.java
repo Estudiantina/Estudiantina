@@ -9,10 +9,12 @@ import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Persistent;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.PublishedAction;
+import org.apache.isis.applib.annotation.Where;
 import org.joda.time.LocalDate;
 
 import dom.Persona.Persona;
@@ -73,23 +75,19 @@ public class Notificaciones {
 	public void setFechaNotificacion(LocalDate fechaNotificacion) {
 		this.fechaNotificacion = fechaNotificacion;
 	}
-	@Hidden
+	@Disabled(where = Where.ALL_TABLES)
 	@Column(allowsNull="false")
 	public boolean isVista() {	    	
+		this.vista=true;
 		return vista;
 	}
-    
+
 	public void setVista(boolean vista) {
 		this.vista = vista;
 	}
+    
 	
-	@Bulk //para que ejecute la accion en una lista masiva de objetos
-	@PublishedAction // para que muestre la accion en la lista de objetos
-	@Named("Listo")
-	public void marcarComoVista() {
-		 this.setVista(true);
-         
-    }
+
 	
 	
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
@@ -55,6 +56,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 	 * año Y division del curso 
 	 * @return lista de cursos
 	 */
+	@Hidden
 	public List<Curso> autoComplete(String busqueda)
 	{
 		return allMatches(QueryDefault.create(Curso.class, "traerCursoPorlikeAnio","anoYdivision",busqueda));
