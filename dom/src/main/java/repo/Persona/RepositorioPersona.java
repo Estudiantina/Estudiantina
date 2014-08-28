@@ -99,6 +99,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	{
 	
 		final Alumno alumno = container.newTransientInstance(Alumno.class);
+	alumno.setLocalidad(localidad);
 	alumno.setEstablecimiento(establecimiento);
 	alumno.setCuil(cuil);
 	alumno.setNombre(nombre);
@@ -111,7 +112,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	alumno.setFechaIngreso(fechaIngreso);
 	alumno.setNacionalidad(nacionalidad);    
     alumno.setEstadoDeAlumno(estadoDeAlumno);
-    alumno.setLocalidad(localidad);
+    
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
@@ -149,6 +150,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			)
 	{
 		final Tecnico tecnico = container.newTransientInstance(Tecnico.class);
+		tecnico.setLocalidad(localidad);
 		tecnico.setApellido(apellido);
 		tecnico.setCuil(cuil);
 		tecnico.setDomicilio(domicilio);
@@ -158,7 +160,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tecnico.setNombre(nombre);
 		tecnico.setTelefinoFijo(telefinoFijo);
 		tecnico.setTelefonoCelular(telefonoCelular);
-		tecnico.setLocalidad(localidad);
+		
 		container.persistIfNotAlready(tecnico);
 	
 	
@@ -185,6 +187,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			)
 	{
 		final Directivo directivo = container.newTransientInstance(Directivo.class);
+		directivo.setLocalidad(localidad);
 		directivo.setApellido(apellido);
 		directivo.setCuil(cuil);
 		directivo.setDomicilio(domicilio);
@@ -193,7 +196,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		directivo.setNombre(nombre);
 		directivo.setTelefinoFijo(telefinoFijo);
 		directivo.setTelefonoCelular(telefonoCelular);
-		directivo.setLocalidad(localidad);
+		
 		container.persistIfNotAlready(directivo);
 	
 	
@@ -222,6 +225,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			)
 	{
 		final Docente docente = container.newTransientInstance(Docente.class);
+		docente.setLocalidad(localidad);
 		docente.setApellido(apellido);
 		docente.setCuil(cuil);
 		docente.setDomicilio(domicilio);
@@ -231,7 +235,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setTelefinoFijo(telefinoFijo);
 		docente.setTelefonoCelular(telefonoCelular);
         docente.setCargo(cargo);
-        docente.setLocalidad(localidad);
+        
 		container.persistIfNotAlready(docente);
 	
 	
