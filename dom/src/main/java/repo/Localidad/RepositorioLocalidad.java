@@ -9,6 +9,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 
+import dom.Alumno.EstadoDeAlumno;
 import dom.Localidad.Departamento;
 import dom.Localidad.Localidad;
 import dom.Localidad.Provincia;
@@ -20,6 +21,9 @@ public class RepositorioLocalidad extends AbstractFactoryAndRepository{
         return "Localidad";
          }
 	
+	public String iconName() {
+		return "alumno";
+	   }
 	/**
 	 * Alta de Nueva Localidad En el sistema 
 	 * @return Localidad ingresada

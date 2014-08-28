@@ -21,6 +21,10 @@ import javax.jdo.annotations.PersistenceCapable;
 @AutoComplete(repository = RepositorioLocalidad.class, action = "autoCompletarProvincia")
 public class Provincia {
 	
+	public String iconName() {
+		return "Localidad";
+	   }
+	
 	private String nombreProvincia;
 	
 	@Unique

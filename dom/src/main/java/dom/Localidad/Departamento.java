@@ -27,6 +27,10 @@ public class Departamento {
 	private String nombreDepartamento;
 	private Provincia provincia;
 
+	public String iconName() {
+		return "Localidad";
+	   }
+	
 	@Column(allowsNull="false")
 	public Provincia getProvincia() {
 		return provincia;
