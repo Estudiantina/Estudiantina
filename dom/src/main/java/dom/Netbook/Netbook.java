@@ -72,7 +72,7 @@ public class Netbook {
 	private SituacionDeNetbook estadoNetbook;
 	private String numeroDeActaDeRobo;
 	
-	// Persona persona = new Persona();
+	 Persona persona = new Persona();
 	
 
 	
@@ -254,7 +254,11 @@ public class Netbook {
  	{
  		
  		HashMap<String,Object> parametros = new HashMap<String, Object>();
- 		parametros.put("nombreDirector",  this.getDireccionMac() );
+ 		//Persona per = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", persona.getCuil() ));
+ 		
+ 		parametros.put("nombreDirector", this.getModelo() );
+ 		parametros.put("netbookModelo", this.getModelo());
+ 		parametros.put("numeroSerieNetbook", this.getNumeroDeSerie());
  		
  		return servicio.Reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
  		

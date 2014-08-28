@@ -2,12 +2,14 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaMigracion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eea62db-9b8e-4ef8-95d2-5ca98b500e5f">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="9"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="DierctorCedente" class="java.lang.String"/>
+	<parameter name="netbookModelo" class="java.lang.String"/>
+	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
 	<title>
-		<band height="95" splitType="Stretch">
+		<band height="63" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="44" width="555" height="44" uuid="9d49aaec-1d59-40d4-b286-9fa232c666a1"/>
+				<reportElement x="0" y="0" width="555" height="44" uuid="9d49aaec-1d59-40d4-b286-9fa232c666a1"/>
 				<textElement>
 					<font fontName="Caladea" size="14"/>
 				</textElement>
@@ -18,23 +20,35 @@
 	<detail>
 		<band height="384" splitType="Stretch">
 			<textField>
-				<reportElement x="21" y="12" width="100" height="20" uuid="35aad0c2-23eb-499e-9aad-808367bc44ae"/>
+				<reportElement x="31" y="12" width="100" height="20" uuid="35aad0c2-23eb-499e-9aad-808367bc44ae"/>
 				<textFieldExpression><![CDATA[$P{DierctorCedente}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="0" width="541" height="374" uuid="6597a5c8-0fbf-4b13-a565-caba8813f96c"/>
+				<reportElement x="10" y="0" width="545" height="379" uuid="6597a5c8-0fbf-4b13-a565-caba8813f96c"/>
 				<textElement>
-					<font size="12"/>
+					<font fontName="Cantarell" size="11"/>
 				</textElement>
-				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a:....................................................................., DNI No……..........................., en su carácter de Director/a del Colegio ..................................., CUE: ......................................... Distrito Escolar: ...........................  de la .........................................................., con domicilio Calle :............................................................................
-en adelante “EL CEDENTE” y por la otra parte la/el Sr./a:.......................................................................
-DNI Nro .........................., en su carácter de Director/a del Colegio ....................................................................., Nro ..........................., CUE: .................................... Distrito Escolar: ............................ de la Ciudad de .........................
-Provincia de ……………………….........., con domicilio-……..........................................................................., en adelante “EL RECEPCIONISTA” , convienen por la presenta acta la migración  del alumno ...................................................................., CUIL Nro: …........................................, comodatario de la netbook modelo:.........................................., serie No:.................................................., del establecimiento con director/a CEDENTE al establecimiento con director/a RECEPCIONISTA a fin de ser incorporado en la planta de alumnos comodatarios del establecimiento con director “RECEPCIONISTA” y
-la registración en el servidor del mismo establecimiento para otorgar los correspondientes certificados de seguridad, dejando de estar vinculada en el establecimiento con director “CEDENTE”.
+				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a:................................................................., DNI Nro ……..........................., en su carácter de Director/a del
+Colegio ..................................., CUE: ......................................... Distrito Escolar: .......................  de la ......................................................., con domicilio Calle : ............................................................................
+en adelante “EL CEDENTE” y por la otra parte la/el Sr./a: .......................................................................
+DNI Nro ............................, en su carácter de Director/a del Colegio .........................................., Nro ...................., CUE: .................................... Distrito Escolar: ......................... de la Ciudad de .........................
+Provincia de ……………………….........., con domicilio en ……..........................................................................., en adelante “EL RECEPCIONISTA” , convienen por la presenta acta la migración  del alumno
+............................................................., CUIL Nro: ...................................., comodatario de la netbook modelo: .........................................., serie No: ..................................................,
+del establecimiento con director/a CEDENTE al establecimiento con director/a RECEPCIONISTA a fin de ser incorporado en la planta de alumnos comodatarios del establecimiento con
+ director “RECEPCIONISTA” y la registración en el servidor del mismo establecimiento para otorgar los correspondientes certificados de seguridad, dejando de estar vinculada en el establecimiento con
+director “CEDENTE”.
 
 En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un solo efecto, por EL CEDENTE y por EL RECEPCIONISTA en la ciudad ............................................Provincia de  ..........................................., a los ............................. días del mes de  ................................... de .............
 ]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="10" y="146" width="100" height="20" uuid="6990dacc-4a6d-458e-b2ed-e1c86e7b76ed"/>
+				<textFieldExpression><![CDATA[$P{netbookModelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="146" width="100" height="20" uuid="5cf5d993-7f5b-4abe-b60d-30bcce9036f3"/>
+				<textFieldExpression><![CDATA[$P{numeroSerieNetbook}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
