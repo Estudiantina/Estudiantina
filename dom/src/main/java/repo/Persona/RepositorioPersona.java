@@ -253,6 +253,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("NOMBRE")final String nombre,
 			@RegEx(validation = "[A-Za-z]+")
 			@Named("APELLIDO")final String apellido,
+			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
 			@RegEx(validation = "[0-9]+")
 			@Named("TELEFONO CELULAR")final String telefonoCelular,
 			@RegEx(validation = "[0-9]+")
@@ -266,6 +267,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		final Tutor tutor = container.newTransientInstance(Tutor.class);
 		tutor.setLocalidad(localidad);
 		tutor.setApellido(apellido);
+		tutor.setFechaNacimiento(fechaNacimiento);
 		tutor.setCuil(cuil);
 		tutor.setDomicilio(domicilio);
 		tutor.setEmail(email);
