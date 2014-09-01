@@ -245,6 +245,42 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	}
 	
+	
+	public Tutor ingresarTutor (
+			@Named("Establecimiento") final Establecimiento establecimiento,
+			@Named("CUIL") final Long cuil,
+			@RegEx(validation = "[A-Za-z ]+")
+			@Named("NOMBRE")final String nombre,
+			@RegEx(validation = "[A-Za-z]+")
+			@Named("APELLIDO")final String apellido,
+			@RegEx(validation = "[0-9]+")
+			@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")
+			@Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+			@Named("CORREO ELECTRONICO")final String email,
+			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("Cod Postal Ciudad")Localidad localidad
+			)
+	{
+		final Tutor tutor = container.newTransientInstance(Tutor.class);
+		tutor.setLocalidad(localidad);
+		tutor.setApellido(apellido);
+		tutor.setCuil(cuil);
+		tutor.setDomicilio(domicilio);
+		tutor.setEmail(email);
+		tutor.setEstablecimiento(establecimiento);
+		tutor.setNombre(nombre);
+		tutor.setTelefinoFijo(telefinoFijo);
+		tutor.setTelefonoCelular(telefonoCelular);
+        
+        
+		container.persistIfNotAlready(tutor);
+	
+	
+	return tutor;
+	
+	}
     //TODO autocompletar con persona en vez de con alumno
 	@Named("Buscar Persona")
 	@Hidden
