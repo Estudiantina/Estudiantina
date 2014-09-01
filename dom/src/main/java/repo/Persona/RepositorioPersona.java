@@ -24,6 +24,7 @@ import dom.Localidad.Localidad;
 import dom.Persona.Persona;
 import dom.Tecnico.Tecnico;
 import dom.login.Login;
+import dom.tutor.Tutor;
 
 
 @Named("Personas")
@@ -246,6 +247,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
     //TODO autocompletar con persona en vez de con alumno
 	@Named("Buscar Persona")
+	@Hidden
     public List<Persona> autoComplete(@Named("Ingrese CUIL")String searchPhrase) {        
     	Long temp = Long.parseLong(searchPhrase);
 		return allMatches(QueryDefault.create(Persona.class, "traerPorcuil","cuil",temp));
@@ -255,6 +257,15 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	{
 		Long temp = Long.parseLong(searchPhrase);
 		return allMatches(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",temp));
+		
+	}
+    
+    
+    @Hidden
+	public List<Tutor> autoCompletarTutor (@Named("Ingrese CUIL")String searchPhrase)
+	{
+		Long temp = Long.parseLong(searchPhrase);
+		return allMatches(QueryDefault.create(Tutor.class, "traerTutorPorcuil","cuil",temp));
 		
 	}
 	

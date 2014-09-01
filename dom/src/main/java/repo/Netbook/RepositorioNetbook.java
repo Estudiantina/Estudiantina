@@ -46,7 +46,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     }
     @Hidden(where = Where.OBJECT_FORMS)
     
-    public Blob generarContratoComodato(Alumno persona) 
+    public Blob generarContratoComodato(Alumno persona,Tutor tutor) 
     {
     	HashMap<String, Object> parametros = new HashMap<String, Object>();
     	
