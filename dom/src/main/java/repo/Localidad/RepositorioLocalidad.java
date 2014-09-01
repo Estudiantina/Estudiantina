@@ -20,10 +20,7 @@ public class RepositorioLocalidad extends AbstractFactoryAndRepository{
 	public String getId() {
         return "Localidad";
          }
-	
-	public String iconName() {
-		return "alumno";
-	   }
+
 	/**
 	 * Alta de Nueva Localidad En el sistema 
 	 * @return Localidad ingresada

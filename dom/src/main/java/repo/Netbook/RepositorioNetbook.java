@@ -1,7 +1,11 @@
 package repo.Netbook;
 
+import java.io.FileNotFoundException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+
+import net.sf.jasperreports.engine.JRException;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
@@ -10,18 +14,23 @@ import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
+import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
+import org.apache.isis.applib.value.Blob;
 import org.joda.time.LocalDate;
 
 
 
 
+import dom.Alumno.Alumno;
+import dom.Directivo.Directivo;
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
 import dom.Netbook.SituacionDeNetbook;
 import dom.Notificaciones.SolicitudNetbookPrestada;
 import dom.Persona.Persona;
 import dom.login.Login;
+import dom.tutor.Tutor;
 
 
 @Named("Netbook")
@@ -35,8 +44,24 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     public String iconName() {
         return "netbook";
     }
+    @Hidden(where = Where.OBJECT_FORMS)
     
-    
+    public Blob generarContratoComodato(Alumno persona) 
+    {
+    	HashMap<String, Object> parametros = new HashMap<String, Object>();
+    	
+    	Blob blob = null;
+    	try {
+			 blob = servicio.Reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
+		} catch (FileNotFoundException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		} catch (JRException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+    	return blob;
+    }
     
 	/**
 	 * muestra una lista de todas las Netbooks que existen

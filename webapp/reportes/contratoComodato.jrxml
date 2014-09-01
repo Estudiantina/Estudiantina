@@ -3,15 +3,29 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="16"/>
-	<parameter name="director" class="java.lang.String"/>
+	<parameter name="nombreDirector" class="java.lang.String"/>
 	<parameter name="dniDirector" class="java.lang.String"/>
-	<parameter name="establecimiento" class="java.lang.String"/>
+	<parameter name="nombreEstablecimiento" class="java.lang.String"/>
 	<parameter name="numeroEstablecimiento" class="java.lang.String"/>
-	<parameter name="ciudad" class="java.lang.String"/>
-	<parameter name="provincia" class="java.lang.String"/>
-	<parameter name="domicilio" class="java.lang.String"/>
 	<parameter name="distritoEscolar" class="java.lang.String"/>
-	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="ciudadEstablecimiento" class="java.lang.String"/>
+	<parameter name="provincia" class="java.lang.String"/>
+	<parameter name="domicilioEstablecimiento" class="java.lang.String"/>
+	<parameter name="nombreTutor" class="java.lang.String"/>
+	<parameter name="dniTutor" class="java.lang.String"/>
+	<parameter name="domicilio" class="java.lang.String"/>
+	<parameter name="domicilioDpto" class="java.lang.String"/>
+	<parameter name="ciudadTutor" class="java.lang.String"/>
+	<parameter name="ProvinciaTutor" class="java.lang.String"/>
+	<parameter name="caracterTutor" class="java.lang.String"/>
+	<parameter name="DniAlumno" class="java.lang.String"/>
+	<parameter name="Curso" class="java.lang.String"/>
+	<parameter name="division" class="java.lang.String"/>
+	<parameter name="Turno" class="java.lang.String"/>
+	<parameter name="Establecimiento" class="java.lang.String"/>
+	<parameter name="direccionEstablecimiento" class="java.lang.String"/>
+	<parameter name="cudadEstablecimiento" class="java.lang.String"/>
+	<parameter name="provinciaEstablecimiento" class="java.lang.String"/>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
@@ -26,72 +40,26 @@ FORMACION DOCENTE]]></text>
 	</title>
 	<detail>
 		<band height="432">
-			<staticText>
-				<reportElement x="14" y="22" width="527" height="408" uuid="dbf5068e-0766-4eab-89cd-49033733ef34"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el
-Sr./a:$P{director}DNI Nº…….…….….., en su
-carácter de Director/a/Rector/a de la Escuela/Instituto
-………..……………....……..,Nº……...,Distrito Escolar:………………de la
-Ciudad de……………….……….........…Provincia de………………….…. con
-domicilio en ………………..…..………..,en adelante “EL COMODANTE” y
-por la otra la/el Señora/Señor………. ……..…………..DNI
-………….……,con domicilio en la calle ………………...……………….piso…..,
-dpto….…,de la ciudad..…….…..…………………………….……,Provincia
-de…….…………..…… ; por sí, como mayor de edad o menor emancipado,
-o en su carácter de madre/padre/tutora/tutor/representante legal
-de…………..…..…DNl……………,alumna/o del curso……., división..……,
-turno…..., del establecimiento educativo……….……….……………, sito en la
-calle ………….…………….., N° …., de la ciudad de ……………….…
-provincia de………………, en adelante “EL COMODATARIO”, ambos
-mayores de edad y hábiles para este acto, convienen en celebrar el presente
-CONTRATO DE COMODATO, sujeto a las siguientes cláusulas y
-condiciones:
-PRIMERA: EL COMODANTE da en COMODATO al COMODATARIO, y
-éste acepta, una laptop educativa Marca……………. Modelo………...
-Numero de Serie………………………….. .
-SEGUNDA: EL COMODATARIO destinará la laptop que recibe en
-COMODATO a fines educativos en su carácter de estudiante y para el uso
-de su grupo familiar, en el marco del PROGRAMA CONECTAR
-IGUALDAD.COM.AR, procurando familiarizar a todo integrante de su hogar
-con las nuevas tecnologías. La entrega del equipamiento implica única y
-exclusivamente la facultad de uso sobre el mismo, el que deberá realizarse
-conforme a su destino.
-
-]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="284" y="36" width="100" height="20" uuid="5ea89445-5dc5-40b8-b408-7407354a5702"/>
-				<textFieldExpression><![CDATA[$P{dniDirector}]]></textFieldExpression>
-			</textField>
-			<break>
-				<reportElement x="0" y="429" width="100" height="1" uuid="1550ce08-d428-4ae0-a374-3dc306e2016d"/>
-			</break>
-			<textField>
-				<reportElement x="14" y="63" width="113" height="16" uuid="77c9fad3-fe72-4d3d-aa18-7f809d1528d5"/>
-				<textFieldExpression><![CDATA[$P{establecimiento}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="184" y="63" width="49" height="20" uuid="9486c568-c76f-4cf0-8bac-ca123c81808e"/>
-				<textFieldExpression><![CDATA[$P{numeroEstablecimiento}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="85" y="77" width="100" height="20" uuid="40d06309-91ef-4ba3-b107-aff909664687"/>
-				<textFieldExpression><![CDATA[$P{ciudad}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="329" y="64" width="100" height="20" uuid="02640f87-5454-43de-b07a-c11f1a0e89e4"/>
-				<textFieldExpression><![CDATA[$P{distritoEscolar}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="78" width="100" height="20" uuid="69b0e9c3-bd81-4e46-b899-afcec42af131"/>
-				<textFieldExpression><![CDATA[$P{provincia}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="100" y="91" width="133" height="20" uuid="d9aafb7d-9516-4605-a082-b8d3c90b8c42"/>
-				<textFieldExpression><![CDATA[$P{domicilio}]]></textFieldExpression>
+				<reportElement x="0" y="0" width="555" height="432" uuid="6c7bf3bf-fafc-4a0c-9363-ac34bc49d298"/>
+				<textFieldExpression><![CDATA["Entre la Autoridad Educativa Provincial representada en este acto por el \n" +
+" Sr./a:"+ $P{nombreDirector} +",DNI Nº"+ $P{dniDirector} +", en su \n" +
+"carácter de Director/a/Rector/a de la Escuela/Instituto \n" +
+$P{nombreEstablecimiento} +",Nº "+ $P{numeroEstablecimiento} +",Distrito Escolar:"+ $P{distritoEscolar} +"de la \n" +
+"Ciudad de" + $P{ciudadEstablecimiento} + "Provincia de"+ $P{provincia} +"con \n" +
+"domicilio en"+ $P{domicilioEstablecimiento} +",en adelante EL COMODANTE y \n" +
+"por la otra la/el Señora/Señor"+ $P{nombreTutor} +".DNI \n" +
+$P{dniTutor} +",con domicilio en la calle"+ $P{domicilio} +"piso….., \n" +
+"dpto"+ $P{domicilioDpto} +",de la ciudad"+ $P{ciudadTutor} +",Provincia \n" +
+"de "+ $P{ProvinciaTutor} +"; por sí, como mayor de edad o menor emancipado, \n" +
+"o en su carácter de madre/padre/tutora/tutor/representante legal \n" +
+"de"+ $P{caracterTutor} +"DNI"+ $P{DniAlumno} +",alumna/o del curso "+$P{Curso}+", división "+$P{division}+", \n" +
+"turno"+$P{Turno}+", del establecimiento educativo"+$P{Establecimiento}+", sito en la \n" +
+"calle " + $P{direccionEstablecimiento} + ", de la ciudad de"+ $P{ciudadEstablecimiento} + "\n" +
+"provincia de"+ $P{provinciaEstablecimiento} +", en adelante “EL COMODATARIO”, ambos \n" +
+"mayores de edad y hábiles para este acto, convienen en celebrar el presente \n" +
+"CONTRATO DE COMODATO, sujeto a las siguientes cláusulas y \n" +
+"condiciones: \n"]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
