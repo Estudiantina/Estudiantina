@@ -146,7 +146,12 @@ public class Alumno extends Persona implements Locatable{
 		this.nacionalidad = nacionalidad;
 	}
 	
-	
+	/*public Certificado getCertificado() {
+		return certificado;
+	}
+	public void	setCertificado(Certificado certificado){
+		this.certificado = certificado;
+	}*/
 	
 	
 	
