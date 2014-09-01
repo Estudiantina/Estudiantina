@@ -243,6 +243,7 @@ public class Netbook {
      
      /**
       * TODO ImprimirReporte
+      * TODO Generar contrato de comodato
       * archivo incompleto para imprimir
       * el metodo esta incompleto solo para prueba
       * @return Reporte a imprimir

@@ -38,6 +38,7 @@ import dom.Persona.Persona;
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 //TODO hacer consulta traerPorcuil 
+//TODO generar pedido certificado alumno regular
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerAlumnoPorcuil", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno WHERE cuil== :cuil"),
 	@javax.jdo.annotations.Query(name = "traerTodoAlumno", language = "JDOQL", value = "SELECT FROM dom.Alumno.Alumno")})
 @AutoComplete(repository = RepositorioPersona.class, action = "autoCompletarAlumno")
@@ -145,7 +146,12 @@ public class Alumno extends Persona implements Locatable{
 		this.nacionalidad = nacionalidad;
 	}
 	
-	
+	/*public Certificado getCertificado() {
+		return certificado;
+	}
+	public void	setCertificado(Certificado certificado){
+		this.certificado = certificado;
+	}*/
 	
 	
 	
