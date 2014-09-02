@@ -46,21 +46,23 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     }
     @Hidden(where = Where.OBJECT_FORMS)
     
-    public Blob generarContratoComodato(Alumno persona,Tutor tutor) 
+    public Blob generarContratoComodato(Alumno alumno,Tutor tutor,Directivo directivo) throws FileNotFoundException, JRException 
     {
     	HashMap<String, Object> parametros = new HashMap<String, Object>();
     	
-    	Blob blob = null;
-    	try {
-			 blob = servicio.Reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
-		} catch (FileNotFoundException e) {
-			// TODO Bloque catch generado automáticamente
-			e.printStackTrace();
-		} catch (JRException e) {
-			// TODO Bloque catch generado automáticamente
-			e.printStackTrace();
-		}
-    	return blob;
+    	
+    	
+    	parametros.put("nombreDirector", directivo.getNombre());
+    	parametros.put("dniDirector", directivo.getCuil().toString());
+    	//consulta establecimiento
+
+    	parametros.put("nombreEstablecimiento",directivo.getEstablecimiento().getNombre());
+    	
+    	//parametros.put("nombreEstablecimiento",directivo.getEstablecimiento().getNombre());
+    	
+			 
+		
+    	return servicio.Reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
     }
     
 	/**

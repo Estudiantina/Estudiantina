@@ -13,12 +13,15 @@ import dom.Persona.Persona;
 
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Directivo.Directivo WHERE cuil== :cuil"),
-	@javax.jdo.annotations.Query(name = "traerTodoDirectivo", language = "JDOQL", value = "SELECT FROM dom.Directivo.Directivo")})
+	@javax.jdo.annotations.Query(name = "traerTodoDirectivo", language = "JDOQL", value = "SELECT FROM dom.Directivo.Directivo"),
+	@javax.jdo.annotations.Query(name = "traerDirectivoPorEstablecimiento", language = "JDOQL", value = "SELECT FROM dom.Directivo.Directivo WHERE establecimiento == :institucion")
+})
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @ObjectType("DIRECTIVO")
 public class Directivo extends Persona {
 
+	
 	/**
 	 * metodo que indica el titulo en el viewer
 	 * super hace referencia a la clase Persona
@@ -26,6 +29,7 @@ public class Directivo extends Persona {
 	 */
 	public String title()
 	{
+		
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 	}
 	
