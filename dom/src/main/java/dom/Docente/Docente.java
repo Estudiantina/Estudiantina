@@ -1,6 +1,9 @@
 package dom.Docente;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+import javax.jdo.annotations.Join;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
@@ -9,6 +12,9 @@ import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.Render;
+import org.apache.isis.applib.annotation.Render.Type;
+
 import repo.Persona.RepositorioPersona;
 
 import dom.Establecimiento.Establecimiento;
@@ -34,7 +40,7 @@ public class Docente extends Persona{
 	}
 
 	public String cargo;
-	public List<Establecimiento> establecimientos;
+	public List<Establecimiento> establecimientos = new ArrayList<Establecimiento>();
 	
 	
 	
@@ -52,7 +58,8 @@ public class Docente extends Persona{
 
 
 
-	@Optional
+	@Render(Type.EAGERLY)
+    @Join
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public List<Establecimiento> getEstablecimientos() {
 		return establecimientos;

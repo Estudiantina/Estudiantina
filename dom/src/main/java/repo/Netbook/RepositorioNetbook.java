@@ -24,6 +24,7 @@ import org.joda.time.LocalDate;
 
 import dom.Alumno.Alumno;
 import dom.Directivo.Directivo;
+import dom.Establecimiento.Establecimiento;
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
 import dom.Netbook.SituacionDeNetbook;
@@ -46,23 +47,20 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     }
     @Hidden(where = Where.OBJECT_FORMS)
     
-    public Blob generarContratoComodato(Alumno alumno,Tutor tutor,Directivo directivo) throws FileNotFoundException, JRException 
+    public Blob generarContratoComodato(Alumno alumno,Tutor tutor) throws JRException, FileNotFoundException  
     {
-    	HashMap<String, Object> parametros = new HashMap<String, Object>();
-    	
-    	
-    	
-    	parametros.put("nombreDirector", directivo.getNombre());
-    	parametros.put("dniDirector", directivo.getCuil().toString());
+    	HashMap<String,Object> parametros = new HashMap<String, Object>();
+    	parametros.put("nombreDirector", "pedro");
+    	//parametros.put("dniDirector", directivo.getCuil()+"");
     	//consulta establecimiento
 
-    	parametros.put("nombreEstablecimiento",directivo.getEstablecimiento().getNombre());
-    	
     	//parametros.put("nombreEstablecimiento",directivo.getEstablecimiento().getNombre());
+    	//Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",directivo.getEstablecimiento().getNombre()));
+    	//parametros.put("nombreEstablecimiento",establecimiento.getNombre());
     	
-			 
-		
+	   
     	return servicio.Reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
+		
     }
     
 	/**
