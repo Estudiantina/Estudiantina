@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoComodato" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c773cb5-3261-4506-b1f7-bf1e4b7413e0">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="16"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="nombreDirector" class="java.lang.String"/>
 	<parameter name="dniDirector" class="java.lang.String"/>
 	<parameter name="nombreEstablecimiento" class="java.lang.String"/>
@@ -45,7 +45,7 @@ FORMACION DOCENTE]]></text>
 				<textFieldExpression><![CDATA["Entre la Autoridad Educativa Provincial representada en este acto por el \n" +
 " Sr./a:"+ $P{nombreDirector} +",DNI Nº"+ $P{dniDirector} +", en su \n" +
 "carácter de Director/a/Rector/a de la Escuela/Instituto \n" +
-$P{nombreEstablecimiento} +",Nº "+ $P{numeroEstablecimiento} +",Distrito Escolar:"+ $P{distritoEscolar} +"de la \n" +
+$P{nombreEstablecimiento} +",Nº "+ $P{numeroEstablecimiento} +",Distrito Escolar: "+ $P{distritoEscolar} +"de la \n" +
 "Ciudad de" + $P{ciudadEstablecimiento} + "Provincia de"+ $P{provincia} +"con \n" +
 "domicilio en"+ $P{domicilioEstablecimiento} +",en adelante EL COMODANTE y \n" +
 "por la otra la/el Señora/Señor"+ $P{nombreTutor} +".DNI \n" +

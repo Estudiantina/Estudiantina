@@ -12,6 +12,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.joda.time.LocalDate;
 import dom.Notificaciones.CertificadoAlumnoRegular;
 import dom.Notificaciones.Notificaciones;
+import dom.Notificaciones.SolicitudContratoComodato;
 import dom.login.Login;
 
 
@@ -37,7 +38,17 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		container.informUser("Se Ha solicitado un nuevo certificado De Alumno Regular");
 		return "Se Ha solicitado un nuevo certificado";
 	}
-	
+
+    public String SolicitarContratoComodato()
+    {
+    	SolicitudContratoComodato solicitudContratoComodato = container.newTransientInstance(SolicitudContratoComodato.class);
+    	Login log =firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",container.getUser().getName()));
+    	LocalDate fecha = new LocalDate();
+    	solicitudContratoComodato.setFechaNotificacion(fecha);
+    	solicitudContratoComodato.setPersona(log.getPersona());
+    	container.persistIfNotAlready(solicitudContratoComodato);
+    	return "el contrato de comodato se ha solicitado correctamente";
+    }
 	
 	@Named("Notificaciones No Leidas")
 	public List<Notificaciones> verNotificacionesNoLeidas()

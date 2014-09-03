@@ -21,6 +21,7 @@ import dom.Directivo.Directivo;
 import dom.Docente.Docente;
 import dom.Establecimiento.Establecimiento;
 import dom.Localidad.Localidad;
+import dom.Notificaciones.SolicitudContratoComodato;
 import dom.Persona.Persona;
 import dom.Tecnico.Tecnico;
 import dom.login.Login;
@@ -56,6 +57,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     }
     
     
+    
+
 
     
     

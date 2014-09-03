@@ -37,14 +37,7 @@ public class Notificaciones {
 	
 
     public String iconName() {
-        if (vista==false)
-        {
     	return "notificacionVista";
-        }
-        else
-        {
-        return "notificacionAceptada";	
-        }
     }
     
     @Column(allowsNull="false")
@@ -77,8 +70,7 @@ public class Notificaciones {
 	}
 	@Disabled(where = Where.ALL_TABLES)
 	@Column(allowsNull="false")
-	public boolean isVista() {	    	
-		this.vista=true;
+	public boolean isVista() {
 		return vista;
 	}
 

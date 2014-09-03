@@ -29,6 +29,14 @@ public class Establecimiento {
 	private String email;
 	private String cue;
 	private Localidad localidad;
+	private String distritoEscolar;
+	@Column(allowsNull="false")
+	public String getDistritoEscolar() {
+		return distritoEscolar;
+	}
+	public void setDistritoEscolar(String distritoEscolar) {
+		this.distritoEscolar = distritoEscolar;
+	}
 	@Column(allowsNull="false")
 	public Localidad getLocalidad() {
 		return localidad;
