@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CertAlumnoRegular" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d8d39d6-c4c7-4fa2-85d6-2ad42b6aab8d">
-	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.zoom" value="0.25"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="135"/>
+	<property name="ireport.y" value="0"/>
 	<background>
 		<band height="478">
 			<image>
-				<reportElement x="186" y="21" width="445" height="436" uuid="5f26d51d-ccfe-49a4-b500-bcc5e33e32bc"/>
-				<imageExpression><![CDATA["/home/andresrabo/Imágenes/iMAGENES/Escudo_de_la_Provincia_de_Neuquén.svg.png"]]></imageExpression>
+				<reportElement x="184" y="0" width="594" height="478" uuid="db1fceb4-4493-49a2-a525-210f68e67368"/>
+				<imageExpression><![CDATA["/home/andresrabo/Imágenes/EscudoNqnWatermark.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</background>
