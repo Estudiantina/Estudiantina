@@ -4,6 +4,14 @@ Estudiantina es un software para la administración y gestion de Netbooks Que en
 
 El framework utilizado es Apache Isis.
 
+### Screen Shots ###
+
+![](https://github.com/Estudiantina/Estudiantina/blob/develop/screenshots/1.jpg)
+
+![](https://github.com/Estudiantina/Estudiantina/blob/develop/screenshots/2.jpg)
+
+![](https://github.com/Estudiantina/Estudiantina/blob/develop/screenshots/3.jpg)
+
 License
 ========
 
