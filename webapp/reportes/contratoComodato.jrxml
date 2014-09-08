@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoComodato" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5c773cb5-3261-4506-b1f7-bf1e4b7413e0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoComodato" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5c773cb5-3261-4506-b1f7-bf1e4b7413e0">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="14"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Heading 3" fontSize="14" isBold="true"/>
+	<style name="Default"/>
+	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
+	<style name="Heading" fontSize="14"/>
+	<style name="Heading 4" fontSize="12" isBold="true" isItalic="true"/>
+	<style name="Heading 1" fontSize="16" isBold="true"/>
 	<parameter name="nombreDirector" class="java.lang.String"/>
 	<parameter name="dniDirector" class="java.lang.String"/>
 	<parameter name="nombreEstablecimiento" class="java.lang.String"/>
@@ -29,9 +35,9 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="36" y="19" width="463" height="37" uuid="9e3e4e9a-f00c-474c-9c27-e333f34cc404"/>
+				<reportElement style="Heading 1" x="0" y="19" width="555" height="37" uuid="9e3e4e9a-f00c-474c-9c27-e333f34cc404"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12" isBold="true"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CONTRATO DE COMODATO ESCUELA SECUNDARIA / INSTITUTO DE
 FORMACION DOCENTE]]></text>
@@ -39,9 +45,12 @@ FORMACION DOCENTE]]></text>
 		</band>
 	</title>
 	<detail>
-		<band height="432">
+		<band height="434">
 			<textField>
-				<reportElement x="0" y="0" width="555" height="432" uuid="6c7bf3bf-fafc-4a0c-9363-ac34bc49d298"/>
+				<reportElement style="Heading" x="0" y="0" width="555" height="432" uuid="6c7bf3bf-fafc-4a0c-9363-ac34bc49d298"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
 				<textFieldExpression><![CDATA["Entre la Autoridad Educativa Provincial representada en este acto por el \n" +
 " Sr./a: "+ $P{nombreDirector} +" ,DNI Nº"+ $P{dniDirector} +", en su \n" +
 "carácter de Director/a/Rector/a de la Escuela/Instituto \n" +
@@ -59,8 +68,130 @@ $P{dniTutor} +" ,con domicilio en la calle "+ $P{domicilio} +" piso….., \n" +
 "provincia de"+ $P{provinciaEstablecimiento} +", en adelante “EL COMODATARIO”, ambos \n" +
 "mayores de edad y hábiles para este acto, convienen en celebrar el presente \n" +
 "CONTRATO DE COMODATO, sujeto a las siguientes cláusulas y \n" +
-"condiciones: \n"]]></textFieldExpression>
+"condiciones: \n"+
+"PRIMERA:" + "EL COMODANTE da en COMODATO al COMODATARIO, y \n"+
+"éste acepta, una laptop educativa Marca……………. Modelo………... \n"+
+"Numero de Serie………………………….. . \n"+
+"SEGUNDA: EL COMODATARIO destinará la laptop que recibe en \n"+
+"COMODATO a fines educativos en su carácter de estudiante y para el uso \n"+
+"de su grupo familiar, en el marco del PROGRAMA CONECTAR \n"+
+"IGUALDAD.COM.AR, procurando familiarizar a todo integrante de su hogar \n"+
+"con las nuevas tecnologías. La entrega del equipamiento implica única y \n"+
+"exclusivamente la facultad de uso sobre el mismo, el que deberá realizarse \n"+
+"conforme a su destino. \n"]]></textFieldExpression>
 			</textField>
+		</band>
+		<band height="469">
+			<break>
+				<reportElement x="0" y="0" width="100" height="1" uuid="8f9d2688-5e09-43f1-9904-db7326abdbee"/>
+			</break>
+			<staticText>
+				<reportElement style="Heading" x="0" y="1" width="555" height="468" uuid="5cb5ae8f-57e6-4377-a0d8-a937f91647d5"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[	TERCERA: El COMODATARIO reconoce en forma expresa que recibe el
+bien objeto del presente contrato de parte de EL COMODANTE
+gratuitamente, en concepto de préstamo de uso. También será gratuita su
+conectividad en los términos y condiciones establecidos por el Comité
+Ejecutivo del Programa Conectar Igualdad.
+
+	CUARTA: El presente contrato tendrá vigencia desde la firma del mismo y (i)
+hasta el momento en que el estudiante de por acreditado con titulo la
+finalización del ciclo educativo correspondiente en cualquiera de sus
+modalidades o, (ii) en el supuesto que hubiere recibido la laptop educativa
+dentro de los noventa (90) días corridos previos al final del cursado del ciclo
+y habiendo egresado del mismo, hasta la aprobación del curso de
+introducción al uso de las TIC (Tecnologías de la Información) en el sistema
+educativo realizada dentro de los seis (6) meses posteriores a dicho egreso,
+en los términos dispuesto por el COMITÉ EJECUTIVO DEL PROGRAMA
+CONECTAR IGUALDAD.COM.AR. Una vez cumplimentada una u otra
+condición, conforme el momento del ciclo lectivo en que el estudiante haya
+recibido la laptop educativa, la misma pasará a ser de propiedad del
+estudiante.
+
+	QUINTA: El COMODATARIO podrá rescindir en cualquier momento el
+presente contrato previa notificación fehaciente a EL COMODANTE con
+TREINTA (30) días de anticipación, debiendo para ello restituir la laptop
+objeto del presente al COMODANTE en buen estado de conservación.
+
+	SEXTA: El COMODANTE podrá requerir en cualquier momento la
+devolución de la laptop objeto del presente contrato, y el COMODATARIO
+deberá efectuar la entrega de la misma dentro de los TREINTA (30) días
+posteriores a la notificación en tal sentido. En ningún supuesto y bajo ningún
+concepto podrá EL COMODATARIO retener el bien prestado, una vez que
+EL COMODANTE solicite su reintegro. En caso de no restitución del bien en
+el plazo acordado, EL COMODATARIO quedará constituido en mora de
+pleno derecho, quedando facultado EL COMODANTE a homologar el
+presente convenio y solicitar su reintegro con la sola presentación del
+mismo.]]></text>
+			</staticText>
+		</band>
+		<band height="505">
+			<break>
+				<reportElement x="0" y="6" width="100" height="1" uuid="e98c880c-07e8-4657-9a62-67011fb3d781"/>
+			</break>
+			<staticText>
+				<reportElement style="Heading" x="0" y="19" width="555" height="468" uuid="a2e0b055-61ac-4042-b52a-d4b26f59c34b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[	SEPTIMA: EL COMODATARIO se compromete expresamente a utilizar el
+bien recibido para el desarrollo de los objetivos y fines propios del Programa
+Conectar Igualdad; en el marco del proyecto educativo aprobado por la
+Autoridad Educativa de la Jurisdicción, compatible con los compromisos
+acordados en el seno del Consejo Federal de Educación.
+
+    OCTAVA: EL COMODATARIO se compromete a mantener en buen estado
+de conservación y a utilizar el equipamiento recibido conforme su destino;
+así como a resguardar el equipamiento entregado y no comercializarlo. En
+caso de robo/hurto o extravío del mismo, EL COMODATARIO deberá
+efectuar ante dependencia policial o autoridad competente la pertinente
+denuncia, dentro de las 72 horas de acontecido el hecho. Además, deberá
+comunicar dicha denuncia en www.conectarigualdad.gob.ar (Portal de
+Conectar Igualdad). EL COMODANTE podrá, ante la falsa u ausencia de
+denuncia en tiempo y forma por parte del COMODATARIO, iniciar las
+acciones judiciales que pudieren corresponder.
+
+    NOVENA: El ALUMNO deberá inscribirse OBLIGATORIAMENTE en el
+aplicativo creado en www.conectarigualdad.gob.ar, (Portal Conectar
+Igualdad) para gozar de la garantía de reposición o de servicio técnico con
+que cuenta el equipamiento entregado en comodato.
+
+    DECIMA: EL COMODATARIO deberá solicitar oportunamente al
+COMODANTE, por cuenta de éste último, las reparaciones necesarias sobre
+el bien objeto del presente, con el fin de posibilitar una adecuada utilización
+del mismo.
+
+    DECIMOPRIMERA: EL COMODANTE y EL COMODATARIO constituyen
+domicilio especial en los señalados “ut supra”, donde tendrán validez todas
+las notificaciones judiciales y extrajudiciales.
+
+    DECIMOSEGUNDA: EL COMODATARIO autoriza a EL COMODANTE a la
+realización de investigaciones cuantitativas (encuestas) y/o investigaciones
+cualitativas (entrevistas en profundidad), con el consentimiento del usuario/a,]]></text>
+			</staticText>
+		</band>
+		<band height="402">
+			<textField>
+				<reportElement style="Heading" x="0" y="34" width="555" height="368" uuid="c48d4ae2-40f6-42c4-b3be-3fcec1141fc4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["a través de la entidad que designe con el fin de evaluar el funcionamiento y \n"+
+"desempeño del programa. \n"+
+"DECIMOTERCERA: Para cualquier cuestión judicial, de común acuerdo las \n"+
+"partes quedan sometidas a la competencia de los Juzgados Ordinarios de \n"+
+"Primera Instancia con competencia en lo Contencioso Administrativo. \n"+
+"En prueba de conformidad se firman DOS (2) ejemplares de un mismo tenor \n"+
+"y a un solo efecto, por EL COMODANTE y por “EL COMODATARIO” en la \n"+
+"ciudad ………………….……………..…..…Provincia de…………..…...……, a\n" +
+"los …………..…………… días del mes de …….………………..…….. de \n" +
+"20…….\n"]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="15" width="100" height="1" uuid="942681ea-9fcb-4113-95e9-130e1ebe2df2"/>
+			</break>
 		</band>
 	</detail>
 </jasperReport>
