@@ -1,28 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CertAlumnoRegular" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d8d39d6-c4c7-4fa2-85d6-2ad42b6aab8d">
-	<property name="ireport.zoom" value="0.5894869227500008"/>
+	<property name="ireport.zoom" value="0.25"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="Heading 1" fontSize="16" isBold="true"/>
-	<group name="nuevahoja" isStartNewPage="true">
-		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
-		<groupFooter>
-			<band height="342">
-				<staticText>
-					<reportElement x="98" y="84" width="100" height="20" uuid="699e4b94-ecf5-41de-b4bf-1c61e095ebb4"/>
-					<text><![CDATA[nueva hoja]]></text>
-				</staticText>
-			</band>
-		</groupFooter>
-	</group>
-	<background>
-		<band height="478">
-			<staticText>
-				<reportElement style="Heading 1" x="131" y="119" width="598" height="216" uuid="132f2f38-84cf-4840-9882-2b85aa3257e0"/>
-				<text><![CDATA[nueva hoja]]></text>
-			</staticText>
-		</band>
-	</background>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
