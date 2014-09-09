@@ -12,8 +12,6 @@ import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Render.Type;
 
-import dom.Alumno.EstadoDeAlumno;
-
 import repo.login.repologin;
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
 @Query(name="TraerRoles", language="JDOQL", value = "SELECT FROM dom.Login.Rol")

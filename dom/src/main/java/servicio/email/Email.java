@@ -1,6 +1,5 @@
 package servicio.email;
 
-import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;

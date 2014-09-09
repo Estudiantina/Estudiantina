@@ -5,10 +5,7 @@ import javax.jdo.annotations.IdentityType;
 
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
-
 import repo.Localidad.RepositorioLocalidad;
-import repo.Netbook.RepositorioNetbook;
-
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Queries;

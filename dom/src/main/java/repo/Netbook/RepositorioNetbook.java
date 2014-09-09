@@ -1,12 +1,8 @@
 package repo.Netbook;
 
-import java.io.FileNotFoundException;
 import java.util.Date;
-import java.util.HashMap;
+
 import java.util.List;
-
-import net.sf.jasperreports.engine.JRException;
-
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
@@ -14,25 +10,14 @@ import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
-import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
-import org.apache.isis.applib.value.Blob;
 import org.joda.time.LocalDate;
-
-
-
-
-import dom.Alumno.Alumno;
-import dom.Directivo.Directivo;
-import dom.Establecimiento.Establecimiento;
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
 import dom.Netbook.SituacionDeNetbook;
-import dom.Notificaciones.SolicitudContratoComodato;
 import dom.Notificaciones.SolicitudNetbookPrestada;
-import dom.Persona.Persona;
 import dom.login.Login;
-import dom.tutor.Tutor;
+
 
 
 @Named("Netbook")
