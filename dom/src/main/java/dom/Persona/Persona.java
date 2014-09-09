@@ -203,7 +203,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 		this.email = email;
 	}
 	
-	@Hidden(where = Where.ALL_TABLES)//no la muestra la direccion mac cuando estan todas las tablas
+	@Hidden(where = Where.ALL_TABLES)//no la muestra el domicilio cuando estan todas las tablas
 	public String getDomicilio() {
 		return domicilio;
 	}
@@ -212,6 +212,8 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 		setLocation(loc.lookup(domicilio+", "+localidad.getLocalidad()));
 		this.domicilio = domicilio;
 	}
+	
+	@Hidden(where = Where.ALL_TABLES) // no muestra la fecha de nacimiento en las tablas
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
