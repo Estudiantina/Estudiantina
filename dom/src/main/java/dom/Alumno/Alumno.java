@@ -90,6 +90,7 @@ public class Alumno extends Persona implements Locatable{
 
     @Render(Type.EAGERLY)
     @Join
+	@javax.jdo.annotations.Column(allowsNull="false")
 	public List<Curso> getCursos() {
 		return cursos;
 	}

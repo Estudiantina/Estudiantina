@@ -40,6 +40,8 @@ public class Curso {
 	private Establecimiento establecimiento;
 	private List<Alumno> listaAlumnos = new ArrayList<Alumno>();;
 	
+
+
 	@Persistent
 	@Render(Type.EAGERLY)
 	@Join
@@ -120,4 +122,43 @@ public class Curso {
 		this.container = container;
 	}
 	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((anoYdivision == null) ? 0 : anoYdivision.hashCode());
+		result = prime * result + cicloLectivo;
+		result = prime * result
+				+ ((establecimiento == null) ? 0 : establecimiento.hashCode());
+		result = prime * result + ((turno == null) ? 0 : turno.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Curso other = (Curso) obj;
+		if (anoYdivision == null) {
+			if (other.anoYdivision != null)
+				return false;
+		} else if (!anoYdivision.equals(other.anoYdivision))
+			return false;
+		if (cicloLectivo != other.cicloLectivo)
+			return false;
+		if (establecimiento == null) {
+			if (other.establecimiento != null)
+				return false;
+		} else if (!establecimiento.equals(other.establecimiento))
+			return false;
+		if (turno != other.turno)
+			return false;
+		return true;
+	}
 }
