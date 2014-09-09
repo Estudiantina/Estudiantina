@@ -12,11 +12,13 @@ import com.danhaywood.isis.wicket.gmap3.applib.Location;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Render;
+import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.annotation.Render.Type;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -113,6 +115,7 @@ public class Alumno extends Persona implements Locatable{
 	private Location location;
     @Optional
     @MemberOrder(name="Datos De Localizacion", sequence = "10")
+    @Hidden(where = Where.ALL_TABLES)//no la muestra la localizacion en las tablas
     public Location getLocation() {
         return location;
     }
@@ -139,21 +142,8 @@ public class Alumno extends Persona implements Locatable{
 		this.nacionalidad = nacionalidad;
 	}
 	
-	/*public Certificado getCertificado() {
-		return certificado;
-	}
-	public void	setCertificado(Certificado certificado){
-		this.certificado = certificado;
-	}*/
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public EstadoDeAlumno getEstadoDeAlumno() {
 		return estadoDeAlumno;
