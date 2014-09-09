@@ -52,5 +52,40 @@ public class Departamento {
 		return nombreDepartamento;
 		
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime
+				* result
+				+ ((nombreDepartamento == null) ? 0 : nombreDepartamento
+						.hashCode());
+		result = prime * result
+				+ ((provincia == null) ? 0 : provincia.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Departamento other = (Departamento) obj;
+		if (nombreDepartamento == null) {
+			if (other.nombreDepartamento != null)
+				return false;
+		} else if (!nombreDepartamento.equals(other.nombreDepartamento))
+			return false;
+		if (provincia == null) {
+			if (other.provincia != null)
+				return false;
+		} else if (!provincia.equals(other.provincia))
+			return false;
+		return true;
+	}
 	
 }
