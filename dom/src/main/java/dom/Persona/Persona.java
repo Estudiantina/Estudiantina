@@ -85,7 +85,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	 * no persiste en la base de datos
 	 * solo es utilizada en el Viewer
 	 */
-	public List<Persona> localizacion;
+	private List<Persona> localizacion;
 	@NotPersisted
 	public List<Persona> getLocalizacion() {
 		List<Persona> persona = new ArrayList<Persona>();
