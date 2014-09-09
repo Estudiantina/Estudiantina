@@ -3,10 +3,6 @@ package dom.Curso;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
-import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
@@ -45,7 +41,7 @@ public class Curso {
 	private Turno turno;
 	private Establecimiento establecimiento;
 	private List<Alumno> listaAlumnos = new ArrayList<Alumno>();;
-	/*
+	
 	@Persistent
 	@Render(Type.EAGERLY)
 	@Join
@@ -55,7 +51,7 @@ public class Curso {
 
 	public void setListaAlumnos(List<Alumno> listaAlumnos) {
 		this.listaAlumnos = listaAlumnos;
-	}*/
+	}
 
 
 	@javax.jdo.annotations.Column(allowsNull="false")
