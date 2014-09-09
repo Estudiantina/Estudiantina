@@ -21,7 +21,6 @@ import dom.Directivo.Directivo;
 import dom.Docente.Docente;
 import dom.Establecimiento.Establecimiento;
 import dom.Localidad.Localidad;
-import dom.Notificaciones.SolicitudContratoComodato;
 import dom.Persona.Persona;
 import dom.Tecnico.Tecnico;
 import dom.login.Login;
@@ -110,7 +109,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	alumno.setNombre(nombre);
 	alumno.setApellido(apellido);
 	alumno.setTelefonoCelular(telefonoCelular);
-	alumno.setTelefinoFijo(telefinoFijo);
+	alumno.setTelefonoFijo(telefinoFijo);
 	alumno.setEmail(email);
 	alumno.setDomicilio(domicilio);
 	alumno.setFechaNacimiento(fechaNacimiento);
@@ -163,7 +162,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tecnico.setFechaNacimiento(fechaNacimiento);
 		tecnico.setEstablecimiento(establecimiento);
 		tecnico.setNombre(nombre);
-		tecnico.setTelefinoFijo(telefinoFijo);
+		tecnico.setTelefonoFijo(telefinoFijo);
 		tecnico.setTelefonoCelular(telefonoCelular);
 		
 		container.persistIfNotAlready(tecnico);
@@ -199,7 +198,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		directivo.setEmail(email);
 		directivo.setEstablecimiento(establecimiento);
 		directivo.setNombre(nombre);
-		directivo.setTelefinoFijo(telefinoFijo);
+		directivo.setTelefonoFijo(telefinoFijo);
 		directivo.setTelefonoCelular(telefonoCelular);
 		
 		container.persistIfNotAlready(directivo);
@@ -237,7 +236,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setEmail(email);
 		docente.setEstablecimiento(establecimiento);
 		docente.setNombre(nombre);
-		docente.setTelefinoFijo(telefinoFijo);
+		docente.setTelefonoFijo(telefinoFijo);
 		docente.setTelefonoCelular(telefonoCelular);
         docente.setCargo(cargo);
         
@@ -276,7 +275,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tutor.setEmail(email);
 		tutor.setEstablecimiento(establecimiento);
 		tutor.setNombre(nombre);
-		tutor.setTelefinoFijo(telefinoFijo);
+		tutor.setTelefonoFijo(telefinoFijo);
 		tutor.setTelefonoCelular(telefonoCelular);
         
         

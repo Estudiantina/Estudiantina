@@ -42,8 +42,8 @@ public interface IntegranteDeLaInstitucion {
 	
 	@Title(sequence="7")
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getTelefinoFijo();
-	public void setTelefinoFijo(String telefinoFijo);
+	public String getTelefonoFijo();
+	public void setTelefonoFijo(String telefinoFijo);
 	
 	@Title(sequence="5")
 	@javax.jdo.annotations.Column(allowsNull="false")

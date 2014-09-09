@@ -63,7 +63,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	private String nombre;
 	private String apellido;
 	private String telefonoCelular;
-	private String telefinoFijo;
+	private String telefonoFijo;
 	private String email;
 	private String domicilio;
 	private Date fechaNacimiento;
@@ -198,11 +198,11 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	public void setTelefonoCelular(String telefonoCelular) {
 		this.telefonoCelular = telefonoCelular;
 	}
-	public String getTelefinoFijo() {
-		return telefinoFijo;
+	public String getTelefonoFijo() {
+		return telefonoFijo;
 	}
-	public void setTelefinoFijo(String telefinoFijo) {
-		this.telefinoFijo = telefinoFijo;
+	public void setTelefonoFijo(String telefinoFijo) {
+		this.telefonoFijo = telefinoFijo;
 	}
 	public String getEmail() {
 		return email;

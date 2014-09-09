@@ -17,8 +17,6 @@ import org.apache.isis.applib.annotation.Render.Type;
 
 import dom.Alumno.Alumno;
 import dom.Establecimiento.Establecimiento;
-import dom.Netbook.Netbook;
-import dom.Persona.Persona;
 
 
 import repo.Curso.RepositorioCurso;
