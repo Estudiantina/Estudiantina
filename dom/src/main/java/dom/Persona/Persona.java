@@ -100,13 +100,14 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	 */
 	@Persistent
 	private Location location;
-    @Hidden
-	@Optional
+    
 	/**
      * metodo para geolocalizar
      * persona.
-     * @return
+     * @return objeto con cordenadas
      */
+	@Hidden
+	@Optional
     public Location getLocation() {
         return location;
     }
@@ -189,6 +190,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	@Hidden(where = Where.ALL_TABLES) // no muestra el telefono celular en todas las tablas
 	public String getTelefonoCelular() {
 		return telefonoCelular;
 	}
