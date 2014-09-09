@@ -102,6 +102,11 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	private Location location;
     @Hidden
 	@Optional
+	/**
+     * metodo para geolocalizar
+     * persona.
+     * @return
+     */
     public Location getLocation() {
         return location;
     }
@@ -207,6 +212,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	public String getDomicilio() {
 		return domicilio;
 	}
+	
 	public void setDomicilio(String domicilio) {
 		LocationLookupService loc = new LocationLookupService();
 		setLocation(loc.lookup(domicilio+", "+localidad.getLocalidad()));
@@ -255,11 +261,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 			return this;
 		}
 
-    /**
-     * metodo para geolocalizar
-     * persona.
-     * @return
-     */
+    
     
     
     
