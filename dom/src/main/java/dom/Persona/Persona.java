@@ -24,6 +24,7 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Render;
+import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
@@ -201,6 +202,8 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Hidden(where = Where.ALL_TABLES)//no la muestra la direccion mac cuando estan todas las tablas
 	public String getDomicilio() {
 		return domicilio;
 	}
