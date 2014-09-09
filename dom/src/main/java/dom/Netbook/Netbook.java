@@ -2,7 +2,6 @@ package dom.Netbook;
 
 
 import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -30,14 +29,8 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
-
-
-
-
-
+import javax.jdo.annotations.Column;
 import org.apache.isis.applib.value.Blob;
-
-import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
 import repo.Netbook.RepositorioNetbook;
 
@@ -84,7 +77,7 @@ public class Netbook {
     
 
     
-    @javax.jdo.annotations.Column(allowsNull="false",length=17)
+    @Column(allowsNull="false",length=17)
 	@MemberOrder(name="Informacion De Hardware", sequence="1")
     @RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]")
     @Hidden(where = Where.ALL_TABLES)//no la muestra la direccion mac cuando estan todas las tablas
@@ -95,7 +88,7 @@ public class Netbook {
 	public void setDireccionMac(String direccionMac) {
 		this.direccionMac = direccionMac;
 	}
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@Column(allowsNull="false")
 	@MemberOrder(name="Informacion De Hardware", sequence="2")
 	public ModeloNetbook getModelo() {
 		return modelo;
@@ -105,7 +98,7 @@ public class Netbook {
 	}
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="false",length=30)
+	@Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software", sequence="1")
 	@Hidden(where = Where.ALL_TABLES)
 	public String getNumeroDeSerie() {
@@ -135,7 +128,7 @@ public class Netbook {
     }
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="false",length=30)
+	@Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software",sequence="2")
 	@Hidden(where = Where.ALL_TABLES)
 	public String getNumeroLicenciaWindows() {
@@ -146,7 +139,7 @@ public class Netbook {
 	}
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="true")
+	@Column(allowsNull="true")
 	@Optional
 	@MemberOrder(name="Informacion General",sequence="3")
 	@Hidden(where = Where.ALL_TABLES)
@@ -160,7 +153,7 @@ public class Netbook {
 	
 	
 	@MemberOrder(name="Informacion General",sequence="2")
-	@javax.jdo.annotations.Column(allowsNull="false",length=10)
+	@Column(allowsNull="false",length=10)
 	public String getSituacionDeNetbook() {
 		return situacionDeNetbook;
 	}
@@ -170,7 +163,7 @@ public class Netbook {
 	
 	
 	@Unique
-	@javax.jdo.annotations.Column(allowsNull="false",length=10)
+	@Column(allowsNull="false",length=10)
     @Title(sequence="1")
 	@MaxLength(10)
     @MemberOrder(name="Informacion General",sequence="1")
@@ -182,7 +175,7 @@ public class Netbook {
 	}
 	
 	
-	@javax.jdo.annotations.Column(allowsNull="false",length=20)
+	@Column(allowsNull="false",length=20)
 	@MemberOrder(name="Informacion General",sequence="2")
 	public SituacionDeNetbook getEstadoNetbook() {
 		return estadoNetbook;
@@ -193,7 +186,7 @@ public class Netbook {
 
 
 	@Optional
-	@javax.jdo.annotations.Column(allowsNull="true",length=30)
+	@Column(allowsNull="true",length=30)
 	@MemberOrder(name="Informacion General",sequence="4")
 	@Hidden(where = Where.ALL_TABLES)//oculta el numero de acta de robo en las tablas
 	public String getNumeroDeActaDeRobo() {
