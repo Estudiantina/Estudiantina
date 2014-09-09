@@ -67,6 +67,46 @@ public class Localidad {
 		this.localidad = localidad;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((codigoPostal == null) ? 0 : codigoPostal.hashCode());
+		result = prime * result
+				+ ((departamento == null) ? 0 : departamento.hashCode());
+		result = prime * result
+				+ ((localidad == null) ? 0 : localidad.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Localidad other = (Localidad) obj;
+		if (codigoPostal == null) {
+			if (other.codigoPostal != null)
+				return false;
+		} else if (!codigoPostal.equals(other.codigoPostal))
+			return false;
+		if (departamento == null) {
+			if (other.departamento != null)
+				return false;
+		} else if (!departamento.equals(other.departamento))
+			return false;
+		if (localidad == null) {
+			if (other.localidad != null)
+				return false;
+		} else if (!localidad.equals(other.localidad))
+			return false;
+		return true;
+	}
+
 
 
 	
