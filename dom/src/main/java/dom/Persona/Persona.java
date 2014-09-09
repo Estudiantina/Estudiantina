@@ -71,6 +71,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	private Establecimiento establecimiento;
 	private Localidad localidad;
 	@Column(allowsNull="true")
+	@Hidden(where = Where.ALL_TABLES)//no la muestra la localidad cuando esta en las tablas
 	public Localidad getLocalidad() {
 		return localidad;
 	}
