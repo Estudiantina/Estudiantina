@@ -115,6 +115,69 @@ public class Establecimiento {
 
 	@javax.inject.Inject 
 	  private DomainObjectContainer container;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cue == null) ? 0 : cue.hashCode());
+		result = prime * result
+				+ ((direccion == null) ? 0 : direccion.hashCode());
+		result = prime * result
+				+ ((distritoEscolar == null) ? 0 : distritoEscolar.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result
+				+ ((localidad == null) ? 0 : localidad.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result
+				+ ((telefono == null) ? 0 : telefono.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Establecimiento other = (Establecimiento) obj;
+		if (cue == null) {
+			if (other.cue != null)
+				return false;
+		} else if (!cue.equals(other.cue))
+			return false;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
+		if (distritoEscolar == null) {
+			if (other.distritoEscolar != null)
+				return false;
+		} else if (!distritoEscolar.equals(other.distritoEscolar))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (localidad == null) {
+			if (other.localidad != null)
+				return false;
+		} else if (!localidad.equals(other.localidad))
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (telefono == null) {
+			if (other.telefono != null)
+				return false;
+		} else if (!telefono.equals(other.telefono))
+			return false;
+		return true;
+	}
 
 
 }
