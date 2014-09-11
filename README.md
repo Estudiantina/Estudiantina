@@ -91,9 +91,9 @@ Agregar una nueva Localidad
 
 ```
 INSERT INTO "Localidad"(
-            "Localidad_ID", "codigoPostal", "departamento_Departamento_ID_OID", 
+            "codigoPostal", "departamento_Departamento_ID_OID", 
             localidad)
-    VALUES (1, '8300', 1 , 
+    VALUES ('8300', 1 , 
             1);
 ```
 
