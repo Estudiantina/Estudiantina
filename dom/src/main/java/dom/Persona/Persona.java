@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.inject.Named;
 
+import javax.jdo.annotations.ForeignKey;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -58,7 +59,7 @@ import dom.Netbook.Netbook;
 @Bookmarkable
 @ObjectType("Persona")
 public class Persona implements IntegranteDeLaInstitucion,Locatable{
-
+	
 	private Long cuil;
 	private String nombre;
 	private String apellido;

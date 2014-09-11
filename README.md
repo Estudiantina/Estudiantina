@@ -94,7 +94,7 @@ INSERT INTO "Localidad"(
             "codigoPostal", "departamento_Departamento_ID_OID", 
             localidad)
     VALUES ('8300', 1 , 
-            1);
+            'Neuquen');
 ```
 
 Agregar Nuevo Establecimiento
@@ -102,9 +102,9 @@ Agregar Nuevo Establecimiento
 ```
 INSERT INTO "Establecimiento"(
             "Establecimiento_ID", cue, direccion, "distritoEscolar", email, 
-            "localidad_codigoPostal_OID", nombre, telefono)
+            "localidad_Localidad_ID_OID", nombre, telefono)
     VALUES (1, 222, 'santa fe 332', 'DISTRITO REGIONAL I CONFLUENCIA', 'distrito1@neuquen.gov.ar', 
-            8300, 'ifes', '444444');
+            1, 'ifes', '444444');
 ```
 
 Agregar nueva Persona
@@ -112,11 +112,11 @@ Agregar nueva Persona
 ```
 INSERT INTO "Persona"(
             "Persona_ID", apellido, cuil, domicilio, email, "establecimiento_Establecimiento_ID_OID", 
-            "fechaNacimiento", "localidad_codigoPostal_OID", location, nombre, 
+            "fechaNacimiento", "localidad_Localidad_ID_OID", location, nombre, 
             "telefonoCelular", "telefonoFijo", "localizacion_Persona_ID_OID", 
             "localizacion_INTEGER_IDX")
-    VALUES (1, 'pepe', '33333', 'peru 81', 'mario@herivan.com', 1, 
-            '11-06-1970', 8300, null, 'pepe', 
+VALUES (1, 'pepe', '33333', 'peru 81', 'mario@herivan.com', 1, 
+            '11-06-1970', 1, null, 'pepe', 
             '444444',1 , 1, 
             1);
 ```

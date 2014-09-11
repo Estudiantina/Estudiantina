@@ -168,7 +168,6 @@ public class Netbook {
     @Title(sequence="1")
 	@MaxLength(10)
     @MemberOrder(name="Informacion General",sequence="1")
-	@PrimaryKey
 	public String getIdNetbook() {
 		return idNetbook;
 	}

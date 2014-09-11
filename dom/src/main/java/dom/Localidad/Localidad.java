@@ -48,8 +48,7 @@ public class Localidad {
 	}
 
     @Unique
-    @Column(allowsNull="false")
-    @PrimaryKey
+    @Column(allowsNull="false")    
 	public String getCodigoPostal() {
 		return codigoPostal;
 	}
