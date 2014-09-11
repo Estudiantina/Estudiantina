@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 
@@ -167,6 +168,7 @@ public class Netbook {
     @Title(sequence="1")
 	@MaxLength(10)
     @MemberOrder(name="Informacion General",sequence="1")
+	@PrimaryKey
 	public String getIdNetbook() {
 		return idNetbook;
 	}
