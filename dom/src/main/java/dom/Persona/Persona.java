@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.inject.Named;
 
+import javax.jdo.annotations.DiscriminatorStrategy;
 import javax.jdo.annotations.ForeignKey;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
@@ -44,6 +45,10 @@ import dom.Netbook.Netbook;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
+@javax.jdo.annotations.Discriminator(
+        strategy = DiscriminatorStrategy.CLASS_NAME,
+        column = "discriminator")
+//el discriminador sirve para ver de que clase viene 
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona"),
 	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.Persona.Persona WHERE cuil== :cuil")	
 })
