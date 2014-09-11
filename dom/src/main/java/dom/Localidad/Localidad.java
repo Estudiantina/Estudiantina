@@ -10,6 +10,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import repo.Localidad.RepositorioLocalidad;
 
 import javax.jdo.annotations.Column;
+import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Queries;
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.PersistenceCapable;
@@ -48,6 +49,7 @@ public class Localidad {
 
     @Unique
     @Column(allowsNull="false")
+    @PrimaryKey
 	public String getCodigoPostal() {
 		return codigoPostal;
 	}
