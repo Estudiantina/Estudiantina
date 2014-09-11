@@ -102,9 +102,9 @@ Agregar Nuevo Establecimiento
 ```
 INSERT INTO "Establecimiento"(
             "Establecimiento_ID", cue, direccion, "distritoEscolar", email, 
-            "localidad_Localidad_ID_OID", nombre, telefono)
+            "localidad_codigoPostal_OID", nombre, telefono)
     VALUES (1, 222, 'santa fe 332', 'DISTRITO REGIONAL I CONFLUENCIA', 'distrito1@neuquen.gov.ar', 
-            1, 'ifes', '444444');
+            8300, 'ifes', '444444');
 ```
 
 Agregar nueva Persona

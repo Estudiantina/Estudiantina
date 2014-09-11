@@ -80,6 +80,7 @@ INSERT INTO "Provincia"(
 ```
 
 Agregar un Departamento
+
 ```
 INSERT INTO "Departamento"(
             "Departamento_ID", "nombreDepartamento", "provincia_Provincia_ID_OID")
@@ -87,11 +88,12 @@ INSERT INTO "Departamento"(
 ```
 
 Agregar una nueva Localidad
+
 ```
 INSERT INTO "Localidad"(
-            "Localidad_ID", "codigoPostal", "departamento_Departamento_ID_OID", 
+            "codigoPostal", "departamento_Departamento_ID_OID", 
             localidad)
-    VALUES (1, '8300', 1 , 
+    VALUES ('8300', 1 , 
             1);
 ```
 
@@ -106,11 +108,12 @@ INSERT INTO "Establecimiento"(
 ```
 
 Agregar nueva Persona
+
 ```
 INSERT INTO "Persona"(
             "Persona_ID", apellido, cuil, domicilio, email, "establecimiento_Establecimiento_ID_OID", 
             "fechaNacimiento", "localidad_Localidad_ID_OID", location, nombre, 
-            "telefinoFijo", "telefonoCelular", "localizacion_Persona_ID_OID", 
+            "telefonoFijo", "telefonoCelular", "localizacion_Persona_ID_OID", 
             "localizacion_INTEGER_IDX")
     VALUES (1, 'pepe', '33333', 'peru 81', 'mario@herivan.com', 1, 
             '11-06-1970', 1, null, 'pepe', 
@@ -118,7 +121,11 @@ INSERT INTO "Persona"(
             1);
 ```
 Asignar la persona como un Tecnico
-
+```
+INSERT INTO "Tecnico"(
+            "Tecnico_ID")
+    VALUES (1);
+```
 
 Agregar Nuevo Rol
 ```
