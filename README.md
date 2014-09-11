@@ -112,11 +112,11 @@ Agregar nueva Persona
 ```
 INSERT INTO "Persona"(
             "Persona_ID", apellido, cuil, domicilio, email, "establecimiento_Establecimiento_ID_OID", 
-            "fechaNacimiento", "localidad_Localidad_ID_OID", location, nombre, 
-            "telefonoFijo", "telefonoCelular", "localizacion_Persona_ID_OID", 
+            "fechaNacimiento", "localidad_codigoPostal_OID", location, nombre, 
+            "telefonoCelular", "telefonoFijo", "localizacion_Persona_ID_OID", 
             "localizacion_INTEGER_IDX")
     VALUES (1, 'pepe', '33333', 'peru 81', 'mario@herivan.com', 1, 
-            '11-06-1970', 1, null, 'pepe', 
+            '11-06-1970', 8300, null, 'pepe', 
             '444444',1 , 1, 
             1);
 ```
