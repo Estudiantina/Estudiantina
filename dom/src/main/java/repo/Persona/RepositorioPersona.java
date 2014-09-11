@@ -1,12 +1,11 @@
 package repo.Persona;
 
 
-
 import java.util.Date;
 import java.util.List;
 
-import org.apache.isis.applib.AbstractFactoryAndRepository;
 
+import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.RegEx;
@@ -310,6 +309,19 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	}
 	
 	
+    
+    /**
+	 * Listar los alumnos por estados.
+	 * @return List<Alumno>
+	 */
+	@Named("Listar de Alumno por Estados")
+	public List<Alumno> listaEstadoAlumno(@Named("Seleccione Estado") EstadoDeAlumno estado) {
+		
+		return allMatches(QueryDefault.create(Alumno.class, "traerPorEstado", "estadoDeAlumno", estado));
+	}
+    
+    
+    
 	@javax.inject.Inject 
     DomainObjectContainer container;
     
