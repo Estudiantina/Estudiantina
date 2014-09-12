@@ -3,6 +3,9 @@ package dom.Curso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
@@ -14,6 +17,7 @@ import org.apache.isis.applib.annotation.Render;
 
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render.Type;
+import org.apache.isis.applib.util.ObjectContracts;
 
 import dom.Alumno.Alumno;
 import dom.Establecimiento.Establecimiento;
@@ -31,28 +35,28 @@ import repo.Curso.RepositorioCurso;
 @ObjectType("CURSO")
 @AutoComplete(repository =  RepositorioCurso.class, action = "autoComplete")
 @Audited
-public class Curso {
+public class Curso implements Comparable<Curso> {
 	
 	private String anoYdivision;
 	//TODO separar año y division
 	private int cicloLectivo;
 	private Turno turno;
 	private Establecimiento establecimiento;
-	private List<Alumno> listaAlumnos = new ArrayList<Alumno>();;
+	private SortedSet<Alumno> listaAlumnos = new TreeSet<Alumno>();
 	
-
-
-	@Persistent
+	
 	@Render(Type.EAGERLY)
-	@Join
-	public List<Alumno> getListaAlumnos() {
+	public SortedSet<Alumno> getListaAlumnos() {
 		return listaAlumnos;
 	}
 
-	public void setListaAlumnos(List<Alumno> listaAlumnos) {
+	public void setListaAlumnos(SortedSet<Alumno> listaAlumnos) {
 		this.listaAlumnos = listaAlumnos;
 	}
 
+
+	
+	
 
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Establecimiento getEstablecimiento() {
@@ -160,5 +164,12 @@ public class Curso {
 		if (turno != other.turno)
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Curso curso) {
+		// TODO Apéndice de método generado automáticamente
+		
+		return ObjectContracts.compare(this, curso, "anoYdivision");
 	}
 }

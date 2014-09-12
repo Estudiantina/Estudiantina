@@ -4,6 +4,9 @@ package dom.Alumno;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
@@ -20,6 +23,8 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.annotation.Render.Type;
+import org.apache.isis.applib.util.ObjectContracts;
+
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 
@@ -28,6 +33,7 @@ import javax.jdo.annotations.InheritanceStrategy;
 import repo.Persona.RepositorioPersona;
 import dom.Curso.Curso;
 import dom.Persona.Persona;
+
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 //TODO hacer consulta traerPorcuil 
@@ -41,7 +47,7 @@ import dom.Persona.Persona;
 
 
 @ObjectType("ALUMNO")
-public class Alumno extends Persona implements Locatable{
+public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	
 	/**
 	 * metodo que indica el titulo en el viewer
@@ -82,27 +88,26 @@ public class Alumno extends Persona implements Locatable{
 		return "alumno";
 	   }
 	    	
-	/*@javax.jdo.annotations.Persistent(mappedBy="anoYdivision")*/
-	@Persistent
-    private List<Curso> cursos = new ArrayList<Curso>();;
+	@javax.jdo.annotations.Persistent(mappedBy="anoYdivision")
+    private SortedSet<Curso> cursos = new TreeSet<Curso>();;
     
 	   
 	
-
+    
     @Render(Type.EAGERLY)
-    @Join
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public List<Curso> getCursos() {
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public SortedSet<Curso> getCursos() {
 		return cursos;
 	}
-	public void setCursos(List<Curso> cursos) {
+	public void setCursos(SortedSet<Curso> cursos) {
 		this.cursos = cursos;
 	}
+
 
 	
 	public Alumno agregarCurso(@Named("curso") Curso curso)
 	{
-		List<Curso> cursos = this.getCursos();
+		SortedSet<Curso> cursos = this.getCursos();
 		cursos.add(curso);
 		this.setCursos(cursos);
 		return this;
@@ -211,6 +216,13 @@ public class Alumno extends Persona implements Locatable{
 		if (nacionalidad != other.nacionalidad)
 			return false;
 		return true;
+	}
+
+
+	@Override
+	public int compareTo(Alumno alumno) {
+
+		return ObjectContracts.compare(this, alumno, "cuil");
 	}
 
 

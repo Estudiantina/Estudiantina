@@ -1,0 +1,5 @@
+INSERT INTO "Provincia"(
+            "Provincia_ID", "nombreProvincia")
+    VALUES (2, 'Rio Negro');
+
+

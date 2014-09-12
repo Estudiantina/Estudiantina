@@ -147,7 +147,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	 * @return String nombre de icono
 	 */
 	public String iconName() {
-        
+		
 		return "alumno";
     }
 
