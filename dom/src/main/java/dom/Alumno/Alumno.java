@@ -59,9 +59,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 		
-	}
-	
-	
+	}	
 	/**
 	 * Identificacion del nombre del icono 
 	 * que aparecera en la UI
@@ -88,10 +86,10 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		return "alumno";
 	   }
 	    	
-	@javax.jdo.annotations.Persistent(mappedBy="anoYdivision")
+    @Persistent(mappedBy = "ChildCollectionNameInParent")
     private SortedSet<Curso> cursos = new TreeSet<Curso>();;
-    
-	   
+
+	
 	
     
     @Render(Type.EAGERLY)

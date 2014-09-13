@@ -1,8 +1,16 @@
 Estudiantina
-========
+============
 Estudiantina es un software para la administración y gestion de Netbooks Que entrega el Gobierno de La Republica Argentina.
 
 El framework utilizado es Apache Isis.
+
+### Mails de Contacto ###
+```
+matias@informaticos.com
+icia.tjl.nqn@gmail.com
+andresrabovich@gmail.com
+```
+
 
 ### Screen Shots ###
 
