@@ -126,7 +126,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	private Location location;
     @Optional
     @MemberOrder(name="Datos De Localizacion", sequence = "10")
-    @Hidden(where = Where.ALL_TABLES)//no la muestra la localizacion en las tablas
+    @Hidden()//no la muestra la localizacion en las tablas
     public Location getLocation() {
         return location;
     }

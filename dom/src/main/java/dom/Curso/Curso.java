@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
@@ -13,7 +14,9 @@ import javax.jdo.annotations.Unique;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Render;
 
 import org.apache.isis.applib.annotation.ObjectType;
@@ -22,6 +25,7 @@ import org.apache.isis.applib.util.ObjectContracts;
 
 import dom.Alumno.Alumno;
 import dom.Establecimiento.Establecimiento;
+import dom.Persona.Persona;
 
 
 import repo.Curso.RepositorioCurso;
@@ -67,6 +71,15 @@ public class Curso implements Comparable<Curso> {
 	    return this;
 	}
 
+	@Bulk //para que ejecute la accion en una lista masiva de objetos
+	@PublishedAction // para que muestre la accion en la lista de objetos
+	@Named("eliminar curso")
+	public String eliminar() {
+        container.removeIfNotAlready(this);
+        container.informUser("Los Cursos selecionados fueron eliminados");
+
+        return "Los Cursos Seleccionados Fueron Eliminados"; 
+    }
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")

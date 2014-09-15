@@ -242,7 +242,6 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	public List<Persona> eliminar() {
         container.removeIfNotAlready(this);
         container.informUser("las personas selecionadas fueron eliminadas");
-
         return this.traerTodas(); 
     }
     @Programmatic
