@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.jdo.annotations.Element;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
@@ -86,14 +87,15 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		return "alumno";
 	   }
 	    	
-    @Persistent(mappedBy = "ChildCollectionNameInParent")
+    
     private SortedSet<Curso> cursos = new TreeSet<Curso>();;
 
 	
 	
-    
+    @Persistent(table="ALUMNO_CURSOS")
+    @Join(column="ALUMNO_ID")
+    @Element(column ="CURSO_ID")
     @Render(Type.EAGERLY)
-	@javax.jdo.annotations.Column(allowsNull="true")
 	public SortedSet<Curso> getCursos() {
 		return cursos;
 	}
@@ -101,15 +103,17 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		this.cursos = cursos;
 	}
 
+	public void agregarCurso(Curso curso) {
+	    cursos.add(curso);
+	    curso.getListaAlumnos().add(this);
+	}
+
+	public void eliminarCurso(Curso curso) {
+	    cursos.remove(curso);
+	    curso.getListaAlumnos().remove(this);
+	}
 
 	
-	public Alumno agregarCurso(@Named("curso") Curso curso)
-	{
-		SortedSet<Curso> cursos = this.getCursos();
-		cursos.add(curso);
-		this.setCursos(cursos);
-		return this;
-	}
 
 	private Date fechaIngreso;
 	

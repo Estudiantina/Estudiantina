@@ -13,6 +13,7 @@ import javax.jdo.annotations.Unique;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Render;
 
 import org.apache.isis.applib.annotation.ObjectType;
@@ -44,7 +45,7 @@ public class Curso implements Comparable<Curso> {
 	private Establecimiento establecimiento;
 	private SortedSet<Alumno> listaAlumnos = new TreeSet<Alumno>();
 	
-	
+	@Persistent(mappedBy="cursos")
 	@Render(Type.EAGERLY)
 	public SortedSet<Alumno> getListaAlumnos() {
 		return listaAlumnos;
@@ -54,10 +55,20 @@ public class Curso implements Comparable<Curso> {
 		this.listaAlumnos = listaAlumnos;
 	}
 
+	public Curso agregarAlumno(Alumno alumno) {
+	    listaAlumnos.add(alumno);
+	    alumno.getCursos().add(this);
+	    return this;
+	}
+
+	public Curso eliminarAlumno(Alumno alumno) {
+	    listaAlumnos.remove(alumno);
+	    alumno.getCursos().remove(this);
+	    return this;
+	}
 
 	
 	
-
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Establecimiento getEstablecimiento() {
 		return establecimiento;
