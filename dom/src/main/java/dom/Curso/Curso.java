@@ -77,7 +77,6 @@ public class Curso implements Comparable<Curso> {
 	public String eliminar() {
         container.removeIfNotAlready(this);
         container.informUser("Los Cursos selecionados fueron eliminados");
-
         return "Los Cursos Seleccionados Fueron Eliminados"; 
     }
 	

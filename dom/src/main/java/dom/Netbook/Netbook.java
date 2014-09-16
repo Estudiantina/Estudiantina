@@ -66,7 +66,7 @@ public class Netbook {
 	private SituacionDeNetbook estadoNetbook;
 	private String numeroDeActaDeRobo;
 	
-	 private Persona persona = new Persona();
+	private Persona persona = new Persona();
 	
 
 	
