@@ -14,7 +14,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import org.joda.time.LocalDate;
 import dom.Netbook.ModeloNetbook;
 import dom.Netbook.Netbook;
-import dom.Netbook.SituacionDeNetbook;
+import dom.Netbook.Estado.SituacionDeNetbook;
 import dom.Notificaciones.SolicitudNetbookPrestada;
 import dom.login.Login;
 
@@ -81,8 +81,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	@Named("Numero De Serie")@MaxLength(30)final String numeroDeSerie,
 	@Named("Numero De Licencia de Windows")@MaxLength(30)final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
-	@MaxLength(17)@RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]") @Named("Direccion Mac")final String direccionMac,
-	@Named("Estado de la Netbook")final SituacionDeNetbook estadoNetbook)
+	@MaxLength(17)@RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]") @Named("Direccion Mac")final String direccionMac)
 
 	{
 		final Netbook netbook = container.newTransientInstance(Netbook.class);
@@ -93,9 +92,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setNumeroDeSerie(numeroDeSerie);
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
 	    netbook.setSituacionDeNetbook("Entregada");
-	    netbook.setEstadoNetbook(estadoNetbook);
-	
-	   
+	    netbook.setEstadoNetbook(new dom.Netbook.Estado.Deposito());
 	    
 	    
 	    container.persistIfNotAlready(netbook);
@@ -119,8 +116,8 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 			final String numeroDeSerie,
 			final String numeroLicenciaWindows,
 			final Date fechaDeExpiracion,
-			final String direccionMac,
-			final SituacionDeNetbook estadoNetbook) {
+			final String direccionMac
+			) {
         return validarDatosDeNetbook(numeroDeSerie,numeroLicenciaWindows,fechaDeExpiracion,direccionMac);
     }
 	/**

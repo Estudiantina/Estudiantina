@@ -5,8 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
-import javax.jdo.annotations.PrimaryKey;
+import dom.Netbook.Estado.SituacionDeNetbook;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 
@@ -17,6 +16,7 @@ import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberGroupLayout;
@@ -34,7 +34,7 @@ import javax.jdo.annotations.Column;
 import org.apache.isis.applib.value.Blob;
 import dom.Persona.Persona;
 import repo.Netbook.RepositorioNetbook;
-
+import javax.jdo.annotations.Extension;
 
 
 @javax.jdo.annotations.PersistenceCapable()
@@ -153,6 +153,8 @@ public class Netbook {
 	
 	
 	
+	
+	
 	@MemberOrder(name="Informacion General",sequence="2")
 	@Column(allowsNull="false",length=10)
 	public String getSituacionDeNetbook() {
@@ -175,9 +177,16 @@ public class Netbook {
 		this.idNetbook = idNetbook;
 	}
 	
-	
+	@javax.jdo.annotations.Persistent(extensions = {
+			@Extension(vendorName = "datanucleus", key = "mapping-strategy", value = "per-implementation"),
+			@Extension(vendorName = "datanucleus", key = "implementation-classes", value = "dom.Netbook.Estado.Asignada"
+					+ ",dom.Netbook.Estado.Robada"
+					+ ",dom.Netbook.Estado.Deposito"
+					) }, columns = {
+			@Column(name = "idAsignada"), @Column(name = "idRobada"), @Column(name = "idDeposito")})
 	@Column(allowsNull="false",length=20)
 	@MemberOrder(name="Informacion General",sequence="2")
+	@Named("Situacion de Netbook")
 	public SituacionDeNetbook getEstadoNetbook() {
 		return estadoNetbook;
 	}
@@ -197,43 +206,7 @@ public class Netbook {
 	public void setNumeroDeActaDeRobo(String numeroDeActaDeRobo) {
 		this.numeroDeActaDeRobo = numeroDeActaDeRobo;
 	}
-	
-	/**
-	 * cuando selecciona el estado robado 
-	 * se agrega la opcion para agregar nro de acta de robo y datos
-	 * @return
-	 */
-	
-     public boolean hideNumeroDeActaDeRobo() {
-		
-		if (estadoNetbook.equals(SituacionDeNetbook.ROBADA))
-		{
-		 return false;
-		}
-		else
-		{
-		
-		return true;
-		}
-     }
-    
-   /**
-    * al seleccionar al estado de migracion se activa 
-    * la opcion de imprimir acta de migracion
-    * @return
-    */
-     public boolean hideImprimirActaMigracion() {
- 		
- 		if (estadoNetbook.equals(SituacionDeNetbook.MIGRADA))
- 		{
- 		 return false;
- 		}
- 		else
- 		{
- 		
- 		return true;
- 		}
-      }
+
      
      /**
       * TODO ImprimirReporte
