@@ -125,10 +125,10 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
     }
     
     @Render(Type.EAGERLY)
-	public SortedSet<Netbook> getNetbook() {
+	public List<Netbook> getNetbook() {
 		return netbook;
 	}
-	public void setNetbook(SortedSet<Netbook> netbook) {
+	public void setNetbook(List<Netbook> netbook) {
 		this.netbook = netbook;
 	}
 
