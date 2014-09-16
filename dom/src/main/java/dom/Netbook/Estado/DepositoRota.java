@@ -4,13 +4,15 @@ import javax.jdo.annotations.IdentityType;
 
 import org.apache.isis.applib.annotation.ObjectType;
 
-@PersistenceCapable(identityType = IdentityType.DATASTORE,table="NetbooksEstadoDeDeposito")
-@ObjectType("NetbookEnEstadoDeDeposito")
-public class Deposito implements SituacionDeNetbook {
+@PersistenceCapable(identityType = IdentityType.DATASTORE,table="NetbookEnDepositoRota")
+@ObjectType("DepositoRota")
+public class DepositoRota implements SituacionDeNetbook {
 
 	@Override
 	public String title() {
-		return "Deposito";
+		
+		return "Rota en Deposito";
 	}
 
+	
 }

@@ -182,8 +182,18 @@ public class Netbook {
 			@Extension(vendorName = "datanucleus", key = "implementation-classes", value = "dom.Netbook.Estado.Asignada"
 					+ ",dom.Netbook.Estado.Robada"
 					+ ",dom.Netbook.Estado.Deposito"
+					+ ",dom.Netbook.Estado.DepositoRota"
+					+ ",dom.Netbook.Estado.Desasignada"
+					+ ",dom.Netbook.Estado.Migrada"
+					+ ",dom.Netbook.Estado.Prestada"
+					+ ",dom.Netbook.Estado.ServicioTecnicoBSAS"
 					) }, columns = {
-			@Column(name = "idAsignada"), @Column(name = "idRobada"), @Column(name = "idDeposito")})
+			@Column(name = "idAsignada"), @Column(name = "idRobada"), 
+			@Column(name = "idDeposito"),@Column(name = "idDepositoRota"),
+			@Column(name = "idDesasignada"),@Column(name = "idMigrada"),
+			@Column(name = "idPrestada"),
+			@Column(name = "idServicioTecnicoBSAS"),
+			})
 	@Column(allowsNull="false",length=20)
 	@MemberOrder(name="Informacion General",sequence="2")
 	@Named("Situacion de Netbook")
