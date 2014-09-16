@@ -26,8 +26,8 @@ public interface IntegranteDeLaInstitucion {
 	public void setNombre(String nombre);
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	public SortedSet<Netbook> getNetbook();
-	public void setNetbook(SortedSet<Netbook> netbook);
+	public List<Netbook> getNetbook();
+	public void setNetbook(List<Netbook> netbook);
 	
 	
 	@Title(sequence="3")

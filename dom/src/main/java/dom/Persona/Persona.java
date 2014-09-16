@@ -75,7 +75,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	private String domicilio;
 	private Date fechaNacimiento;
 	@javax.jdo.annotations.Persistent(mappedBy="persona")
-	private SortedSet<Netbook> netbook= new TreeSet<Netbook>();
+	private List<Netbook> netbook= new ArrayList<Netbook>();
 	private Establecimiento establecimiento;
 	private Localidad localidad;
 	@Column(allowsNull="true")

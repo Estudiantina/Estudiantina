@@ -88,7 +88,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	   }
 	    	
     
-    private SortedSet<Curso> cursos = new TreeSet<Curso>();;
+    private List<Curso> cursos = new ArrayList<Curso>();;
 
 	
 	
@@ -96,10 +96,10 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
     @Join(column="ALUMNO_ID")
     @Element(column ="CURSO_ID")
     @Render(Type.EAGERLY)
-	public SortedSet<Curso> getCursos() {
+	public List<Curso> getCursos() {
 		return cursos;
 	}
-	public void setCursos(SortedSet<Curso> cursos) {
+	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
 	}
 
