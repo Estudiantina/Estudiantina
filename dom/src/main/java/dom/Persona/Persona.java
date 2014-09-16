@@ -3,6 +3,8 @@ package dom.Persona;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.inject.Named;
 
@@ -73,7 +75,7 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
 	private String domicilio;
 	private Date fechaNacimiento;
 	@javax.jdo.annotations.Persistent(mappedBy="persona")
-	private List<Netbook> netbook= new ArrayList<Netbook>();
+	private SortedSet<Netbook> netbook= new TreeSet<Netbook>();
 	private Establecimiento establecimiento;
 	private Localidad localidad;
 	@Column(allowsNull="true")
@@ -123,10 +125,10 @@ public class Persona implements IntegranteDeLaInstitucion,Locatable{
     }
     
     @Render(Type.EAGERLY)
-	public List<Netbook> getNetbook() {
+	public SortedSet<Netbook> getNetbook() {
 		return netbook;
 	}
-	public void setNetbook(List<Netbook> netbook) {
+	public void setNetbook(SortedSet<Netbook> netbook) {
 		this.netbook = netbook;
 	}
 

@@ -2,6 +2,7 @@ package dom.Persona;
 
 import java.util.Date;
 import java.util.List;
+import java.util.SortedSet;
 
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberOrder;
@@ -25,8 +26,8 @@ public interface IntegranteDeLaInstitucion {
 	public void setNombre(String nombre);
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	public List<Netbook> getNetbook();
-	public void setNetbook(List<Netbook> netbook);
+	public SortedSet<Netbook> getNetbook();
+	public void setNetbook(SortedSet<Netbook> netbook);
 	
 	
 	@Title(sequence="3")
