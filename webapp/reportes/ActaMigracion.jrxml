@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaMigracion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eea62db-9b8e-4ef8-95d2-5ca98b500e5f">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="146"/>
 	<parameter name="DierctorCedente" class="java.lang.String"/>
 	<parameter name="netbookModelo" class="java.lang.String"/>
 	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
+	<parameter name="nroDniDirector" class="java.lang.String"/>
+	<parameter name="establecimiento" class="java.lang.String"/>
+	<parameter name="cue" class="java.lang.String"/>
+	<parameter name="distrito" class="java.lang.String"/>
+	<parameter name="localidad" class="java.lang.String"/>
+	<parameter name="domicilio" class="java.lang.String"/>
+	<parameter name="alumno" class="java.lang.String"/>
+	<parameter name="cuil_alumno" class="java.lang.String"/>
 	<title>
 		<band height="63" splitType="Stretch">
 			<staticText>
@@ -48,6 +56,38 @@ En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un 
 			<textField>
 				<reportElement x="192" y="146" width="100" height="20" uuid="5cf5d993-7f5b-4abe-b60d-30bcce9036f3"/>
 				<textFieldExpression><![CDATA[$P{numeroSerieNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="12" width="100" height="20" uuid="af9f6edf-c261-423a-90c0-8ddde01c4da6"/>
+				<textFieldExpression><![CDATA[$P{nroDniDirector}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="31" width="100" height="20" uuid="508a304a-e271-4879-9c19-8262849532cb"/>
+				<textFieldExpression><![CDATA[$P{establecimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="32" width="100" height="20" uuid="ab865d74-8eef-40a3-985c-df55886e7b69"/>
+				<textFieldExpression><![CDATA[$P{cue}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="32" width="100" height="20" uuid="1b7d4ac5-80f7-4fcd-9a6e-17020e13d600"/>
+				<textFieldExpression><![CDATA[$P{distrito}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="42" width="100" height="20" uuid="d3988fbc-bacc-42b2-b495-c6794d859f87"/>
+				<textFieldExpression><![CDATA[$P{localidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="42" width="200" height="20" uuid="ca48d690-66e2-4fc5-827a-0db1dde28c78"/>
+				<textFieldExpression><![CDATA[$P{domicilio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="130" width="100" height="20" uuid="24bb837d-2adf-4b95-bbc3-ec62c15bb61e"/>
+				<textFieldExpression><![CDATA[$P{alumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="259" y="134" width="100" height="20" uuid="867b50b2-8795-4628-b43f-cdacd1e2602b"/>
+				<textFieldExpression><![CDATA[$P{cuil_alumno}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
