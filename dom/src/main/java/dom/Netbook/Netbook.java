@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
+import dom.Netbook.Estado.Robada;
 import dom.Netbook.Estado.SituacionDeNetbook;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
@@ -35,7 +37,7 @@ import org.apache.isis.applib.value.Blob;
 import dom.Persona.Persona;
 import repo.Netbook.RepositorioNetbook;
 import javax.jdo.annotations.Extension;
-
+import dom.Netbook.Estado.Asignada;
 
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
@@ -44,7 +46,7 @@ import javax.jdo.annotations.Extension;
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.Netbook.Netbook ")})
 @AutoComplete(repository = RepositorioNetbook.class, action = "autoComplete")
 @Audited
-@MemberGroupLayout(columnSpans={3,3,0,6}, left={"Informacion De Hardware","Datos De Software"},middle={"Informacion General"} )
+@MemberGroupLayout(columnSpans={3,3,0,6}, left={"Informacion De Hardware","Datos De Software"},middle={"Informacion General","Estado"} )
 @Bookmarkable
 @javax.jdo.annotations.Uniques({
     @javax.jdo.annotations.Unique(
@@ -195,16 +197,16 @@ public class Netbook {
 			@Column(name = "idServicioTecnicoBSAS"),
 			})
 	@Column(allowsNull="false",length=20)
-	@MemberOrder(name="Informacion General",sequence="2")
 	@Named("Situacion de Netbook")
+	@MemberOrder(name="Estado", sequence="1")
 	public SituacionDeNetbook getEstadoNetbook() {
 		return estadoNetbook;
 	}
 	public void setEstadoNetbook(SituacionDeNetbook estadoNetbook) {
 		this.estadoNetbook = estadoNetbook;
 	}
-
-
+	
+	
 	@Optional
 	@Column(allowsNull="true",length=30)
 	@MemberOrder(name="Informacion General",sequence="4")

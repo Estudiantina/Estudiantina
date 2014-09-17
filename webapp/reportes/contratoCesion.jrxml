@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoCesion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ca52da1-a8bd-468c-922e-1bc4ee5205e1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Heading 1" fontSize="22" isBold="true"/>
+	<style name="Default" isPdfEmbedded="true"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement style="Heading 1" x="0" y="17" width="572" height="24" uuid="f50decf5-1449-45c6-84b3-62090f6866f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[CONTRATO DE CESION PARA ALUMNOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="576" splitType="Stretch">
+			<textField>
+				<reportElement style="Default" x="26" y="0" width="546" height="570" uuid="f32c2a9f-0bde-40fb-ba04-5144d375d363"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Entre la Autoridad Educativa Provincial representada en este acto por el \n\n\n"+
+"Sr./a:......................................., DNI No....................., en su carácter de \n\n\n"+
+"Director/a/Rector/a de la Escuela/Instituto .............., No..., Distrito \n\n\n"+
+"Escolar:......... de la Ciudad de .................... Provincia de................... \n\n\n"+
+"con domicilio en ......................................, en adelante “EL CEDENTE” y \n\n\n"+
+"por la otra parte la/el Señora/Señor:................................DNI No.............,\n\n\n"+
+"con domicilio en la calle .....................N°..........piso.......dpto......., de la \n\n\n"+
+"ciudad.................................Provincia de........................; en su carácter \n\n\n"+
+"de alumna/o del curso......., división........, turno.........., (o en su carácter de \n\n\n"+
+"padre, madre, tutor o representante legal del alumna/o.........................\n\n\n"+
+"DNI No...................del curso........... División........, turno.............) del\n\n\n"+
+"establecimiento educativo mencionado, en adelante “EL CESIONARIO”, \n\n\n"+
+"ambos mayores de edad y hábiles para este acto, convienen en celebrar el \n\n\n"+
+"presente CONTRATO DE CESION EN PROPIEDAD, sujeto a las siguientes \n\n\n"+
+"cláusulas y condiciones:"+"PRIMERA: LA AUTORIDAD EDUCATIVA da en forma gratuita y definitiva en \n\n\n"+
+"PROPIEDAD al CESIONARIO y éste acepta, una laptop educativa Marca.... \n\n\n"+
+"Modelo.... Numero de Serie......, con cargo de destinarla a fines formativos y \n\n\n"+
+"de compartirla con su grupo familiar primario, comprometiéndose a no \n\n\n"+
+"enajenarla de ninguna forma y bajo ninguna circunstancia o concepto. \n\n\n"+
+"En prueba de conformidad se firman DOS (2) ejemplares de un mismo tenor \n\n\n"+
+"y a un solo efecto, por EL CEDENTE y por EL CESIONARIO en la ciudad \n\n\n"+
+"...............................................Provincia de ..............................., a los \n\n\n"+
+"............................. días del mes de ................................... de 20....... \n\n\n"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>
