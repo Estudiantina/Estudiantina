@@ -2,11 +2,16 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaAutorizacionPrestamoNet" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f0cecf6-88cd-4c55-8a42-bbd7589afedd">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="83"/>
+	<property name="ireport.y" value="158"/>
+	<parameter name="marcaNetbook" class="java.lang.String"/>
+	<parameter name="serieNetbook" class="java.lang.String"/>
 	<title>
 		<band height="38" splitType="Stretch">
 			<staticText>
-				<reportElement x="210" y="0" width="100" height="20" uuid="870fd10f-617d-4357-bc78-5279b00887c6"/>
+				<reportElement x="231" y="0" width="153" height="20" uuid="870fd10f-617d-4357-bc78-5279b00887c6"/>
+				<textElement>
+					<font size="15" isBold="true" isItalic="true" isUnderline="true" pdfFontName="Helvetica-BoldOblique"/>
+				</textElement>
 				<text><![CDATA[ACTA ACUERDO
 
 ]]></text>
@@ -14,19 +19,31 @@
 		</band>
 	</title>
 	<detail>
-		<band height="330" splitType="Stretch">
+		<band height="565" splitType="Stretch">
 			<staticText>
-				<reportElement x="20" y="0" width="535" height="330" uuid="8f4cecb2-0bb8-4734-87f9-480bb9657198"/>
-				<textElement>
-					<font size="14"/>
+				<reportElement x="10" y="0" width="545" height="478" uuid="8f4cecb2-0bb8-4734-87f9-480bb9657198"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="none">
+					<font size="16" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
 				</textElement>
-				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: ……………………………..… y el Tutor/a:……………………………….......….del Alumno/a: …………………………………..del Año:………..Div:……..…. de esta institución; se procede a celebrar el presente acta con motivo de  resolver la situación planteada por los interesados ; debido a que el alumno no cuenta con  su netbook por rotura de la misma y en proceso de reparación; considerando que la utilización de este recurso es de mucha aplicación el ultimo año de estudio . La Regencia Técnica procede a realizar el préstamo  de la La Netbook Marca:…..............NOBLEX..................Modelo:..........…..............Serie:…….………….................. hasta reparación de la netbook del alumno. Las condiciones del préstamo serán la de su perfecto estado en su devolución en cuanto a Hardware y Software, así como también en cuánto a su limpieza. Cabe aclarar que ante cualquier falta de la presente acta; el Tutor firmante se hará cargo de lo expuesto.
-                                                                 FECHA:.............................................
-
+				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: ………………............……………..… y el Tutor/a:………………………...........................................….
+del Alumno/a: .......…………………………………..del Año:…..........……..Div:…….......…. de esta institución; se procede a celebrar el presente acta con motivo de  resolver la
+situación planteada por los interesados; debido a que el alumno no cuenta con  su netbook por rotura de la misma y en proceso de reparación; considerando que la utilización de este
+recurso es de mucha aplicación el ultimo año de estudio. La Regencia Técnica procede a realizar el préstamo  de la La Netbook Marca:…............................................
+Modelo:..........….............. Serie:…….………….................. hasta reparación de la netbook del alumno. Las condiciones del préstamo serán la de su
+perfecto estado en su devolución en cuanto a Hardware y Software, así como también en cuánto a su limpieza. Cabe aclarar que ante cualquier falta de la presente acta; el Tutor firmante se hará cargo de lo expuesto.
+                                                     FECHA:.............................................
 FIRMA TUTOR                                             FIRMA DIRECTIVO
 
 ]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="296" y="225" width="100" height="20" uuid="9d81ad45-3235-4a3f-93fd-32e8dd68978c"/>
+				<textFieldExpression><![CDATA[$P{serieNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="98" y="205" width="100" height="20" uuid="81435409-d1e2-4b5a-a49a-ace5eaa69311"/>
+				<textFieldExpression><![CDATA[$P{marcaNetbook}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

@@ -244,7 +244,30 @@ public class Netbook {
  		
  	}
      
-
+    /**
+     * TODO ImprimirReporte
+     * TODO Generar contrato de comodato
+     * archivo incompleto para imprimir
+     * el metodo esta incompleto solo para prueba
+     * @return Reporte a imprimir
+     * @throws JRException 
+     * @throws FileNotFoundException 
+     */
+    
+   public Blob imprimirActaPrestamo() throws JRException, FileNotFoundException
+	{
+		
+		HashMap<String,Object> parametros = new HashMap<String, Object>();
+		//Persona per = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", persona.getCuil() ));
+		
+	//	parametros.put("nombreDirector", this.getModelo() );
+		parametros.put("marcaNetbook", this.getModelo());
+		parametros.put("serieNetbook", this.getNumeroDeSerie());
+		
+		return servicio.Reporte.GeneradorReporte.generarReporte("reportes/ActaAutorizacionPrestamoNet.jrxml", parametros, "Solicitud");
+		
+	}
+   
 
 	@Override
 	public int hashCode() {
