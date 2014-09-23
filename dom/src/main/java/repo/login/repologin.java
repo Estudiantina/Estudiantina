@@ -23,11 +23,11 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Password;
 
-import dom.Email.CuentaMail;
-import dom.Email.ServidorDeEmail;
-import dom.Persona.Persona;
+import dom.email.CuentaMail;
+import dom.email.ServidorDeEmail;
 import dom.login.Login;
 import dom.login.Rol;
+import dom.persona.Persona;
 @Named("Cuentas")
 public class repologin extends AbstractFactoryAndRepository {	
 	public String iconName()

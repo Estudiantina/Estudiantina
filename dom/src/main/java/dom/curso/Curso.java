@@ -35,12 +35,12 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.util.ObjectContracts;
 
-import dom.Establecimiento.Establecimiento;
-import dom.Persona.Persona;
 import dom.alumno.Alumno;
+import dom.establecimiento.Establecimiento;
+import dom.persona.Persona;
 
 
-import repo.Curso.RepositorioCurso;
+import repo.curso.RepositorioCurso;
 
 
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)

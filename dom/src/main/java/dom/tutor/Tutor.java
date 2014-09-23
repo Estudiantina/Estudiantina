@@ -20,9 +20,9 @@ import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
 
-import repo.Persona.RepositorioPersona;
+import repo.persona.RepositorioPersona;
 
-import dom.Persona.Persona;
+import dom.persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerTutorPorcuil", language = "JDOQL", value = "SELECT FROM dom.tutor.Tutor WHERE cuil== :cuil"),
