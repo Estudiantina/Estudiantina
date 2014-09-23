@@ -27,11 +27,11 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
 
-import dom.Directivo.Directivo;
 import dom.Establecimiento.Establecimiento;
 import dom.Localidad.Departamento;
 import dom.Localidad.Localidad;
 import dom.Persona.Persona;
+import dom.directivo.Directivo;
 import dom.tutor.Tutor;
 
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)

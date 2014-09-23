@@ -25,7 +25,6 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
-import dom.Directivo.Directivo;
 import dom.Docente.Docente;
 import dom.Establecimiento.Establecimiento;
 import dom.Localidad.Localidad;
@@ -34,6 +33,7 @@ import dom.Tecnico.Tecnico;
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.alumno.Nacionalidad;
+import dom.directivo.Directivo;
 import dom.login.Login;
 import dom.tutor.Tutor;
 
