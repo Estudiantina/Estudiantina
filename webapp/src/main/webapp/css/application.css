@@ -126,6 +126,15 @@ li.x-highlight a {
     background-color: #51A95C;
 }
 
+.entityActions .cssMenuPanel .menuh li.icono-eliminar a,
+li.icono-eliminar {
+	
+    background: url("../images/icoWrong.png") no-repeat scroll left center transparent;
+    height:38px;
+    width:15px;
+}
+
+
 div.x-key span.scalarName {
 	color: red;
 }

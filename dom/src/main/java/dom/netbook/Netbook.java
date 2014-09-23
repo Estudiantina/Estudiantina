@@ -37,8 +37,8 @@ import dom.netbook.Estado.Robada;
 import dom.netbook.Estado.SituacionDeNetbook;
 import dom.persona.Persona;
 import repo.netbook.RepositorioNetbook;
-
 import javax.jdo.annotations.Extension;
+import org.apache.isis.applib.annotation.CssClass;
 
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
@@ -114,7 +114,8 @@ public class Netbook {
 	
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
 	@PublishedAction // para que muestre la accion en la lista de objetos
-	@Named("eliminar netbook")
+	@Named("")
+	@CssClass("icono-eliminar")//agregar icono mediante CSS al boton eliminar
 	public List<Netbook> eliminar() {
         container.removeIfNotAlready(this);
         container.informUser("las netbook selecionadas fueron eliminadas");
