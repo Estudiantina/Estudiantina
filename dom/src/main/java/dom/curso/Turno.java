@@ -10,7 +10,7 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  */
-package dom.Curso;
+package dom.curso;
 
 public enum Turno {
 Mañana,Tarde

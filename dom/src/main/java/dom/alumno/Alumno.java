@@ -44,8 +44,8 @@ import javax.jdo.annotations.InheritanceStrategy;
 
 
 import repo.Persona.RepositorioPersona;
-import dom.Curso.Curso;
 import dom.Persona.Persona;
+import dom.curso.Curso;
 
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)

@@ -22,9 +22,9 @@ import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
-import dom.Curso.Curso;
-import dom.Curso.Turno;
 import dom.Establecimiento.Establecimiento;
+import dom.curso.Curso;
+import dom.curso.Turno;
 
 
 @Named("Cursos")
