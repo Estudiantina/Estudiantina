@@ -18,6 +18,8 @@
 	<parameter name="marcaNetbook" class="java.lang.String"/>
 	<parameter name="modeloNetbook" class="java.lang.String"/>
 	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
+	<parameter name="ciudadTutor" class="java.lang.String"/>
+	<parameter name="provinciaTutor" class="java.lang.String"/>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>

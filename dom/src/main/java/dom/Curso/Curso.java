@@ -35,9 +35,9 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.util.ObjectContracts;
 
-import dom.Alumno.Alumno;
 import dom.Establecimiento.Establecimiento;
 import dom.Persona.Persona;
+import dom.alumno.Alumno;
 
 
 import repo.Curso.RepositorioCurso;
