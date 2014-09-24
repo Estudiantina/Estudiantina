@@ -68,12 +68,22 @@ public class Netbook {
 	private String situacionDeNetbook;
 	private SituacionDeNetbook estadoNetbook;
 	private String numeroDeActaDeRobo;
-	
 
-	
+	private Persona persona = new Persona();
+    @Optional
+    public Persona getPersona() {
+		return persona;
+	}
 
-	
-    public String iconName() {
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
+
+
+
+
+	public String iconName() {
         return "netbook";
     }
     

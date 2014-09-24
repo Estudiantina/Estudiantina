@@ -110,7 +110,9 @@ public class Persona implements Locatable{
 	 * no persiste en la base de datos
 	 * solo es utilizada en el Viewer
 	 */
+	
 	private List<Persona> localizacion;
+	
 	@NotPersisted
 	public List<Persona> getLocalizacion() {
 		List<Persona> persona = new ArrayList<Persona>();
@@ -144,8 +146,8 @@ public class Persona implements Locatable{
 
 	
     @Render(Type.EAGERLY)
-    @Join
-    @Element(dependent = "False")
+    @Join(column="PERSONA_ID")
+    @Element(dependent = "Netbook")
     @javax.jdo.annotations.Column(allowsNull="true")
 	public List<Netbook> getNetbooksAcargo() {
 		return netbooksAcargo;
@@ -196,9 +198,12 @@ public class Persona implements Locatable{
 	@Named("añadir netbook")
 	public Persona anadirNetbook(Netbook netbook)
 	{
-		this.netbooksAcargo.add(netbook);
+		if(netbook == null || netbooksAcargo.contains(netbook)) return this;
+        netbook.setPersona(this);
+        netbooksAcargo.add(netbook);
 		return this;
 	}
+	
 
 	@MaxLength(12)
 	@javax.jdo.annotations.Column(allowsNull="false")
@@ -260,8 +265,16 @@ public class Persona implements Locatable{
 	}
 	
 	public void setDomicilio(String domicilio) {
+		/*try
+		{
 		LocationLookupService loc = new LocationLookupService();
 		setLocation(loc.lookup(domicilio+", "+localidad.getLocalidad()));
+		}
+		catch(Exception ex)
+		{
+			container.informUser("no se pudo cargar la geolocalizacion");
+		}*/
+		
 		this.domicilio = domicilio;
 	}
 	
