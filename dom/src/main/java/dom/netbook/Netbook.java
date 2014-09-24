@@ -69,7 +69,7 @@ public class Netbook {
 	private SituacionDeNetbook estadoNetbook;
 	private String numeroDeActaDeRobo;
 	
-	private Persona persona = new Persona();
+
 	
 
 	
@@ -271,98 +271,8 @@ public class Netbook {
 	}
    
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((direccionMac == null) ? 0 : direccionMac.hashCode());
-		result = prime * result
-				+ ((estadoNetbook == null) ? 0 : estadoNetbook.hashCode());
-		result = prime
-				* result
-				+ ((fechaDeExpiracion == null) ? 0 : fechaDeExpiracion
-						.hashCode());
-		result = prime * result
-				+ ((idNetbook == null) ? 0 : idNetbook.hashCode());
-		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
-		result = prime
-				* result
-				+ ((numeroDeActaDeRobo == null) ? 0 : numeroDeActaDeRobo
-						.hashCode());
-		result = prime * result
-				+ ((numeroDeSerie == null) ? 0 : numeroDeSerie.hashCode());
-		result = prime
-				* result
-				+ ((numeroLicenciaWindows == null) ? 0 : numeroLicenciaWindows
-						.hashCode());
-		result = prime * result + ((persona == null) ? 0 : persona.hashCode());
-		result = prime
-				* result
-				+ ((situacionDeNetbook == null) ? 0 : situacionDeNetbook
-						.hashCode());
-		return result;
-	}
 
 
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Netbook other = (Netbook) obj;
-		if (direccionMac == null) {
-			if (other.direccionMac != null)
-				return false;
-		} else if (!direccionMac.equals(other.direccionMac))
-			return false;
-		if (estadoNetbook != other.estadoNetbook)
-			return false;
-		if (fechaDeExpiracion == null) {
-			if (other.fechaDeExpiracion != null)
-				return false;
-		} else if (!fechaDeExpiracion.equals(other.fechaDeExpiracion))
-			return false;
-		if (idNetbook == null) {
-			if (other.idNetbook != null)
-				return false;
-		} else if (!idNetbook.equals(other.idNetbook))
-			return false;
-		if (modelo != other.modelo)
-			return false;
-		if (numeroDeActaDeRobo == null) {
-			if (other.numeroDeActaDeRobo != null)
-				return false;
-		} else if (!numeroDeActaDeRobo.equals(other.numeroDeActaDeRobo))
-			return false;
-		if (numeroDeSerie == null) {
-			if (other.numeroDeSerie != null)
-				return false;
-		} else if (!numeroDeSerie.equals(other.numeroDeSerie))
-			return false;
-		if (numeroLicenciaWindows == null) {
-			if (other.numeroLicenciaWindows != null)
-				return false;
-		} else if (!numeroLicenciaWindows.equals(other.numeroLicenciaWindows))
-			return false;
-		if (persona == null) {
-			if (other.persona != null)
-				return false;
-		} else if (!persona.equals(other.persona))
-			return false;
-		if (situacionDeNetbook == null) {
-			if (other.situacionDeNetbook != null)
-				return false;
-		} else if (!situacionDeNetbook.equals(other.situacionDeNetbook))
-			return false;
-		return true;
-	}
 
 
 
