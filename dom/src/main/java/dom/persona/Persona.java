@@ -106,6 +106,20 @@ public class Persona implements Locatable{
 		this.netbooks = netbooks;
 	}
 	
+	public void addToNetbooks(Netbook e)
+	{
+		if(e == null || netbooks.contains(e)) return;
+		e.setPersona(this);
+		netbooks.add(e);
+	}
+	
+	public void removeFromNetbooks(Netbook e)
+	{
+		if (e == null || !netbooks.contains(e)) return;
+		e.setPersona(null);
+		netbooks.remove(e);
+	}
+	
 	
 	@Column(allowsNull="true")
 	@Hidden(where = Where.ALL_TABLES)//no la muestra la localidad cuando esta en las tablas
@@ -200,8 +214,7 @@ public class Persona implements Locatable{
 	@Named("añadir netbook")
 	public Persona anadirNetbook(Netbook net)
 	{
-		net.setPersona(this);
-        netbooks.add(net);
+		this.addToNetbooks(net);
 		return this;
 	}
 	
@@ -266,15 +279,9 @@ public class Persona implements Locatable{
 	}
 	
 	public void setDomicilio(String domicilio) {
-		/*try
-		{
+		
 		LocationLookupService loc = new LocationLookupService();
 		setLocation(loc.lookup(domicilio+", "+localidad.getLocalidad()));
-		}
-		catch(Exception ex)
-		{
-			container.informUser("no se pudo cargar la geolocalizacion");
-		}*/
 		
 		this.domicilio = domicilio;
 	}

@@ -78,6 +78,7 @@ public class Netbook implements Comparable<Netbook> {
 
 
 	private Persona persona ;
+	@Persistent
 	@javax.jdo.annotations.Column(allowsNull = "true")
 	public Persona getPersona() {
 		return persona;
@@ -91,6 +92,21 @@ public class Netbook implements Comparable<Netbook> {
 		this.persona = persona;
 	}
 
+	public void modifyPersona(Persona p)
+	{
+		if(p==null || persona==p) return;
+		if(persona != null)
+		{
+			persona.removeFromNetbooks(this);
+		}
+		p.addToNetbooks(this);
+		
+	}
+
+	public void clearPersona() {
+		if(persona==null) return;
+		persona.removeFromNetbooks(this);	
+	}
 
 
 
