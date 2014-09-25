@@ -105,8 +105,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
 	    netbook.setSituacionDeNetbook("Entregada");
 	    netbook.setEstadoNetbook(new dom.netbook.Estado.Deposito());
-	    
-	    
+	    //netbook.setPersona(null);	    
 	    container.persistIfNotAlready(netbook);
 	    
 		return netbook;

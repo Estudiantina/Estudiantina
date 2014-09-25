@@ -91,10 +91,22 @@ public class Persona implements Locatable{
 	private String email;
 	private String domicilio;
 	private Date fechaNacimiento;
-	@javax.jdo.annotations.Persistent(mappedBy="persona")
-	private List<Netbook> netbooksAcargo= new ArrayList<Netbook>();
+	
+	private List<Netbook> netbooks = new ArrayList<Netbook>();
 	private Establecimiento establecimiento;
 	private Localidad localidad;
+	
+	@Join
+	@Persistent(mappedBy = "persona", dependentElement = "false")
+    @javax.jdo.annotations.Column(allowsNull="true")
+	public List<Netbook> getNetbooks() {
+		return netbooks;
+	}
+	public void setNetbooks(List<Netbook> netbooks) {
+		this.netbooks = netbooks;
+	}
+	
+	
 	@Column(allowsNull="true")
 	@Hidden(where = Where.ALL_TABLES)//no la muestra la localidad cuando esta en las tablas
 	public Localidad getLocalidad() {
@@ -145,17 +157,7 @@ public class Persona implements Locatable{
     
 
 	
-    @Render(Type.EAGERLY)
-    @Join(column="PERSONA_ID")
-    @Element(dependent = "Netbook")
-    @javax.jdo.annotations.Column(allowsNull="true")
-	public List<Netbook> getNetbooksAcargo() {
-		return netbooksAcargo;
-	}
-	public void setNetbooksAcargo(List<Netbook> netbooksAcargo) {
-		this.netbooksAcargo = netbooksAcargo;
-	}
-	
+
 	@javax.jdo.annotations.Column(allowsNull="true")
 	@Optional
 	public Establecimiento getEstablecimiento() {
@@ -196,11 +198,10 @@ public class Persona implements Locatable{
 	}
 	
 	@Named("añadir netbook")
-	public Persona anadirNetbook(Netbook netbook)
+	public Persona anadirNetbook(Netbook net)
 	{
-		if(netbook == null || netbooksAcargo.contains(netbook)) return this;
-        netbook.setPersona(this);
-        netbooksAcargo.add(netbook);
+		net.setPersona(this);
+        netbooks.add(net);
 		return this;
 	}
 	
@@ -317,7 +318,7 @@ public class Persona implements Locatable{
 	@PublishedAction // para que muestre la accion en la lista de objetos
 	@Named("Reasignar Netbook")
 	public Persona reasignarNetbook(Netbook  net) {
-			this.netbooksAcargo.remove(net);   
+			this.netbooks.remove(net);   
 			return this;
 		}
 

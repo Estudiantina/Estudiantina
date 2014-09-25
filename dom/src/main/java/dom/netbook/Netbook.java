@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.jdo.annotations.Element;
+import javax.jdo.annotations.Join;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 
@@ -27,10 +30,13 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.RegEx;
+import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
 import javax.jdo.annotations.Column;
+
+import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
 import dom.netbook.Estado.Asignada;
 import dom.netbook.Estado.Robada;
@@ -39,6 +45,7 @@ import dom.persona.Persona;
 import repo.netbook.RepositorioNetbook;
 import javax.jdo.annotations.Extension;
 import org.apache.isis.applib.annotation.CssClass;
+import org.apache.isis.applib.annotation.Render.Type;
 
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
@@ -55,7 +62,7 @@ import org.apache.isis.applib.annotation.CssClass;
             members={"numeroDeSerie","idNetbook","numeroLicenciaWindows"})
 })
 
-public class Netbook {
+public class Netbook implements Comparable<Netbook> {
 	
 	
 
@@ -69,11 +76,16 @@ public class Netbook {
 	private SituacionDeNetbook estadoNetbook;
 	private String numeroDeActaDeRobo;
 
-	private Persona persona = new Persona();
-    @Optional
-    public Persona getPersona() {
+
+	private Persona persona ;
+	@javax.jdo.annotations.Column(allowsNull = "true")
+	public Persona getPersona() {
 		return persona;
 	}
+
+
+
+
 
 	public void setPersona(Persona persona) {
 		this.persona = persona;
@@ -288,6 +300,10 @@ public class Netbook {
 
 	@javax.inject.Inject
     private DomainObjectContainer container;
+	@Override
+	public int compareTo(Netbook o) {
+		return ObjectContracts.compare(this, o, "idNetbook");
+	}
 
 	
 }
