@@ -1,5 +1,45 @@
 INSERT INTO "Provincia"(
             "Provincia_ID", "nombreProvincia")
-    VALUES (2, 'Rio Negro');
+    VALUES (1, 'Neuquen');
 
+INSERT INTO "Departamento"(
+            "Departamento_ID", "nombreDepartamento", "provincia_Provincia_ID_OID")
+    VALUES (1, 'Confluencia', 1);
 
+INSERT INTO "Localidad"(
+            "codigoPostal", "departamento_Departamento_ID_OID", 
+            localidad)
+    VALUES ('8300', 1 , 
+            'Neuquen');
+
+INSERT INTO "Establecimiento"(
+            "Establecimiento_ID", cue, direccion, "distritoEscolar", email, 
+            "localidad_Localidad_ID_OID", nombre, telefono)
+    VALUES (1, 222, 'santa fe 332', 'DISTRITO REGIONAL I CONFLUENCIA', 'distrito1@neuquen.gov.ar', 
+            1, 'ifes', '444444');
+
+INSERT INTO "Persona"(
+            "Persona_ID", apellido, cuil, domicilio, email, "establecimiento_Establecimiento_ID_OID", 
+            "fechaNacimiento", "localidad_Localidad_ID_OID", location, nombre, 
+            "telefonoCelular", "telefonoFijo", discriminator)
+VALUES (1, 'pepe', '33333', 'peru 81', 'mario@herivan.com', 1, 
+            '11-06-1970', 1, null, 'pepe', 
+            '444444','1' ,'dom.tecnico.Tecnico');
+
+INSERT INTO "Tecnico"(
+            "Tecnico_ID")
+    VALUES (1);
+
+INSERT INTO "Rol"(
+            "Rol_ID", rol)
+    VALUES (1, 'usuario_adiministrador');
+
+INSERT INTO "Permisos"(
+            "Permisos_ID", permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (1, '*', 1, 1);
+
+INSERT INTO "Login"(
+            "Login_ID", password, "persona_Persona_ID_OID", "rol_Rol_ID_OID", 
+            usuario)
+    VALUES (1, '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, 1, 
+            'admin');

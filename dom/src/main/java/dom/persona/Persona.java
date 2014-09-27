@@ -15,13 +15,9 @@ package dom.persona;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 import javax.inject.Named;
 
 import javax.jdo.annotations.DiscriminatorStrategy;
-import javax.jdo.annotations.Element;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -42,10 +38,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PublishedAction;
-import org.apache.isis.applib.annotation.Render;
-import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
-import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
@@ -91,7 +84,6 @@ public class Persona implements Locatable{
 	private String email;
 	private String domicilio;
 	private Date fechaNacimiento;
-	
 	private List<Netbook> netbooks = new ArrayList<Netbook>();
 	private Establecimiento establecimiento;
 	private Localidad localidad;
@@ -136,7 +128,7 @@ public class Persona implements Locatable{
 	 * no persiste en la base de datos
 	 * solo es utilizada en el Viewer
 	 */
-	
+	/*
 	private List<Persona> localizacion;
 	
 	@NotPersisted
@@ -144,7 +136,7 @@ public class Persona implements Locatable{
 		List<Persona> persona = new ArrayList<Persona>();
 		persona.add(this);
 		return persona;
-	}
+	}*/
 
 	/**
 	 * propiedad necesaria para 
@@ -160,15 +152,38 @@ public class Persona implements Locatable{
      * persona.
      * @return objeto con cordenadas
      */
-	@Hidden
-	@Optional
+	
+	
+	@MemberOrder(name="Localizacion", sequence = "10")
+    @Optional
     public Location getLocation() {
         return location;
     }
+	
     public void setLocation(Location location) {
-        this.location = location;
+    	if (this.domicilio!="")
+    	{
+    	String algo = this.domicilio+", Cipolletti";
+    		LocationLookupService loc = new LocationLookupService();
+    	container.informUser(loc.lookup(algo).toString());
+        	this.location=loc.lookup(algo);
+    	}
+    	else
+    	{
+    	
+    		this.location=location;
+    	}
     }
-    
+    /**
+     * metodo para obtener localizacion
+     * @return
+     */
+    public List<Persona> getLocalizacion()
+    {
+    	List<Persona> lisPer = new ArrayList<Persona>();
+    	lisPer.add(this);
+    	return lisPer;
+    }
 
 	
 
@@ -278,11 +293,7 @@ public class Persona implements Locatable{
 		return domicilio;
 	}
 	
-	public void setDomicilio(String domicilio) {
-		
-		LocationLookupService loc = new LocationLookupService();
-		setLocation(loc.lookup(domicilio+", "+localidad.getLocalidad()));
-		
+	public void setDomicilio(String domicilio) {		
 		this.domicilio = domicilio;
 	}
 	

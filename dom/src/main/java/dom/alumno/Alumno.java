@@ -134,17 +134,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	
 	private EstadoDeAlumno estadoDeAlumno;
 	private Nacionalidad nacionalidad;
-	@Persistent
-	private Location location;
-    @Optional
-    @MemberOrder(name="Datos De Localizacion", sequence = "10")
-    @Hidden()//no la muestra la localizacion en las tablas
-    public Location getLocation() {
-        return location;
-    }
-    public void setLocation(Location location) {
-        this.location = location;
-    }
+
 	
 	
 	
@@ -186,53 +176,6 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 
 
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cursos == null) ? 0 : cursos.hashCode());
-		result = prime * result
-				+ ((estadoDeAlumno == null) ? 0 : estadoDeAlumno.hashCode());
-		result = prime * result
-				+ ((fechaIngreso == null) ? 0 : fechaIngreso.hashCode());
-		result = prime * result
-				+ ((location == null) ? 0 : location.hashCode());
-		result = prime * result
-				+ ((nacionalidad == null) ? 0 : nacionalidad.hashCode());
-		return result;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Alumno other = (Alumno) obj;
-		if (cursos == null) {
-			if (other.cursos != null)
-				return false;
-		} else if (!cursos.equals(other.cursos))
-			return false;
-		if (estadoDeAlumno != other.estadoDeAlumno)
-			return false;
-		if (fechaIngreso == null) {
-			if (other.fechaIngreso != null)
-				return false;
-		} else if (!fechaIngreso.equals(other.fechaIngreso))
-			return false;
-		if (location == null) {
-			if (other.location != null)
-				return false;
-		} else if (!location.equals(other.location))
-			return false;
-		if (nacionalidad != other.nacionalidad)
-			return false;
-		return true;
-	}
 
 
 	@Override
