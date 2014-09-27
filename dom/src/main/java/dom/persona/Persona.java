@@ -156,24 +156,18 @@ public class Persona implements Locatable{
 	
 	@MemberOrder(name="Localizacion", sequence = "10")
     @Optional
+    @Hidden
     public Location getLocation() {
-        return location;
+		if (this.domicilio!="")
+    	{
+		String algo = this.domicilio+", "+this.getLocalidad().getLocalidad();
+		LocationLookupService loc = new LocationLookupService();
+    	this.location=loc.lookup(algo);
+    	}
+		
+		return location;
     }
 	
-    public void setLocation(Location location) {
-    	if (this.domicilio!="")
-    	{
-    	String algo = this.domicilio+", Cipolletti";
-    		LocationLookupService loc = new LocationLookupService();
-    	container.informUser(loc.lookup(algo).toString());
-        	this.location=loc.lookup(algo);
-    	}
-    	else
-    	{
-    	
-    		this.location=location;
-    	}
-    }
     /**
      * metodo para obtener localizacion
      * @return
@@ -293,9 +287,12 @@ public class Persona implements Locatable{
 		return domicilio;
 	}
 	
-	public void setDomicilio(String domicilio) {		
+	public void setDomicilio(String domicilio) {	
+		
+	
 		this.domicilio = domicilio;
 	}
+
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
