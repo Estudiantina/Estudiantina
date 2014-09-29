@@ -27,7 +27,6 @@ import org.joda.time.LocalDate;
 import dom.login.Login;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
-import dom.netbook.Estado.SituacionDeNetbook;
 import dom.notificaciones.SolicitudNetbookPrestada;
 
 
@@ -104,7 +103,6 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setNumeroDeSerie(numeroDeSerie);
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
 	    netbook.setSituacionDeNetbook("Entregada");
-	    netbook.setEstadoNetbook(new dom.netbook.Estado.Deposito());
 	    //netbook.setPersona(null);	    
 	    container.persistIfNotAlready(netbook);
 	    

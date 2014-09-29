@@ -15,6 +15,9 @@ package dom.persona;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 import javax.inject.Named;
 
 import javax.jdo.annotations.DiscriminatorStrategy;
@@ -39,6 +42,10 @@ import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
+
+
+
+
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
 import com.danhaywood.isis.wicket.gmap3.service.LocationLookupService;
@@ -83,31 +90,17 @@ public class Persona implements Locatable{
 	private String email;
 	private String domicilio;
 	private Date fechaNacimiento;
-	private List<Netbook> netbooks = new ArrayList<Netbook>();
+	private SortedSet<Netbook> netbooks =  new TreeSet<Netbook>();
 	private Establecimiento establecimiento;
 	private Localidad localidad;
 
-    @javax.jdo.annotations.Column(allowsNull="true")
-	public List<Netbook> getNetbooks() {
+	public SortedSet<Netbook> getNetbooks() {
 		return netbooks;
 	}
-	public void setNetbooks(List<Netbook> netbooks) {
+	public void setNetbooks(SortedSet<Netbook> netbooks) {
 		this.netbooks = netbooks;
 	}
 	
-	public void addToNetbooks(Netbook e)
-	{
-		if(e == null || netbooks.contains(e)) return;
-		e.setPersona(this);
-		netbooks.add(e);
-	}	
-	
-	public void removeFromNetbooks(Netbook e)
-		{
-			if (e == null || !netbooks.contains(e)) return;
-			e.setPersona(null);
-			netbooks.remove(e);
-		}
 	
 	@Column(allowsNull="true")
 	@Hidden(where = Where.ALL_TABLES)//no la muestra la localidad cuando esta en las tablas
@@ -205,7 +198,7 @@ public class Persona implements Locatable{
 	@Named("añadir netbook")
 	public Persona anadirNetbook(Netbook net)
 	{
-		this.addToNetbooks(net);
+		this.netbooks.add(net);
 		return this;
 	}
 	
@@ -303,21 +296,6 @@ public class Persona implements Locatable{
     }
     
 
-    /**
-     * esta funcion es para reasignar netbook, por lo cual debera buscar la net 
-     * para eliminar de la lista y luego asiganar una nueva
-     * @param net
-     * @return netbook
-     */
-    
-    
-	@Bulk //para que ejecute la accion en una lista masiva de objetos
-	@PublishedAction // para que muestre la accion en la lista de objetos
-	@Named("Reasignar Netbook")
-	public Persona reasignarNetbook(Netbook  net) {
-			this.netbooks.remove(net);   
-			return this;
-		}
 
     
     

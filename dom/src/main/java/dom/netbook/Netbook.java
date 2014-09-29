@@ -38,9 +38,6 @@ import javax.jdo.annotations.Column;
 
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
-import dom.netbook.Estado.Asignada;
-import dom.netbook.Estado.Robada;
-import dom.netbook.Estado.SituacionDeNetbook;
 import dom.persona.Persona;
 import repo.netbook.RepositorioNetbook;
 import javax.jdo.annotations.Extension;
@@ -73,40 +70,19 @@ public class Netbook implements Comparable<Netbook> {
 	private Date fechaDeExpiracion;
 	private String direccionMac;
 	private String situacionDeNetbook;
-	private SituacionDeNetbook estadoNetbook;
 	private String numeroDeActaDeRobo;
 
-
+	
 	private Persona persona ;
-	@Persistent
-	@javax.jdo.annotations.Column(allowsNull = "true")
+	@javax.jdo.annotations.Column(allowsNull="true")
 	public Persona getPersona() {
 		return persona;
 	}
-
-
-
-
-
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
 
-	public void modifyPersona(Persona p)
-	{
-		if(p==null || persona==p) return;
-		if(persona != null)
-		{
-			persona.removeFromNetbooks(this);
-		}
-		p.addToNetbooks(this);
-		
-	}
 
-	public void clearPersona() {
-		if(persona==null) return;
-		persona.removeFromNetbooks(this);	
-	}
 
 
 
@@ -219,33 +195,7 @@ public class Netbook implements Comparable<Netbook> {
 		this.idNetbook = idNetbook;
 	}
 	
-	@javax.jdo.annotations.Persistent(extensions = {
-			@Extension(vendorName = "datanucleus", key = "mapping-strategy", value = "per-implementation"),
-			@Extension(vendorName = "datanucleus", key = "implementation-classes", value = "dom.netbook.Estado.Asignada"
-					+ ",dom.netbook.Estado.Robada"
-					+ ",dom.netbook.Estado.Deposito"
-					+ ",dom.netbook.Estado.DepositoRota"
-					+ ",dom.netbook.Estado.Desasignada"
-					+ ",dom.netbook.Estado.Migrada"
-					+ ",dom.netbook.Estado.Prestada"
-					+ ",dom.netbook.Estado.ServicioTecnicoBSAS"
-					) }, columns = {
-			@Column(name = "idAsignada"), @Column(name = "idRobada"), 
-			@Column(name = "idDeposito"),@Column(name = "idDepositoRota"),
-			@Column(name = "idDesasignada"),@Column(name = "idMigrada"),
-			@Column(name = "idPrestada"),
-			@Column(name = "idServicioTecnicoBSAS"),
-			})
-	@Column(allowsNull="false",length=20)
-	@Named("Situacion de Netbook")
-	@MemberOrder(name="Estado", sequence="1")
-	public SituacionDeNetbook getEstadoNetbook() {
-		return estadoNetbook;
-	}
-	public void setEstadoNetbook(SituacionDeNetbook estadoNetbook) {
-		this.estadoNetbook = estadoNetbook;
-	}
-	
+
 	
 	@Optional
 	@Column(allowsNull="true",length=30)
