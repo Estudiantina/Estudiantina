@@ -139,6 +139,12 @@ li.icono-eliminar {
     
 }
 
+.scalarName, .collectionName
+{
+	color: white;
+}
+
+
 
 div.x-key span.scalarName {
 	color: red;

@@ -215,8 +215,7 @@ public class Netbook implements Comparable<Netbook> {
       * @return Reporte a imprimir
       * @throws JRException 
       * @throws FileNotFoundException 
-      */
-     
+      */ 
     public Blob imprimirActaMigracion() throws JRException, FileNotFoundException
  	{
  		

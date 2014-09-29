@@ -90,6 +90,7 @@ public class Persona implements Locatable{
 	public SortedSet<Netbook> getNetbooks() {
 		return netbooks;
 	}
+	
 	public void setNetbooks(SortedSet<Netbook> netbooks) {
 		this.netbooks = netbooks;
 	}
@@ -298,6 +299,7 @@ public class Persona implements Locatable{
         container.informUser("las personas selecionadas fueron eliminadas");
         return this.traerTodas(); 
     }
+	
     @Programmatic
     public List<Persona> traerTodas() {
         return container.allMatches(
