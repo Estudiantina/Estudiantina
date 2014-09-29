@@ -45,6 +45,7 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 			@Named("Telefono")final String telefono,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("email")final String email,
+			@Named("Distrito Escolar") final String distritoEscolar,
 			@RegEx(validation = "[0-9]+")
 			@Named("CUE") final String cue,
 			@Named("Cod Postal Ciudad")Localidad localidad
@@ -58,6 +59,7 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 		establecimiento.setEmail(email);
 		establecimiento.setCue(cue);
 		establecimiento.setLocalidad(localidad);
+		establecimiento.setDistritoEscolar(distritoEscolar);
 		container.persistIfNotAlready(establecimiento);
 		
 		return establecimiento;

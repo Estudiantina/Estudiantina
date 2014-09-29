@@ -69,9 +69,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
 }
 
 #header {
-    background: url("/images/logo_conectar-igualdad.png") no-repeat scroll left center transparent;
+ 
+    background: url("/images/logo_conectar-igualdad.png") no-repeat scroll left center;
+    
 }
 .actionPanel .myBlockContainer {
+	
     background-image: linear-gradient(rgb(255, 255, 255), rgb(47, 79, 79));
 }
 .entityPropertiesPanel fieldset {
@@ -128,10 +131,9 @@ li.x-highlight a {
 
 .entityActions .cssMenuPanel .menuh li.icono-eliminar a,
 li.icono-eliminar {
-	
-    background: url("../images/icoWrong.png") no-repeat scroll left center transparent;
+	background-color: #F0EFEA;
+    background: url("../images/icoWrong.png") no-repeat scroll left center #F0EFEA;
     height:38px;
-    width:28px;
 }
 
 
