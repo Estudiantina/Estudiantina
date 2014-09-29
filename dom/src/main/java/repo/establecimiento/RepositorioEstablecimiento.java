@@ -39,10 +39,8 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 	 */
 	public Establecimiento ingresarEstablecimiento (
 			@Named("nombre")final String nombre,
-			@RegEx(validation = "[0-9]+")
 			@Named("direccion") final String direccion,
-		//	@RegEx(validation = "[A-Za-z]+")
-			@Named("Telefono")final String telefono,
+			@RegEx(validation = "[0-9]+") @Named("Telefono")final String telefono,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("email")final String email,
 			@Named("Distrito Escolar") final String distritoEscolar,
