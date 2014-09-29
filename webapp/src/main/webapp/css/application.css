@@ -131,10 +131,12 @@ li.x-highlight a {
 
 .entityActions .cssMenuPanel .menuh li.icono-eliminar a,
 li.icono-eliminar {
+	color:transparent;
+	border-radius: 4px 4px 4px 4px;
 	background-color: #F0EFEA;
     background: url("../images/icoWrong.png") no-repeat scroll left center #F0EFEA;
     height:38px;
-    width:34px
+    
 }
 
 

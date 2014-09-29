@@ -125,7 +125,7 @@ public class Netbook implements Comparable<Netbook> {
 	
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
 	@PublishedAction // para que muestre la accion en la lista de objetos
-	@Named("")
+	@Named("Eliminar")
 	@CssClass("icono-eliminar")//agregar icono mediante CSS al boton eliminar
 	public List<Netbook> eliminar() {
         container.removeIfNotAlready(this);
