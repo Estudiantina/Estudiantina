@@ -66,7 +66,7 @@ import dom.netbook.Netbook;
 @javax.jdo.annotations.Uniques({
     @javax.jdo.annotations.Unique(
             name="Persona_Campos_Unicos", 
-            members={"cuil","telefonoCelular","telefino","email"})
+            members={"cuil","telefonoCelular","telefonoFijo","email"})
 })
 
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
@@ -86,9 +86,7 @@ public class Persona implements Locatable{
 	private List<Netbook> netbooks = new ArrayList<Netbook>();
 	private Establecimiento establecimiento;
 	private Localidad localidad;
-	
-	@Join
-	@Persistent(mappedBy = "persona", dependentElement = "false")
+
     @javax.jdo.annotations.Column(allowsNull="true")
 	public List<Netbook> getNetbooks() {
 		return netbooks;
@@ -102,15 +100,7 @@ public class Persona implements Locatable{
 		if(e == null || netbooks.contains(e)) return;
 		e.setPersona(this);
 		netbooks.add(e);
-	}
-	
-	public void removeFromNetbooks(Netbook e)
-	{
-		if (e == null || !netbooks.contains(e)) return;
-		e.setPersona(null);
-		netbooks.remove(e);
-	}
-	
+	}	
 	
 	@Column(allowsNull="true")
 	@Hidden(where = Where.ALL_TABLES)//no la muestra la localidad cuando esta en las tablas
@@ -121,12 +111,6 @@ public class Persona implements Locatable{
 		this.localidad = localidad;
 	}
 
-	/**
-	 * propiedad necesaria para 
-	 * ver la geolocalizacion geografica de una persona
-	 * no persiste en la base de datos
-	 * solo es utilizada en el Viewer
-	 */
 
 
 	/**
