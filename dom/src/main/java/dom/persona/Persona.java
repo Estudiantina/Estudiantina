@@ -30,6 +30,7 @@ import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.CssClass;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberOrder;
@@ -291,6 +292,7 @@ public class Persona implements Locatable{
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
 	@PublishedAction // para que muestre la accion en la lista de objetos
 	@Named("eliminar netbook")
+	@CssClass("icono-eliminar")
 	public List<Persona> eliminar() {
         container.removeIfNotAlready(this);
         container.informUser("las personas selecionadas fueron eliminadas");
