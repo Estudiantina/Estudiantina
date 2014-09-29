@@ -102,6 +102,13 @@ public class Persona implements Locatable{
 		netbooks.add(e);
 	}	
 	
+	public void removeFromNetbooks(Netbook e)
+		{
+			if (e == null || !netbooks.contains(e)) return;
+			e.setPersona(null);
+			netbooks.remove(e);
+		}
+	
 	@Column(allowsNull="true")
 	@Hidden(where = Where.ALL_TABLES)//no la muestra la localidad cuando esta en las tablas
 	public Localidad getLocalidad() {
