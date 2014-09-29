@@ -5,21 +5,14 @@ import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
-import javax.jdo.annotations.Element;
-import javax.jdo.annotations.Join;
-import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
-
 import net.sf.jasperreports.engine.JRException;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
-import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberGroupLayout;
@@ -30,19 +23,15 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.RegEx;
-import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
 import javax.jdo.annotations.Column;
-
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
 import dom.persona.Persona;
 import repo.netbook.RepositorioNetbook;
-import javax.jdo.annotations.Extension;
 import org.apache.isis.applib.annotation.CssClass;
-import org.apache.isis.applib.annotation.Render.Type;
 
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
@@ -82,11 +71,19 @@ public class Netbook implements Comparable<Netbook> {
 		this.persona = persona;
 	}
 
-
-
-
-
-
+	public void modifyPersona(Persona p) {
+        if(p==null || persona==p) return;
+        if(persona != null) {
+            persona.removeFromNetbooks(this);
+        }
+        p.addToNetbooks(this);
+    }
+	public void clearPersona() {
+        if(persona==null) return;
+        persona.removeFromNetbooks(this);
+    }
+	
+	
 	public String iconName() {
         return "netbook";
     }

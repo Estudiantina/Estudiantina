@@ -17,14 +17,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
 import javax.inject.Named;
-
 import javax.jdo.annotations.DiscriminatorStrategy;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
-import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Unique;
@@ -42,21 +39,16 @@ import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
-
-
-
-
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
 import com.danhaywood.isis.wicket.gmap3.service.LocationLookupService;
-
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Localidad;
 import dom.netbook.Netbook;
 
 /**
- * Clase que representa la entidad Persona en el nuestro sistema.
+ * Clase que representa la entidad Persona en nuestro sistema.
  * 
  */
 
@@ -102,6 +94,18 @@ public class Persona implements Locatable{
 	}
 	
 	
+	public void addToNetbooks(Netbook e) {
+        if(e == null || netbooks.contains(e)) return;
+        e.setPersona(this);
+        netbooks.add(e);
+    }
+	public void removeFromNetbooks(Netbook e) {
+        if(e == null || !netbooks.contains(e)) return;
+        e.setPersona(null);
+        netbooks.remove(e);
+    }
+	
+	
 	@Column(allowsNull="true")
 	@Hidden(where = Where.ALL_TABLES)//no la muestra la localidad cuando esta en las tablas
 	public Localidad getLocalidad() {
@@ -126,9 +130,7 @@ public class Persona implements Locatable{
      * metodo para geolocalizar
      * persona.
      * @return objeto con cordenadas
-     */
-	
-	
+     */	
 	@MemberOrder(name="Localizacion", sequence = "10")
     @Optional
     @Hidden
@@ -199,10 +201,16 @@ public class Persona implements Locatable{
 	public Persona anadirNetbook(Netbook net)
 	{
 		this.netbooks.add(net);
+		net.setPersona(this);
 		return this;
 	}
 	
 
+	
+	
+	
+	
+	
 	@MaxLength(12)
 	@javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence="1")
