@@ -62,6 +62,8 @@ import servicio.email.Email;
 
 import dom.email.CuentaMail;
 import dom.establecimiento.Establecimiento;
+import dom.localidad.Departamento;
+import dom.localidad.Localidad;
 import dom.localidad.Provincia;
 import dom.netbook.Netbook;
 import dom.persona.Persona;
@@ -286,8 +288,11 @@ public class SolicitudServicioTecnico {
 		SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MMM/yyyy/");
 		parametros.put("fechaDeNacimiento", formatofecha.format(this.getPersona().getFechaNacimiento()));		
 		//TODO establecer provincia eliminar metodo harcodeado
-		Provincia prov = container.firstMatch(QueryDefault.create(Provincia.class, "traerTodo"));
-		//convertir a input stream para que se
+		Localidad localidad= container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal","codigo",establecimiento.getLocalidad().getCodigoPostal())); 
+		Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre" ,localidad.getDepartamento().getNombreDepartamento()));
+		Provincia prov = container.firstMatch(QueryDefault.create(Provincia.class, "traerPorNombre","nombre",departamento.getProvincia().getNombreProvincia()));
+		parametros.put("provincia", prov.getNombreProvincia());
+		//convertir a input stream para que se matchee el la imagen del escudo
 		InputStream is = new ByteArrayInputStream(prov.getEscudo().getBytes());
 		parametros.put("imagen", is);
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/solicitudAsistenciaTecnica.jrxml", parametros, "Solicitud");
