@@ -139,6 +139,19 @@ li.icono-eliminar {
     
 }
 
+
+.entityActions .cssMenuPanel .menuh li.boton-imprimir a,
+li.boton-imprimir {
+	color:transparent;
+	border-radius: 4px 4px 4px 4px;
+	background-color: #F0EFEA;
+    background: url("../images/imprimir.png") no-repeat scroll left center #F0EFEA;
+    height:50px;
+    
+}
+
+
+
 .scalarName, .collectionName
 {
 	color: white;

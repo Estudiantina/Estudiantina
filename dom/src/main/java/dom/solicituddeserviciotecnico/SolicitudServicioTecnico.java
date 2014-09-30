@@ -40,6 +40,7 @@ import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.CssClass;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
@@ -263,6 +264,10 @@ public class SolicitudServicioTecnico {
      * @throws JRException 
      * @throws IOException 
      */
+	@Bulk //para que ejecute la accion en una lista masiva de objetos
+	@PublishedAction // para que muestre la accion en la lista de objetos
+	@Named("Imprimir")
+	@CssClass("boton-imprimir")
 	public Blob imprimir() throws JRException, IOException
 	{
 		
