@@ -18,6 +18,7 @@ import javax.jdo.annotations.Unique;
 
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.value.Blob;
 
 import repo.localidad.RepositorioLocalidad;
 
@@ -40,7 +41,8 @@ public class Localidad {
 	private String codigoPostal;
 	private String localidad;
 	private Departamento departamento;
-	
+
+
 	public String iconName() {
 		return "Localidad";
 	   }
@@ -80,6 +82,9 @@ public class Localidad {
 		this.localidad = localidad;
 	}
 
+	
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

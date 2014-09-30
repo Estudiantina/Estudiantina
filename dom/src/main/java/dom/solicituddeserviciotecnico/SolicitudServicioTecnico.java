@@ -15,7 +15,12 @@ package dom.solicituddeserviciotecnico;
 
 
 
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -46,6 +51,7 @@ import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
+import org.apache.isis.applib.value.Image;
 
 import servicio.email.Email;
 
@@ -55,6 +61,7 @@ import servicio.email.Email;
 
 import dom.email.CuentaMail;
 import dom.establecimiento.Establecimiento;
+import dom.localidad.Provincia;
 import dom.netbook.Netbook;
 import dom.persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -254,9 +261,9 @@ public class SolicitudServicioTecnico {
      * el metodo funciona pero esta hardcodeado
      * @return Reporte a imprimir
      * @throws JRException 
-     * @throws FileNotFoundException 
+     * @throws IOException 
      */
-	public Blob imprimir() throws JRException, FileNotFoundException
+	public Blob imprimir() throws JRException, IOException
 	{
 		
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
@@ -273,7 +280,11 @@ public class SolicitudServicioTecnico {
 		parametros.put("Email",establecimiento.getEmail());
 		SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MMM/yyyy/");
 		parametros.put("fechaDeNacimiento", formatofecha.format(this.getPersona().getFechaNacimiento()));		
-		
+		//TODO establecer provincia eliminar metodo harcodeado
+		Provincia prov = container.firstMatch(QueryDefault.create(Provincia.class, "traerTodo"));
+		//convertir a input stream para que se
+		InputStream is = new ByteArrayInputStream(prov.getEscudo().getBytes());
+		parametros.put("imagen", is);
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/solicitudAsistenciaTecnica.jrxml", parametros, "Solicitud");
 		
 	}

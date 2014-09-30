@@ -19,7 +19,6 @@
 	<parameter name="cursoYdivision" class="java.lang.String"/>
 	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
 	<parameter name="motivoSolicitud" class="java.lang.String"/>
-	<parameter name="imagen" class="java.lang.Object"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -73,8 +72,8 @@
 				<textFieldExpression><![CDATA[$P{direccionDeLaInstitucion}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="407" y="2" width="100" height="50" uuid="3fbf1702-54a5-4c29-afd1-ed0d9416501e"/>
-				<imageExpression><![CDATA[$P{imagen}]]></imageExpression>
+				<reportElement x="454" y="4" width="50" height="50" uuid="f3269e7b-0c0f-4801-aff2-21e052552d98"/>
+				<imageExpression><![CDATA["../../../reportes/escudoNqn.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -101,10 +100,6 @@
 	</pageHeader>
 	<columnHeader>
 		<band height="261" splitType="Stretch">
-			<staticText>
-				<reportElement x="-1" y="11" width="556" height="25" uuid="ea193a71-3276-498b-bc9e-7c5c511a0a4a"/>
-				<text><![CDATA[Apellido y nombres: .............................................................................................................................................]]></text>
-			</staticText>
 			<staticText>
 				<reportElement x="1" y="36" width="554" height="25" uuid="aa7f1e11-9ba5-4c4d-8bc2-036efcf223b6"/>
 				<text><![CDATA[CUIL/DNI: ............................................................................................................................................................]]></text>
@@ -134,10 +129,6 @@ solicitud: .....................................................................
 ...............................................................................................................................................................................]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="104" y="9" width="429" height="20" uuid="9eaa323d-198a-4f05-b970-2f6a55b70fcf"/>
-				<textFieldExpression><![CDATA[$P{apellidoYnombre}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
 				<reportElement x="54" y="34" width="479" height="20" uuid="2e6e6095-4b2c-4d31-a1f8-099828f5f711"/>
 				<textFieldExpression><![CDATA[$P{cuilDni}]]></textFieldExpression>
 			</textField>
@@ -156,6 +147,14 @@ solicitud: .....................................................................
 			<textField isBlankWhenNull="true">
 				<reportElement x="54" y="145" width="479" height="20" uuid="5d07bf68-dd0b-4578-a3c4-a1b2d868d32d"/>
 				<textFieldExpression><![CDATA[$P{motivoSolicitud}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="9" width="531" height="20" uuid="0ea54d57-4b23-4aca-8270-f1b8b9a567b5"/>
+				<text><![CDATA[Apellido y Nombre:...................................................................................................................................]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="9" width="136" height="20" uuid="de338a24-d426-4221-91e1-eb2eee9a7159"/>
+				<textFieldExpression><![CDATA[$P{apellidoYnombre}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>

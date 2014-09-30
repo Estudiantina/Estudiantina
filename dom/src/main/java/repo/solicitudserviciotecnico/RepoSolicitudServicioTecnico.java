@@ -65,7 +65,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	    servicioTecnico.setSolucion("");
 	    servicioTecnico.setNumeroTiquetRegistro(numeroTiquetRegistro);
 	    servicioTecnico.setEstadoDeSolicitud(estadoDeSolicitud);
-	    
+	   
 	    container.persistIfNotAlready(servicioTecnico);
 		return servicioTecnico;	
 	}

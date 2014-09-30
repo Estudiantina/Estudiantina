@@ -20,6 +20,7 @@ import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
+import org.apache.isis.applib.value.Blob;
 
 import dom.localidad.Departamento;
 import dom.localidad.Localidad;
@@ -68,11 +69,13 @@ public class RepositorioLocalidad extends AbstractFactoryAndRepository{
 	
 	@Named("Nueva Provincia")
 	public Provincia ingresoProvincia(
-			@Named("Nombre De Provincia")final String nombreProvincia
+			@Named("Nombre De Provincia")final String nombreProvincia,
+			@Named("Imagen del Escudo")final Blob escudo
 			)
 	{
 		final Provincia nuevaProvincia = container.newTransientInstance(Provincia.class);
 		nuevaProvincia.setNombreProvincia(nombreProvincia);
+		nuevaProvincia.setEscudo(escudo);
 		container.persistIfNotAlready(nuevaProvincia);		
 		return nuevaProvincia;
 	}

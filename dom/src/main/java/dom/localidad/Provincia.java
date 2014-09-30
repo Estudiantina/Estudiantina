@@ -14,12 +14,14 @@ package dom.localidad;
 
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Column;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Queries;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.value.Blob;
 
 import repo.localidad.RepositorioLocalidad;
 
@@ -32,6 +34,19 @@ import javax.jdo.annotations.PersistenceCapable;
 	@Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.localidad.Provincia")})
 @AutoComplete(repository = RepositorioLocalidad.class, action = "autoCompletarProvincia")
 public class Provincia {
+	
+	private Blob escudo;
+	@Column(allowsNull="true")
+	@Persistent
+	public Blob getEscudo() {
+		return escudo;
+	}
+
+	public void setEscudo(Blob escudo) {
+		this.escudo = escudo;
+	}
+	
+	
 	
 	public String iconName() {
 		return "Localidad";
