@@ -44,6 +44,7 @@ import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jdt.core.dom.ThisExpression;
 
 import javax.jdo.annotations.Inheritance;
@@ -206,8 +207,17 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    parametros.put("ciudadDeEstablecimiento", this.getEstablecimiento().getLocalidad().toString());
 	    parametros.put("nombreAlumno", super.getApellido()+" "+super.getNombre());
 	    parametros.put("dniAlumno", super.getCuil());
-	    //parametros.put("nombreDirector", super.getApellido()+" "+super.getNombre());
-		return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
+	    parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
+	    parametros.put("dniDirector", super.getEstablecimiento().getDirectivo().getCuil());
+	    parametros.put("nombreAlumno", super.getApellido()+" "+super.getNombre());
+	    parametros.put("distritoEscolar", super.getEstablecimiento().getDistritoEscolar());
+	    parametros.put("ciudadDeEstablecimiento", super.getEstablecimiento().getLocalidad().getLocalidad());
+	    parametros.put("domicilioEstablecimiento", super.getEstablecimiento().getDireccion());
+	    parametros.put("nombreTutor", this.getTutor().getApellido()+" "+this.getTutor().getNombre());
+	    parametros.put("dniTutor", this.getTutor().getCuil());	    
+	    parametros.put("domicilioTutor", this.getTutor().getDomicilio());
+	    
+	    return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
 	}
 	
 	
