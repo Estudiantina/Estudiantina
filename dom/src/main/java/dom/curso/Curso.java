@@ -47,7 +47,9 @@ import repo.curso.RepositorioCurso;
 @javax.jdo.annotations.DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY)
 @javax.jdo.annotations.Queries({
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.curso.Curso"),
-	@javax.jdo.annotations.Query(name = "traerCursoPorlikeAnio", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE anoYdivision.indexOf(:anoYdivision) >=0 range 0, 4")
+	@javax.jdo.annotations.Query(name = "traerCursoPorlikeAnio", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE anoYdivision.indexOf(:anoYdivision) >=0 range 0, 4"),
+	@javax.jdo.annotations.Query(name = "traerPorCurso", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE dom.curso.Curso = :curso")
+	
 	})
 @ObjectType("CURSO")
 @AutoComplete(repository =  RepositorioCurso.class, action = "autoComplete")

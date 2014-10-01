@@ -12,6 +12,9 @@
  */
 package dom.tutor;
 
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -22,6 +25,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 
 import repo.persona.RepositorioPersona;
 
+import dom.alumno.Alumno;
 import dom.persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
@@ -44,5 +48,24 @@ public class Tutor extends Persona {
 		
 	}
 	
+	private SortedSet<Alumno> alumnos = new TreeSet<Alumno>();
+
+	public SortedSet<Alumno> getAlumnos() {
+		return alumnos;
+	}
+
+	public void setAlumnos(SortedSet<Alumno> alumnos) {
+		this.alumnos = alumnos;
+	}
 	
+	public void addToAlumnos(Alumno a) {
+        if(a == null || alumnos.contains(a)) return;
+        a.setTutor(this);
+        alumnos.add(a);
+    }
+    public void removeFromAlumnos(Alumno a) {
+        if(a == null || !alumnos.contains(a)) return;
+        a.setTutor(null);
+        alumnos.remove(a);
+    }
 }

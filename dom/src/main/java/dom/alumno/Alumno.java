@@ -41,8 +41,10 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.annotation.Render.Type;
+import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+import org.eclipse.jdt.core.dom.ThisExpression;
 
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -53,6 +55,7 @@ import repo.persona.RepositorioPersona;
 import servicio.reporte.GeneradorReporte;
 import dom.curso.Curso;
 import dom.persona.Persona;
+import dom.tutor.Tutor;
 
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -134,7 +137,26 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    return this;
 	}
 
-	
+	private Tutor tutor;
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Tutor getTutor() {
+		return tutor;
+	}
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
+	}
+
+	public void modifyTutor(Tutor t) {
+        if(t==null || tutor==t) return;
+        if(tutor != null) {
+            tutor.removeFromAlumnos(this);
+        }
+        t.addToAlumnos(this);
+    }
+    public void clearTutor() {
+        if(tutor==null) return;
+        tutor.removeFromAlumnos(this);
+    }
 
 	private Date fechaIngreso;
 	
@@ -176,7 +198,15 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	
 	public Blob imprimirContratoDeCesion() throws FileNotFoundException, JRException
 	{
-	    HashMap<String, Object> parametros = new HashMap<String, Object>();	
+	    HashMap<String, Object> parametros = new HashMap<String, Object>();
+	    
+	    parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
+	    parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
+	    parametros.put("Instituto",this.getEstablecimiento().getNombre());
+	    parametros.put("ciudadDeEstablecimiento", this.getEstablecimiento().getLocalidad().toString());
+	    parametros.put("nombreAlumno", super.getApellido()+" "+super.getNombre());
+	    parametros.put("dniAlumno", super.getCuil());
+	    
 		return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
 	}
 	

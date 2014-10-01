@@ -56,6 +56,10 @@ public class Localidad {
 		this.departamento = departamento;
 	}
 
+	public String toString()
+	{
+		return this.codigoPostal+" "+this.localidad;
+	}
 	public String title()
 	{
 		return this.codigoPostal+" "+this.localidad;
