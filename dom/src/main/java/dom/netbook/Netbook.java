@@ -5,9 +5,12 @@ import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
+
 import net.sf.jasperreports.engine.JRException;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
@@ -26,11 +29,18 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
+
 import javax.jdo.annotations.Column;
+
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+
+import dom.alumno.Alumno;
+import dom.directivo.Directivo;
+import dom.establecimiento.Establecimiento;
 import dom.persona.Persona;
 import repo.netbook.RepositorioNetbook;
+
 import org.apache.isis.applib.annotation.CssClass;
 
 @javax.jdo.annotations.PersistenceCapable()
@@ -70,7 +80,37 @@ public class Netbook implements Comparable<Netbook> {
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
+	
+	
+	/*
+	 * directivo
+	 *
+	 private Directivo directivo;
+	   @Column(allowsNull="true")
+	   public Directivo getDirectivo() {
+		return directivo;
+	   }
 
+	   public void setDirectivo(Directivo directivo) {
+		   this.directivo = directivo;
+	   }
+	   
+	   /*
+		 * Alumno
+		 *
+		 private Alumno alumno;
+		   @Column(allowsNull="true")
+		   public Directivo getAlumno() {
+			return directivo;
+		   }
+
+		   public void setAlumno(Alumno alumno) {
+			   this.alumno = alumno;
+		   } */
+
+	
+	
+	
 	public void modifyPersona(Persona p) {
         if(p==null || persona==p) return;
         if(persona != null) {
@@ -220,8 +260,18 @@ public class Netbook implements Comparable<Netbook> {
  	{
  		
  		HashMap<String,Object> parametros = new HashMap<String, Object>();
- 		//Persona per = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", persona.getCuil() ));
+ 		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
+ 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
  		
+ 		parametros.put("distrito", establecimiento.getDistritoEscolar());
+ 		parametros.put("establecimiento", establecimiento.getNombre());
+ 		parametros.put("localidad", establecimiento.getLocalidad());
+ 		parametros.put("domicilio", establecimiento.getDireccion());
+ 	//	parametros.put("DierctorCedente", this.getDirectivo().getNombre()+ " "+this.getDirectivo().getApellido());
+ 	//	parametros.put("nroDniDirector", this.getDirectivo().getCuil());
+ 		
+      	parametros.put("alumno", persona.getNombre()+" "+persona.getApellido());
+        parametros.put("cuil_alumno", persona.getCuil());
  		parametros.put("nombreDirector", this.getModelo() );
  		parametros.put("netbookModelo", this.getModelo());
  		parametros.put("numeroSerieNetbook", this.getNumeroDeSerie());
