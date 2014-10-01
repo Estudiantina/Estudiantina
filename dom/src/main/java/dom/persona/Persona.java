@@ -159,6 +159,13 @@ public class Persona implements Locatable{
     }
 
 	
+    
+    public Persona resignarNetbook(Netbook net)
+    {
+    	netbooks.remove(net);
+		return this;
+    }
+    
 
 	@javax.jdo.annotations.Column(allowsNull="true")
 	@Optional
