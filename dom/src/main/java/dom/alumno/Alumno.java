@@ -13,8 +13,10 @@
 package dom.alumno;
 
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -25,6 +27,9 @@ import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
+
+import net.sf.jasperreports.engine.JRException;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
@@ -37,6 +42,7 @@ import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.util.ObjectContracts;
+import org.apache.isis.applib.value.Blob;
 
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
@@ -44,6 +50,7 @@ import javax.jdo.annotations.InheritanceStrategy;
 
 
 import repo.persona.RepositorioPersona;
+import servicio.reporte.GeneradorReporte;
 import dom.curso.Curso;
 import dom.persona.Persona;
 
@@ -166,6 +173,12 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	}
 
 	
+	
+	public Blob imprimirContratoDeCesion() throws FileNotFoundException, JRException
+	{
+	    HashMap<String, Object> parametros = new HashMap<String, Object>();	
+		return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
+	}
 	
 	
 	
