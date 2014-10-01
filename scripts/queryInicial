@@ -43,3 +43,15 @@ INSERT INTO "Login"(
             usuario)
     VALUES (1, '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, 1, 
             'admin');
+
+
+//
+// CONFIGURACION DE SERVIDORES DE MAIL
+//
+INSERT INTO "ServidorDeEmail"(
+            "ServidorDeEmail_ID", auth, fallback, host, "nombreServer", port, 
+            starttlsenable)
+    VALUES (1, true, false, 'smtp.gmail.com', 'gmail', 465, 
+            true);
+
+
