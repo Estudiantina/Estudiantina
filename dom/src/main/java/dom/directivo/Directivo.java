@@ -20,6 +20,7 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
 
 import repo.persona.RepositorioPersona;
+import dom.establecimiento.Establecimiento;
 import dom.persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 
@@ -45,4 +46,8 @@ public class Directivo extends Persona {
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 	}
 	
+	
+	public void modifyEstablecimiento(Establecimiento e) {
+		e.setDirectivo(this);
+    }
 }

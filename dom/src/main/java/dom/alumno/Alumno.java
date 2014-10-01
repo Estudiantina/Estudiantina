@@ -206,7 +206,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    parametros.put("ciudadDeEstablecimiento", this.getEstablecimiento().getLocalidad().toString());
 	    parametros.put("nombreAlumno", super.getApellido()+" "+super.getNombre());
 	    parametros.put("dniAlumno", super.getCuil());
-	    
+	    //parametros.put("nombreDirector", super.getApellido()+" "+super.getNombre());
 		return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
 	}
 	

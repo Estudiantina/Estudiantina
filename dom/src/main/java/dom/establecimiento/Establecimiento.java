@@ -21,6 +21,7 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
 import javax.jdo.annotations.Column;
 
+import dom.directivo.Directivo;
 import dom.localidad.Localidad;
 import repo.establecimiento.RepositorioEstablecimiento;
 
@@ -43,6 +44,18 @@ public class Establecimiento {
 	private String cue;
 	private Localidad localidad;
 	private String distritoEscolar;
+	
+	private Directivo directivo;
+	@Column(allowsNull="true")
+	public Directivo getDirectivo() {
+		return directivo;
+	}
+	public void setDirectivo(Directivo directivo) {
+		this.directivo = directivo;
+	}
+	
+	
+	
 	@Column(allowsNull="false")
 	public String getDistritoEscolar() {
 		return distritoEscolar;
