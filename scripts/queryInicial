@@ -45,9 +45,9 @@ INSERT INTO "Login"(
             'admin');
 
 
-//
-// CONFIGURACION DE SERVIDORES DE MAIL
-//
+
+/* CONFIGURACION DE SERVIDORES DE MAIL*/
+
 INSERT INTO "ServidorDeEmail"(
             "ServidorDeEmail_ID", auth, fallback, host, "nombreServer", port, 
             starttlsenable)
