@@ -99,9 +99,7 @@ public class SolicitudServicioTecnico {
 	private String numeroTiquetRegistro;
 	private String comentario;
 	private EstadoDeSolicitud estadoDeSolicitud;
-	
-	
-	
+		
 	@javax.jdo.annotations.Column(allowsNull="false")
 	@Hidden(where = Where.ALL_TABLES)
 	public Persona getPersona() {
@@ -167,10 +165,6 @@ public class SolicitudServicioTecnico {
 	public String getSolucion() {
 		return solucion;
 	}
-
-
-
-
     
 	public void setSolucion(String solucion) {
 		this.solucion = solucion;

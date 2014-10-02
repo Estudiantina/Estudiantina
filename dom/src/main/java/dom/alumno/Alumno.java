@@ -55,6 +55,9 @@ import javax.jdo.annotations.InheritanceStrategy;
 import repo.persona.RepositorioPersona;
 import servicio.reporte.GeneradorReporte;
 import dom.curso.Curso;
+import dom.localidad.Departamento;
+import dom.localidad.Localidad;
+import dom.localidad.Provincia;
 import dom.persona.Persona;
 import dom.tutor.Tutor;
 
@@ -201,7 +204,18 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	{
 	    HashMap<String, Object> parametros = new HashMap<String, Object>();
 	    
+	    
+	    /*
+		TODO agregar provinciaTutor
+		TODO agregar alturaDomicilioTutor
+		TODO agregar domicilioPisoTutor
+		TODO agregar domicilioDepartamentoTutor
+		TODO agregar domicilioProvinciaTutor
+		*/
+	    
+	    parametros.put("domicilioCiudadTutor", this.getTutor().getLocalidad().toString());
 	    parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
+	    //TODO parametros.put("marcaNetbook",super.getNetbooks().first().getMarca());
 	    parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
 	    parametros.put("Instituto",this.getEstablecimiento().getNombre());
 	    parametros.put("ciudadDeEstablecimiento", this.getEstablecimiento().getLocalidad().toString());
@@ -216,6 +230,19 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    parametros.put("nombreTutor", this.getTutor().getApellido()+" "+this.getTutor().getNombre());
 	    parametros.put("dniTutor", this.getTutor().getCuil());	    
 	    parametros.put("domicilioTutor", this.getTutor().getDomicilio());
+	    parametros.put("cursoAlumno", this.getCursos().first().getAnoYdivision());
+	    
+	    Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getEstablecimiento().getLocalidad().getCodigoPostal()));
+	    Departamento departamentoEstablecimiento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidadEstablecimiento.getDepartamento().getNombreDepartamento()));
+	    parametros.put("provinciaDeEstablecimiento", departamentoEstablecimiento.getProvincia().getNombreProvincia());
+	    
+	    Localidad localidad = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getTutor().getLocalidad().getCodigoPostal()));
+	    Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidad.getDepartamento().getNombreDepartamento()));
+	    
+	    parametros.put("domicilioDepartamentoTutor", departamento.getNombreDepartamento());
+	    parametros.put("turnoCursoAlumno", this.cursos.first().getTurno().toString());
+	    //TODO falta division
+	    parametros.put("divisionCursoAlumno", "");
 	    
 	    return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
 	}

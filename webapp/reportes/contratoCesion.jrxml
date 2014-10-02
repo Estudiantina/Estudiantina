@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoCesion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ca52da1-a8bd-468c-922e-1bc4ee5205e1">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="13"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Heading 1" fontSize="22" isBold="true"/>
 	<style name="Default" isPdfEmbedded="true"/>
@@ -52,26 +52,26 @@
 				<textFieldExpression><![CDATA["Entre la Autoridad Educativa Provincial representada en este acto por el \n"+
 "Sr./a: "+$P{nombreDirector}+" , DNI No "+$P{dniDirector}+" , en su carácter de \n"+
 "Director/a/Rector/a de la Escuela/Instituto "+$P{Instituto}+" , Distrito \n"+
-"Escolar: "+ $P{distritoEscolar} +" de la Ciudad de "+$P{ciudadDeEstablecimiento}+"Provincia de"+$P{provinciaDeEstablecimiento}+" \n"+
+"Escolar: "+ $P{distritoEscolar} +" de la Ciudad de "+$P{ciudadDeEstablecimiento}+" Provincia de "+$P{provinciaDeEstablecimiento}+" \n"+
 "con domicilio en "+$P{domicilioEstablecimiento}+" , en adelante “EL CEDENTE” y \n"+
-"por la otra parte la/el Señora/Señor: "+$P{nombreTutor}+" DNI No"+$P{dniTutor}+", \n"+
-"con domicilio en la calle"+ $P{domicilioTutor}+" N° "+$P{alturaDomicilioTutor}+"piso"+$P{domicilioPisoTutor}+"dpto"+$P{domicilioDepartamentoTutor}+" , de la \n"+
-"ciudad"+$P{domicilioCiudadTutor}+"Provincia de "+$P{domicilioProvinciaTutor}+"; en su carácter \n"+
-"de alumna/o del curso"+$P{cursoAlumno}+", división"+$P{divisionCursoAlumno}+", turno "+$P{turnoCursoAlumno}+", (o en su carácter de \n "+
-"padre, madre, tutor o representante legal del alumna/o"+$P{nombreAlumno}+"\n "+
-"DNI No"+$P{dniAlumno}+"del curso"+$P{cursoAlumno}+"División"+$P{divisionCursoAlumno}+", turno"+$P{turnoCursoAlumno}+") del \n"+
+"por la otra parte la/el Señora/Señor: "+$P{nombreTutor}+" DNI No "+$P{dniTutor}+", \n"+
+"con domicilio en la calle "+ $P{domicilioTutor}+" N° "+$P{alturaDomicilioTutor}+" piso "+$P{domicilioPisoTutor}+" dpto "+$P{domicilioDepartamentoTutor}+" , de la \n"+
+"ciudad "+$P{domicilioCiudadTutor}+" Provincia de "+$P{domicilioProvinciaTutor}+" ; en su carácter \n"+
+"de alumna/o del curso "+$P{cursoAlumno}+" , división "+$P{divisionCursoAlumno}+" , turno "+$P{turnoCursoAlumno}+" , (o en su carácter de \n "+
+"padre, madre, tutor o representante legal del alumna/o "+$P{nombreAlumno}+"\n "+
+"DNI No "+$P{dniAlumno}+" del curso "+$P{cursoAlumno}+" División "+$P{divisionCursoAlumno}+" , turno "+$P{turnoCursoAlumno}+" ) del \n"+
 "establecimiento educativo mencionado, en adelante “EL CESIONARIO”, \n"+
 "ambos mayores de edad y hábiles para este acto, convienen en celebrar el \n"+
 "presente CONTRATO DE CESION EN PROPIEDAD, sujeto a las siguientes \n"+
 "cláusulas y condiciones:\n"+
 "PRIMERA: LA AUTORIDAD EDUCATIVA da en forma gratuita y definitiva en \n"+
-"PROPIEDAD al CESIONARIO y éste acepta, una laptop educativa Marca"+$P{marcaNetbook}+"\n"+
-"Modelo "+$P{modeloNetbook}+" Numero de Serie "+$P{numeroSerieNetbook}+", con cargo de destinarla a fines formativos y \n"+
+"PROPIEDAD al CESIONARIO y éste acepta, una laptop educativa Marca "+$P{marcaNetbook}+"\n"+
+"Modelo "+$P{modeloNetbook}+" Numero de Serie "+$P{numeroSerieNetbook}+" , con cargo de destinarla a fines formativos y \n"+
 "de compartirla con su grupo familiar primario, comprometiéndose a no \n"+
 "enajenarla de ninguna forma y bajo ninguna circunstancia o concepto. \n"+
 "En prueba de conformidad se firman DOS (2) ejemplares de un mismo tenor \n"+
 "y a un solo efecto, por EL CEDENTE y por EL CESIONARIO en la ciudad \n"+
-$P{domicilioCiudadTutor}+"Provincia de "+$P{provinciaTutor} +" , a los \n"+
+$P{domicilioCiudadTutor}+" Provincia de "+$P{provinciaTutor} +" , a los \n"+
 "............................. días del mes de ................................... de 20....... \n"]]></textFieldExpression>
 			</textField>
 		</band>
