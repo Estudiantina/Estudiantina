@@ -386,6 +386,5 @@
   <modules>
     <module>dom</module>
     <module>webapp</module>
-    <module>isis-wicket-gmap3</module>
   </modules>
 </project>
