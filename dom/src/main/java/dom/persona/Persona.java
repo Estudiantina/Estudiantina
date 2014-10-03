@@ -158,7 +158,7 @@ public class Persona implements Locatable{
     public Location getLocation() {
 		if (this.domicilio!="")
     	{
-		String algo = this.domicilio+", "+this.getLocalidad().getLocalidad();
+		String algo = this.domicilio+" "+this.alturaDomiculio+", "+this.getLocalidad().getLocalidad();
 		LocationLookupService loc = new LocationLookupService();
     	this.location=loc.lookup(algo);
     	}
