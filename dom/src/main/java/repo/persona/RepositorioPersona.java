@@ -20,6 +20,7 @@ import java.util.List;
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MultiLine;
+import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
@@ -104,7 +105,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("TELEFONO FIJO")String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")String email,
-			@Named("DOMICILIO")	@MultiLine String domicilio,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomiculio,
+			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
 			@Named("FECHA INGRESO")Date fechaIngreso,
@@ -128,7 +131,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	alumno.setFechaIngreso(fechaIngreso);
 	alumno.setNacionalidad(nacionalidad);    
     alumno.setEstadoDeAlumno(estadoDeAlumno);
-    
+    alumno.setPiso(piso);
+    alumno.setAlturaDomiculio(alturaDomiculio);
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
@@ -160,7 +164,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")final String email,
-			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomiculio,
+			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")final Date fechaNacimiento
 			)
@@ -197,7 +203,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")final String email,
-			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomiculio,
+			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")final Date fechaNacimiento
 			)
@@ -235,7 +243,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")final String email,
-			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomiculio,
+			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("Cargo") final String cargo
 			)
@@ -245,6 +255,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setApellido(apellido);
 		docente.setCuil(cuil);
 		docente.setDomicilio(domicilio);
+		docente.setAlturaDomiculio(alturaDomiculio);
+		docente.setPiso(piso);
 		docente.setEmail(email);
 		docente.setEstablecimiento(establecimiento);
 		docente.setNombre(nombre);
@@ -274,7 +286,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
 			@Named("CORREO ELECTRONICO")final String email,
-			@Named("DOMICILIO")	@MultiLine final String domicilio,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomiculio,
+			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad
 			)
 	{
@@ -284,6 +298,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tutor.setFechaNacimiento(fechaNacimiento);
 		tutor.setCuil(cuil);
 		tutor.setDomicilio(domicilio);
+		tutor.setAlturaDomiculio(alturaDomiculio);
+		tutor.setPiso(piso);
 		tutor.setEmail(email);
 		tutor.setEstablecimiento(establecimiento);
 		tutor.setNombre(nombre);

@@ -82,10 +82,29 @@ public class Persona implements Locatable{
 	private String telefonoFijo;
 	private String email;
 	private String domicilio;
+	private int alturaDomiculio;
+	private String piso ;
 	private Date fechaNacimiento;
 	private SortedSet<Netbook> netbooks =  new TreeSet<Netbook>();
 	private Establecimiento establecimiento;
 	private Localidad localidad;
+    
+	@Column(allowsNull="true")
+	public int getAlturaDomiculio() {
+		return alturaDomiculio;
+	}
+
+	public void setAlturaDomiculio(int alturaDomiculio) {
+		this.alturaDomiculio = alturaDomiculio;
+	}
+	@Column(allowsNull="true")
+	public String getPiso() {
+		return piso;
+	}
+
+	public void setPiso(String piso) {
+		this.piso = piso;
+	}
 
 	public SortedSet<Netbook> getNetbooks() {
 		return netbooks;
