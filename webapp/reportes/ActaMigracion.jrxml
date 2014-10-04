@@ -40,7 +40,7 @@
 				<text><![CDATA[Direccion:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="53" y="49" width="78" height="20" uuid="8e66048c-eaf8-4b86-876c-184fd2203eb4"/>
+				<reportElement x="57" y="50" width="78" height="20" uuid="8e66048c-eaf8-4b86-876c-184fd2203eb4"/>
 				<textFieldExpression><![CDATA[$P{domicilio}]]></textFieldExpression>
 			</textField>
 			<staticText>

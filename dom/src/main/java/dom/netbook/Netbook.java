@@ -35,14 +35,12 @@ import javax.jdo.annotations.Column;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
 
-import dom.alumno.Alumno;
-import dom.directivo.Directivo;
+
 import dom.establecimiento.Establecimiento;
 import dom.persona.Persona;
 import repo.netbook.RepositorioNetbook;
 
 import org.apache.isis.applib.annotation.CssClass;
-import org.eclipse.jdt.core.dom.ThisExpression;
 
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
@@ -251,9 +249,8 @@ public class Netbook implements Comparable<Netbook> {
      
      /**
       * TODO ImprimirReporte
-      * TODO Generar contrato de comodato
-      * archivo incompleto para imprimir
-      * el metodo esta incompleto solo para prueba
+      * TODO Generar acta de migracion de la netbook 
+      * el metodo esta incompleto 
       * @return Reporte a imprimir
       * @throws JRException 
       * @throws FileNotFoundException 
@@ -262,9 +259,7 @@ public class Netbook implements Comparable<Netbook> {
  	{
  		
  		HashMap<String,Object> parametros = new HashMap<String, Object>();
- 		
- 		
- 		
+ 		 		
  		if (this.getPersona() != null){
  		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
  		 		 		
@@ -314,8 +309,7 @@ public class Netbook implements Comparable<Netbook> {
      
     /**
      * TODO ImprimirReporte
-     * TODO Generar contrato de comodato
-     * archivo incompleto para imprimir
+     * TODO Generar acta de prestamo de netbook
      * el metodo esta incompleto solo para prueba
      * @return Reporte a imprimir
      * @throws JRException 
@@ -326,11 +320,27 @@ public class Netbook implements Comparable<Netbook> {
 	{
 		
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
-		//Persona per = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", persona.getCuil() ));
 		
+		if (this.getPersona() != null){
+		
+		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", this.getPersona().getCuil() ));
+		
+		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
+		parametros.put("cursoAlumno", "");
+		parametros.put("divisionAlumno", "");
+				
 	//	parametros.put("nombreDirector", this.getModelo() );
 		parametros.put("marcaNetbook", this.getModelo());
 		parametros.put("serieNetbook", this.getNumeroDeSerie());
+		}else{
+			
+			parametros.put("nombreAlumno", "");
+			parametros.put("cursoAlumno", "");
+			parametros.put("divisionAlumno", "");
+			
+			parametros.put("marcaNetbook", this.getModelo());
+			parametros.put("serieNetbook", this.getNumeroDeSerie());
+		}
 		
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaAutorizacionPrestamoNet.jrxml", parametros, "Solicitud");
 		
