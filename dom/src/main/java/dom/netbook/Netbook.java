@@ -42,6 +42,7 @@ import dom.persona.Persona;
 import repo.netbook.RepositorioNetbook;
 
 import org.apache.isis.applib.annotation.CssClass;
+import org.eclipse.jdt.core.dom.ThisExpression;
 
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
@@ -86,6 +87,7 @@ public class Netbook implements Comparable<Netbook> {
 	 * directivo
 	 *
 	 private Directivo directivo;
+	  
 	   @Column(allowsNull="true")
 	   public Directivo getDirectivo() {
 		return directivo;
@@ -260,22 +262,52 @@ public class Netbook implements Comparable<Netbook> {
  	{
  		
  		HashMap<String,Object> parametros = new HashMap<String, Object>();
+ 		
+ 		
+ 		
+ 		if (this.getPersona() != null){
  		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
+ 		 		 		
  		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
  		
  		parametros.put("distrito", establecimiento.getDistritoEscolar());
+ 		parametros.put("cue", establecimiento.getCue());
+ 		parametros.put("emailEstablecimiento", establecimiento.getEmail());
+ 		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
+ 		
  		parametros.put("establecimiento", establecimiento.getNombre());
  		parametros.put("localidad", establecimiento.getLocalidad());
  		parametros.put("domicilio", establecimiento.getDireccion());
- 	//	parametros.put("DierctorCedente", this.getDirectivo().getNombre()+ " "+this.getDirectivo().getApellido());
- 	//	parametros.put("nroDniDirector", this.getDirectivo().getCuil());
+ 		parametros.put("DierctorCedente", "");
+ 		parametros.put("nroDniDirector", "");
+ 		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
  		
-      	parametros.put("alumno", persona.getNombre()+" "+persona.getApellido());
+      	parametros.put("alumno", persona.getNombre()+", "+persona.getApellido());
         parametros.put("cuil_alumno", persona.getCuil());
- 		parametros.put("nombreDirector", this.getModelo() );
+ 		parametros.put("nombreDirector",  "");
  		parametros.put("netbookModelo", this.getModelo());
  		parametros.put("numeroSerieNetbook", this.getNumeroDeSerie());
  		
+ 		} else {
+ 			
+ 			
+ 			parametros.put("distrito", "");
+ 			parametros.put("cue", "");
+ 			parametros.put("emailEstablecimiento", "");
+ 	 		parametros.put("telefonoEstablecimiento", "");
+ 	 		parametros.put("establecimiento", "");
+ 	 		parametros.put("localidad", "");
+ 	 		parametros.put("domicilio", "");
+ 	 		parametros.put("DierctorCedente", "");
+ 	 		parametros.put("nroDniDirector", "");
+ 	 		
+ 	      	parametros.put("alumno", "");
+ 	        parametros.put("cuil_alumno", "");
+ 	 		parametros.put("nombreDirector", "");
+ 			
+ 			parametros.put("netbookModelo", this.getModelo());
+ 	 		parametros.put("numeroSerieNetbook", this.getNumeroDeSerie());
+ 		}
  		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
  		
  	}

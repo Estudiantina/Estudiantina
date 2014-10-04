@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaMigracion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eea62db-9b8e-4ef8-95d2-5ca98b500e5f">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="146"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="DierctorCedente" class="java.lang.String"/>
 	<parameter name="netbookModelo" class="java.lang.String"/>
 	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
@@ -14,15 +14,65 @@
 	<parameter name="domicilio" class="java.lang.String"/>
 	<parameter name="alumno" class="java.lang.String"/>
 	<parameter name="cuil_alumno" class="java.lang.String"/>
+	<parameter name="telefonoEstablecimiento" class="java.lang.String"/>
+	<parameter name="emailEstablecimiento" class="java.lang.String"/>
 	<title>
-		<band height="63" splitType="Stretch">
+		<band height="134" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="555" height="44" uuid="9d49aaec-1d59-40d4-b286-9fa232c666a1"/>
+				<reportElement x="0" y="87" width="555" height="44" uuid="9d49aaec-1d59-40d4-b286-9fa232c666a1"/>
 				<textElement>
 					<font fontName="Caladea" size="14"/>
 				</textElement>
 				<text><![CDATA[ACTA DE MIGRACION PARA ALUMNOS DEL PROGRAMA CONECTAR IGUALDAD DE LA JURISDICCION:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="0" y="18" width="192" height="20" uuid="295d229c-f3f8-4ac9-b46e-4fab61c639af"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{establecimiento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="50" width="67" height="20" uuid="b093ccd7-9d41-440f-940c-88cd444a9156"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="53" y="49" width="78" height="20" uuid="8e66048c-eaf8-4b86-876c-184fd2203eb4"/>
+				<textFieldExpression><![CDATA[$P{domicilio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="72" width="31" height="20" uuid="e783bab4-9416-4406-8071-fda6e3e0b775"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tel:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="31" y="72" width="161" height="20" uuid="44009132-003e-4c42-9e99-f26dd5cc4963"/>
+				<textFieldExpression><![CDATA[$P{telefonoEstablecimiento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="187" y="72" width="35" height="20" uuid="93e9ab20-2319-41ea-b913-28d304af26e1"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="222" y="72" width="157" height="20" uuid="bc5100ba-43f6-4236-a3c7-aeb5db96bb26"/>
+				<textFieldExpression><![CDATA[$P{emailEstablecimiento}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="466" y="0" width="89" height="50" uuid="0bcfd052-5305-4a53-885d-5fd45866c505"/>
+				<imageExpression><![CDATA["/home/santi/workspace/Estudiantina/webapp/reportes/EscudoNqn.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="222" y="-3" width="208" height="72" uuid="31cc0413-83b4-43d6-a640-5df3b1c87498"/>
+				<imageExpression><![CDATA["/home/santi/workspace/Estudiantina/webapp/reportes/conectar.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<detail>
@@ -54,7 +104,7 @@ En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un 
 				<textFieldExpression><![CDATA[$P{netbookModelo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="192" y="146" width="100" height="20" uuid="5cf5d993-7f5b-4abe-b60d-30bcce9036f3"/>
+				<reportElement x="192" y="146" width="143" height="20" uuid="5cf5d993-7f5b-4abe-b60d-30bcce9036f3"/>
 				<textFieldExpression><![CDATA[$P{numeroSerieNetbook}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -62,15 +112,15 @@ En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un 
 				<textFieldExpression><![CDATA[$P{nroDniDirector}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="53" y="31" width="100" height="20" uuid="508a304a-e271-4879-9c19-8262849532cb"/>
+				<reportElement x="53" y="29" width="139" height="20" uuid="508a304a-e271-4879-9c19-8262849532cb"/>
 				<textFieldExpression><![CDATA[$P{establecimiento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="203" y="32" width="100" height="20" uuid="ab865d74-8eef-40a3-985c-df55886e7b69"/>
+				<reportElement x="203" y="30" width="100" height="20" uuid="ab865d74-8eef-40a3-985c-df55886e7b69"/>
 				<textFieldExpression><![CDATA[$P{cue}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="414" y="32" width="100" height="20" uuid="1b7d4ac5-80f7-4fcd-9a6e-17020e13d600"/>
+				<reportElement x="414" y="31" width="100" height="20" uuid="1b7d4ac5-80f7-4fcd-9a6e-17020e13d600"/>
 				<textFieldExpression><![CDATA[$P{distrito}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -86,7 +136,7 @@ En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un 
 				<textFieldExpression><![CDATA[$P{alumno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="259" y="134" width="100" height="20" uuid="867b50b2-8795-4628-b43f-cdacd1e2602b"/>
+				<reportElement x="259" y="133" width="100" height="20" uuid="867b50b2-8795-4628-b43f-cdacd1e2602b"/>
 				<textFieldExpression><![CDATA[$P{cuil_alumno}]]></textFieldExpression>
 			</textField>
 		</band>
