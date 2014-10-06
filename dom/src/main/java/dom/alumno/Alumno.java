@@ -230,7 +230,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    parametros.put("nombreTutor", this.getTutor().getApellido()+" "+this.getTutor().getNombre());
 	    parametros.put("dniTutor", this.getTutor().getCuil());	    
 	    parametros.put("domicilioTutor", this.getTutor().getDomicilio());
-	    parametros.put("cursoAlumno", this.getCursos().first().getAnoYdivision());
+	    parametros.put("cursoAlumno", this.getCursos().first().getAnio()+" "+this.getCursos().first().getDivision());
 	    
 	    Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getEstablecimiento().getLocalidad().getCodigoPostal()));
 	    Departamento departamentoEstablecimiento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidadEstablecimiento.getDepartamento().getNombreDepartamento()));
@@ -242,7 +242,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    parametros.put("domicilioDepartamentoTutor", departamento.getNombreDepartamento());
 	    parametros.put("turnoCursoAlumno", this.cursos.first().getTurno().toString());
 	    //TODO falta division
-	    parametros.put("divisionCursoAlumno", "");
+	    //parametros.put("divisionCursoAlumno", this.cursos.first().getDivision());
 	    
 	    return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
 	}

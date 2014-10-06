@@ -44,7 +44,8 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 	 */
 	public Curso ingresarCurso (
 			@Named("Establecimiento")final Establecimiento establecimiento,
-			@Named("AÑO y division")final String anoYdivision,
+			@Named("AÑO")final String anio,
+			@Named("division")final String division,
 			@Named("ciclo lectivo")final int cicloLectivo,
 			@Named("Turno")final Turno turno
 			
@@ -52,7 +53,8 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 	{
 		
 		final Curso curso = container.newTransientInstance(Curso.class);
-		curso.setAnoYdivision(anoYdivision); 
+		curso.setAnio(anio);
+		curso.setDivision(division);
 		curso.setCicloLectivo(cicloLectivo);
 		curso.setTurno(turno);
 		curso.setEstablecimiento(establecimiento);

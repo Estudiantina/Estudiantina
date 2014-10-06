@@ -47,7 +47,7 @@ import repo.curso.RepositorioCurso;
 @javax.jdo.annotations.DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY)
 @javax.jdo.annotations.Queries({
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.curso.Curso"),
-	@javax.jdo.annotations.Query(name = "traerCursoPorlikeAnio", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE anoYdivision.indexOf(:anoYdivision) >=0 range 0, 4"),
+	@javax.jdo.annotations.Query(name = "traerCursoPorlikeAnio", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE anio.indexOf(:anio) &&  division.indexOf(:division) >=0 range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerPorCurso", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE dom.curso.Curso = :curso")
 	
 	})
@@ -56,7 +56,8 @@ import repo.curso.RepositorioCurso;
 @Audited
 public class Curso implements Comparable<Curso> {
 	
-	private String anoYdivision;
+	private String anio;
+	private String division;
 	//TODO separar año y division
 	private int cicloLectivo;
 	private Turno turno;
@@ -67,6 +68,22 @@ public class Curso implements Comparable<Curso> {
 	@Render(Type.EAGERLY)
 	public SortedSet<Alumno> getListaAlumnos() {
 		return listaAlumnos;
+	}
+	@javax.jdo.annotations.Column(allowsNull="false")	
+	public String getAnio() {
+		return anio;
+	}
+
+	public void setAnio(String anio) {
+		this.anio = anio;
+	}
+	@javax.jdo.annotations.Column(allowsNull="false")	
+	public String getDivision() {
+		return division;
+	}
+
+	public void setDivision(String division) {
+		this.division = division;
 	}
 
 	public void setListaAlumnos(SortedSet<Alumno> listaAlumnos) {
@@ -108,17 +125,7 @@ public class Curso implements Comparable<Curso> {
         return "curso";
     }
 	
-	@Unique
-	@javax.jdo.annotations.Column(allowsNull="false")	
-	public String getAnoYdivision() {
-		return anoYdivision;
-	}
 
-	
-
-	public void setAnoYdivision(String anoYdivision) {
-		this.anoYdivision = anoYdivision;
-	}
 
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public int getCicloLectivo() {
@@ -133,7 +140,7 @@ public class Curso implements Comparable<Curso> {
 
 	public String title()
 	{
-		return anoYdivision+" "+cicloLectivo;
+		return this.anio+" "+this.division+" "+cicloLectivo;
 	}
 	
 	
@@ -163,50 +170,14 @@ public class Curso implements Comparable<Curso> {
 		this.container = container;
 	}
 	
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((anoYdivision == null) ? 0 : anoYdivision.hashCode());
-		result = prime * result + cicloLectivo;
-		result = prime * result
-				+ ((establecimiento == null) ? 0 : establecimiento.hashCode());
-		result = prime * result + ((turno == null) ? 0 : turno.hashCode());
-		return result;
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Curso other = (Curso) obj;
-		if (anoYdivision == null) {
-			if (other.anoYdivision != null)
-				return false;
-		} else if (!anoYdivision.equals(other.anoYdivision))
-			return false;
-		if (cicloLectivo != other.cicloLectivo)
-			return false;
-		if (establecimiento == null) {
-			if (other.establecimiento != null)
-				return false;
-		} else if (!establecimiento.equals(other.establecimiento))
-			return false;
-		if (turno != other.turno)
-			return false;
-		return true;
-	}
+
+	
 
 	@Override
 	public int compareTo(Curso curso) {
 		// TODO Apéndice de método generado automáticamente
 		
-		return ObjectContracts.compare(this, curso, "anoYdivision");
+		return ObjectContracts.compare(this, curso, "anio");
 	}
 }
