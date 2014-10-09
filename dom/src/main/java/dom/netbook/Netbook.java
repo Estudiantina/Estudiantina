@@ -35,9 +35,10 @@ import javax.jdo.annotations.Column;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
 
-
+import dom.directivo.Directivo;
 import dom.establecimiento.Establecimiento;
 import dom.persona.Persona;
+import dom.tutor.Tutor;
 import repo.netbook.RepositorioNetbook;
 
 import org.apache.isis.applib.annotation.CssClass;
@@ -70,7 +71,6 @@ public class Netbook implements Comparable<Netbook> {
 	private String situacionDeNetbook;
 	private String numeroDeActaDeRobo;
 
-	
 	private Persona persona ;
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Persona getPersona() {
@@ -80,36 +80,7 @@ public class Netbook implements Comparable<Netbook> {
 		this.persona = persona;
 	}
 	
-	
-	/*
-	 * directivo
-	 *
-	 private Directivo directivo;
-	  
-	   @Column(allowsNull="true")
-	   public Directivo getDirectivo() {
-		return directivo;
-	   }
 
-	   public void setDirectivo(Directivo directivo) {
-		   this.directivo = directivo;
-	   }
-	   
-	   /*
-		 * Alumno
-		 *
-		 private Alumno alumno;
-		   @Column(allowsNull="true")
-		   public Directivo getAlumno() {
-			return directivo;
-		   }
-
-		   public void setAlumno(Alumno alumno) {
-			   this.alumno = alumno;
-		   } */
-
-	
-	
 	
 	public void modifyPersona(Persona p) {
         if(p==null || persona==p) return;
@@ -262,7 +233,7 @@ public class Netbook implements Comparable<Netbook> {
  		 		
  		if (this.getPersona() != null){
  		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
- 		 		 		
+ 				
  		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
  		
  		parametros.put("distrito", establecimiento.getDistritoEscolar());
@@ -273,15 +244,21 @@ public class Netbook implements Comparable<Netbook> {
  		parametros.put("establecimiento", establecimiento.getNombre());
  		parametros.put("localidad", establecimiento.getLocalidad());
  		parametros.put("domicilio", establecimiento.getDireccion());
- 		parametros.put("DierctorCedente", "");
- 		parametros.put("nroDniDirector", "");
  		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
  		
       	parametros.put("alumno", persona.getNombre()+", "+persona.getApellido());
         parametros.put("cuil_alumno", persona.getCuil());
- 		parametros.put("nombreDirector",  "");
  		parametros.put("netbookModelo", this.getModelo());
  		parametros.put("numeroSerieNetbook", this.getNumeroDeSerie());
+ 		
+ 		    if (establecimiento.getDirectivo() != null){
+ 		       parametros.put("DierctorCedente", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
+ 		       parametros.put("nroDniDirector", establecimiento.getDirectivo().getCuil());
+ 		       }
+ 		       else {
+ 			        parametros.put("DierctorCedente", "");
+ 	 		        parametros.put("nroDniDirector", "");
+ 		             }
  		
  		} else {
  			
@@ -324,19 +301,35 @@ public class Netbook implements Comparable<Netbook> {
 		if (this.getPersona() != null){
 		
 		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", this.getPersona().getCuil() ));
+		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
+
 		
 		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
 		parametros.put("cursoAlumno", "");
 		parametros.put("divisionAlumno", "");
-				
-	//	parametros.put("nombreDirector", this.getModelo() );
+		
 		parametros.put("marcaNetbook", this.getModelo());
 		parametros.put("serieNetbook", this.getNumeroDeSerie());
+		
+		parametros.put("nombreTutor","");
+		
+			
+		      if (establecimiento.getDirectivo() != null){
+		
+	          parametros.put("nombreDirector", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre() );
+		 
+		      }else{
+		    	  parametros.put("nombreDirector", "" );
+		      }
+		 
+			 
 		}else{
 			
 			parametros.put("nombreAlumno", "");
 			parametros.put("cursoAlumno", "");
 			parametros.put("divisionAlumno", "");
+			parametros.put("nombreTutor","");
+			parametros.put("nombreDirector", "" );
 			
 			parametros.put("marcaNetbook", this.getModelo());
 			parametros.put("serieNetbook", this.getNumeroDeSerie());
@@ -346,10 +339,6 @@ public class Netbook implements Comparable<Netbook> {
 		
 	}
    
-
-
-
-
 
 
 	@javax.inject.Inject

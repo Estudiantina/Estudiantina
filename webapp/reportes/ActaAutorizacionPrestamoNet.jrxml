@@ -8,6 +8,8 @@
 	<parameter name="nombreAlumno" class="java.lang.String"/>
 	<parameter name="cursoAlumno" class="java.lang.String"/>
 	<parameter name="divisionAlumno" class="java.lang.String"/>
+	<parameter name="nombreDirector" class="java.lang.String"/>
+	<parameter name="nombreTutor" class="java.lang.String"/>
 	<title>
 		<band height="86" splitType="Stretch">
 			<staticText>
@@ -27,6 +29,10 @@
 				<reportElement x="11" y="3" width="299" height="50" uuid="b18fdf2a-d5c8-46a1-854e-3cdea2ef3274"/>
 				<imageExpression><![CDATA["/home/santi/workspace/Estudiantina/webapp/reportes/EscudoNqn.jpg"]]></imageExpression>
 			</image>
+			<textField>
+				<reportElement x="324" y="102" width="120" height="20" uuid="3367ef40-695a-43e5-9d1c-1326f42c037a"/>
+				<textFieldExpression><![CDATA[$P{nombreTutor}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<detail>
@@ -70,6 +76,10 @@ perfecto estado en su devolución en cuanto a Hardware y Software, así como tam
 			<textField>
 				<reportElement x="361" y="28" width="103" height="20" uuid="cac3a854-e9f6-4301-8d26-0205cdca939e"/>
 				<textFieldExpression><![CDATA[$P{divisionAlumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="11" width="146" height="20" uuid="2866d7e4-1184-4627-a3ec-6c82b261c734"/>
+				<textFieldExpression><![CDATA[$P{nombreDirector}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

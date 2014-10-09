@@ -78,7 +78,7 @@
 	<detail>
 		<band height="384" splitType="Stretch">
 			<textField>
-				<reportElement x="31" y="12" width="100" height="20" uuid="35aad0c2-23eb-499e-9aad-808367bc44ae"/>
+				<reportElement x="36" y="12" width="122" height="20" uuid="35aad0c2-23eb-499e-9aad-808367bc44ae"/>
 				<textFieldExpression><![CDATA[$P{DierctorCedente}]]></textFieldExpression>
 			</textField>
 			<staticText>
