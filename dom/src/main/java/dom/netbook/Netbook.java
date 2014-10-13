@@ -307,10 +307,8 @@ public class Netbook implements Comparable<Netbook> {
 		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
 		parametros.put("cursoAlumno", "");
 		parametros.put("divisionAlumno", "");
-		
 		parametros.put("marcaNetbook", this.getModelo());
 		parametros.put("serieNetbook", this.getNumeroDeSerie());
-		
 		parametros.put("nombreTutor","");
 		
 			
@@ -330,7 +328,6 @@ public class Netbook implements Comparable<Netbook> {
 			parametros.put("divisionAlumno", "");
 			parametros.put("nombreTutor","");
 			parametros.put("nombreDirector", "" );
-			
 			parametros.put("marcaNetbook", this.getModelo());
 			parametros.put("serieNetbook", this.getNumeroDeSerie());
 		}
@@ -338,6 +335,53 @@ public class Netbook implements Comparable<Netbook> {
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaAutorizacionPrestamoNet.jrxml", parametros, "Solicitud");
 		
 	}
+   
+   
+   /**
+    * TODO ImprimirReporte
+    * TODO Generar acta de recepcion de equipo
+    * el metodo esta incompleto solo para prueba
+    * @return Reporte a imprimir
+    * @throws JRException 
+    * @throws FileNotFoundException 
+    */
+   
+  public Blob imprimirActaRecepcionDeNetbook() throws JRException, FileNotFoundException
+	{
+		
+		HashMap<String,Object> parametros = new HashMap<String, Object>();
+		
+		if (this.getPersona() != null){
+		
+		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", this.getPersona().getCuil() ));
+		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
+		
+		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
+		parametros.put("modeloNetbook", this.getModelo());
+		parametros.put("marcaNetbook", "");
+		parametros.put("serieNetbook", this.getNumeroDeSerie());
+		parametros.put("establecimientoEducativo", establecimiento.getNombre());
+		parametros.put("ciudad", establecimiento.getLocalidad());
+		parametros.put("departamento", establecimiento.getLocalidad().getDepartamento());
+	
+			 
+		}else{
+			
+			parametros.put("nombreAlumno", "");
+			parametros.put("modeloNetbook", this.getModelo());
+			parametros.put("marcaNetbook", "");
+			parametros.put("serieNetbook", this.getNumeroDeSerie());
+			parametros.put("establecimientoEducativo", "");
+			parametros.put("ciudad", "");
+			parametros.put("departamento","");
+		
+		}
+		
+		return servicio.reporte.GeneradorReporte.generarReporte("reportes/reciboNetbook.jrxml", parametros, "Solicitud");
+		
+	}
+   
+   
    
 
 

@@ -29,10 +29,6 @@
 				<reportElement x="11" y="3" width="299" height="50" uuid="b18fdf2a-d5c8-46a1-854e-3cdea2ef3274"/>
 				<imageExpression><![CDATA["/home/santi/workspace/Estudiantina/webapp/reportes/EscudoNqn.jpg"]]></imageExpression>
 			</image>
-			<textField>
-				<reportElement x="324" y="102" width="120" height="20" uuid="3367ef40-695a-43e5-9d1c-1326f42c037a"/>
-				<textFieldExpression><![CDATA[$P{nombreTutor}]]></textFieldExpression>
-			</textField>
 		</band>
 	</title>
 	<detail>
@@ -80,6 +76,10 @@ perfecto estado en su devolución en cuanto a Hardware y Software, así como tam
 			<textField>
 				<reportElement x="128" y="11" width="146" height="20" uuid="2866d7e4-1184-4627-a3ec-6c82b261c734"/>
 				<textFieldExpression><![CDATA[$P{nombreDirector}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="11" width="120" height="16" uuid="3367ef40-695a-43e5-9d1c-1326f42c037a"/>
+				<textFieldExpression><![CDATA[$P{nombreTutor}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

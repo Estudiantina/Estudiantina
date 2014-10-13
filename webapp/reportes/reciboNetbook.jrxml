@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reciboNetbook" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="452c2e46-1b79-4b49-b4ec-b6253401defc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="240"/>
+	<parameter name="ciudad" class="java.lang.String"/>
+	<parameter name="departamento" class="java.lang.String"/>
+	<parameter name="establecimientoEducativo" class="java.lang.String"/>
+	<parameter name="marcaNetbook" class="java.lang.String"/>
+	<parameter name="modeloNetbook" class="java.lang.String"/>
+	<parameter name="serieNetbook" class="java.lang.String"/>
+	<parameter name="nombreAlumno" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="197" height="45" uuid="382d4ab9-5702-4df7-b38d-15f2cbce8a62"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{establecimientoEducativo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="231" y="0" width="100" height="20" uuid="f2538a5d-9e66-48f5-83c8-b20934c3f924"/>
+				<textElement textAlignment="Justified">
+					<font size="16" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RECIBO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="339" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="544" height="160" uuid="f6b335f0-e19c-422a-b3c5-0bccd75f5ef4"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[EN LA CIUDAD DE ......................., DEPARTAMENTO ..........................., RETIRO/ENTREGO DEL ESTABLECIMIENTO EDUCATIVO ........................., LA NETBOK MARCA ............................, MODELO………………………………, SERIE NRO ……...…………………………………, PERTENECIENTE AL ALUMNO/A ………....………………………………………, EL CUAL SE ENCUENTRA EN LA SIGUIENTE CONDICIONES: ……………………………………………......................................................................................................................................................................................................................................................................................................................................................……………………
+
+
+                            ENTREGUE CONFORME                             RECIBI CONFORME ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="294" width="100" height="20" uuid="6dba1269-5fb6-49ad-ab5e-39da36b27f28"/>
+				<textElement textAlignment="Justified">
+					<font size="16" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RECIBO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="253" y="14" width="160" height="20" uuid="ff95e3a6-3d9e-426b-af2a-d33465855c25"/>
+				<textFieldExpression><![CDATA[$P{establecimientoEducativo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="283" width="211" height="45" uuid="b01913fb-e69c-4b58-83cb-9c8a364079de"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{establecimientoEducativo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="0" width="100" height="20" uuid="512a9ffd-d0f4-4a4b-a71f-83108dfa7968"/>
+				<textFieldExpression><![CDATA[$P{ciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="0" width="100" height="20" uuid="92522891-ad5e-4e6d-aee8-c2b8ac09ddec"/>
+				<textFieldExpression><![CDATA[$P{departamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="12" width="100" height="20" uuid="77c509a9-22d4-4aeb-b7ff-d85fd0925dbc"/>
+				<textFieldExpression><![CDATA[$P{marcaNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="26" width="118" height="20" uuid="507651d7-b6cc-49b0-81d9-1bd0a136fcd6"/>
+				<textFieldExpression><![CDATA[$P{modeloNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="26" width="100" height="20" uuid="7ffb15a0-996c-4a57-94d8-e2a36603eeee"/>
+				<textFieldExpression><![CDATA[$P{serieNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="38" width="132" height="20" uuid="4c38594e-eacf-4f6f-a603-40bec7e2e4f0"/>
+				<textFieldExpression><![CDATA[$P{nombreAlumno}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="205">
+			<staticText>
+				<reportElement x="10" y="10" width="534" height="168" uuid="baef51cc-45d0-46e5-9ed1-38ee988cd5cc"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[EN LA CIUDAD DE ......................., DEPARTAMENTO ..........................., RETIRO/ENTREGO DEL ESTABLECIMIENTO EDUCATIVO ........................., LA NETBOK MARCA ............................, MODELO………………………………, SERIE NRO ……...…………………………………, PERTENECIENTE AL ALUMNO/A ………....………………………………………, EL CUAL SE ENCUENTRA EN LA SIGUIENTE CONDICIONES: ………………………………………………….........................................................................................................................................................................................................................................................................…………..............................................………………
+
+
+                        ENTREGUE CONFORME                             RECIBI CONFORME ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="258" y="23" width="160" height="20" uuid="0919cb8a-f1d6-4498-9804-b7a13027ce8c"/>
+				<textFieldExpression><![CDATA[$P{establecimientoEducativo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="10" width="100" height="20" uuid="617c4489-3ceb-4f94-862f-88c64a3f0a63"/>
+				<textFieldExpression><![CDATA[$P{ciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="10" width="100" height="20" uuid="17b7f7f1-4d55-49c2-ae68-6e7b8a827526"/>
+				<textFieldExpression><![CDATA[$P{departamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="22" width="100" height="20" uuid="8a1589af-0992-4960-8402-fc580bbbcf44"/>
+				<textFieldExpression><![CDATA[$P{marcaNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="37" width="118" height="20" uuid="39e309eb-2de4-4244-9f18-80db34d02391"/>
+				<textFieldExpression><![CDATA[$P{modeloNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="34" width="100" height="20" uuid="3ae2e101-a5af-4507-83ed-c4d124cfc44e"/>
+				<textFieldExpression><![CDATA[$P{serieNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="238" y="47" width="132" height="20" uuid="286a4508-1585-4186-9ac4-83e1ef0d753d"/>
+				<textFieldExpression><![CDATA[$P{nombreAlumno}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
