@@ -206,8 +206,6 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    
 	    
 	    /*
-		TODO agregar provinciaTutor
-		TODO agregar alturaDomicilioTutor
 		TODO agregar domicilioPisoTutor
 		TODO agregar domicilioDepartamentoTutor
 		TODO agregar domicilioProvinciaTutor
@@ -215,7 +213,19 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    
 	    parametros.put("domicilioCiudadTutor", this.getTutor().getLocalidad().toString());
 	    parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
-	    //TODO parametros.put("marcaNetbook",super.getNetbooks().first().getMarca());
+	    // TODO parametros.put("marcaNetbook",super.getNetbooks().first().getMarca());
+	    parametros.put("alturaDomicilioTutor", this.getTutor().getAlturaDomiculio());
+	    //TODO parametros.put("domicilioProvinciaTutor","")
+	    
+	    if (this.getTutor().getPiso()==null)
+	    {
+	    parametros.put("domicilioPisoTutor", "");
+	    }
+	    else
+	    {
+	    parametros.put("domicilioPisoTutor", this.getTutor().getPiso());
+	    }
+	    parametros.put("domicilioDepartamentoTutor",this.getTutor().getLocalidad().getDepartamento().toString());
 	    parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
 	    parametros.put("Instituto",this.getEstablecimiento().getNombre());
 	    parametros.put("ciudadDeEstablecimiento", this.getEstablecimiento().getLocalidad().toString());

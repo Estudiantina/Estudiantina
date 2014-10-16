@@ -27,9 +27,11 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Render;
+import org.apache.isis.applib.annotation.When;
 
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render.Type;
@@ -69,14 +71,18 @@ public class Curso implements Comparable<Curso> {
 	public SortedSet<Alumno> getListaAlumnos() {
 		return listaAlumnos;
 	}
-	@javax.jdo.annotations.Column(allowsNull="false")	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	
 	public String getAnio() {
 		return anio;
-	}
-
+	}	
 	public void setAnio(String anio) {
 		this.anio = anio;
 	}
+	
+
+	
+	
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public String getDivision() {
 		return division;
