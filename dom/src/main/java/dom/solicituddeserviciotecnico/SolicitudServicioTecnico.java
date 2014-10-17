@@ -393,7 +393,7 @@ public class SolicitudServicioTecnico {
 		
 	}
 	@Named("Avisar Netbook Reparada")
-	public SolicitudServicioTecnico AvisarPorMailQueEstaLista()
+	public SolicitudServicioTecnico avisarPorMailQueEstaLista()
 	{
 		String mensaje ="Hola "+this.getPersona().getNombre()+" "+this.getPersona().getApellido()+"\n";
 		mensaje += "\n Nos Comunicamos para informale que";
@@ -407,10 +407,24 @@ public class SolicitudServicioTecnico {
 		
 		return this;
 	}
+	@Hidden
+	public boolean hideAvisarPorMailQueEstaLista()
+	{
+		return this.estadoSolicitud.ocultarAvisarPorMailQueEstaLista();
+	}
 	
+	@Hidden
+	public boolean hideSolucion()
+	{
+		return this.estadoSolicitud.ocultarSolucion();
+	}
 	
-	
-
+	@Hidden
+	public boolean hideFechaDeSolucion()
+	{
+		return this.estadoSolicitud.ocultarFechaDeSolucion();
+		
+	}
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
 	@PublishedAction // para que muestre la accion en la lista de objetos
 	@Named("eliminar Solicitud")
@@ -420,6 +434,7 @@ public class SolicitudServicioTecnico {
 
         return this.traerTodas(); 
     }
+	
     @Programmatic
     public List<SolicitudServicioTecnico> traerTodas() {
         return container.allMatches(

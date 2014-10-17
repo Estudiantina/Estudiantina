@@ -26,6 +26,7 @@ import dom.netbook.Netbook;
 import dom.persona.Persona;
 import dom.solicituddeserviciotecnico.Prioridad;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
+import dom.solicituddeserviciotecnico.estados.Solicitado;
 
 
 @Named("Servicio Tecnico")
@@ -37,10 +38,9 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
     public String iconName() {
         return "asistenciatecnica";
     }
-	
+    
     public SolicitudServicioTecnico solicitarServicioTecnico(
 			@Named("Persona")final Persona persona ,
-			
 			@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")String motivoDeSolicitud,
 			@Named("fecha de solicitud")Date fechaDeSolicitud,
@@ -63,7 +63,6 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	    servicioTecnico.setPrioridad(prioridad);
 	    servicioTecnico.setSolucion("");
 	    servicioTecnico.setNumeroTiquetRegistro(numeroTiquetRegistro);
-	    
 	   
 	    container.persistIfNotAlready(servicioTecnico);
 		return servicioTecnico;	
