@@ -70,6 +70,7 @@ import dom.solicituddeserviciotecnico.estados.IEstadoSolicitudDeServicioTecnico;
 import dom.solicituddeserviciotecnico.estados.RecibidoDelServicioTecnico;
 import dom.solicituddeserviciotecnico.estados.Reparando;
 import dom.solicituddeserviciotecnico.estados.Solicitado;
+import dom.tecnico.Tecnico;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL",
           value = "SELECT FROM repo.netbook.SolicitudServicioTecnico"),
@@ -107,7 +108,24 @@ public class SolicitudServicioTecnico {
 	private RecibidoDelServicioTecnico recibido;
 	private Reparando reparando;
 	private Solicitado estadoSolicitado;
+    private Tecnico tecnicoAsignado;
     
+
+
+    @Hidden
+    @Column(allowsNull="false")
+	public Tecnico getTecnicoAsignado() {
+		return tecnicoAsignado;
+	}
+
+
+
+	public void setTecnicoAsignado(Tecnico tecnicoAsignado) {
+		this.tecnicoAsignado = tecnicoAsignado;
+	}
+
+
+
 	@Hidden
 	@Column(allowsNull="true")
 	public EnviadoAlServicioTecnico getEnviado() {
