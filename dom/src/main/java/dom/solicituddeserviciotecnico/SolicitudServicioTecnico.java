@@ -108,7 +108,7 @@ public class SolicitudServicioTecnico {
 	private Reparando reparando;
 	private Solicitado estadoSolicitado;
     
-	
+	@Hidden
 	@Column(allowsNull="true")
 	public EnviadoAlServicioTecnico getEnviado() {
 		return enviado;
@@ -120,7 +120,7 @@ public class SolicitudServicioTecnico {
 		this.enviado = enviado;
 	}
 
-
+    @Hidden
 	@Column(allowsNull="true")
 	public RecibidoDelServicioTecnico getRecibido() {
 		return recibido;
@@ -132,7 +132,7 @@ public class SolicitudServicioTecnico {
 		this.recibido = recibido;
 	}
 
-
+    @Hidden
 	@Column(allowsNull="true")
 	public Reparando getReparando() {
 		return reparando;
