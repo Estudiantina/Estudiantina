@@ -9,6 +9,8 @@ import javax.jdo.annotations.IdGeneratorStrategy;
 
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
+
+import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
 @DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idCerrado" )
 @Uniques({ @Unique(name = "cerradoUnique" , members = { "idCerrado" } ) })
@@ -24,13 +26,28 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 	{
 		return "CERRADO";
 	}
-    @Hidden
+	private SolicitudServicioTecnico solicitud;
+	/**
+	 * constructor
+	 */
+    public Cerrado(SolicitudServicioTecnico solicitud) {
+		this.solicitud = solicitud;
+	}
+	
+	
+    public SolicitudServicioTecnico getSolicitud() {
+		return solicitud;
+	}
+
+
+	@Hidden
 	@Override
 	public boolean ocultarImprimir() {
 		// TODO Apéndice de método generado automáticamente
 		return true;
 	}
-    @Hidden
+
+	@Hidden
 	@Override
 	public boolean ocultarSolucion() {
 		// TODO Apéndice de método generado automáticamente
@@ -40,7 +57,7 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 	@Override
 	public boolean ocultarAvisarPorMailQueEstaLista() {
 		// TODO Apéndice de método generado automáticamente
-		return true;
+		return false;
 	}
     @Hidden
 	@Override

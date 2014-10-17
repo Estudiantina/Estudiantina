@@ -23,7 +23,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.jdo.annotations.Column;
+import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
@@ -60,6 +64,9 @@ import dom.localidad.Localidad;
 import dom.localidad.Provincia;
 import dom.netbook.Netbook;
 import dom.persona.Persona;
+import dom.solicituddeserviciotecnico.estados.Cerrado;
+import dom.solicituddeserviciotecnico.estados.IEstadoSolicitudDeServicioTecnico;
+import dom.solicituddeserviciotecnico.estados.Solicitado;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL",
           value = "SELECT FROM repo.netbook.SolicitudServicioTecnico"),
@@ -92,8 +99,57 @@ public class SolicitudServicioTecnico {
 	private String numeroTiquetRegistro;
 	private String comentario;
 	private EstadoDeSolicitud estadoDeSolicitud;
-		
-	@javax.jdo.annotations.Column(allowsNull="false")
+	private IEstadoSolicitudDeServicioTecnico estadoSolicitud;
+	private Cerrado estadoCerrado;
+	private Solicitado estadoSolicitado;
+
+	
+	
+	public SolicitudServicioTecnico() {
+		this.estadoSolicitado = new Solicitado(this);
+		this.estadoCerrado = new Cerrado(this);
+		this.estadoSolicitud = this.estadoSolicitado;
+	}
+
+	
+	
+	@Hidden
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Cerrado getEstadoCerrado() {
+		return estadoCerrado;
+	}
+
+	public void setEstadoCerrado(Cerrado estadoCerrado) {
+		this.estadoCerrado = estadoCerrado;
+	}
+	@Hidden
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Solicitado getEstadoSolicitado() {
+		return estadoSolicitado;
+	}
+
+	public void setEstadoSolicitado(Solicitado estadoSolicitado) {
+		this.estadoSolicitado = estadoSolicitado;
+	}
+
+	@Persistent(extensions= {
+			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
+			value = "per-implementation"),
+			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = "dom.solicituddeserviciotecnico.estados.Cerrado")} , columns = {
+			@Column(name= "idCerrado"),
+			@Column(name= "idSolicitado")
+	})
+	@Optional
+	@Hidden(where = Where.PARENTED_TABLES)
+	public IEstadoSolicitudDeServicioTecnico getEstadoSolicitud() {
+		return estadoSolicitud;
+	}
+
+	public void setEstadoSolicitud(IEstadoSolicitudDeServicioTecnico estadoSolicitud) {
+		this.estadoSolicitud = estadoSolicitud;
+	}
+
+	@Column(allowsNull="false")
 	@Hidden(where = Where.ALL_TABLES)
 	public Persona getPersona() {
 		return persona;
@@ -107,7 +163,7 @@ public class SolicitudServicioTecnico {
         return "asistenciatecnica";
     }
 	
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@Column(allowsNull="false")
 	public Netbook getNetbook() {
 		return netbook;
 	}
