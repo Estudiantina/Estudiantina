@@ -24,7 +24,6 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.netbook.Netbook;
 import dom.persona.Persona;
-import dom.solicituddeserviciotecnico.EstadoDeSolicitud;
 import dom.solicituddeserviciotecnico.Prioridad;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 
@@ -49,8 +48,8 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			@Named("prioridad")Prioridad prioridad,
 			@Named("Codigo de Solicitud")String codigoSolicitud,
 			@Named("Numero de Tiquet de Registro")String numeroTiquetRegistro,
-			@Named("Comentario")@Optional @MultiLine String comentario,
-            @Named("Estado de solicitud") final EstadoDeSolicitud estadoDeSolicitud)
+			@Named("Comentario")@Optional @MultiLine String comentario
+            )
 	{
 		final SolicitudServicioTecnico servicioTecnico = container.newTransientInstance(SolicitudServicioTecnico.class);
 	    
@@ -64,7 +63,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	    servicioTecnico.setPrioridad(prioridad);
 	    servicioTecnico.setSolucion("");
 	    servicioTecnico.setNumeroTiquetRegistro(numeroTiquetRegistro);
-	    servicioTecnico.setEstadoDeSolicitud(estadoDeSolicitud);
+	    
 	   
 	    container.persistIfNotAlready(servicioTecnico);
 		return servicioTecnico;	
