@@ -65,7 +65,10 @@ import dom.localidad.Provincia;
 import dom.netbook.Netbook;
 import dom.persona.Persona;
 import dom.solicituddeserviciotecnico.estados.Cerrado;
+import dom.solicituddeserviciotecnico.estados.EnviadoAlServicioTecnico;
 import dom.solicituddeserviciotecnico.estados.IEstadoSolicitudDeServicioTecnico;
+import dom.solicituddeserviciotecnico.estados.RecibidoDelServicioTecnico;
+import dom.solicituddeserviciotecnico.estados.Reparando;
 import dom.solicituddeserviciotecnico.estados.Solicitado;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL",
@@ -101,13 +104,18 @@ public class SolicitudServicioTecnico {
 	private EstadoDeSolicitud estadoDeSolicitud;
 	private IEstadoSolicitudDeServicioTecnico estadoSolicitud;
 	private Cerrado estadoCerrado;
+	private EnviadoAlServicioTecnico enviado;
+	private RecibidoDelServicioTecnico recibido;
+	private Reparando reparando;
 	private Solicitado estadoSolicitado;
-
+    
 	
 	
 	public SolicitudServicioTecnico() {
 		this.estadoSolicitado = new Solicitado(this);
 		this.estadoCerrado = new Cerrado(this);
+		this.enviado = new EnviadoAlServicioTecnico(this);
+		this.recibido = new RecibidoDelServicioTecnico(this);
 		this.estadoSolicitud = this.estadoSolicitado;
 	}
 
@@ -135,8 +143,16 @@ public class SolicitudServicioTecnico {
 	@Persistent(extensions= {
 			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
 			value = "per-implementation"),
-			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = "dom.solicituddeserviciotecnico.estados.Cerrado")} , columns = {
+			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = "dom.solicituddeserviciotecnico.estados.Cerrado"
+			+",dom.solicituddeserviciotecnico.estados.EnviadoAlServicioTecnico"
+			+",dom.solicituddeserviciotecnico.estados.RecibidoDelServicioTecnico"
+			+",dom.solicituddeserviciotecnico.estados.Reparando"
+			+",dom.solicituddeserviciotecnico.estados.Solicitado"
+					)} , columns = {
 			@Column(name= "idCerrado"),
+			@Column(name= "idEnvidado"),
+			@Column(name= "idRecibido"),
+			@Column(name= "idReparando"),
 			@Column(name= "idSolicitado")
 	})
 	@Optional
