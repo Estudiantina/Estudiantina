@@ -110,7 +110,43 @@ public class SolicitudServicioTecnico {
 	private Solicitado estadoSolicitado;
     
 	
-	
+
+	public EnviadoAlServicioTecnico getEnviado() {
+		return enviado;
+	}
+
+
+
+	public void setEnviado(EnviadoAlServicioTecnico enviado) {
+		this.enviado = enviado;
+	}
+
+
+    
+	public RecibidoDelServicioTecnico getRecibido() {
+		return recibido;
+	}
+
+
+
+	public void setRecibido(RecibidoDelServicioTecnico recibido) {
+		this.recibido = recibido;
+	}
+
+
+
+	public Reparando getReparando() {
+		return reparando;
+	}
+
+
+
+	public void setReparando(Reparando reparando) {
+		this.reparando = reparando;
+	}
+
+
+
 	public SolicitudServicioTecnico() {
 		this.estadoSolicitado = new Solicitado(this);
 		this.estadoCerrado = new Cerrado(this);
