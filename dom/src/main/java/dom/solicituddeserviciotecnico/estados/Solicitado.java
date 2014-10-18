@@ -77,6 +77,12 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarFechaDeSolucion() {
 		return true;
 	}
+	@Hidden
+	@Override
+	public boolean ocultarTecnicoAsignado() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
 
 	
 	

@@ -5,5 +5,6 @@ public interface IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarSolucion();
 	public boolean ocultarAvisarPorMailQueEstaLista();
 	public boolean ocultarFechaDeSolucion();
+	public boolean ocultarTecnicoAsignado();
 	
 }

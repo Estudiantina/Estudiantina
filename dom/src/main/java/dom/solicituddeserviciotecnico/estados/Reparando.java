@@ -66,6 +66,12 @@ public class Reparando implements IEstadoSolicitudDeServicioTecnico{
 		// TODO Apéndice de método generado automáticamente
 		return false;
 	}
+    @Hidden
+	@Override
+	public boolean ocultarTecnicoAsignado() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
 
 	
 }
