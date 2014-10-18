@@ -113,7 +113,7 @@ public class SolicitudServicioTecnico {
 
 
     @Hidden
-    @Column(allowsNull="false")
+    @Column(allowsNull="true")
 	public Tecnico getTecnicoAsignado() {
 		return tecnicoAsignado;
 	}
