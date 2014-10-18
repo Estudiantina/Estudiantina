@@ -11,6 +11,7 @@ import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
 
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
+import dom.tecnico.Tecnico;
 
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
 @DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idSolicitado" )
@@ -82,6 +83,38 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarTecnicoAsignado() {
 		// TODO Apéndice de método generado automáticamente
 		return false;
+	}
+	@Hidden
+	@Override
+	public void recibirDeServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		
+	}
+	@Hidden
+	@Override
+	public void enviarAServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		
+	}
+	@Hidden
+	@Override
+	public void avisarNetbookReparada() {
+		// TODO Apéndice de método generado automáticamente
+		
+	}
+	@Hidden
+	@Override
+	public void finalizarSolicitud() {
+		// TODO Apéndice de método generado automáticamente
+		
+	}
+	@Hidden
+	@Override
+	public void asignarTecnico(Tecnico tecnico) {
+		// TODO Apéndice de método generado automáticamente
+		this.solicitud.setTecnicoAsignado(tecnico);
+		this.solicitud.setEstadoSolicitud(this.solicitud.getReparando());
+		
 	}
 
 	

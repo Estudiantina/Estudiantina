@@ -10,6 +10,7 @@ import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
 
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
+import dom.tecnico.Tecnico;
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
 @DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idReparando" )
 @Uniques({ @Unique(name = "reparandoUnique" , members = { "idReparando" } ) })
@@ -71,6 +72,36 @@ public class Reparando implements IEstadoSolicitudDeServicioTecnico{
 	public boolean ocultarTecnicoAsignado() {
 		// TODO Apéndice de método generado automáticamente
 		return false;
+	}
+
+	@Override
+	public void recibirDeServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		
+	}
+
+	@Override
+	public void enviarAServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		
+	}
+
+	@Override
+	public void avisarNetbookReparada() {
+		// TODO Apéndice de método generado automáticamente
+		
+	}
+
+	@Override
+	public void finalizarSolicitud() {
+		// TODO Apéndice de método generado automáticamente
+		
+	}
+	@Hidden
+	@Override
+	public void asignarTecnico(Tecnico tecnico) {
+		// TODO Apéndice de método generado automáticamente
+		
 	}
 
 	

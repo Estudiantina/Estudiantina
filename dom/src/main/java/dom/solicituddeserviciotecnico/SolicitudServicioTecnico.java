@@ -124,6 +124,12 @@ public class SolicitudServicioTecnico {
 		this.tecnicoAsignado = tecnicoAsignado;
 	}
 
+	
+	public SolicitudServicioTecnico asignarTecnico(Tecnico tecnico)
+	{
+		this.estadoSolicitud.asignarTecnico(tecnico);
+		return this;
+	}
 
 
 	@Hidden
@@ -196,17 +202,17 @@ public class SolicitudServicioTecnico {
 	@Persistent(extensions= {
 			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
 			value = "per-implementation"),
-			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = "dom.solicituddeserviciotecnico.estados.Cerrado"
-			+",dom.solicituddeserviciotecnico.estados.EnviadoAlServicioTecnico"
+			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = "dom.solicituddeserviciotecnico.estados.EnviadoAlServicioTecnico"
 			+",dom.solicituddeserviciotecnico.estados.RecibidoDelServicioTecnico"
 			+",dom.solicituddeserviciotecnico.estados.Reparando"
 			+",dom.solicituddeserviciotecnico.estados.Solicitado"
+			+",dom.solicituddeserviciotecnico.estados.Cerrado"
 					)} , columns = {
-			@Column(name= "idCerrado"),
 			@Column(name= "idEnvidado"),
 			@Column(name= "idRecibido"),
 			@Column(name= "idReparando"),
-			@Column(name= "idSolicitado")
+			@Column(name= "idSolicitado"),
+			@Column(name= "idCerrado")
 	})
 	@Optional
 	@Hidden(where = Where.PARENTED_TABLES)
