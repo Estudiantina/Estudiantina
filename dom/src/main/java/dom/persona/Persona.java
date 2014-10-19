@@ -88,6 +88,7 @@ public class Persona implements Locatable{
 	private SortedSet<Netbook> netbooks =  new TreeSet<Netbook>();
 	private Establecimiento establecimiento;
 	private Localidad localidad;
+	private sexo sexo;
     
 	@Column(allowsNull="true")
 	public int getAlturaDomiculio() {
@@ -234,11 +235,6 @@ public class Persona implements Locatable{
 	}
 	
 
-	
-	
-	
-	
-	
 	@MaxLength(12)
 	@javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence="1")
@@ -305,6 +301,18 @@ public class Persona implements Locatable{
 	}
 
 	
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(sexo sexo) {
+		this.sexo = sexo;
+	}
+
+	
+	
+	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	@Hidden(where = Where.ALL_TABLES) // no muestra la fecha de nacimiento en las tablas
@@ -334,11 +342,7 @@ public class Persona implements Locatable{
     }
     
 
-
-    
-    
-    
-    
+	
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }

@@ -35,6 +35,7 @@ import dom.establecimiento.Establecimiento;
 import dom.localidad.Localidad;
 import dom.login.Login;
 import dom.persona.Persona;
+import dom.persona.sexo;
 import dom.tecnico.Tecnico;
 import dom.tutor.Tutor;
 
@@ -78,6 +79,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * @param fechaNacimiento
 	 * @param fechaIngreso
 	 * @param nacionalidad
+	 * @param sexo
 	 * 
 	 * @return Alumno
 	 */
@@ -96,7 +98,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
 			@Named("FECHA INGRESO")Date fechaIngreso,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NACIONALIDAD")Nacionalidad nacionalidad,
-			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno 			
+			@Named("SEXO") sexo sexo,
+			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno
+			
 			)
 	{
 	
@@ -115,7 +119,10 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	alumno.setNacionalidad(nacionalidad);    
     alumno.setEstadoDeAlumno(estadoDeAlumno);
     alumno.setPiso(piso);
+    alumno.setSexo(sexo);
     alumno.setAlturaDomiculio(alturaDomiculio);
+    
+    
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
@@ -135,6 +142,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * @param fechaNacimiento
 	 * @param fechaIngreso
 	 * @param nacionalidad
+	 * @param sexo
 	 * @return Alumno
 	 */
 	
@@ -153,7 +161,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				final Date fechaNacimiento,
 				final Date fechaIngreso,
 				final Nacionalidad nacionalidad,
+				final sexo sexo,
 				final EstadoDeAlumno estadoDeAlumno
+				
 
 			
 			) {
@@ -209,6 +219,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * @param email
 	 * @param domicilio
 	 * @param fechaNacimiento
+	 * @param sexo
 	 * @return
 	 */
 	public Tecnico ingresarTecnico (
@@ -223,7 +234,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("Altura") int alturaDomiculio,
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
-			@Named("FECHA NACIMIENTO")final Date fechaNacimiento
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,
+			@Named("SEXO") sexo sexo
 			)
 	{
 		final Tecnico tecnico = container.newTransientInstance(Tecnico.class);
@@ -237,6 +249,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tecnico.setNombre(nombre);
 		tecnico.setTelefonoFijo(telefinoFijo);
 		tecnico.setTelefonoCelular(telefonoCelular);
+		tecnico.setSexo(sexo);
 		
 		container.persistIfNotAlready(tecnico);
 	
@@ -257,7 +270,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("Altura") int alturaDomiculio,
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
-			@Named("FECHA NACIMIENTO")final Date fechaNacimiento
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,
+			@Named("SEXO") sexo sexo
 			)
 	{
 		final Directivo directivo = container.newTransientInstance(Directivo.class);
@@ -271,6 +285,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		directivo.setTelefonoFijo(telefinoFijo);
 		directivo.setTelefonoCelular(telefonoCelular);
 		directivo.setFechaNacimiento(fechaNacimiento);
+		directivo.setSexo(sexo);
+		
 		container.persistIfNotAlready(directivo);
 	
 	
@@ -292,8 +308,10 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("Altura") int alturaDomiculio,
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,	
 			@Named("Cargo") final String cargo,
-			@Named("FECHA NACIMIENTO")final Date fechaNacimiento	
+			@Named("SEXO") sexo sexo
+			
 			)
 	{
 		final Docente docente = container.newTransientInstance(Docente.class);
@@ -308,10 +326,10 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setNombre(nombre);
 		docente.setTelefonoFijo(telefinoFijo);
 		docente.setTelefonoCelular(telefonoCelular);
-        docente.setCargo(cargo);
         docente.setFechaNacimiento(fechaNacimiento);
-        
-        
+        docente.setCargo(cargo);
+        docente.setSexo(sexo);
+                
 		container.persistIfNotAlready(docente);
 	
 	
@@ -332,7 +350,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("DOMICILIO") String domicilio,
 			@Named("Altura") int alturaDomiculio,
 			@Optional @Named("Piso") String piso,
-			@Named("Cod Postal Ciudad")Localidad localidad
+			@Named("Cod Postal Ciudad")Localidad localidad,
+			@Named("SEXO") sexo sexo
 			)
 	{
 		final Tutor tutor = container.newTransientInstance(Tutor.class);
@@ -348,8 +367,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tutor.setNombre(nombre);
 		tutor.setTelefonoFijo(telefinoFijo);
 		tutor.setTelefonoCelular(telefonoCelular);
-        
-        
+		tutor.setSexo(sexo);        
 		container.persistIfNotAlready(tutor);
 	
 	
@@ -381,7 +399,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	}
 	
 	
-    
     /**
 	 * Listar los alumnos por estados.
 	 * @return List<Alumno>
@@ -392,8 +409,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Alumno.class, "traerPorEstado", "estadoDeAlumno", estado));
 	}
     
-    
-    
+        
 	@javax.inject.Inject 
     DomainObjectContainer container;
     
