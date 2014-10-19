@@ -1,6 +1,6 @@
 package dom.persona;
 
-public enum sexo {
+public enum Sexo {
 
 	MASCULINO, FEMENINO
 	
