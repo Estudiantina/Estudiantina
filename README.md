@@ -119,14 +119,14 @@ Agregar nueva Persona
 
 ```
 INSERT INTO "Persona"(
-            "Persona_ID", apellido, cuil, domicilio, email, "establecimiento_Establecimiento_ID_OID", 
-            "fechaNacimiento", "localidad_Localidad_ID_OID", location, nombre, 
-            "telefonoCelular", "telefonoFijo", "localizacion_Persona_ID_OID", 
-            "localizacion_INTEGER_IDX",discriminator)
-VALUES (1, 'pepe', '33333', 'peru 81', 'mario@herivan.com', 1, 
-            '11-06-1970', 1, null, 'pepe', 
-            '444444',1 , 1, 
-            1,'dom.Tecnico.Tecnico');
+            "Persona_ID", "alturaDomiculio", apellido, cuil, domicilio, email, 
+            "establecimiento_Establecimiento_ID_OID", "fechaNacimiento", 
+            "localidad_Localidad_ID_OID", location, nombre, piso, sexo, "telefonoCelular", 
+            "telefonoFijo", discriminator)
+    VALUES (1, '1', 'pepe', '333333', 'peru 81', 'mario@herivan.com', 
+            1, '11-06-1970', 
+            1, null, 'pepe', 1, 'MASCULINO', '22222', 
+            '222222', 'dom.Tecnico.Tecnico');
 ```
 Asignar la persona como un Tecnico
 ```
@@ -157,7 +157,6 @@ INSERT INTO "Login"(
     VALUES (1, '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, 1, 
             'admin');
 ```
-
 
 
 
