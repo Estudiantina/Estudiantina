@@ -172,6 +172,7 @@ public class SolicitudServicioTecnico {
 	
 	public SolicitudServicioTecnico() {
 		this.estadoSolicitado = new Solicitado(this);
+		this.reparando = new Reparando(this);
 		this.estadoCerrado = new Cerrado(this);
 		this.enviado = new EnviadoAlServicioTecnico(this);
 		this.recibido = new RecibidoDelServicioTecnico(this);
@@ -431,11 +432,7 @@ public class SolicitudServicioTecnico {
 		
 		return this;
 	}
-	@Hidden
-	public boolean hideAvisarPorMailQueEstaLista()
-	{
-		return this.estadoSolicitud.ocultarAvisarPorMailQueEstaLista();
-	}
+	
 	
 	@Hidden
 	public boolean hideSolucion()
