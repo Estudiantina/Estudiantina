@@ -115,6 +115,13 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 		
 	}
 
+
+	@Override
+	public boolean ocultarAsignarTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
+
 }
 
 

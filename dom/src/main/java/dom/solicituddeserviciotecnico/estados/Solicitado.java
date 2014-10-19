@@ -78,12 +78,14 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarFechaDeSolucion() {
 		return true;
 	}
+	
 	@Hidden
 	@Override
 	public boolean ocultarTecnicoAsignado() {
-		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
+	
+	
 	@Hidden
 	@Override
 	public void recibirDeServicioTecnico() {
@@ -115,6 +117,12 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 		this.solicitud.setTecnicoAsignado(tecnico);
 		this.solicitud.setEstadoSolicitud(this.solicitud.getReparando());
 		
+	}
+	
+	@Override
+	public boolean ocultarAsignarTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
 	}
 
 	

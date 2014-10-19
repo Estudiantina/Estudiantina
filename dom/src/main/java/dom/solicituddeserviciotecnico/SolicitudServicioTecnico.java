@@ -112,7 +112,7 @@ public class SolicitudServicioTecnico {
     
 
 
-    @Hidden
+
     @Column(allowsNull="true")
 	public Tecnico getTecnicoAsignado() {
 		return tecnicoAsignado;
@@ -124,6 +124,10 @@ public class SolicitudServicioTecnico {
 		this.tecnicoAsignado = tecnicoAsignado;
 	}
 
+	public boolean hideTecnicoAsignado()
+	{
+		return this.estadoSolicitud.ocultarTecnicoAsignado();
+	}
 	
 	public SolicitudServicioTecnico asignarTecnico(Tecnico tecnico)
 	{
@@ -131,7 +135,11 @@ public class SolicitudServicioTecnico {
 		return this;
 	}
 
-
+	public boolean hideAsignarTecnico()
+	{
+		return this.estadoSolicitud.ocultarAsignarTecnico();
+	}
+	
 	@Hidden
 	@Column(allowsNull="true")
 	public EnviadoAlServicioTecnico getEnviado() {

@@ -8,6 +8,7 @@ public interface IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarAvisarPorMailQueEstaLista();
 	public boolean ocultarFechaDeSolucion();
 	public boolean ocultarTecnicoAsignado();
+	public boolean ocultarAsignarTecnico();
 	public void recibirDeServicioTecnico();
 	public void enviarAServicioTecnico();
 	public void avisarNetbookReparada();

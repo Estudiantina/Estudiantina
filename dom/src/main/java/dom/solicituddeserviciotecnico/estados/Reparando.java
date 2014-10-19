@@ -32,7 +32,10 @@ public class Reparando implements IEstadoSolicitudDeServicioTecnico{
 	public SolicitudServicioTecnico getSolicitud() {
 		return solicitud;
 	}
-	
+	/**
+	 * constructor del estado
+	 * @param solicitud
+	 */
 	public Reparando(SolicitudServicioTecnico solicitud) {
 		this.solicitud = solicitud;
 	}
@@ -43,6 +46,10 @@ public class Reparando implements IEstadoSolicitudDeServicioTecnico{
 
 
 
+	/**
+	 * cuando se esta reparando se puede imprimir
+	 * por lo tanto no se oculta.
+	 */
 	@Hidden
 	@Override
 	public boolean ocultarImprimir() {
@@ -73,25 +80,25 @@ public class Reparando implements IEstadoSolicitudDeServicioTecnico{
 		// TODO Apéndice de método generado automáticamente
 		return false;
 	}
-
+    @Hidden
 	@Override
 	public void recibirDeServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
 		
 	}
-
+	@Hidden
 	@Override
 	public void enviarAServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
 		
 	}
-
+	@Hidden
 	@Override
 	public void avisarNetbookReparada() {
 		// TODO Apéndice de método generado automáticamente
 		
 	}
-
+    @Hidden
 	@Override
 	public void finalizarSolicitud() {
 		// TODO Apéndice de método generado automáticamente
@@ -102,6 +109,12 @@ public class Reparando implements IEstadoSolicitudDeServicioTecnico{
 	public void asignarTecnico(Tecnico tecnico) {
 		// TODO Apéndice de método generado automáticamente
 		
+	}
+    @Hidden
+	@Override
+	public boolean ocultarAsignarTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
 	}
 
 	
