@@ -16,7 +16,6 @@ package repo.persona;
 import java.util.Date;
 import java.util.List;
 
-
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MultiLine;
@@ -66,13 +65,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     	Login log =firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",container.getUser().getName()));
     	return log.getPersona();
     }
-    
-    
-    
-
-
-    
-    
     
     
     
@@ -138,6 +130,83 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return alumno;
 	
 	}
+	
+	//*********************** VALIDACION ******************************************//
+	/**
+	 * metodo que valida los parametros cuando se ingresa un nueva alumno
+	 * @param cuil
+	 * @param nombre
+	 * @param apellido
+	 * @param telefonoCelular
+	 * @param telefonoFijo
+	 * @param email
+	 * @param domicilio
+	 * @param fechaNacimiento
+	 * @param fechaIngreso
+	 * @param nacionalidad
+	 * @return Alumno
+	 */
+	
+	public String validateIngresarAlumno(
+			 final Establecimiento establecimiento,
+			 final Long cuil,
+			 final String nombre,
+			 final String apellido,
+				final String telefonoCelular,
+				final String telefinoFijo,
+				final String email,
+				final String domicilio,
+				final int alturaDomiculio,
+				final  String piso,
+				final Localidad localidad,
+				final Date fechaNacimiento,
+				final Date fechaIngreso,
+				final Nacionalidad nacionalidad,
+				final EstadoDeAlumno estadoDeAlumno
+
+			
+			) {
+        return validarDatosDeAlumno(cuil,fechaNacimiento,fechaIngreso);
+    }
+	/**
+	 * @param cuil
+	 * @param fechaNacimiento
+	 * @param fechaIngreso
+	 * 
+	 * @return mensajes de validacion al usuario en caso de ser nulo es porque la validacion es correcta 
+	 */
+	
+	public static String validarDatosDeAlumno(Long cuil,Date fechaNacimiento,Date fechaIngreso)
+	{
+		//validar fecha de ingreso y fecha de nacimiento
+		Date fechahoy = new Date();
+		if(fechaIngreso.compareTo(fechahoy)>0)
+		{
+			return "FECHA DE INGRESO: debe ser menor al dia de hoy";
+		}
+		else
+		{
+			if(fechaNacimiento.compareTo(fechaIngreso) >0)
+			{
+				return "FECHA NACIMIENTO: debe ser menor a la fecha de ingreso";
+			}
+			else
+			{
+			//	if (cuil.shortValue()!=11 || cuil.shortValue()!=8 )
+			//	{
+			//		return "CUIL: debe ingresar 11 caracteres\n"
+			//				+ "DNI: debe ingresar 8 caracteres";
+			//	}
+			//	else
+				{
+					return null;
+				}
+			}
+		}
+	}
+    //*****************************************************+************//	
+	
+	
 	/**
 	 * 
 	 * @param establecimiento
@@ -247,7 +316,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("Altura") int alturaDomiculio,
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
-			@Named("Cargo") final String cargo
+			@Named("Cargo") final String cargo,
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento	
 			)
 	{
 		final Docente docente = container.newTransientInstance(Docente.class);
@@ -263,6 +333,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setTelefonoFijo(telefinoFijo);
 		docente.setTelefonoCelular(telefonoCelular);
         docente.setCargo(cargo);
+        docente.setFechaNacimiento(fechaNacimiento);
+        
         
 		container.persistIfNotAlready(docente);
 	

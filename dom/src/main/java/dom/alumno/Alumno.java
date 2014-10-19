@@ -25,6 +25,7 @@ import javax.jdo.annotations.Element;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
+
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
 
@@ -44,11 +45,13 @@ import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+import org.bouncycastle.asn1.x509.sigi.PersonalData;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jdt.core.dom.ThisExpression;
 
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+
 
 
 
@@ -168,9 +171,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	private EstadoDeAlumno estadoDeAlumno;
 	private Nacionalidad nacionalidad;
 
-	
-	
-	
+		
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Date getFechaIngreso() {
 		return fechaIngreso;
@@ -178,6 +179,15 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
+	
+	/*
+	public String validate(){
+		
+		if (fechaIngreso.compareTo(getFechaNacimiento()) < getFechaNacimiento().getTime()){
+			return "La fecha de Naciomiento debe ser posterior";
+		}
+		return null;
+	}*/
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")	
