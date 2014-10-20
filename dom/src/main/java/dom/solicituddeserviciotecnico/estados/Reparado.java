@@ -107,13 +107,13 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	@Override
 	public boolean ocultarEnviarAServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 	@Hidden
 	@Override
 	public boolean ocultarRecibirDelServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 	
 	@javax.inject.Inject 
