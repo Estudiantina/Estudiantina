@@ -157,6 +157,11 @@ public class SolicitudServicioTecnico {
 	{
 		return this.estadoSolicitud.ocultarAvisarPorMailQueEstaLista();
 	}
+
+	public boolean hideImprimir()
+	{
+		return this.estadoSolicitud.ocultarImprimir();
+	}
 	@Hidden
 	@Column(allowsNull="true")
 	public EnviadoAlServicioTecnico getEnviado() {
