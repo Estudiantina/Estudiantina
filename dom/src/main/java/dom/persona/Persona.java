@@ -88,7 +88,7 @@ public class Persona implements Locatable{
 	private SortedSet<Netbook> netbooks =  new TreeSet<Netbook>();
 	private Establecimiento establecimiento;
 	private Localidad localidad;
-	private sexo sexo;
+	private Sexo sexo;
     
 	@Column(allowsNull="true")
 	public int getAlturaDomiculio() {
@@ -302,11 +302,11 @@ public class Persona implements Locatable{
 
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	public sexo getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(sexo sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 
