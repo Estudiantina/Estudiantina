@@ -48,7 +48,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Override
 	public boolean ocultarImprimir() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 	
 	
@@ -71,7 +71,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Override
 	public boolean ocultarFechaDeSolucion() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 
 	@Hidden
