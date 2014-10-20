@@ -18,8 +18,6 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.annotation.Hidden;
-
-import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
@@ -88,8 +86,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("CUIL")Long cuil,
 			@RegEx(validation = "[A-Za-z ]+")  @Named("NOMBRE")String nombre,
 			@RegEx(validation = "[A-Za-z]+")   @Named("APELLIDO")String apellido,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+")   @org.apache.isis.applib.annotation.Optional @Named("TELEFONO CELULAR")String telefonoCelular,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional @Named("TELEFONO FIJO")String telefinoFijo,
+			@RegEx(validation = "[0-9]+")   @org.apache.isis.applib.annotation.Optional @Named("TELEFONO CELULAR")String telefonoCelular,
+		    @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional @Named("TELEFONO FIJO")String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")String email,
 			@Named("DOMICILIO") String domicilio,
 			@Named("Altura") int alturaDomiculio,
@@ -227,8 +225,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
 			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional@Named("TELEFONO CELULAR")final String telefonoCelular,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")  @Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO") String domicilio,
 			@Named("Altura") int alturaDomiculio,
@@ -263,8 +261,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
 			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional @Named("TELEFONO CELULAR")final String telefonoCelular,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional @Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO") String domicilio,
 			@Named("Altura") int alturaDomiculio,
@@ -301,8 +299,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
 			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional	@Named("TELEFONO CELULAR")final String telefonoCelular,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+") @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional	@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+") @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO") String domicilio,
 			@Named("Altura") int alturaDomiculio,
@@ -344,8 +342,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
 			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+")   @org.apache.isis.applib.annotation.Optional 	@Named("TELEFONO CELULAR")final String telefonoCelular,
-			@SuppressWarnings("deprecation") @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  	@Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "[0-9]+")   @org.apache.isis.applib.annotation.Optional 	@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  	@Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO") String domicilio,
 			@Named("Altura") int alturaDomiculio,
