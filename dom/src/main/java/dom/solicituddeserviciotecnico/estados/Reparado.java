@@ -86,7 +86,8 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	@Hidden
 	@Override
 	public void finalizarSolicitud() {
-		// TODO Apéndice de método generado automáticamente
+		this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoCerrado());
+		
 		
 	}
 	@Hidden
