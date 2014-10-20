@@ -491,6 +491,7 @@ public class SolicitudServicioTecnico {
 		return this.estadoSolicitud.ocultarFechaDeSolucion();
 		
 	}
+
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
 	@PublishedAction // para que muestre la accion en la lista de objetos
 	@Named("eliminar Solicitud")

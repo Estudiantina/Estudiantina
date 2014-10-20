@@ -32,7 +32,7 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	@Override
 	@Hidden
 	public boolean ocultarImprimir() {
-		return false;
+		return true;
 	}
 
 	private SolicitudServicioTecnico solicitud;
