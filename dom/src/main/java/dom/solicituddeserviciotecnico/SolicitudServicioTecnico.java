@@ -428,7 +428,7 @@ public class SolicitudServicioTecnico {
 	@Named("Avisar Netbook Reparada")
 	public SolicitudServicioTecnico avisarPorMailQueEstaLista()
 	{
-		String mensaje ="Hola "+this.getPersona().getNombre()+" "+this.getPersona().getApellido()+"\n";
+		/*String mensaje ="Hola "+this.getPersona().getNombre()+" "+this.getPersona().getApellido()+"\n";
 		mensaje += "\n Nos Comunicamos para informale que";
 		mensaje += "\n ya se finalizo la reparacion de la Netbook";
 		mensaje += "\n el motivo por el cual se habia pedido la reparacion es: \n"+this.comentario+"\n \n";
@@ -436,11 +436,20 @@ public class SolicitudServicioTecnico {
 		
 		final CuentaMail mimail = container.firstMatch(QueryDefault.create(CuentaMail.class, "traerTodo"));
 		Email.enviarEmail(mimail,mimail.getUsuario(), this.getPersona().getEmail(), "informe de netbook Reparada -("+this.motivoDeSolicitud+")", mensaje);
-	    container.informUser("Se Ha enviado un email avisando que la Netbook fue Reparada");
-		
+	    container.informUser("Se Ha enviado un email avisando que la Netbook fue Reparada");*/
+		estadoSolicitud.avisarNetbookReparada();
 		return this;
 	}
-	
+	/**
+	 * cierra la solicitud de servicio Tecnico 
+	 * 
+	 * @return
+	 */
+	public SolicitudServicioTecnico finalizarSolicitud()
+	{
+		this.getEstadoSolicitud().finalizarSolicitud();
+		return this;
+	}
 	
 	@Hidden
 	public boolean hideSolucion()
