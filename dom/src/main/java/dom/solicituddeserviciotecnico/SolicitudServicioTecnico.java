@@ -164,7 +164,7 @@ public class SolicitudServicioTecnico {
 	
 	public SolicitudServicioTecnico asignarTecnico(Tecnico tecnico)
 	{
-		this.getEstadoSolicitud().asignarTecnico(tecnico);
+		this.estadoSolicitud.asignarTecnico(tecnico);
 		return this;
 	}
 

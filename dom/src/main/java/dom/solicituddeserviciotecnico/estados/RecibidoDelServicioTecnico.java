@@ -99,7 +99,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Override
 	public void avisarNetbookReparada() {
 		// TODO Apéndice de método generado automáticamente
-		
+		this.solicitud.setEstadoSolicitud(this.getSolicitud().getEstadoReparado());
 	}
 
 	@Hidden
@@ -120,7 +120,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Override
 	public boolean ocultarAsignarTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 
 	@Hidden
@@ -134,14 +134,14 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Override
 	public boolean ocultarEnviarAServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 
 	@Hidden
 	@Override
 	public boolean ocultarRecibirDelServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 
 	@javax.inject.Inject 
