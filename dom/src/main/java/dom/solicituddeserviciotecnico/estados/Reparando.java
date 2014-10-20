@@ -86,23 +86,32 @@ public class Reparando implements IEstadoSolicitudDeServicioTecnico{
 		// TODO Apéndice de método generado automáticamente
 		
 	}
+    /**
+     * al enviar al servicio tecnico
+     * de Buenos Aires
+     * pasa
+     * a estado enviado
+     */
 	@Hidden
 	@Override
 	public void enviarAServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
+		this.solicitud.setEstadoSolicitud(this.solicitud.getEnviado());
 		
 	}
+	/**
+	 * 
+	 */
 	@Hidden
 	@Override
 	public void avisarNetbookReparada() {
-		// TODO Apéndice de método generado automáticamente
+		
 		
 	}
     @Hidden
 	@Override
 	public void finalizarSolicitud() {
 		// TODO Apéndice de método generado automáticamente
-		
+    	this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoCerrado());
 	}
 	@Hidden
 	@Override
