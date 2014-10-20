@@ -10,6 +10,8 @@ public interface IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarTecnicoAsignado();
 	public boolean ocultarAsignarTecnico();
 	public boolean ocultarFinalizarSolicitud();
+	public boolean ocultarEnviarAServicioTecnico();
+	public boolean ocultarRecibirDelServicioTecnico();
 	public void recibirDeServicioTecnico();
 	public void enviarAServicioTecnico();
 	public void avisarNetbookReparada();

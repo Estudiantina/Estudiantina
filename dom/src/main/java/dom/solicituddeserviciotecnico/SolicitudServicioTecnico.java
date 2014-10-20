@@ -105,7 +105,7 @@ public class SolicitudServicioTecnico {
 	private String comentario;
 	private IEstadoSolicitudDeServicioTecnico estadoSolicitud;
 	private Cerrado estadoCerrado;
-	private EnviadoAlServicioTecnico enviado;
+	private EnviadoAlServicioTecnico estadoEnviado;
 	private RecibidoDelServicioTecnico recibido;
 	private Aceptado estadoAceptado;
 	private Solicitado estadoSolicitado;
@@ -132,7 +132,27 @@ public class SolicitudServicioTecnico {
 	}
 
 
-
+	public SolicitudServicioTecnico enviarAServicioTecnico()
+	{
+		this.estadoSolicitud.enviarAServicioTecnico();
+		return this;
+	}
+	
+	public boolean hideEnviarAServicioTecnico()
+	{
+		return this.estadoSolicitud.ocultarEnviarAServicioTecnico();
+	}
+	
+	public SolicitudServicioTecnico recibirDelServicioTecnico()
+	{
+		this.estadoSolicitud.recibirDeServicioTecnico();
+		return this;
+	}
+	public boolean hideRecibirDelServicioTecnico()
+	{
+		return this.estadoSolicitud.ocultarRecibirDelServicioTecnico();
+	}
+	
 	public void setTecnicoAsignado(Tecnico tecnicoAsignado) {
 		this.tecnicoAsignado = tecnicoAsignado;
 	}
@@ -162,19 +182,25 @@ public class SolicitudServicioTecnico {
 	{
 		return this.estadoSolicitud.ocultarImprimir();
 	}
+
+
+
+
 	@Hidden
 	@Column(allowsNull="true")
-	public EnviadoAlServicioTecnico getEnviado() {
-		return enviado;
+    public EnviadoAlServicioTecnico getEstadoEnviado() {
+		return estadoEnviado;
 	}
 
 
 
-	public void setEnviado(EnviadoAlServicioTecnico enviado) {
-		this.enviado = enviado;
+	public void setEstadoEnviado(EnviadoAlServicioTecnico estadoEnviado) {
+		this.estadoEnviado = estadoEnviado;
 	}
 
-    @Hidden
+
+
+	@Hidden
 	@Column(allowsNull="true")
 	public RecibidoDelServicioTecnico getRecibido() {
 		return recibido;
@@ -208,7 +234,7 @@ public class SolicitudServicioTecnico {
 		this.estadoSolicitado = new Solicitado(this);
 		this.estadoAceptado = new Aceptado(this);
 		this.estadoCerrado = new Cerrado(this);
-		this.enviado = new EnviadoAlServicioTecnico(this);
+		this.estadoEnviado = new EnviadoAlServicioTecnico(this);
 		this.recibido = new RecibidoDelServicioTecnico(this);
 		this.estadoSolicitud = this.estadoSolicitado;
 	}

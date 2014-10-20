@@ -6,6 +6,8 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
+
+import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
 
@@ -95,7 +97,8 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	@Hidden
 	@Override
 	public void enviarAServicioTecnico() {
-		this.solicitud.setEstadoSolicitud(this.solicitud.getEnviado());
+		container.informUser("se ha enviado la Netbook al servicio Tecnico de BS AS");
+		this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoEnviado());
 		
 	}
 	/**
@@ -104,6 +107,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	@Hidden
 	@Override
 	public void avisarNetbookReparada() {
+		container.informUser("la netbook ha pasado a estar reparada");
 		this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoReparado());
 		
 	}
@@ -111,6 +115,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	@Override
 	public void finalizarSolicitud() {
 		// TODO Apéndice de método generado automáticamente
+    	container.informUser("la solicitud se ha cerrado correctamente");
     	this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoCerrado());
     	
 	}
@@ -132,6 +137,19 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 		// TODO Apéndice de método generado automáticamente
 		return false;
 	}
+	@Override
+	@Hidden
+	public boolean ocultarEnviarAServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
+	@Override
+	@Hidden
+	public boolean ocultarRecibirDelServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return true;
+	}
 
-	
+	@javax.inject.Inject 
+    DomainObjectContainer container;
 }

@@ -7,6 +7,7 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 
+import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
 
@@ -74,7 +75,7 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	@Hidden
 	@Override
 	public void enviarAServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
+		
 		
 	}
 	@Hidden
@@ -102,6 +103,20 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 		// TODO Apéndice de método generado automáticamente
 		return false;
 	}
+	@Hidden
+	@Override
+	public boolean ocultarEnviarAServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
+	@Hidden
+	@Override
+	public boolean ocultarRecibirDelServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
 	
+	@javax.inject.Inject 
+    DomainObjectContainer container;
 	
 }

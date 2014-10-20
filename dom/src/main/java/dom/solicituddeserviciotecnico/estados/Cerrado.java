@@ -7,6 +7,7 @@ import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.IdGeneratorStrategy;
 
+import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
 
@@ -123,9 +124,24 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 		return true;
 	}
 
+    @Hidden
+	@Override
+	public boolean ocultarEnviarAServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return true;
+	}
+
+	@Hidden
+	@Override
+	public boolean ocultarRecibirDelServicioTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return true;
+	}
+
 	
 	
 	
-	
+	@javax.inject.Inject 
+    DomainObjectContainer container;
 	
 }
