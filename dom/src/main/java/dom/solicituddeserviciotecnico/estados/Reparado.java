@@ -14,78 +14,57 @@ import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 import dom.tecnico.Tecnico;
 
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
-@DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idSolicitado" )
-@Uniques({ @Unique(name = "solicitadoUnique" , members = { "idSolicitado" } ) })
-@ObjectType("SOLICITADO")
-public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
-
-	
-	/**
-	 * titulo del estado
-	 * return SOLICITADO
-	 */
-	public String title()
-	{
-		return "SOLICITADO";
-	}
-	
-	@Override
-	@Hidden
-	public boolean ocultarImprimir() {
-		return false;
-	}
+@DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idReparado" )
+@Uniques({ @Unique(name = "reparadoUnique" , members = { "idReparado" } ) })
+@ObjectType("REPARADO")
+public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 
 	private SolicitudServicioTecnico solicitud;
 	
-	public Solicitado(SolicitudServicioTecnico solicitud) {
+	public Reparado(SolicitudServicioTecnico solicitud) {
 		this.solicitud = solicitud;
 	}
 
-	
-	
-	@javax.jdo.annotations.Column(allowsNull="true")
-	public SolicitudServicioTecnico getSolicitud() {
-		return solicitud;
+	public String title()
+	{
+		return "REPARADO";
 	}
-
-	public void setSolicitud(SolicitudServicioTecnico solicitud) {
-		this.solicitud = solicitud;
-	}
-	
-	/**
-	 * cuando se solicita se oculta la solucion
-	 */
-	@Override
 	@Hidden
+	@Override
+	public boolean ocultarImprimir() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
+	@Hidden
+	@Override
 	public boolean ocultarSolucion() {
-		return true;
+		// TODO Apéndice de método generado automáticamente
+		return false;
 	}
-
-	/**
-	 *  cuando se solicita se oculta para enviar mail que esta lista 
-	 *  
-	 */
-	@Override
 	@Hidden
+	@Override
 	public boolean ocultarAvisarPorMailQueEstaLista() {
-		return true;
+		// TODO Apéndice de método generado automáticamente
+		return false;
 	}
-	/**
-	 * se oculta la fecha de solucion porque todabia no esta reparado
-	 */
-	@Override
 	@Hidden
+	@Override
 	public boolean ocultarFechaDeSolucion() {
-		return true;
+		// TODO Apéndice de método generado automáticamente
+		return false;
 	}
-	
 	@Hidden
 	@Override
 	public boolean ocultarTecnicoAsignado() {
-		return true;
+		// TODO Apéndice de método generado automáticamente
+		return false;
 	}
-	
-	
+	@Hidden
+	@Override
+	public boolean ocultarAsignarTecnico() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
 	@Hidden
 	@Override
 	public void recibirDeServicioTecnico() {
@@ -114,18 +93,8 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	@Override
 	public void asignarTecnico(Tecnico tecnico) {
 		// TODO Apéndice de método generado automáticamente
-		this.solicitud.setTecnicoAsignado(tecnico);
-		this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoAceptado());
 		
 	}
-	
-	@Override
-	public boolean ocultarAsignarTecnico() {
-		// TODO Apéndice de método generado automáticamente
-		return false;
-	}
-
-	
 	
 	
 }

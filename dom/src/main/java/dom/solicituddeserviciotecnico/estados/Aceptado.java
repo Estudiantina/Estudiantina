@@ -12,15 +12,15 @@ import org.apache.isis.applib.annotation.ObjectType;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 import dom.tecnico.Tecnico;
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
-@DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idReparando" )
-@Uniques({ @Unique(name = "reparandoUnique" , members = { "idReparando" } ) })
-@ObjectType("REPARANDO")
-public class Reparando implements IEstadoSolicitudDeServicioTecnico{
+@DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idAceptado" )
+@Uniques({ @Unique(name = "aceptadoUnique" , members = { "idAceptado" } ) })
+@ObjectType("ACEPTADO")
+public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 
 	
 	public String title()
 	{
-		return "REPARANDO";
+		return "ACEPTADO";
 	}
 	
 	
@@ -36,7 +36,7 @@ public class Reparando implements IEstadoSolicitudDeServicioTecnico{
 	 * constructor del estado
 	 * @param solicitud
 	 */
-	public Reparando(SolicitudServicioTecnico solicitud) {
+	public Aceptado(SolicitudServicioTecnico solicitud) {
 		this.solicitud = solicitud;
 	}
 
@@ -104,7 +104,7 @@ public class Reparando implements IEstadoSolicitudDeServicioTecnico{
 	@Hidden
 	@Override
 	public void avisarNetbookReparada() {
-		
+		this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoReparado());
 		
 	}
     @Hidden

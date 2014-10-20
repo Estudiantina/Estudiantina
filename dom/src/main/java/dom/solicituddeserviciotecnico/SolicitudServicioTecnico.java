@@ -68,7 +68,8 @@ import dom.solicituddeserviciotecnico.estados.Cerrado;
 import dom.solicituddeserviciotecnico.estados.EnviadoAlServicioTecnico;
 import dom.solicituddeserviciotecnico.estados.IEstadoSolicitudDeServicioTecnico;
 import dom.solicituddeserviciotecnico.estados.RecibidoDelServicioTecnico;
-import dom.solicituddeserviciotecnico.estados.Reparando;
+import dom.solicituddeserviciotecnico.estados.Aceptado;
+import dom.solicituddeserviciotecnico.estados.Reparado;
 import dom.solicituddeserviciotecnico.estados.Solicitado;
 import dom.tecnico.Tecnico;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -106,14 +107,26 @@ public class SolicitudServicioTecnico {
 	private Cerrado estadoCerrado;
 	private EnviadoAlServicioTecnico enviado;
 	private RecibidoDelServicioTecnico recibido;
-	private Reparando reparando;
+	private Aceptado estadoAceptado;
 	private Solicitado estadoSolicitado;
     private Tecnico tecnicoAsignado;
-    
+    private Reparado estadoReparado;
 
-
-
+    @Hidden
     @Column(allowsNull="true")
+    public Reparado getEstadoReparado() {
+		return estadoReparado;
+	}
+
+
+
+	public void setEstadoReparado(Reparado estadoReparado) {
+		this.estadoReparado = estadoReparado;
+	}
+
+
+
+	@Column(allowsNull="true")
 	public Tecnico getTecnicoAsignado() {
 		return tecnicoAsignado;
 	}
@@ -164,23 +177,27 @@ public class SolicitudServicioTecnico {
 		this.recibido = recibido;
 	}
 
-    @Hidden
+    
+
+
+	@Hidden
 	@Column(allowsNull="true")
-	public Reparando getReparando() {
-		return reparando;
+	public Aceptado getEstadoAceptado() {
+		return estadoAceptado;
 	}
 
 
 
-	public void setReparando(Reparando reparando) {
-		this.reparando = reparando;
+	public void setEstadoAceptado(Aceptado estadoAceptado) {
+		this.estadoAceptado = estadoAceptado;
 	}
 
 
-	
+
 	public SolicitudServicioTecnico() {
+		this.estadoReparado = new Reparado(this);
 		this.estadoSolicitado = new Solicitado(this);
-		this.reparando = new Reparando(this);
+		this.estadoAceptado = new Aceptado(this);
 		this.estadoCerrado = new Cerrado(this);
 		this.enviado = new EnviadoAlServicioTecnico(this);
 		this.recibido = new RecibidoDelServicioTecnico(this);
@@ -213,15 +230,16 @@ public class SolicitudServicioTecnico {
 			value = "per-implementation"),
 			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = "dom.solicituddeserviciotecnico.estados.EnviadoAlServicioTecnico"
 			+",dom.solicituddeserviciotecnico.estados.RecibidoDelServicioTecnico"
-			+",dom.solicituddeserviciotecnico.estados.Reparando"
+			+",dom.solicituddeserviciotecnico.estados.Aceptado"
 			+",dom.solicituddeserviciotecnico.estados.Solicitado"
 			+",dom.solicituddeserviciotecnico.estados.Cerrado"
 					)} , columns = {
 			@Column(name= "idEnvidado"),
 			@Column(name= "idRecibido"),
-			@Column(name= "idReparando"),
+			@Column(name= "idAceptado"),
 			@Column(name= "idSolicitado"),
-			@Column(name= "idCerrado")
+			@Column(name= "idCerrado"),
+			@Column(name= "idReparado")
 	})
 	@Optional
 	@Hidden(where = Where.PARENTED_TABLES)
@@ -428,6 +446,7 @@ public class SolicitudServicioTecnico {
 	@Named("Avisar Netbook Reparada")
 	public SolicitudServicioTecnico avisarPorMailQueEstaLista()
 	{
+		
 		/*String mensaje ="Hola "+this.getPersona().getNombre()+" "+this.getPersona().getApellido()+"\n";
 		mensaje += "\n Nos Comunicamos para informale que";
 		mensaje += "\n ya se finalizo la reparacion de la Netbook";
@@ -437,7 +456,7 @@ public class SolicitudServicioTecnico {
 		final CuentaMail mimail = container.firstMatch(QueryDefault.create(CuentaMail.class, "traerTodo"));
 		Email.enviarEmail(mimail,mimail.getUsuario(), this.getPersona().getEmail(), "informe de netbook Reparada -("+this.motivoDeSolicitud+")", mensaje);
 	    container.informUser("Se Ha enviado un email avisando que la Netbook fue Reparada");*/
-		estadoSolicitud.avisarNetbookReparada();
+		this.getEstadoSolicitud().avisarNetbookReparada();
 		return this;
 	}
 	/**
