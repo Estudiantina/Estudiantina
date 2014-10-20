@@ -126,6 +126,12 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 		// TODO Apéndice de método generado automáticamente
 		return false;
 	}
+    @Hidden
+	@Override
+	public boolean ocultarFinalizarSolicitud() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
 
 	
 }

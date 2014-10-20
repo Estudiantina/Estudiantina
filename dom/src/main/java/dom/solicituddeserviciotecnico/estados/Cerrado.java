@@ -58,7 +58,7 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 	@Override
 	public boolean ocultarAvisarPorMailQueEstaLista() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
     @Hidden
 	@Override
@@ -113,7 +113,14 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 	@Override
 	public boolean ocultarAsignarTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
+	}
+
+    @Hidden
+	@Override
+	public boolean ocultarFinalizarSolicitud() {
+		// TODO Apéndice de método generado automáticamente
+		return true;
 	}
 
 	

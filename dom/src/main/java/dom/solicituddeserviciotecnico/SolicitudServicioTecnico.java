@@ -491,6 +491,12 @@ public class SolicitudServicioTecnico {
 		return this.estadoSolicitud.ocultarFechaDeSolucion();
 		
 	}
+	
+	@Hidden
+	public boolean hideFinalizarSolicitud()
+	{
+		return this.estadoSolicitud.ocultarFinalizarSolicitud();
+	}
 
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
 	@PublishedAction // para que muestre la accion en la lista de objetos

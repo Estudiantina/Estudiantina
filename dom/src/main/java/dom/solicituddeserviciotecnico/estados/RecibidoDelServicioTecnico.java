@@ -122,6 +122,13 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 		return false;
 	}
 
+	@Hidden
+	@Override
+	public boolean ocultarFinalizarSolicitud() {
+		// TODO Apéndice de método generado automáticamente
+		return false;
+	}
+
 }
 
 
