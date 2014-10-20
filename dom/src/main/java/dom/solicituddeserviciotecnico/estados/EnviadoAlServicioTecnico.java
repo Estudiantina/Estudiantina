@@ -83,7 +83,7 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 	@Override
 	public void recibirDeServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		
+		this.getSolicitud().setEstadoSolicitud(this.getSolicitud().getRecibido());
 	}
 	@Hidden
 	@Override
