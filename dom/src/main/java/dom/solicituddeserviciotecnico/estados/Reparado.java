@@ -46,7 +46,7 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	@Override
 	public boolean ocultarAvisarPorMailQueEstaLista() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 	@Hidden
 	@Override
@@ -82,7 +82,6 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	@Override
 	public void avisarNetbookReparada() {
 		// TODO Apéndice de método generado automáticamente
-		
 	}
 	@Hidden
 	@Override
