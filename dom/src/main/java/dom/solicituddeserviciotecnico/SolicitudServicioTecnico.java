@@ -134,23 +134,23 @@ public class SolicitudServicioTecnico {
 
 	public SolicitudServicioTecnico enviarAServicioTecnico()
 	{
-		this.estadoSolicitud.enviarAServicioTecnico();
+		this.getEstadoSolicitud().enviarAServicioTecnico();
 		return this;
 	}
 	
 	public boolean hideEnviarAServicioTecnico()
 	{
-		return this.estadoSolicitud.ocultarEnviarAServicioTecnico();
+		return this.getEstadoSolicitud().ocultarEnviarAServicioTecnico();
 	}
 	
 	public SolicitudServicioTecnico recibirDelServicioTecnico()
 	{
-		this.estadoSolicitud.recibirDeServicioTecnico();
+		this.getEstadoSolicitud().recibirDeServicioTecnico();
 		return this;
 	}
 	public boolean hideRecibirDelServicioTecnico()
 	{
-		return this.estadoSolicitud.ocultarRecibirDelServicioTecnico();
+		return this.getEstadoSolicitud().ocultarRecibirDelServicioTecnico();
 	}
 	
 	public void setTecnicoAsignado(Tecnico tecnicoAsignado) {
@@ -159,28 +159,28 @@ public class SolicitudServicioTecnico {
 
 	public boolean hideTecnicoAsignado()
 	{
-		return this.estadoSolicitud.ocultarTecnicoAsignado();
+		return this.getEstadoSolicitud().ocultarTecnicoAsignado();
 	}
 	
 	public SolicitudServicioTecnico asignarTecnico(Tecnico tecnico)
 	{
-		this.estadoSolicitud.asignarTecnico(tecnico);
+		this.getEstadoSolicitud().asignarTecnico(tecnico);
 		return this;
 	}
 
 	public boolean hideAsignarTecnico()
 	{
-		return this.estadoSolicitud.ocultarAsignarTecnico();
+		return this.getEstadoSolicitud().ocultarAsignarTecnico();
 	}
 
 	public boolean hideAvisarPorMailQueEstaLista()
 	{
-		return this.estadoSolicitud.ocultarAvisarPorMailQueEstaLista();
+		return this.getEstadoSolicitud().ocultarAvisarPorMailQueEstaLista();
 	}
 
 	public boolean hideImprimir()
 	{
-		return this.estadoSolicitud.ocultarImprimir();
+		return this.getEstadoSolicitud().ocultarImprimir();
 	}
 
 
@@ -514,14 +514,14 @@ public class SolicitudServicioTecnico {
 	@Hidden
 	public boolean hideFechaDeSolucion()
 	{
-		return this.estadoSolicitud.ocultarFechaDeSolucion();
+		return this.getEstadoSolicitud().ocultarFechaDeSolucion();
 		
 	}
 	
 	@Hidden
 	public boolean hideFinalizarSolicitud()
 	{
-		return this.estadoSolicitud.ocultarFinalizarSolicitud();
+		return this.getEstadoSolicitud().ocultarFinalizarSolicitud();
 	}
 
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
