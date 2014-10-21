@@ -62,7 +62,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	@Override
 	public boolean ocultarSolucion() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
     @Hidden
 	@Override
