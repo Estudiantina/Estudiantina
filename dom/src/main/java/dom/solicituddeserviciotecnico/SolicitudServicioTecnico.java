@@ -474,7 +474,7 @@ public class SolicitudServicioTecnico {
 		
 	}
 	@Named("Avisar Netbook Reparada")
-	public SolicitudServicioTecnico avisarPorMailQueEstaLista()
+	public SolicitudServicioTecnico avisarPorMailQueEstaLista(String solucion, Date fechaDeSolucion)
 	{
 		try
 		{
@@ -494,7 +494,7 @@ public class SolicitudServicioTecnico {
 		{
 		container.informUser("Se Ha enviado un email avisando que la Netbook fue Reparada");
 		}
-		this.getEstado().avisarNetbookReparada();
+		this.getEstado().avisarNetbookReparada(solucion, fechaDeSolucion);
 		return this;
 	}
 	/**

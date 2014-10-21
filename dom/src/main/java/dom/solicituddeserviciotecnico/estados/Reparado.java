@@ -1,5 +1,7 @@
 package dom.solicituddeserviciotecnico.estados;
 
+import java.util.Date;
+
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -80,7 +82,7 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	}
 	@Hidden
 	@Override
-	public void avisarNetbookReparada() {
+	public void avisarNetbookReparada(String solucion,Date fechaDeSolucion) {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 	@Hidden

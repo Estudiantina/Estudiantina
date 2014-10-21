@@ -1,5 +1,7 @@
 package dom.solicituddeserviciotecnico.estados;
 
+import java.util.Date;
+
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -104,7 +106,9 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	 */
 	@Hidden
 	@Override
-	public void avisarNetbookReparada() {
+	public void avisarNetbookReparada(String solucion,Date fechaDeSolucion) {
+		this.solicitud.setSolucion(solucion);
+		this.solicitud.setFechaDeSolucion(fechaDeSolucion);
 		container.informUser("la netbook ha pasado a estar reparada");
 		this.solicitud.setEstado(this.solicitud.getEstadoReparado());
 		

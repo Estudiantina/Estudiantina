@@ -1,5 +1,7 @@
 package dom.solicituddeserviciotecnico.estados;
 
+import java.util.Date;
+
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -98,8 +100,9 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 
 	@Hidden
 	@Override
-	public void avisarNetbookReparada() {
-	
+	public void avisarNetbookReparada(String solucion,Date fechaDeSolucion){
+		this.solicitud.setSolucion(solucion);
+		this.solicitud.setFechaDeSolucion(fechaDeSolucion);
 		this.solicitud.setEstado(this.getSolicitud().getEstadoReparado());
 	}
 

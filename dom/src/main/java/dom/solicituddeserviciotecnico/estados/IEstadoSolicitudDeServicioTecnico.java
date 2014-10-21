@@ -1,5 +1,7 @@
 package dom.solicituddeserviciotecnico.estados;
 
+import java.util.Date;
+
 import dom.tecnico.Tecnico;
 
 public interface IEstadoSolicitudDeServicioTecnico {
@@ -15,7 +17,7 @@ public interface IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarRecibirDelServicioTecnico();
 	public void recibirDeServicioTecnico();
 	public void enviarAServicioTecnico();
-	public void avisarNetbookReparada();
+	public void avisarNetbookReparada(String solucion,Date fechaDeSolucion);
 	public void finalizarSolicitud();
 	public void asignarTecnico(Tecnico tecnico);
 }
