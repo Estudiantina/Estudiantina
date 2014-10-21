@@ -20,7 +20,7 @@ import dom.tecnico.Tecnico;
 public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 
 	
-	public String title()
+	public String getNombre()
 	{
 		return "ACEPTADO";
 	}

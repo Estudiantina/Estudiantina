@@ -24,7 +24,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	 * titulo del estado
 	 * return titulo RECIBIDO DEL SERVICIO TECNICO
 	 */
-	public String title()
+	public String getNombre()
 	{
 		return "RECIBIDO DEL SERVICIO TECNICO";
 	}
@@ -85,13 +85,14 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Override
 	public void recibirDeServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		
+		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
 	@Hidden
 	@Override
 	public void enviarAServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 
@@ -106,6 +107,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Override
 	public void finalizarSolicitud() {
 		// TODO Apéndice de método generado automáticamente
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 
@@ -114,9 +116,11 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	public void asignarTecnico(Tecnico tecnico) {
 		// TODO Apéndice de método generado automáticamente
 		
+    	throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
 
+    @Hidden
 	@Override
 	public boolean ocultarAsignarTecnico() {
 		// TODO Apéndice de método generado automáticamente

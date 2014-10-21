@@ -103,16 +103,19 @@ public class SolicitudServicioTecnico {
 	private String codigoSolicitud;
 	private String numeroTiquetRegistro;
 	private String comentario;
-	private IEstadoSolicitudDeServicioTecnico estadoSolicitud;
+	private IEstadoSolicitudDeServicioTecnico estado;
 	private Cerrado estadoCerrado;
 	private EnviadoAlServicioTecnico estadoEnviado;
-	private RecibidoDelServicioTecnico recibido;
+	private RecibidoDelServicioTecnico estadoRecibido;
 	private Aceptado estadoAceptado;
 	private Solicitado estadoSolicitado;
     private Tecnico tecnicoAsignado;
     private Reparado estadoReparado;
 
-    @Hidden
+
+
+
+	@Hidden
     @Column(allowsNull="true")
     public Reparado getEstadoReparado() {
 		return estadoReparado;
@@ -134,23 +137,24 @@ public class SolicitudServicioTecnico {
 
 	public SolicitudServicioTecnico enviarAServicioTecnico()
 	{
-		this.getEstadoSolicitud().enviarAServicioTecnico();
+		this.getEstado().enviarAServicioTecnico();
+		container.informUser("cuando se quiera reparar cliquee en asigne un Tecnico");
 		return this;
 	}
 	
 	public boolean hideEnviarAServicioTecnico()
 	{
-		return this.getEstadoSolicitud().ocultarEnviarAServicioTecnico();
+		return this.getEstado().ocultarEnviarAServicioTecnico();
 	}
 	
 	public SolicitudServicioTecnico recibirDelServicioTecnico()
 	{
-		this.getEstadoSolicitud().recibirDeServicioTecnico();
+		this.getEstado().recibirDeServicioTecnico();
 		return this;
 	}
 	public boolean hideRecibirDelServicioTecnico()
 	{
-		return this.getEstadoSolicitud().ocultarRecibirDelServicioTecnico();
+		return this.getEstado().ocultarRecibirDelServicioTecnico();
 	}
 	
 	public void setTecnicoAsignado(Tecnico tecnicoAsignado) {
@@ -159,28 +163,28 @@ public class SolicitudServicioTecnico {
 
 	public boolean hideTecnicoAsignado()
 	{
-		return this.getEstadoSolicitud().ocultarTecnicoAsignado();
+		return this.getEstado().ocultarTecnicoAsignado();
 	}
 	
 	public SolicitudServicioTecnico asignarTecnico(Tecnico tecnico)
 	{
-		this.estadoSolicitud.asignarTecnico(tecnico);
+		this.estado.asignarTecnico(tecnico);
 		return this;
 	}
 
 	public boolean hideAsignarTecnico()
 	{
-		return this.getEstadoSolicitud().ocultarAsignarTecnico();
+		return this.getEstado().ocultarAsignarTecnico();
 	}
 
 	public boolean hideAvisarPorMailQueEstaLista()
 	{
-		return this.getEstadoSolicitud().ocultarAvisarPorMailQueEstaLista();
+		return this.getEstado().ocultarAvisarPorMailQueEstaLista();
 	}
 
 	public boolean hideImprimir()
 	{
-		return this.getEstadoSolicitud().ocultarImprimir();
+		return this.getEstado().ocultarImprimir();
 	}
 
 
@@ -202,14 +206,14 @@ public class SolicitudServicioTecnico {
 
 	@Hidden
 	@Column(allowsNull="true")
-	public RecibidoDelServicioTecnico getRecibido() {
-		return recibido;
+	public RecibidoDelServicioTecnico getEstadoRecibido() {
+		return estadoRecibido;
 	}
 
 
 
-	public void setRecibido(RecibidoDelServicioTecnico recibido) {
-		this.recibido = recibido;
+	public void setEstadoRecibido(RecibidoDelServicioTecnico estadoRecibido) {
+		this.estadoRecibido = estadoRecibido;
 	}
 
     
@@ -235,8 +239,8 @@ public class SolicitudServicioTecnico {
 		this.estadoAceptado = new Aceptado(this);
 		this.estadoCerrado = new Cerrado(this);
 		this.estadoEnviado = new EnviadoAlServicioTecnico(this);
-		this.recibido = new RecibidoDelServicioTecnico(this);
-		this.estadoSolicitud = this.estadoSolicitado;
+		this.estadoRecibido = new RecibidoDelServicioTecnico(this);
+		this.estado = this.estadoSolicitado;
 	}
 
 	
@@ -276,14 +280,23 @@ public class SolicitudServicioTecnico {
 			@Column(name= "idCerrado"),
 			@Column(name= "idReparado")
 	})
-	@Optional
-	@Hidden(where = Where.PARENTED_TABLES)
-	public IEstadoSolicitudDeServicioTecnico getEstadoSolicitud() {
-		return estadoSolicitud;
+
+	private IEstadoSolicitudDeServicioTecnico getEstado() {
+		return estado;
+	}
+	
+    private void setEstado(IEstadoSolicitudDeServicioTecnico estado) {
+		this.estado = estado;
 	}
 
+
+	public String getNombreEstado()
+	{
+		return estado.getNombre();
+	}
+	
 	public void setEstadoSolicitud(IEstadoSolicitudDeServicioTecnico estadoSolicitud) {
-		this.estadoSolicitud = estadoSolicitud;
+		this.estado = estadoSolicitud;
 	}
 
 	@Column(allowsNull="false")
@@ -317,32 +330,19 @@ public class SolicitudServicioTecnico {
 	public String getMotivoDeSolicitud() {
 		return motivoDeSolicitud;
 	}
-
-
-
-
 	
 	public void setMotivoDeSolicitud(String motivoDeSolicitud) {
 		this.motivoDeSolicitud = motivoDeSolicitud;
 	}
-
-
-
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Date getFechaDeSolicitud() {
 		return fechaDeSolicitud;
 	}
 
-
-
-
-
 	public void setFechaDeSolicitud(Date fechaDeSolicitud) {
 		this.fechaDeSolicitud = fechaDeSolicitud;
 	}
-
-
 
     @Optional
 	@javax.jdo.annotations.Column(allowsNull="true")
@@ -355,8 +355,6 @@ public class SolicitudServicioTecnico {
 	public void setSolucion(String solucion) {
 		this.solucion = solucion;
 	}
-
-
 
 	@Hidden(where = Where.ALL_TABLES)
     @javax.jdo.annotations.Column(allowsNull="true")
@@ -491,7 +489,7 @@ public class SolicitudServicioTecnico {
 		final CuentaMail mimail = container.firstMatch(QueryDefault.create(CuentaMail.class, "traerTodo"));
 		Email.enviarEmail(mimail,mimail.getUsuario(), this.getPersona().getEmail(), "informe de netbook Reparada -("+this.motivoDeSolicitud+")", mensaje);
 	    container.informUser("Se Ha enviado un email avisando que la Netbook fue Reparada");*/
-		this.getEstadoSolicitud().avisarNetbookReparada();
+		this.getEstado().avisarNetbookReparada();
 		return this;
 	}
 	/**
@@ -501,27 +499,27 @@ public class SolicitudServicioTecnico {
 	 */
 	public SolicitudServicioTecnico finalizarSolicitud()
 	{
-		this.getEstadoSolicitud().finalizarSolicitud();
+		this.getEstado().finalizarSolicitud();
 		return this;
 	}
 	
 	@Hidden
 	public boolean hideSolucion()
 	{
-		return this.estadoSolicitud.ocultarSolucion();
+		return this.estado.ocultarSolucion();
 	}
 	
 	@Hidden
 	public boolean hideFechaDeSolucion()
 	{
-		return this.getEstadoSolicitud().ocultarFechaDeSolucion();
+		return this.getEstado().ocultarFechaDeSolucion();
 		
 	}
 	
 	@Hidden
 	public boolean hideFinalizarSolicitud()
 	{
-		return this.getEstadoSolicitud().ocultarFinalizarSolicitud();
+		return this.getEstado().ocultarFinalizarSolicitud();
 	}
 
 	@Bulk //para que ejecute la accion en una lista masiva de objetos

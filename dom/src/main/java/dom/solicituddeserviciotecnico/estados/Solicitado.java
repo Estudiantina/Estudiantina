@@ -25,7 +25,7 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	 * titulo del estado
 	 * return SOLICITADO
 	 */
-	public String title()
+	public String getNombre()
 	{
 		return "SOLICITADO";
 	}

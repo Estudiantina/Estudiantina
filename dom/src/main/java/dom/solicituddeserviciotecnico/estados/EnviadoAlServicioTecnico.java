@@ -24,7 +24,7 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 	 * titulo del estado
 	 * return titulo ENVIADO AL SERVICIO TECNICO
 	 */
-	public String title()
+	public String getNombre()
 	{
 		return "ENVIADO AL SERVICIO TECNICO";
 	}
@@ -48,7 +48,7 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 	@Override
 	public boolean ocultarImprimir() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 
 	
@@ -57,21 +57,21 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 	@Override
 	public boolean ocultarSolucion() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 	
 	@Hidden
 	@Override
 	public boolean ocultarAvisarPorMailQueEstaLista() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 	
 	@Hidden
 	@Override
 	public boolean ocultarFechaDeSolucion() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 	@Hidden
 	@Override
@@ -83,7 +83,7 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 	@Override
 	public void recibirDeServicioTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		this.getSolicitud().setEstadoSolicitud(this.getSolicitud().getRecibido());
+		this.getSolicitud().setEstadoSolicitud(this.getSolicitud().getEstadoRecibido());
 	}
 	@Hidden
 	@Override
@@ -113,13 +113,13 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 	@Override
 	public boolean ocultarAsignarTecnico() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 	@Hidden
 	@Override
 	public boolean ocultarFinalizarSolicitud() {
 		// TODO Apéndice de método generado automáticamente
-		return false;
+		return true;
 	}
 
 	@Override

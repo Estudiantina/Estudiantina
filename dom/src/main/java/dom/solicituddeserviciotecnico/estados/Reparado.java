@@ -26,7 +26,7 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 		this.solicitud = solicitud;
 	}
 
-	public String title()
+	public String getNombre()
 	{
 		return "REPARADO";
 	}

@@ -3,6 +3,7 @@ package dom.solicituddeserviciotecnico.estados;
 import dom.tecnico.Tecnico;
 
 public interface IEstadoSolicitudDeServicioTecnico {
+	public String getNombre();
 	public boolean ocultarImprimir();
 	public boolean ocultarSolucion();
 	public boolean ocultarAvisarPorMailQueEstaLista();

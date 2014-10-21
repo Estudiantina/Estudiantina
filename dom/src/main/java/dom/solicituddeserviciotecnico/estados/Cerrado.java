@@ -24,7 +24,7 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 	 * titulo del estado
 	 * return CERRADO
 	 */
-	public String title()
+	public String getNombre()
 	{
 		return "CERRADO";
 	}
