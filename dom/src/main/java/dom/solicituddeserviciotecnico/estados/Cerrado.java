@@ -45,96 +45,98 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 	@Hidden
 	@Override
 	public boolean ocultarImprimir() {
-		// TODO Apéndice de método generado automáticamente
 		return true;
 	}
 
 	@Hidden
 	@Override
 	public boolean ocultarSolucion() {
-		// TODO Apéndice de método generado automáticamente
+		
 		return false;
 	}
     @Hidden
 	@Override
 	public boolean ocultarAvisarPorMailQueEstaLista() {
-		// TODO Apéndice de método generado automáticamente
+		
 		return true;
 	}
     @Hidden
 	@Override
 	public boolean ocultarFechaDeSolucion() {
-		// TODO Apéndice de método generado automáticamente
+		
 		return false;
 	}
 
     @Hidden
 	@Override
 	public boolean ocultarTecnicoAsignado() {
-		// TODO Apéndice de método generado automáticamente
+		
 		return false;
 	}
 
     @Hidden
 	@Override
 	public void recibirDeServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
+    	throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 
     @Hidden
 	@Override
 	public void enviarAServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
 		
+    	throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
     @Hidden
 	@Override
 	public void avisarNetbookReparada() {
-		// TODO Apéndice de método generado automáticamente
+		
+    	throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 
     @Hidden
 	@Override
 	public void finalizarSolicitud() {
-		// TODO Apéndice de método generado automáticamente
+		
+    	throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 
     @Hidden
 	@Override
 	public void asignarTecnico(Tecnico tecnico) {
-		// TODO Apéndice de método generado automáticamente
+		
+    	throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 
     @Hidden
 	@Override
 	public boolean ocultarAsignarTecnico() {
-		// TODO Apéndice de método generado automáticamente
+		
 		return true;
 	}
 
     @Hidden
 	@Override
 	public boolean ocultarFinalizarSolicitud() {
-		// TODO Apéndice de método generado automáticamente
+		
 		return true;
 	}
 
     @Hidden
 	@Override
 	public boolean ocultarEnviarAServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
+		
 		return true;
 	}
 
 	@Hidden
 	@Override
 	public boolean ocultarRecibirDelServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
+		
 		return true;
 	}
 

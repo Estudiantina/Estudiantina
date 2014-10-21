@@ -285,7 +285,8 @@ public class SolicitudServicioTecnico {
 		return estado;
 	}
 	
-    private void setEstado(IEstadoSolicitudDeServicioTecnico estado) {
+    @SuppressWarnings("unused")
+	private void setEstado(IEstadoSolicitudDeServicioTecnico estado) {
 		this.estado = estado;
 	}
 

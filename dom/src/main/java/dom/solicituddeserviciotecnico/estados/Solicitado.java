@@ -86,35 +86,40 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 		return true;
 	}
 	
-	
+	/**
+	 * recibirDeServicioTecnico
+	 * no esta implementado todavia
+	 */
 	@Hidden
 	@Override
 	public void recibirDeServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
 		
+		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
+	/**
+	 * eviarAlServicioTecnico
+	 * no esta implementado todavia
+	 */
 	@Hidden
 	@Override
 	public void enviarAServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
-		
+		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 	@Hidden
 	@Override
 	public void avisarNetbookReparada() {
-		// TODO Apéndice de método generado automáticamente
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 	@Hidden
 	@Override
 	public void finalizarSolicitud() {
-		// TODO Apéndice de método generado automáticamente
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 	@Hidden
 	@Override
 	public void asignarTecnico(Tecnico tecnico) {
-		// TODO Apéndice de método generado automáticamente
 		this.solicitud.setTecnicoAsignado(tecnico);
 		this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoAceptado());
 		
@@ -122,25 +127,21 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	
 	@Override
 	public boolean ocultarAsignarTecnico() {
-		// TODO Apéndice de método generado automáticamente
 		return false;
 	}
 	@Hidden
 	@Override
 	public boolean ocultarFinalizarSolicitud() {
-		// TODO Apéndice de método generado automáticamente
 		return true;
 	}
 	@Hidden
 	@Override
 	public boolean ocultarEnviarAServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
 		return true;
 	}
 	@Hidden
 	@Override
 	public boolean ocultarRecibirDelServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
 		return true;
 	}
 
