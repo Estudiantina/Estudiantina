@@ -100,7 +100,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Override
 	public void avisarNetbookReparada() {
 	
-		this.solicitud.setEstadoSolicitud(this.getSolicitud().getEstadoReparado());
+		this.solicitud.setEstado(this.getSolicitud().getEstadoReparado());
 	}
 
 	@Hidden

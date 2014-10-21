@@ -285,10 +285,6 @@ public class SolicitudServicioTecnico {
 		return estado;
 	}
 	
-    @SuppressWarnings("unused")
-	private void setEstado(IEstadoSolicitudDeServicioTecnico estado) {
-		this.estado = estado;
-	}
 
 
 	public String getNombreEstado()
@@ -296,7 +292,7 @@ public class SolicitudServicioTecnico {
 		return estado.getNombre();
 	}
 	
-	public void setEstadoSolicitud(IEstadoSolicitudDeServicioTecnico estadoSolicitud) {
+	public void setEstado(IEstadoSolicitudDeServicioTecnico estadoSolicitud) {
 		this.estado = estadoSolicitud;
 	}
 
@@ -480,16 +476,24 @@ public class SolicitudServicioTecnico {
 	@Named("Avisar Netbook Reparada")
 	public SolicitudServicioTecnico avisarPorMailQueEstaLista()
 	{
-		
-		/*String mensaje ="Hola "+this.getPersona().getNombre()+" "+this.getPersona().getApellido()+"\n";
+		try
+		{
+		String mensaje ="Hola "+this.getPersona().getNombre()+" "+this.getPersona().getApellido()+"\n";
 		mensaje += "\n Nos Comunicamos para informale que";
 		mensaje += "\n ya se finalizo la reparacion de la Netbook";
 		mensaje += "\n el motivo por el cual se habia pedido la reparacion es: \n"+this.comentario+"\n \n";
-		mensaje += "\n esperamos que se acerque a nuestro establecimiento \n";
-		
+		mensaje += "\n esperamos que se acerque a nuestro establecimiento \n";	
 		final CuentaMail mimail = container.firstMatch(QueryDefault.create(CuentaMail.class, "traerTodo"));
 		Email.enviarEmail(mimail,mimail.getUsuario(), this.getPersona().getEmail(), "informe de netbook Reparada -("+this.motivoDeSolicitud+")", mensaje);
-	    container.informUser("Se Ha enviado un email avisando que la Netbook fue Reparada");*/
+		}
+		catch (Exception ex)
+		{
+			container.informUser("no se ha podido enviar el email por favor configurelo");
+		}
+		finally
+		{
+		container.informUser("Se Ha enviado un email avisando que la Netbook fue Reparada");
+		}
 		this.getEstado().avisarNetbookReparada();
 		return this;
 	}

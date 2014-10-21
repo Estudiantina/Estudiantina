@@ -34,7 +34,6 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 	 * constructor
 	 */
 	public EnviadoAlServicioTecnico(SolicitudServicioTecnico solicitud) {
-		super();
 		this.solicitud = solicitud;
 	}
 	
@@ -78,8 +77,7 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 	@Hidden
 	@Override
 	public void recibirDeServicioTecnico() {
-		// TODO Apéndice de método generado automáticamente
-		this.getSolicitud().setEstadoSolicitud(this.getSolicitud().getEstadoRecibido());
+		this.getSolicitud().setEstado(this.getSolicitud().getEstadoRecibido());
 	}
 	@Hidden
 	@Override

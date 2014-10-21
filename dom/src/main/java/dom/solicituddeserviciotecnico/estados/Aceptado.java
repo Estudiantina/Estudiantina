@@ -96,7 +96,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	@Override
 	public void enviarAServicioTecnico() {
 		container.informUser("se ha enviado la Netbook al servicio Tecnico de BS AS");
-		this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoEnviado());
+		this.solicitud.setEstado(this.solicitud.getEstadoEnviado());
 		
 	}
 	/**
@@ -106,7 +106,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	@Override
 	public void avisarNetbookReparada() {
 		container.informUser("la netbook ha pasado a estar reparada");
-		this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoReparado());
+		this.solicitud.setEstado(this.solicitud.getEstadoReparado());
 		
 	}
     @Hidden
@@ -114,7 +114,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	public void finalizarSolicitud() {
 		// TODO Apéndice de método generado automáticamente
     	container.informUser("la solicitud se ha cerrado correctamente");
-    	this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoCerrado());
+    	this.solicitud.setEstado(this.solicitud.getEstadoCerrado());
     	
 	}
 	@Hidden

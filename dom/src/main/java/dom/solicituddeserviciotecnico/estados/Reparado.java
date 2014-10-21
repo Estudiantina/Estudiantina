@@ -86,7 +86,7 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	@Hidden
 	@Override
 	public void finalizarSolicitud() {
-		this.solicitud.setEstadoSolicitud(this.solicitud.getEstadoCerrado());
+		this.solicitud.setEstado(this.solicitud.getEstadoCerrado());
 	}
 	@Hidden
 	@Override
