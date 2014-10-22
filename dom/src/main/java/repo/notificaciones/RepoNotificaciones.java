@@ -14,8 +14,6 @@ package repo.notificaciones;
 
 import java.util.List;
 
-
-
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Optional;
@@ -25,8 +23,6 @@ import org.joda.time.LocalDate;
 import dom.login.Login;
 import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
-import dom.notificaciones.SolicitudContratoComodato;
-
 
 @Named("Solicitudes")
 public class RepoNotificaciones extends AbstractFactoryAndRepository {
@@ -51,17 +47,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		return "Se Ha solicitado un nuevo certificado";
 	}
 
-    public String SolicitarContratoComodato()
-    {
-    	SolicitudContratoComodato solicitudContratoComodato = container.newTransientInstance(SolicitudContratoComodato.class);
-    	Login log =firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",container.getUser().getName()));
-    	LocalDate fecha = new LocalDate();
-    	solicitudContratoComodato.setFechaNotificacion(fecha);
-    	solicitudContratoComodato.setPersona(log.getPersona());
-    	container.persistIfNotAlready(solicitudContratoComodato);
-    	return "el contrato de comodato se ha solicitado correctamente";
-    }
-	
+  	
 	@Named("Notificaciones No Leidas")
 	public List<Notificaciones> verNotificacionesNoLeidas()
 	{		
@@ -75,7 +61,6 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificaciones"));
 		
 	}
-
 
 	@Named("Notificaciones de Hoy")
 	public List<Notificaciones> verNotificaciones()
