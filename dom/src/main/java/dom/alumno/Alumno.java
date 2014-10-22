@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Element;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
@@ -55,9 +56,15 @@ import javax.jdo.annotations.InheritanceStrategy;
 
 
 
+
+
+
+
 import repo.persona.RepositorioPersona;
 import servicio.reporte.GeneradorReporte;
 import dom.curso.Curso;
+import dom.directivo.Directivo;
+import dom.establecimiento.Establecimiento;
 import dom.localidad.Departamento;
 import dom.localidad.Localidad;
 import dom.localidad.Provincia;
@@ -79,6 +86,7 @@ import dom.tutor.Tutor;
 @ObjectType("ALUMNO")
 public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	
+
 	/**
 	 * metodo que indica el titulo en el viewer
 	 * super hace referencia a la clase Persona
@@ -268,15 +276,104 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	}
 	
 	
+	@Named("Imprimir Constrato Conmodato")
+	public Blob imprimir() throws JRException, FileNotFoundException  
+    {
+    	HashMap<String,Object> parametros = new HashMap<String, Object>();
+    	
+    	 	Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.getCuil()));
+	    	Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
+	    	parametros.put("distritoEscolar", establecimiento.getDistritoEscolar());
+	    	parametros.put("ciudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());	    	
+	    	parametros.put("nombreEstablecimiento", establecimiento.getNombre());
+	    	parametros.put("domicilioEstablecimiento", establecimiento.getDireccion());
+	    	parametros.put("Establecimiento", establecimiento.getNombre());
+	    	parametros.put("cudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());
+	    	
+	    	if (this.getTutor()==null)
+		    {
+		         parametros.put("nombreTutor", "");
+		       //PARAMETROS DEL TUTOR	    	
+			    	parametros.put("dniTutor","");
+			    	parametros.put("domicilio","");
+			    	parametros.put("domicilioDpto","");
+			    	parametros.put("ciudadTutor","");
+			    	parametros.put("ProvinciaTutor","");
+			
+		    }
+		    else
+		    {
+		          parametros.put("nombreTutor", this.getTutor().getApellido()+" "+this.getTutor().getNombre());
+		          //PARAMETROS DEL TUTOR	    	
+	    	      parametros.put("dniTutor",this.getTutor().getCuil());
+	    	      parametros.put("domicilio",this.getTutor().getDomicilio());
+	    	      parametros.put("domicilioDpto",this.getTutor().getPiso());
+	    	      parametros.put("ciudadTutor",this.getTutor().getLocalidad().toString());
+	    	      parametros.put("ProvinciaTutor","");
+	  			
+	    	
+		    }
+	    	
+	    	Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getEstablecimiento().getLocalidad().getCodigoPostal()));
+		    Departamento departamentoEstablecimiento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidadEstablecimiento.getDepartamento().getNombreDepartamento()));
+		  
+		    parametros.put("provinciaEstablecimiento", departamentoEstablecimiento.getProvincia().getNombreProvincia());
+	    		    		
+	    	Localidad localidad = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal","codigo",establecimiento.getLocalidad().getCodigoPostal()));
+	    	Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre",localidad.getDepartamento().getNombreDepartamento()));
+	    	
+	    	if (super.getEstablecimiento().getDirectivo()==null)
+		    {
+		         parametros.put("nombreDirector", "");
+		      	 parametros.put("dniDirector", "");
+		    }
+		    else
+		    {
+		    	parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
+		     	parametros.put("dniDirector", super.getEstablecimiento().getDirectivo().getCuil());
+		    }
+	    		   
+	    	parametros.put("direccionEstablecimiento", establecimiento.getDireccion());
+	    	parametros.put("provincia", departamento.getProvincia().getNombreProvincia());
+	    	parametros.put("DniAlumno", String(super.getCuil()));
+	    	parametros.put("caracterTutor", super.getApellido()+" "+super.getNombre());
+	    		    	   		    	
+	    	//parametros.put("dniDirector", directivo.getCuil()+"");
+	    	//consulta establecimiento
+
+	    	parametros.put("nombreEstablecimiento",establecimiento.getNombre());
+	    	parametros.put("Curso", this.getCursos().first().getAnio());
+	    	parametros.put("Turno", this.cursos.first().getTurno().toString());
+	    	parametros.put("division", this.cursos.first().getDivision());
+        		
+	    	//Netbook
+	    	if (super.getNetbooks()==null)
+		    {
+	    		parametros.put("modeloNetbook","");
+		    	  parametros.put("numeroSerieNetbook","");
+		    }
+		    else
+		    {
+		    	parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
+		    	parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
+		    }
+	    	  
+	    	
+    	return servicio.reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
+    }
 	
-	
+	private Object Long(Long cuil) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	private Object String(Long cuil) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	@javax.inject.Inject 
     DomainObjectContainer container;
-
-
-
-
-
 
 	@Override
 	public int compareTo(Alumno alumno) {
@@ -284,7 +381,4 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		return ObjectContracts.compare(this, alumno, "cuil");
 	}
 
-
-
-	
 }
