@@ -285,7 +285,7 @@ public class SolicitudServicioTecnico {
 		return estado;
 	}
 	
-
+	@Hidden(where = Where.PARENTED_TABLES)
 	@Named("Estado")
 	public String getNombreEstado()
 	{
