@@ -286,7 +286,7 @@ public class SolicitudServicioTecnico {
 	}
 	
 
-
+	@Named("Estado")
 	public String getNombreEstado()
 	{
 		return estado.getNombre();
