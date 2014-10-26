@@ -3,10 +3,10 @@
 	<property name="ireport.zoom" value="0.75"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<variable name="alumno" class="java.lang.String"/>
-	<variable name="anoydivision" class="java.lang.String"/>
-	<variable name="presentar" class="java.lang.String"/>
-	<variable name="fechahoy" class="java.lang.String"/>
+	<parameter name="alumno" class="java.lang.String"/>
+	<parameter name="anoydivision" class="java.lang.String"/>
+	<parameter name="presentar" class="java.lang.String"/>
+	<parameter name="fechahoy" class="java.lang.String"/>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
