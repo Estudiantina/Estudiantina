@@ -86,7 +86,7 @@ import dom.tecnico.Tecnico;
 @javax.jdo.annotations.Uniques({
     @javax.jdo.annotations.Unique(
             name="SolicitudServicioTecnico_Campos_unicos", 
-            members={"codigoSolicitud","numeroTiquetRegistro"})
+            members={"codigoSolicitud"})
 })
 @ObjectType("SERVICIOTECNICO")
 @Bookmarkable
@@ -101,7 +101,7 @@ public class SolicitudServicioTecnico {
 	private Prioridad prioridad;
 	private Netbook netbook ;
 	private String codigoSolicitud;
-	private String numeroTiquetRegistro;
+	//private String numeroTiquetRegistro;
 	private String comentario;
 	private IEstadoSolicitudDeServicioTecnico estado;
 	private Cerrado estadoCerrado;
@@ -112,21 +112,15 @@ public class SolicitudServicioTecnico {
     private Tecnico tecnicoAsignado;
     private Reparado estadoReparado;
 
-
-
-
 	@Hidden
     @Column(allowsNull="true")
     public Reparado getEstadoReparado() {
 		return estadoReparado;
 	}
 
-
-
 	public void setEstadoReparado(Reparado estadoReparado) {
 		this.estadoReparado = estadoReparado;
 	}
-
 
 
 	@Column(allowsNull="true")
@@ -187,22 +181,16 @@ public class SolicitudServicioTecnico {
 		return this.getEstado().ocultarImprimir();
 	}
 
-
-
-
+	
 	@Hidden
 	@Column(allowsNull="true")
     public EnviadoAlServicioTecnico getEstadoEnviado() {
 		return estadoEnviado;
 	}
 
-
-
 	public void setEstadoEnviado(EnviadoAlServicioTecnico estadoEnviado) {
 		this.estadoEnviado = estadoEnviado;
 	}
-
-
 
 	@Hidden
 	@Column(allowsNull="true")
@@ -210,14 +198,9 @@ public class SolicitudServicioTecnico {
 		return estadoRecibido;
 	}
 
-
-
 	public void setEstadoRecibido(RecibidoDelServicioTecnico estadoRecibido) {
 		this.estadoRecibido = estadoRecibido;
 	}
-
-    
-
 
 	@Hidden
 	@Column(allowsNull="true")
@@ -225,12 +208,9 @@ public class SolicitudServicioTecnico {
 		return estadoAceptado;
 	}
 
-
-
 	public void setEstadoAceptado(Aceptado estadoAceptado) {
 		this.estadoAceptado = estadoAceptado;
 	}
-
 
 
 	public SolicitudServicioTecnico() {
@@ -243,7 +223,6 @@ public class SolicitudServicioTecnico {
 		this.estado = this.estadoSolicitado;
 	}
 
-	
 	
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
@@ -318,10 +297,6 @@ public class SolicitudServicioTecnico {
 		this.netbook = netbook;
 	}
 	
-
-	
-	
-	
 	@Title
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getMotivoDeSolicitud() {
@@ -360,15 +335,9 @@ public class SolicitudServicioTecnico {
 		return fechaDeSolucion;
 	}
 
-
-
-
-
 	public void setFechaDeSolucion(Date fechaDeSolucion) {
 		this.fechaDeSolucion = fechaDeSolucion;
 	}
-
-
 
 	@Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="false")
@@ -376,47 +345,34 @@ public class SolicitudServicioTecnico {
 		return prioridad;
 	}
 
-
-
-
     
 	public void setPrioridad(Prioridad prioridad) {
 		this.prioridad = prioridad;
 	}
 
-
-
 	@Hidden(where = Where.ALL_TABLES)
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="true")
+	 @Optional
 	public String getCodigoSolicitud() {
 		return codigoSolicitud;
 	}
-
-
-
 
     @Unique
 	public void setCodigoSolicitud(String codigoSolicitud) {
 		this.codigoSolicitud = codigoSolicitud;
 	}
 
-
-
+    /*
     @Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getNumeroTiquetRegistro() {
 		return numeroTiquetRegistro;
 	}
 
-
-
-
-
 	public void setNumeroTiquetRegistro(String numeroTiquetRegistro) {
 		this.numeroTiquetRegistro = numeroTiquetRegistro;
-	}
-
-
+	}*/
+	
 	@Hidden(where = Where.ALL_TABLES)
     @MultiLine
     @javax.jdo.annotations.Column(allowsNull="true")
@@ -424,11 +380,7 @@ public class SolicitudServicioTecnico {
 		return comentario;
 	}
 
-    
-
-
-
-	public void setComentario(String comentario) {
+    public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
 

@@ -23,10 +23,8 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 
 import dom.netbook.Netbook;
-import dom.persona.Persona;
 import dom.solicituddeserviciotecnico.Prioridad;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
-import dom.solicituddeserviciotecnico.estados.Solicitado;
 
 
 @Named("Servicio Tecnico")
@@ -44,8 +42,8 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			@Named("motivo de solicitud")final String motivoDeSolicitud,
 			@Named("fecha de solicitud")Date fechaDeSolicitud,
 			@Named("prioridad")Prioridad prioridad,
-			@Named("Codigo de Solicitud")String codigoSolicitud,
-			@Named("Numero de Tiquet de Registro")String numeroTiquetRegistro,
+			@Named("Numero de Solicitud del Servicio Tecnico")String codigoSolicitud,
+			//@Named("Numero de Tiquet de Registro")String numeroTiquetRegistro,
 			@Named("Comentario")@Optional @MultiLine String comentario
             )
 	{
@@ -58,7 +56,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	    servicioTecnico.setMotivoDeSolicitud(motivoDeSolicitud);
 	    servicioTecnico.setPrioridad(prioridad);
 	    servicioTecnico.setSolucion("");
-	    servicioTecnico.setNumeroTiquetRegistro(numeroTiquetRegistro);
+	    //servicioTecnico.setNumeroTiquetRegistro(numeroTiquetRegistro);
 	   
 	    container.persistIfNotAlready(servicioTecnico);
 		return servicioTecnico;	
