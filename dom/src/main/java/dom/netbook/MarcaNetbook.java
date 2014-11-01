@@ -12,8 +12,9 @@
  */
 package dom.netbook;
 
-public enum ModeloNetbook {
-	BANGHO, CDR, CX_EDU, DEPOT, EDUNEC, EXO, LENOVO, MAGHALLAES, NOBLEX, POSITIVO, SAMSUNG	
+public enum MarcaNetbook {
+	 BANGHO, CDR, CX_EDU, DEPOT, EDUNEC, EXO, LENOVO, MAGHALLAES, NOBLEX, POSITIVO, SAMSUNG
+	
 }
 
 

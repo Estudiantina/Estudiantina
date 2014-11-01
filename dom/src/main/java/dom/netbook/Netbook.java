@@ -1,6 +1,5 @@
 package dom.netbook;
 
-
 import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.HashMap;
