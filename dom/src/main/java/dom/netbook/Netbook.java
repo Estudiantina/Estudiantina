@@ -60,8 +60,6 @@ import org.apache.isis.applib.annotation.CssClass;
 
 public class Netbook implements Comparable<Netbook> {
 	
-	
-
 	private String idNetbook;
 	private ModeloNetbook modelo; //TODO reemplazar por marca desde dominio
 	private String numeroDeSerie;
@@ -80,8 +78,6 @@ public class Netbook implements Comparable<Netbook> {
 		this.persona = persona;
 	}
 	
-
-	
 	public void modifyPersona(Persona p) {
         if(p==null || persona==p) return;
         if(persona != null) {
@@ -93,15 +89,10 @@ public class Netbook implements Comparable<Netbook> {
         if(persona==null) return;
         persona.removeFromNetbooks(this);
     }
-	
-	
+		
 	public String iconName() {
         return "netbook";
     }
-    
-	
-    
-
     
     @Column(allowsNull="false",length=17)
 	@MemberOrder(name="Informacion De Hardware", sequence="1")
@@ -122,7 +113,6 @@ public class Netbook implements Comparable<Netbook> {
 	public void setModelo(ModeloNetbook modelo) {
 		this.modelo = modelo;
 	}
-	
 	
 	@Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software", sequence="1")
@@ -145,15 +135,12 @@ public class Netbook implements Comparable<Netbook> {
         return this.traerTodas(); 
     }
 	
-	
-	
     @Programmatic
     public List<Netbook> traerTodas() {
         return container.allMatches(
             new QueryDefault<Netbook>(Netbook.class, 
                     "traerTodo"));
     }
-	
 	
 	@Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software",sequence="2")
@@ -164,7 +151,6 @@ public class Netbook implements Comparable<Netbook> {
 	public void setNumeroLicenciaWindows(String numeroLicenciaWindows) {
 		this.numeroLicenciaWindows = numeroLicenciaWindows;
 	}
-	
 	
 	@Column(allowsNull="true")
 	@Optional
@@ -177,10 +163,6 @@ public class Netbook implements Comparable<Netbook> {
 		this.fechaDeExpiracion = fechaDeExpiracion;
 	}
 	
-	
-	
-	
-	
 	@MemberOrder(name="Informacion General",sequence="2")
 	@Column(allowsNull="false",length=10)
 	public String getSituacionDeNetbook() {
@@ -189,7 +171,6 @@ public class Netbook implements Comparable<Netbook> {
 	public void setSituacionDeNetbook(String situacionDeNetbook) {
 		this.situacionDeNetbook = situacionDeNetbook;
 	}
-	
 	
 	@Unique
 	@Column(allowsNull="false",length=10)
@@ -203,8 +184,6 @@ public class Netbook implements Comparable<Netbook> {
 		this.idNetbook = idNetbook;
 	}
 	
-
-	
 	@Optional
 	@Column(allowsNull="true",length=30)
 	@MemberOrder(name="Informacion General",sequence="4")
@@ -217,8 +196,7 @@ public class Netbook implements Comparable<Netbook> {
 		this.numeroDeActaDeRobo = numeroDeActaDeRobo;
 	}
 
-     
-     /**
+      /**
       * TODO ImprimirReporte
       * TODO Generar acta de migracion de la netbook 
       * el metodo esta incompleto 
@@ -262,7 +240,6 @@ public class Netbook implements Comparable<Netbook> {
  		
  		} else {
  			
- 			
  			parametros.put("distrito", "");
  			parametros.put("cue", "");
  			parametros.put("emailEstablecimiento", "");
@@ -302,7 +279,6 @@ public class Netbook implements Comparable<Netbook> {
 		
 		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", this.getPersona().getCuil() ));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
-
 		
 		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
 		parametros.put("cursoAlumno", "");
@@ -310,8 +286,7 @@ public class Netbook implements Comparable<Netbook> {
 		parametros.put("marcaNetbook", this.getModelo());
 		parametros.put("serieNetbook", this.getNumeroDeSerie());
 		parametros.put("nombreTutor","");
-		
-			
+					
 		      if (establecimiento.getDirectivo() != null){
 		
 	          parametros.put("nombreDirector", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre() );
@@ -333,11 +308,9 @@ public class Netbook implements Comparable<Netbook> {
 		}
 		
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaAutorizacionPrestamoNet.jrxml", parametros, "Solicitud");
-		
-	}
+		}
    
-   
-   /**
+    /**
     * TODO ImprimirReporte
     * TODO Generar acta de recepcion de equipo
     * el metodo esta incompleto solo para prueba
@@ -380,10 +353,6 @@ public class Netbook implements Comparable<Netbook> {
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/reciboNetbook.jrxml", parametros, "Solicitud");
 		
 	}
-   
-   
-   
-
 
 	@javax.inject.Inject
     private DomainObjectContainer container;
@@ -391,6 +360,4 @@ public class Netbook implements Comparable<Netbook> {
 	public int compareTo(Netbook o) {
 		return ObjectContracts.compare(this, o, "idNetbook");
 	}
-
-	
 }
