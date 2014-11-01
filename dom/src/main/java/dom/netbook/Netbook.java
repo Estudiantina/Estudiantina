@@ -60,7 +60,8 @@ import org.apache.isis.applib.annotation.CssClass;
 public class Netbook implements Comparable<Netbook> {
 	
 	private String idNetbook;
-	private ModeloNetbook modelo; //TODO reemplazar por marca desde dominio
+	private ModeloNetbook modelo;
+	// private MarcaNetbook marca;
 	private String numeroDeSerie;
 	private String numeroLicenciaWindows;
 	private Date fechaDeExpiracion;
