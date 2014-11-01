@@ -58,12 +58,18 @@ import repo.curso.RepositorioCurso;
 @Audited
 public class Curso implements Comparable<Curso> {
 	
-	private String anio;
-	private String division;
+	private Anio  anio;
+	private Division division;
 	//TODO separar año y division
 	private int cicloLectivo;
 	private Turno turno;
 	private Establecimiento establecimiento;
+	
+	/*
+	 * agregar alumno al curso
+	 * 
+	 */
+	
 	private SortedSet<Alumno> listaAlumnos = new TreeSet<Alumno>();
 	
 	@Persistent(mappedBy="cursos")
@@ -71,27 +77,7 @@ public class Curso implements Comparable<Curso> {
 	public SortedSet<Alumno> getListaAlumnos() {
 		return listaAlumnos;
 	}
-	@javax.jdo.annotations.Column(allowsNull="false")
 	
-	public String getAnio() {
-		return anio;
-	}	
-	public void setAnio(String anio) {
-		this.anio = anio;
-	}
-	
-
-	
-	
-	@javax.jdo.annotations.Column(allowsNull="false")	
-	public String getDivision() {
-		return division;
-	}
-
-	public void setDivision(String division) {
-		this.division = division;
-	}
-
 	public void setListaAlumnos(SortedSet<Alumno> listaAlumnos) {
 		this.listaAlumnos = listaAlumnos;
 	}
@@ -106,6 +92,24 @@ public class Curso implements Comparable<Curso> {
 	    listaAlumnos.remove(alumno);
 	    alumno.getCursos().remove(this);
 	    return this;
+	}
+	
+	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public Anio getAnio() {
+		return anio;
+	}	
+	public void setAnio(Anio anio) {
+		this.anio = anio;
+	}
+		
+	@javax.jdo.annotations.Column(allowsNull="false")	
+	public Division getDivision() {
+		return division;
+	}
+
+	public void setDivision(Division division) {
+		this.division = division;
 	}
 
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
@@ -131,8 +135,6 @@ public class Curso implements Comparable<Curso> {
         return "curso";
     }
 	
-
-
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public int getCicloLectivo() {
 		return cicloLectivo;
@@ -175,10 +177,6 @@ public class Curso implements Comparable<Curso> {
 	public void setDomainObjectContainer(final DomainObjectContainer container){
 		this.container = container;
 	}
-	
-
-
-	
 
 	@Override
 	public int compareTo(Curso curso) {

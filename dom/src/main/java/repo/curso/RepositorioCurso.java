@@ -22,7 +22,9 @@ import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
+import dom.curso.Anio;
 import dom.curso.Curso;
+import dom.curso.Division;
 import dom.curso.Turno;
 import dom.establecimiento.Establecimiento;
 
@@ -44,8 +46,8 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 	 */
 	public Curso ingresarCurso (
 			@Named("Establecimiento")final Establecimiento establecimiento,
-			@Named("AÑO")final String anio,
-			@Named("division")final String division,
+			@Named("AÑO")final Anio anio,
+			@Named("division")final Division division,
 			@Named("ciclo lectivo")final int cicloLectivo,
 			@Named("Turno")final Turno turno
 			
