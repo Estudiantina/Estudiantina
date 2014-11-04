@@ -98,7 +98,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	@Override
 	public void enviarAServicioTecnico() {
 		container.informUser("se ha enviado la Netbook al servicio Tecnico de BS AS");
-		this.solicitud.setEstado(this.solicitud.getEstadoEnviado());
+		this.getSolicitud().setEstado(this.solicitud.getEstadoEnviado());
 		
 	}
 	/**
@@ -107,10 +107,10 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	@Hidden
 	@Override
 	public void avisarNetbookReparada(String solucion,Date fechaDeSolucion) {
-		this.solicitud.setSolucion(solucion);
-		this.solicitud.setFechaDeSolucion(fechaDeSolucion);
+		this.getSolicitud().setSolucion(solucion);
+		this.getSolicitud().setFechaDeSolucion(fechaDeSolucion);
 		container.informUser("la netbook ha pasado a estar reparada");
-		this.solicitud.setEstado(this.solicitud.getEstadoReparado());
+		this.getSolicitud().setEstado(this.solicitud.getEstadoReparado());
 		
 	}
     @Hidden
@@ -118,7 +118,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	public void finalizarSolicitud() {
 		// TODO Apéndice de método generado automáticamente
     	container.informUser("la solicitud se ha cerrado correctamente");
-    	this.solicitud.setEstado(this.solicitud.getEstadoCerrado());
+    	this.getSolicitud().setEstado(this.solicitud.getEstadoCerrado());
     	
 	}
 	@Hidden
