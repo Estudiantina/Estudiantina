@@ -47,12 +47,8 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	public SolicitudServicioTecnico getSolicitud() {
+	private SolicitudServicioTecnico getSolicitud() {
 		return solicitud;
-	}
-
-	public void setSolicitud(SolicitudServicioTecnico solicitud) {
-		this.solicitud = solicitud;
 	}
 	
 	/**
@@ -122,8 +118,8 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	@Hidden
 	@Override
 	public void asignarTecnico(Tecnico tecnico) {
-		this.solicitud.setTecnicoAsignado(tecnico);
-		this.solicitud.setEstado(this.solicitud.getEstadoAceptado());
+		this.getSolicitud().setTecnicoAsignado(tecnico);
+		this.getSolicitud().setEstado(this.solicitud.getEstadoAceptado());
 		
 	}
 	
