@@ -101,7 +101,6 @@ public class SolicitudServicioTecnico {
 	private Prioridad prioridad;
 	private Netbook netbook ;
 	private String codigoSolicitud;
-	//private String numeroTiquetRegistro;
 	private String comentario;
 	private IEstadoSolicitudDeServicioTecnico estado;
 	private Cerrado estadoCerrado;

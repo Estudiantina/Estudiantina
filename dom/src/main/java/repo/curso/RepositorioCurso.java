@@ -74,7 +74,10 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 	@Hidden
 	public List<Curso> autoComplete(String busqueda)
 	{
-		return allMatches(QueryDefault.create(Curso.class, "traerCursoPorlikeAnio","anoYdivision",busqueda));
+        Anio anio = Anio.valueOf(busqueda.split(" ")[0]);
+        Division division = Division.valueOf(busqueda.split(" ")[1]);
+        
+		return allMatches(QueryDefault.create(Curso.class, "traerCursoPorlikeAnio","anio",anio,"division",division));
 		
 	}
 	/**
