@@ -24,6 +24,10 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 
 	private SolicitudServicioTecnico solicitud;
 	
+	private SolicitudServicioTecnico getSolicitud() {
+		return solicitud;
+	}
+
 	public Reparado(SolicitudServicioTecnico solicitud) {
 		this.solicitud = solicitud;
 	}
@@ -88,7 +92,7 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	@Hidden
 	@Override
 	public void finalizarSolicitud() {
-		this.solicitud.setEstado(this.solicitud.getEstadoCerrado());
+		this.getSolicitud().setEstado(this.getSolicitud().getEstadoCerrado());
 	}
 	@Hidden
 	@Override
