@@ -425,7 +425,7 @@ public class SolicitudServicioTecnico {
 		
 	}
 	@Named("Avisar Netbook Reparada")
-	public SolicitudServicioTecnico avisarPorMailQueEstaLista(String solucion, Date fechaDeSolucion)
+	public SolicitudServicioTecnico avisarPorMailQueEstaLista(@Named("Solucion") String solucion,@Named("Fecha Solucion") Date fechaDeSolucion)
 	{
 		try
 		{
