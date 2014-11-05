@@ -50,7 +50,11 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	private SolicitudServicioTecnico getSolicitud() {
 		return solicitud;
 	}
-	
+	@SuppressWarnings("unused")
+	private void setSolicitud(SolicitudServicioTecnico solicitud) {
+		this.solicitud = solicitud;
+	}
+
 	/**
 	 * cuando se solicita se oculta la solucion
 	 */
@@ -119,7 +123,7 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	@Override
 	public void asignarTecnico(Tecnico tecnico) {
 		this.getSolicitud().setTecnicoAsignado(tecnico);
-		this.getSolicitud().setEstado(this.solicitud.getEstadoAceptado());
+		this.getSolicitud().setEstado(this.getSolicitud().getEstadoAceptado());
 		
 	}
 	
