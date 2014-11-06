@@ -12,6 +12,7 @@
  */
 package dom.persona;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,9 +32,11 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.CssClass;
+import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.NotPersisted;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Programmatic;
@@ -73,8 +76,12 @@ import dom.netbook.Netbook;
 @Audited
 @Bookmarkable
 @ObjectType("Persona")
-public class Persona implements Locatable{
+public class Persona implements Locatable,Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5632539687009387987L;
 	private Long cuil;
 	private String nombre;
 	private String apellido;
@@ -89,7 +96,6 @@ public class Persona implements Locatable{
 	private Establecimiento establecimiento;
 	private Localidad localidad;
 	private Sexo sexo;
-    
 	@Column(allowsNull="true")
 	public int getAlturaDomiculio() {
 		return alturaDomiculio;
