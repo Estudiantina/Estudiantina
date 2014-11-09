@@ -85,9 +85,4 @@ public class Notificaciones {
 	public void setVista(boolean vista) {
 		this.vista = vista;
 	}
-    
-	
-
-	
-	
 }

@@ -162,8 +162,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				final Sexo sexo,
 				final EstadoDeAlumno estadoDeAlumno
 				
-
-			
 			) {
         return validarDatosDeAlumno(cuil,fechaNacimiento,fechaIngreso);
     }
@@ -286,13 +284,10 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		directivo.setSexo(sexo);
 		
 		container.persistIfNotAlready(directivo);
-	
-	
+
 	return directivo;
 	
 	}
-	
-	
 	
 	public Docente ingresarDocente (
 			@Named("Establecimiento") final Establecimiento establecimiento,
@@ -334,8 +329,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return docente;
 	
 	}
-	
-	
+		
 	public Tutor ingresarTutor (
 			@Named("Establecimiento") final Establecimiento establecimiento,
 			@Named("CUIL") final Long cuil,
@@ -387,16 +381,13 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		
 	}
     
-    
     @Hidden
 	public List<Tutor> autoCompletarTutor (@Named("Ingrese CUIL")String searchPhrase)
 	{
 		Long temp = Long.parseLong(searchPhrase);
 		return allMatches(QueryDefault.create(Tutor.class, "traerTutorPorcuil","cuil",temp));
-		
 	}
-	
-	
+
     /**
 	 * Listar los alumnos por estados.
 	 * @return List<Alumno>
@@ -407,10 +398,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Alumno.class, "traerPorEstado", "estadoDeAlumno", estado));
 	}
     
-        
-	@javax.inject.Inject 
-    DomainObjectContainer container;
-    
-    
-    
+ 	@javax.inject.Inject 
+    DomainObjectContainer container;   
 }

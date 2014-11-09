@@ -52,22 +52,15 @@ public class Docente extends Persona{
 
 	public String cargo;
 	public List<Establecimiento> establecimientos = new ArrayList<Establecimiento>();
-	
-	
-	
+		
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getCargo() {
 		return cargo;
 	}
 
-
-
-
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-
-
 
 	@Render(Type.EAGERLY)
     @Join
@@ -75,9 +68,6 @@ public class Docente extends Persona{
 	public List<Establecimiento> getEstablecimientos() {
 		return establecimientos;
 	}
-
-
-
 
 	public void setEstablecimientos(List<Establecimiento> establecimientos) {
 		this.establecimientos = establecimientos;

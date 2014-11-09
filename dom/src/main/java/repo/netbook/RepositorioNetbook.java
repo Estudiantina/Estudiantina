@@ -157,12 +157,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 			}
 		}
 	}
-	
-	
-
-	
-	
-	
+		
 	/**
 	 * Busqueda de Netbook por Id 
 	 * 
@@ -197,12 +192,6 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 		return "Solicitud realizada";
 	}
 	
-	
-	
-	
-	
 	@javax.inject.Inject 
     DomainObjectContainer container;
-		
-	
 }
