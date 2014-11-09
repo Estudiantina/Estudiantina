@@ -89,7 +89,7 @@ public class Persona implements Locatable,Serializable{
 	private String telefonoFijo;
 	private String email;
 	private String domicilio;
-	private int alturaDomiculio;
+	private int alturaDomicilio;
 	private String piso ;
 	private Date fechaNacimiento;
 	private SortedSet<Netbook> netbooks =  new TreeSet<Netbook>();
@@ -97,12 +97,12 @@ public class Persona implements Locatable,Serializable{
 	private Localidad localidad;
 	private Sexo sexo;
 	@Column(allowsNull="true")
-	public int getAlturaDomiculio() {
-		return alturaDomiculio;
+	public int getAlturaDomicilio() {
+		return alturaDomicilio;
 	}
 
-	public void setAlturaDomiculio(int alturaDomiculio) {
-		this.alturaDomiculio = alturaDomiculio;
+	public void setAlturaDomicilio(int alturaDomicilio) {
+		this.alturaDomicilio = alturaDomicilio;
 	}
 	@Column(allowsNull="true")
 	public String getPiso() {
@@ -121,7 +121,6 @@ public class Persona implements Locatable,Serializable{
 		this.netbooks = netbooks;
 	}
 	
-	
 	public void addToNetbooks(Netbook e) {
         if(e == null || netbooks.contains(e)) return;
         e.setPersona(this);
@@ -132,8 +131,7 @@ public class Persona implements Locatable,Serializable{
         e.setPersona(null);
         netbooks.remove(e);
     }
-	
-	
+		
 	@Column(allowsNull="true")
 	@Hidden(where = Where.ALL_TABLES)//no la muestra la localidad cuando esta en las tablas
 	public Localidad getLocalidad() {
@@ -142,8 +140,6 @@ public class Persona implements Locatable,Serializable{
 	public void setLocalidad(Localidad localidad) {
 		this.localidad = localidad;
 	}
-
-
 
 	/**
 	 * propiedad necesaria para 
@@ -165,7 +161,7 @@ public class Persona implements Locatable,Serializable{
     public Location getLocation() {
 		if (this.domicilio!="")
     	{
-		String algo = this.domicilio+" "+this.alturaDomiculio+", "+this.getLocalidad().getLocalidad();
+		String algo = this.domicilio+" "+this.alturaDomicilio+", "+this.getLocalidad().getLocalidad();
 		LocationLookupService loc = new LocationLookupService();
     	this.location=loc.lookup(algo);
     	}
@@ -184,15 +180,12 @@ public class Persona implements Locatable,Serializable{
     	return lisPer;
     }
 
-	
-    
     public Persona resignarNetbook(Netbook net)
     {
     	netbooks.remove(net);
 		return this;
     }
     
-
 	@javax.jdo.annotations.Column(allowsNull="true")
 	@Optional
 	public Establecimiento getEstablecimiento() {
@@ -240,7 +233,6 @@ public class Persona implements Locatable,Serializable{
 		return this;
 	}
 	
-
 	@MaxLength(12)
 	@javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence="1")
@@ -276,8 +268,7 @@ public class Persona implements Locatable,Serializable{
 	public void setTelefonoCelular(String telefonoCelular) {
 		this.telefonoCelular = telefonoCelular;
 	}
-	
-	
+
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getTelefonoFijo() {
 		return telefonoFijo;
@@ -301,12 +292,10 @@ public class Persona implements Locatable,Serializable{
 	}
 	
 	public void setDomicilio(String domicilio) {	
-		
-	
+			
 		this.domicilio = domicilio;
 	}
 
-	
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Sexo getSexo() {
 		return sexo;
@@ -315,10 +304,6 @@ public class Persona implements Locatable,Serializable{
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
-
-	
-	
-	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	@Hidden(where = Where.ALL_TABLES) // no muestra la fecha de nacimiento en las tablas
@@ -346,9 +331,7 @@ public class Persona implements Locatable,Serializable{
             new QueryDefault<Persona>(Persona.class, 
                     "traerPersonas"));
     }
-    
-
-	
+    	
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }

@@ -90,7 +90,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		    @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional @Named("TELEFONO FIJO")String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")String email,
 			@Named("DOMICILIO") String domicilio,
-			@Named("Altura") int alturaDomiculio,
+			@Named("Altura") int alturaDomicilio,
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
@@ -118,7 +118,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     alumno.setEstadoDeAlumno(estadoDeAlumno);
     alumno.setPiso(piso);
     alumno.setSexo(sexo);
-    alumno.setAlturaDomiculio(alturaDomiculio);
+    alumno.setAlturaDomicilio(alturaDomicilio);
     
     
 	container.persistIfNotAlready(alumno);
@@ -153,7 +153,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				final String telefinoFijo,
 				final String email,
 				final String domicilio,
-				final int alturaDomiculio,
+				final int alturaDomicilio,
 				final  String piso,
 				final Localidad localidad,
 				final Date fechaNacimiento,
@@ -229,7 +229,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")  @Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO") String domicilio,
-			@Named("Altura") int alturaDomiculio,
+			@Named("Altura") int alturaDomicilio,
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,
@@ -265,7 +265,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO") String domicilio,
-			@Named("Altura") int alturaDomiculio,
+			@Named("Altura") int alturaDomicilio,
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,
@@ -303,7 +303,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "[0-9]+") @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO") String domicilio,
-			@Named("Altura") int alturaDomiculio,
+			@Named("Altura") int alturaDomicilio,
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,	
@@ -317,7 +317,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setApellido(apellido);
 		docente.setCuil(cuil);
 		docente.setDomicilio(domicilio);
-		docente.setAlturaDomiculio(alturaDomiculio);
+		docente.setAlturaDomicilio(alturaDomicilio);
 		docente.setPiso(piso);
 		docente.setEmail(email);
 		docente.setEstablecimiento(establecimiento);
@@ -346,7 +346,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  	@Named("TELEFONO FIJO")final String telefinoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")final String email,
 			@Named("DOMICILIO") String domicilio,
-			@Named("Altura") int alturaDomiculio,
+			@Named("Altura") int alturaDomicilio,
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("SEXO") Sexo sexo
@@ -358,7 +358,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tutor.setFechaNacimiento(fechaNacimiento);
 		tutor.setCuil(cuil);
 		tutor.setDomicilio(domicilio);
-		tutor.setAlturaDomiculio(alturaDomiculio);
+		tutor.setAlturaDomicilio(alturaDomicilio);
 		tutor.setPiso(piso);
 		tutor.setEmail(email);
 		tutor.setEstablecimiento(establecimiento);
