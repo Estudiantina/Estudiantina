@@ -27,7 +27,6 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 		return "ACEPTADO";
 	}
 	
-	
 	private SolicitudServicioTecnico solicitud;
 	/**
 	 * get de la dependencia entre el estado y la solicitud
@@ -43,13 +42,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	public Aceptado(SolicitudServicioTecnico solicitud) {
 		this.solicitud = solicitud;
 	}
-
-
-
-
-
-
-
+	
 	/**
 	 * cuando se esta reparando se puede imprimir
 	 * por lo tanto no se oculta.

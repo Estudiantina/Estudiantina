@@ -26,7 +26,6 @@ import dom.netbook.Netbook;
 import dom.solicituddeserviciotecnico.Prioridad;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 
-
 @Named("Servicio Tecnico")
 public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 
@@ -84,8 +83,6 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "taerTipoDeSoluciones", "motivoDeSolicitud", traerPorTema));
 		}
 		
-	
-    
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }

@@ -12,7 +12,6 @@
  */
 package dom.alumno;
 
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -81,11 +80,8 @@ import dom.tutor.Tutor;
 @AutoComplete(repository = RepositorioPersona.class, action = "autoCompletarAlumno")
 @Audited
 
-
-
 @ObjectType("ALUMNO")
 public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
-	
 
 	/**
 	 * metodo que indica el titulo en el viewer
@@ -124,10 +120,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		return "alumno";
 	   }
 	    	
-    
-	   private SortedSet<Curso> cursos = new TreeSet<Curso>();;
-
-	
+	private SortedSet<Curso> cursos = new TreeSet<Curso>();;
 	
     @Persistent(table="ALUMNO_CURSOS")
     @Join(column="ALUMNO_ID")
@@ -175,11 +168,9 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 
 	private Date fechaIngreso;
 	
-	
 	private EstadoDeAlumno estadoDeAlumno;
 	private Nacionalidad nacionalidad;
-
-		
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Date getFechaIngreso() {
 		return fechaIngreso;
@@ -205,8 +196,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	public void setNacionalidad(Nacionalidad nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-	
-	
+		
 	@Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public EstadoDeAlumno getEstadoDeAlumno() {
@@ -216,13 +206,10 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		this.estadoDeAlumno = estadoDeAlumno;
 	}
 
-	
-	
 	public Blob imprimirContratoDeCesion() throws FileNotFoundException, JRException
 	{
 	    HashMap<String, Object> parametros = new HashMap<String, Object>();
-	    
-	    
+	    	    
 	    /*
 		TODO agregar domicilioPisoTutor
 		TODO agregar domicilioDepartamentoTutor
@@ -275,7 +262,6 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
 	}
 	
-	
 	@Named("Imprimir Constrato Conmodato")
 	public Blob imprimir() throws JRException, FileNotFoundException  
     {
@@ -310,8 +296,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    	      parametros.put("domicilioDpto",this.getTutor().getPiso());
 	    	      parametros.put("ciudadTutor",this.getTutor().getLocalidad().toString());
 	    	      parametros.put("ProvinciaTutor","");
-	  			
-	    	
+	  			    	
 		    }
 	    	
 	    	Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getEstablecimiento().getLocalidad().getCodigoPostal()));
@@ -371,7 +356,6 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		return null;
 	}
 
-
 	@javax.inject.Inject 
     DomainObjectContainer container;
 
@@ -380,5 +364,4 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 
 		return ObjectContracts.compare(this, alumno, "cuil");
 	}
-
 }

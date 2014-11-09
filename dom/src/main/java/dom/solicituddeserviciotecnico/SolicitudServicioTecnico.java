@@ -12,9 +12,6 @@
  */
 package dom.solicituddeserviciotecnico;
 
-
-
-
 import java.io.ByteArrayInputStream;
 
 import java.io.IOException;
@@ -121,12 +118,10 @@ public class SolicitudServicioTecnico {
 		this.estadoReparado = estadoReparado;
 	}
 
-
 	@Column(allowsNull="true")
 	public Tecnico getTecnicoAsignado() {
 		return tecnicoAsignado;
 	}
-
 
 	public SolicitudServicioTecnico enviarAServicioTecnico()
 	{
@@ -179,7 +174,6 @@ public class SolicitudServicioTecnico {
 	{
 		return this.getEstado().ocultarImprimir();
 	}
-
 	
 	@Hidden
 	@Column(allowsNull="true")
@@ -210,7 +204,6 @@ public class SolicitudServicioTecnico {
 	public void setEstadoAceptado(Aceptado estadoAceptado) {
 		this.estadoAceptado = estadoAceptado;
 	}
-
 
 	public SolicitudServicioTecnico() {
 		this.estadoReparado = new Reparado(this);
@@ -343,7 +336,6 @@ public class SolicitudServicioTecnico {
 	public Prioridad getPrioridad() {
 		return prioridad;
 	}
-
     
 	public void setPrioridad(Prioridad prioridad) {
 		this.prioridad = prioridad;
@@ -382,7 +374,6 @@ public class SolicitudServicioTecnico {
     public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-
     
     /**
      * TODO ImprimirReporte
