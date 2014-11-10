@@ -159,52 +159,13 @@
         
         
         <!-- other isis components -->
-        <dependency>
-            <groupId>org.apache.isis.objectstore</groupId>
-            <artifactId>isis-objectstore-jdo-datanucleus</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.viewer</groupId>
-            <artifactId>isis-viewer-wicket-impl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.viewer</groupId>
-            <artifactId>isis-viewer-restfulobjects-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.security</groupId>
-            <artifactId>isis-security-shiro</artifactId>
-        </dependency>
 
 
         <!-- isis core -->
-        <dependency>
-            <groupId>org.apache.isis.core</groupId>
-            <artifactId>isis-core-runtime</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.core</groupId>
-            <artifactId>isis-core-profilestore</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.core</groupId>
-            <artifactId>isis-core-security</artifactId>
-        </dependency>
         
         <!-- to run using WebServer (optional) -->
-        <dependency>
-            <groupId>org.apache.isis.core</groupId>
-            <artifactId>isis-core-webserver</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
 
 
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-servlet_2.5_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- 
           JDBC drivers 
@@ -239,22 +200,65 @@
         </dependency>
           -->
 
-        <dependency>
-          <groupId>org.lazyluke</groupId>
-          <artifactId>log4jdbc-remix</artifactId>
-          <exclusions>
-            <exclusion>
-              <groupId>org.slf4j</groupId>
-              <artifactId>slf4j-api</artifactId>
-            </exclusion>
-          </exclusions>
-        </dependency>
         <!-- dependencias de mapas  -->
         <dependency>
         <groupId>com.danhaywood.isis.wicket</groupId>
         <artifactId>danhaywood-isis-wicket-gmap3-ui</artifactId>
     	</dependency>
-    	
+
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>
+        		isis-core-objectstore-jdo-datanucleus
+        	</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.viewer</groupId>
+        	<artifactId>isis-viewer-wicket-impl</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>
+        		isis-core-viewer-restfulobjects-server
+        	</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-security-shiro</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-runtime</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-wrapper</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-profilestore</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-security</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.module</groupId>
+        	<artifactId>isis-module-devutils-impl</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-webserver</artifactId>
+        	<scope>runtime</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.geronimo.specs</groupId>
+        	<artifactId>geronimo-servlet_2.5_spec</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.lazyluke</groupId>
+        	<artifactId>log4jdbc-remix</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

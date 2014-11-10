@@ -96,10 +96,6 @@
 	</build>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.apache.isis.core</groupId>
-			<artifactId>isis-core-applib</artifactId>
-		</dependency>
 		<!--dependencia spring beans  -->
 		   <dependency>
 		<groupId>org.springframework</groupId>
@@ -135,17 +131,7 @@
 		<!-- fin de dependencias nesesarias para generar reportes  -->
 		
 		
-		
-		<dependency>
-            <groupId>org.apache.isis.objectstore</groupId>
-			<artifactId>isis-objectstore-jdo-applib</artifactId>
-		</dependency>
         
-		<dependency>
-            <groupId>org.apache.isis.core</groupId>
-			<artifactId>isis-core-unittestsupport</artifactId>
-            <scope>test</scope>
-		</dependency>
 
 		<!--dependencias necesarias para ver los mapas  -->
 		<dependency>
@@ -159,21 +145,31 @@
     	</dependency>
 		    
         <!-- Bytecode libraries (for mocking) -->
-        <dependency>
-            <groupId>asm</groupId>
-            <artifactId>asm</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.objenesis</groupId>
-            <artifactId>objenesis</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib-nodep</artifactId>
-            <scope>test</scope>
-        </dependency>
+        
 
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-applib</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.isisaddons.module.security</groupId>
+        	<artifactId>isis-module-security-dom</artifactId>
+        	<version>1.6.2</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.mindrot</groupId>
+        	<artifactId>jbcrypt</artifactId>
+        	<version>0.3m</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-unittestsupport</artifactId>
+        	<scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.objenesis</groupId>
+        	<artifactId>objenesis</artifactId>
+        	<scope>test</scope>
+        </dependency>
 	</dependencies>
 </project>
