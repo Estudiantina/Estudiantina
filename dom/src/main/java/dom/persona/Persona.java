@@ -105,6 +105,7 @@ public class Persona implements Locatable,Serializable{
 		this.alturaDomicilio = alturaDomicilio;
 	}
 	@Column(allowsNull="true")
+	@Hidden(where = Where.ALL_TABLES)//no la muestra el piso cuando esta en las tablas
 	public String getPiso() {
 		return piso;
 	}
@@ -268,7 +269,7 @@ public class Persona implements Locatable,Serializable{
 	public void setTelefonoCelular(String telefonoCelular) {
 		this.telefonoCelular = telefonoCelular;
 	}
-
+	@Hidden(where = Where.ALL_TABLES)//no la muestra el telefono fijo cuando esta en las tablas
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getTelefonoFijo() {
 		return telefonoFijo;
@@ -297,6 +298,7 @@ public class Persona implements Locatable,Serializable{
 	}
 
 	@javax.jdo.annotations.Column(allowsNull="true")
+	@Hidden(where = Where.ALL_TABLES)//no la muestra el sexo cuando esta en las tablas
 	public Sexo getSexo() {
 		return sexo;
 	}
