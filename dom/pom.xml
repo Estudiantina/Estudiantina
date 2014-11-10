@@ -130,7 +130,13 @@
 	</dependency>
 		<!-- fin de dependencias nesesarias para generar reportes  -->
 		
+		<!-- DEPENDENCIAS PARA GRAFICOS -->
 		
+		<dependency>
+    		<groupId>org.isisaddons.wicket.wickedcharts</groupId>
+    		<artifactId>isis-wicket-wickedcharts-cpt</artifactId>
+    		<version>1.7.0</version>
+		</dependency>
         
 
 		<!--dependencias necesarias para ver los mapas  -->
