@@ -405,7 +405,7 @@ public class SolicitudServicioTecnico {
 	@CssClass("boton-imprimir")
 	public Blob imprimir() throws JRException, IOException
 	{
-		
+		try{
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
 		parametros.put("motivoSolicitud", this.getMotivoDeSolicitud());
 		parametros.put("numeroSerieNetbook", this.getNetbook().getNumeroDeSerie());
@@ -429,7 +429,12 @@ public class SolicitudServicioTecnico {
 		InputStream is = new ByteArrayInputStream(prov.getEscudo().getBytes());
 		parametros.put("imagen", is);
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/solicitudAsistenciaTecnica.jrxml", parametros, "Solicitud");
-		
+		}
+		catch(Exception ex)
+		{	
+			Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
+			return archivonulo;
+		}
 	}
 	@Named("Avisar Netbook Reparada")
 	public SolicitudServicioTecnico avisarPorMailQueEstaLista(@Named("Solucion") String solucion,@Named("Fecha Solucion") Date fechaDeSolucion)

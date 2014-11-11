@@ -272,8 +272,8 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		    //PARAMETROS DEL TUTOR	    	
 	    	parametros.put("dniTutor",this.getTutor().getCuil());
 	    	parametros.put("domicilio",this.getTutor().getDomicilio());
-	    	      parametros.put("domicilioDpto",this.getTutor().getPiso());
-	    	      parametros.put("ciudadTutor",this.getTutor().getLocalidad().toString());
+	    	parametros.put("domicilioDpto",this.getTutor().getPiso());
+	    	parametros.put("ciudadTutor",this.getTutor().getLocalidad().toString());
 	  			    	
 	    	
 	    	Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getEstablecimiento().getLocalidad().getCodigoPostal()));
@@ -288,7 +288,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		    parametros.put("dniDirector", super.getEstablecimiento().getDirectivo().getCuil());
 		    parametros.put("direccionEstablecimiento", establecimiento.getDireccion());
 	    	parametros.put("provincia", departamento.getProvincia().getNombreProvincia());
-	    	parametros.put("DniAlumno", String(super.getCuil()));
+	    	parametros.put("DniAlumno", super.getCuil());
 	    	parametros.put("caracterTutor", super.getApellido()+" "+super.getNombre());
 	    	parametros.put("nombreEstablecimiento",establecimiento.getNombre());
 	    	parametros.put("Curso", this.getCursos().first().getAnio());
@@ -306,16 +306,6 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
     		return archivonulo;
     	}
     }
-	
-	private Object Long(Long cuil) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	private Object String(Long cuil) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@javax.inject.Inject 
     DomainObjectContainer container;
 
