@@ -488,7 +488,7 @@ public class SolicitudServicioTecnico {
 	@PublishedAction // para que muestre la accion en la lista de objetos
 	@Named("eliminar Solicitud")
 	public List<SolicitudServicioTecnico> eliminar() {
-        container.removeIfNotAlready(this);
+        this.setEstaBorrado(EstaBorrado.BORRADO);
         container.informUser("las Solicitudes selecionadas fueron eliminadas");
 
         return this.traerTodas(); 
