@@ -37,8 +37,10 @@ import org.apache.isis.applib.value.Blob;
 import dom.directivo.Directivo;
 import dom.establecimiento.Establecimiento;
 import dom.persona.Persona;
+import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 import dom.tutor.Tutor;
 import repo.netbook.RepositorioNetbook;
+import repo.solicitudserviciotecnico.RepoSolicitudServicioTecnico;
 
 import org.apache.isis.applib.annotation.CssClass;
 
@@ -353,7 +355,15 @@ public class Netbook implements Comparable<Netbook> {
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/reciboNetbook.jrxml", parametros, "Solicitud");
 		
 	}
-
+  
+  	public List<SolicitudServicioTecnico> getHistorialDeReparaciones()
+  	{
+  		return repoServicioTecnico.verHistorialReparaciones(this);
+  	}
+  
+  	@javax.inject.Inject
+  	private RepoSolicitudServicioTecnico repoServicioTecnico;
+  	
 	@javax.inject.Inject
     private DomainObjectContainer container;
 	@Override
