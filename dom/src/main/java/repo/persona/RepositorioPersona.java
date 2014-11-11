@@ -392,7 +392,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * Listar los alumnos por estados.
 	 * @return List<Alumno>
 	 */
-	@Named("Listar de Alumno por Estados")
+	@Named("Listar Alumnos por Estados")
 	public List<Alumno> listaEstadoAlumno(@Named("Seleccione Estado") EstadoDeAlumno estado) {
 		
 		return allMatches(QueryDefault.create(Alumno.class, "traerPorEstado", "estadoDeAlumno", estado));
@@ -402,7 +402,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * Listar los alumnos para los reportes de estadistica.
 	 * @return List<Alumno>
 	 */
-	@Named("Listar de Alumnos")
+	@Named("Listar Alumnos")
 	public List<Alumno> listarAlumnos(){
 		final List<Alumno> listaAlumno = this.container.allMatches(new QueryDefault<Alumno>(Alumno.class,
 				"traerTodoAlumno"));
