@@ -28,5 +28,7 @@ public class Permisos {
 		this.permiso = permiso;
 	}
 	
-	
+   public String iconName() {
+    	 return "rol";
+   }
 }
