@@ -19,12 +19,14 @@ INSERT INTO "Establecimiento"(
             1, 'ifes', '444444');
 
 INSERT INTO "Persona"(
-            "Persona_ID", apellido, cuil, domicilio, email, "establecimiento_Establecimiento_ID_OID", 
-            "fechaNacimiento", "localidad_Localidad_ID_OID", location, nombre, 
-            "telefonoCelular", "telefonoFijo", discriminator)
-VALUES (1, 'pepe', '33333', 'peru 81', 'mario@herivan.com', 1, 
-            '11-06-1970', 1, null, 'pepe', 
-            '444444','1' ,'dom.tecnico.Tecnico');
+            "Persona_ID", "alturaDomicilio", apellido, cuil, domicilio, email, 
+            "estaBorrado", "establecimiento_Establecimiento_ID_OID", "fechaNacimiento", 
+            "localidad_Localidad_ID_OID", location, nombre, piso, sexo, "telefonoCelular", 
+            "telefonoFijo", discriminator)
+    VALUES (1, 81, 'pepe', '33333', 'peru', 'mario@herivan.com', 
+            'ACTIVO', 1, '11-06-1970', 
+            1, null, 'pepe', '', 'MASCULINO', '5555555', 
+            '444444', 'dom.tecnico.Tecnico');
 
 INSERT INTO "Tecnico"(
             "Tecnico_ID")

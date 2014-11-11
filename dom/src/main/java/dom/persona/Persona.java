@@ -47,6 +47,7 @@ import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
 import com.danhaywood.isis.wicket.gmap3.service.LocationLookupService;
 import repo.persona.RepositorioPersona;
+import dom.EstaBorrado;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Localidad;
 import dom.netbook.Netbook;
@@ -62,7 +63,7 @@ import dom.netbook.Netbook;
         strategy = DiscriminatorStrategy.CLASS_NAME,
         column = "discriminator")
 //el discriminador sirve para ver de que clase viene 
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.persona.Persona"),
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.persona.Persona WHERE estaBorrado== 'ACTIVO' "),
 	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.persona.Persona WHERE cuil== :cuil")	
 })
 
@@ -82,6 +83,9 @@ public class Persona implements Locatable,Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 5632539687009387987L;
+	
+
+	private EstaBorrado estaBorrado = EstaBorrado.ACTIVO;
 	private Long cuil;
 	private String nombre;
 	private String apellido;
@@ -96,6 +100,16 @@ public class Persona implements Locatable,Serializable{
 	private Establecimiento establecimiento;
 	private Localidad localidad;
 	private Sexo sexo;
+	@Column(allowsNull="false")
+	@Hidden
+	public EstaBorrado getEstaBorrado() {
+		return estaBorrado;
+	}
+
+	public void setEstaBorrado(EstaBorrado estaBorrado) {
+		this.estaBorrado = estaBorrado;
+	}
+	
 	@Column(allowsNull="true")
 	public int getAlturaDomicilio() {
 		return alturaDomicilio;
