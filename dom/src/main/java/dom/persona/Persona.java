@@ -336,7 +336,7 @@ public class Persona implements Locatable,Serializable{
 	@Named("eliminar netbook")
 	@CssClass("icono-eliminar")
 	public List<Persona> eliminar() {
-        container.removeIfNotAlready(this);
+		this.setEstaBorrado(EstaBorrado.BORRADO);
         container.informUser("las personas selecionadas fueron eliminadas");
         return this.traerTodas(); 
     }
