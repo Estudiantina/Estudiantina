@@ -12,35 +12,23 @@
  */
 package dom.curso;
 
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.Unique;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bulk;
-import org.apache.isis.applib.annotation.Disabled;
-import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Render;
-import org.apache.isis.applib.annotation.When;
-
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.util.ObjectContracts;
-
 import dom.alumno.Alumno;
 import dom.establecimiento.Establecimiento;
-import dom.persona.Persona;
-
 
 import repo.curso.RepositorioCurso;
 

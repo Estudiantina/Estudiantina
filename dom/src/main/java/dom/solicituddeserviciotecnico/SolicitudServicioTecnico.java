@@ -54,6 +54,7 @@ import servicio.email.Email;
 
 
 
+import dom.EstaBorrado;
 import dom.email.CuentaMail;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Departamento;
@@ -71,11 +72,11 @@ import dom.solicituddeserviciotecnico.estados.Solicitado;
 import dom.tecnico.Tecnico;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL",
-          value = "SELECT FROM repo.netbook.SolicitudServicioTecnico"),
+          value = "SELECT FROM repo.netbook.SolicitudServicioTecnico WHERE estaBorrado== 'ACTIVO'"),
 	@Query(name="traerHistorial", language="JDOQL",
-	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE netbook == :netbookBusqueda"),
+	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE netbook == :netbookBusqueda && estaBorrado== 'ACTIVO'"),
           @Query(name="taerTipoDeSoluciones", language="JDOQL", 
-	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 range 0, 5")})
+	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 && estaBorrado== 'ACTIVO' range 0, 5")})
 
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
@@ -89,7 +90,10 @@ import dom.tecnico.Tecnico;
 @Bookmarkable
 public class SolicitudServicioTecnico {
     
+
+
 	//public solicitante integrante de la institucion
+	private EstaBorrado estaBorrado;
 	private Persona persona;
 	private String motivoDeSolicitud;
 	private Date fechaDeSolicitud;
@@ -108,6 +112,16 @@ public class SolicitudServicioTecnico {
     private Tecnico tecnicoAsignado;
     private Reparado estadoReparado;
 
+    @Hidden
+	public EstaBorrado getEstaBorrado() {
+		return estaBorrado;
+	}
+
+	public void setEstaBorrado(EstaBorrado estaBorrado) {
+		this.estaBorrado = estaBorrado;
+	}
+	
+	
 	@Hidden
     @Column(allowsNull="true")
     public Reparado getEstadoReparado() {
@@ -206,6 +220,7 @@ public class SolicitudServicioTecnico {
 	}
 
 	public SolicitudServicioTecnico() {
+		this.setEstaBorrado(EstaBorrado.ACTIVO);
 		this.estadoReparado = new Reparado(this);
 		this.estadoSolicitado = new Solicitado(this);
 		this.estadoAceptado = new Aceptado(this);
