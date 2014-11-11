@@ -208,7 +208,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	
 	/**
-	 * 
+	 * muestra un formulario para ingresar un
+	 * nuevo Tecnico
 	 * @param establecimiento
 	 * @param cuil
 	 * @param nombre
