@@ -28,17 +28,12 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
-
 import javax.jdo.annotations.Column;
-
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
-
-import dom.directivo.Directivo;
 import dom.establecimiento.Establecimiento;
 import dom.persona.Persona;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
-import dom.tutor.Tutor;
 import repo.netbook.RepositorioNetbook;
 import repo.solicitudserviciotecnico.RepoSolicitudServicioTecnico;
 

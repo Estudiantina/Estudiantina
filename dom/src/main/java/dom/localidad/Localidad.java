@@ -18,12 +18,8 @@ import javax.jdo.annotations.Unique;
 
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
-import org.apache.isis.applib.value.Blob;
-
 import repo.localidad.RepositorioLocalidad;
-
 import javax.jdo.annotations.Column;
-import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.annotations.Queries;
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.PersistenceCapable;

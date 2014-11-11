@@ -38,6 +38,11 @@ import dom.persona.Persona;
 public class Tutor extends Persona {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1495905156954632357L;
+
+	/**
 	 * metodo que indica el titulo en el viewer
 	 * super hace referencia a la clase Persona
 	 * @return devuelve como titulo el cuil del Tutor
