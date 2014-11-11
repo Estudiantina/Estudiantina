@@ -72,7 +72,7 @@ public class GraficosEstadisticos  {
 		
 		Map<EstadoDeAlumno, AtomicInteger> byCategory = Maps.newTreeMap();
 		//EstadoDeAlumno estado = null;
-		List<Alumno> AllTodos = repositorioPersona.listar();
+		List<Alumno> AllTodos = repositorioPersona.listarAlumnos();
 		for (Alumno unapersona: AllTodos){
 			EstadoDeAlumno category = unapersona.getEstadoDeAlumno();
 			

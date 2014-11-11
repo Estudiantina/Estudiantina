@@ -402,8 +402,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * Listar los alumnos para los reportes de estadistica.
 	 * @return List<Alumno>
 	 */
-	@Hidden
-	public List<Alumno> listar(){
+	@Named("Listar de Alumnos")
+	public List<Alumno> listarAlumnos(){
 		final List<Alumno> listaAlumno = this.container.allMatches(new QueryDefault<Alumno>(Alumno.class,
 				"traerTodoAlumno"));
 		if (listaAlumno.isEmpty()){
