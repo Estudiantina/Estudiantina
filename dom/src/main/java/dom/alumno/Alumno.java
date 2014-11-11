@@ -84,6 +84,11 @@ import dom.tutor.Tutor;
 public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6321349546542111123L;
+
+	/**
 	 * metodo que indica el titulo en el viewer
 	 * super hace referencia a la clase Persona
 	 * 

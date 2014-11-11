@@ -24,12 +24,17 @@ import dom.persona.Persona;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.tecnico.Tecnico WHERE cuil== :cuil"),
-	@javax.jdo.annotations.Query(name = "traerTodoDocente", language = "JDOQL", value = "SELECT FROM dom.tecnico.Tecnico")})
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.tecnico.Tecnico WHERE cuil== :cuil && estaBorrado== 'ACTIVO'"),
+	@javax.jdo.annotations.Query(name = "traerTodoDocente", language = "JDOQL", value = "SELECT FROM dom.tecnico.Tecnico WHERE estaBorrado== 'ACTIVO'")})
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @ObjectType("TECNICO")
 public class Tecnico extends Persona {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8413385210614716678L;
 
 	public String title()
 	{

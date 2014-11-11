@@ -39,6 +39,11 @@ import dom.persona.Persona;
 @ObjectType("DOCENTE")
 public class Docente extends Persona{
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2982300213676454180L;
+
+	/**
 	 * metodo que indica el titulo en el viewer
 	 * super hace referencia a la clase Persona
 	 * 

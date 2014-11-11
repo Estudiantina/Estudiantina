@@ -25,9 +25,9 @@ import dom.persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE cuil== :cuil"),
-	@javax.jdo.annotations.Query(name = "traerTodoDirectivo", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo"),
-	@javax.jdo.annotations.Query(name = "traerDirectivoPorEstablecimiento", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE establecimiento == :institucion")
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE cuil== :cuil && estaBorrado== 'ACTIVO'"),
+	@javax.jdo.annotations.Query(name = "traerTodoDirectivo", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE estaBorrado== 'ACTIVO'"),
+	@javax.jdo.annotations.Query(name = "traerDirectivoPorEstablecimiento", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE establecimiento == :institucion && estaBorrado== 'ACTIVO'")
 })
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
@@ -35,6 +35,12 @@ import dom.persona.Persona;
 public class Directivo extends Persona {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4633674601613540127L;
+
+
 	/**
 	 * metodo que indica el titulo en el viewer
 	 * super hace referencia a la clase Persona
