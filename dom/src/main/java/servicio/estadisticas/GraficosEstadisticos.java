@@ -11,6 +11,8 @@ import org.apache.isis.applib.annotation.Named;
 import org.isisaddons.wicket.wickedcharts.cpt.applib.WickedChart;
 
 import repo.netbook.RepositorioNetbook;
+import repo.persona.RepositorioPersona;
+//import servicio.estadisticas.GenerarEstadistica.PieWithGradientOptions;
 
 import com.google.common.collect.Maps;
 import com.googlecode.wickedcharts.highcharts.options.ChartOptions;
@@ -31,6 +33,8 @@ import com.googlecode.wickedcharts.highcharts.options.series.Point;
 import com.googlecode.wickedcharts.highcharts.options.series.PointSeries;
 import com.googlecode.wickedcharts.highcharts.options.series.Series;
 
+import dom.alumno.Alumno;
+import dom.alumno.EstadoDeAlumno;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
 
@@ -38,7 +42,11 @@ import dom.netbook.Netbook;
 @DomainService
 @Named("Graficos Estadisticos")
 public class GraficosEstadisticos  {
+	
 //Para probar voy a realizar un grafico la cantidad de computadoras por modelo que existen.
+	///////////////////////////////////////
+	//Estadistica Modelos de Netbook
+	/////////////////////////////////////
     @ActionSemantics(Of.SAFE)
     public WickedChart filtrarPorModeloNetbook() {
         
@@ -56,6 +64,28 @@ public class GraficosEstadisticos  {
         
         return new WickedChart(new PieWithGradientOptions(byCategory));
     }
+    ///////////////////////////////////////
+    //Estadistica de estados de Alumnos
+    /////////////////////////////////////
+    @ActionSemantics(Of.SAFE)
+	public WickedChart filtrarPorEstadoAlumno(){
+		
+		Map<EstadoDeAlumno, AtomicInteger> byCategory = Maps.newTreeMap();
+		//EstadoDeAlumno estado = null;
+		List<Alumno> AllTodos = repositorioPersona.listar();
+		for (Alumno unapersona: AllTodos){
+			EstadoDeAlumno category = unapersona.getEstadoDeAlumno();
+			
+            AtomicInteger integer = byCategory.get(category);
+            if(integer == null) {
+                integer = new AtomicInteger();
+                byCategory.put(category, integer);
+            }
+            integer.incrementAndGet();
+		}
+		return new WickedChart(new PieWithGradientOption(byCategory));
+	}
+    
     
     public static class PieWithGradientOptions extends Options {
         private static final long serialVersionUID = 1L;
@@ -104,6 +134,55 @@ public class GraficosEstadisticos  {
             addSeries(series);
         }
     }
+    
+    
+    public static class PieWithGradientOption extends Options {
+        private static final long serialVersionUID = 1L;
+
+        public PieWithGradientOption(Map<EstadoDeAlumno, AtomicInteger> byCategory) {
+        
+            setChartOptions(new ChartOptions()
+                .setPlotBackgroundColor(new NullColor())
+                .setPlotBorderWidth(null)
+                .setPlotShadow(Boolean.FALSE));
+            
+            setTitle(new Title("Estadistica de Estados de Alumnos."));
+        
+            PercentageFormatter formatter = new PercentageFormatter();
+            setTooltip(
+                    new Tooltip()
+                        .setFormatter(
+                                formatter)
+                        .       setPercentageDecimals(1));
+        
+            setPlotOptions(new PlotOptionsChoice()
+                .setPie(new PlotOptions()
+                .setAllowPointSelect(Boolean.TRUE)
+                .setCursor(Cursor.POINTER)
+                .setDataLabels(new DataLabels()
+                .setEnabled(Boolean.TRUE)
+                .setColor(new HexColor("#000000"))
+                .setConnectorColor(new HexColor("#000000"))
+                .setFormatter(formatter))));
+
+            Series<Point> series = new PointSeries()
+                .setType(SeriesType.PIE);
+            int i=0;
+            for (Map.Entry<EstadoDeAlumno, AtomicInteger> entry : byCategory.entrySet()) {
+                series
+                .addPoint(
+                        new Point(entry.getKey().name(), entry.getValue().get()).setColor(
+                                new RadialGradient()
+                                    .setCx(0.5)
+                                    .setCy(0.3)
+                                    .setR(0.7)
+                                        .addStop(0, new HighchartsColor(i))
+                                        .addStop(1, new HighchartsColor(i).brighten(-0.3f))));
+                i++;
+            }
+            addSeries(series);
+        }
+    }
 
     
     // //////////////////////////////////////
@@ -113,4 +192,6 @@ public class GraficosEstadisticos  {
     @javax.inject.Inject
     private RepositorioNetbook repositorioNetbook;
 
+    @javax.inject.Inject
+    private RepositorioPersona repositorioPersona;
 }

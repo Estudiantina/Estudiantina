@@ -397,6 +397,20 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		
 		return allMatches(QueryDefault.create(Alumno.class, "traerPorEstado", "estadoDeAlumno", estado));
 	}
+	
+	/**
+	 * Listar los alumnos para los reportes de estadistica.
+	 * @return List<Alumno>
+	 */
+	@Hidden
+	public List<Alumno> listar(){
+		final List<Alumno> listaAlumno = this.container.allMatches(new QueryDefault<Alumno>(Alumno.class,
+				"traerTodoAlumno"));
+		if (listaAlumno.isEmpty()){
+			this.container.warnUser("No hay alumnos cargados en el sistema");
+		}
+				return listaAlumno;
+	}
     
  	@javax.inject.Inject 
     DomainObjectContainer container;   
