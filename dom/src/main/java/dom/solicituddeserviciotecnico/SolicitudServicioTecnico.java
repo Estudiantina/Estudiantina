@@ -113,6 +113,7 @@ public class SolicitudServicioTecnico {
     private Reparado estadoReparado;
 
     @Hidden
+    @javax.jdo.annotations.Column(allowsNull="false")
 	public EstaBorrado getEstaBorrado() {
 		return estaBorrado;
 	}

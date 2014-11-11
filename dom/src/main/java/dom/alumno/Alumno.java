@@ -13,42 +13,28 @@
 package dom.alumno;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
-import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Element;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
-
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
-import com.danhaywood.isis.wicket.gmap3.applib.Location;
-
 import net.sf.jasperreports.engine.JRException;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Hidden;
-import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
-import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
-import org.bouncycastle.asn1.x509.sigi.PersonalData;
-import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
-import org.eclipse.jdt.core.dom.ThisExpression;
-
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 
@@ -62,11 +48,9 @@ import javax.jdo.annotations.InheritanceStrategy;
 import repo.persona.RepositorioPersona;
 import servicio.reporte.GeneradorReporte;
 import dom.curso.Curso;
-import dom.directivo.Directivo;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Departamento;
 import dom.localidad.Localidad;
-import dom.localidad.Provincia;
 import dom.persona.Persona;
 import dom.tutor.Tutor;
 
