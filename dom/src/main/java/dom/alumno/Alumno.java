@@ -199,6 +199,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 
 	public Blob imprimirContratoDeCesion() throws FileNotFoundException, JRException
 	{
+		try{
 	    HashMap<String, Object> parametros = new HashMap<String, Object>();
 	    	    
 	    /*
@@ -251,9 +252,15 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    parametros.put("divisionCursoAlumno", this.cursos.first().getDivision());
 	    
 	    return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
+		}
+		catch(Exception ex)
+		{	
+			Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos: Tutor,Netbook,Establecimiento y Director".getBytes());
+			return archivonulo;
+		}
 	}
 	
-	@Named("Imprimir Contrato Conmodato")
+	@Named("Imprimir Contrato Comodato")
 	public Blob imprimir() throws JRException, FileNotFoundException  
     {
 		try
