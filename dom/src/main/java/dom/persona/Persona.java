@@ -64,7 +64,7 @@ import dom.netbook.Netbook;
         column = "discriminator")
 //el discriminador sirve para ver de que clase viene 
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.persona.Persona WHERE estaBorrado== 'ACTIVO' "),
-	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.persona.Persona WHERE cuil== :cuil")	
+	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.persona.Persona WHERE cuil== :cuil && estaBorrado== 'ACTIVO'")	
 })
 
 @javax.jdo.annotations.Uniques({
