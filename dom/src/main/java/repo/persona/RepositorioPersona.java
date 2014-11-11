@@ -57,7 +57,10 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     public List<Persona> listarPersonas() {
         return allMatches(QueryDefault.create(Persona.class, "traerPersonas"));
     }
-	
+    /**
+     * el metodo retorna los datos del usuario actual
+     * @return datos del usuario actual
+     */
     @Named("Ver Mis Datos")
     public Persona VerMisDatos() {
     	Login log =firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",container.getUser().getName()));
