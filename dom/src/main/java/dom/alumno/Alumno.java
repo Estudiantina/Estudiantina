@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
+
 import javax.jdo.annotations.Element;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
@@ -251,9 +253,11 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
 	}
 	
-	@Named("Imprimir Constrato Conmodato")
+	@Named("Imprimir Contrato Conmodato")
 	public Blob imprimir() throws JRException, FileNotFoundException  
     {
+		try
+    	{
     	HashMap<String,Object> parametros = new HashMap<String, Object>();
     	
     	 	Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.getCuil()));
@@ -264,29 +268,13 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    	parametros.put("domicilioEstablecimiento", establecimiento.getDireccion());
 	    	parametros.put("Establecimiento", establecimiento.getNombre());
 	    	parametros.put("cudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());
-	    	
-	    	if (this.getTutor()==null)
-		    {
-		         parametros.put("nombreTutor", "");
-		       //PARAMETROS DEL TUTOR	    	
-			    	parametros.put("dniTutor","");
-			    	parametros.put("domicilio","");
-			    	parametros.put("domicilioDpto","");
-			    	parametros.put("ciudadTutor","");
-			    	parametros.put("ProvinciaTutor","");
-			
-		    }
-		    else
-		    {
-		          parametros.put("nombreTutor", this.getTutor().getApellido()+" "+this.getTutor().getNombre());
-		          //PARAMETROS DEL TUTOR	    	
-	    	      parametros.put("dniTutor",this.getTutor().getCuil());
-	    	      parametros.put("domicilio",this.getTutor().getDomicilio());
+		    parametros.put("nombreTutor", this.getTutor().getApellido()+" "+this.getTutor().getNombre());
+		    //PARAMETROS DEL TUTOR	    	
+	    	parametros.put("dniTutor",this.getTutor().getCuil());
+	    	parametros.put("domicilio",this.getTutor().getDomicilio());
 	    	      parametros.put("domicilioDpto",this.getTutor().getPiso());
 	    	      parametros.put("ciudadTutor",this.getTutor().getLocalidad().toString());
-	    	      parametros.put("ProvinciaTutor","");
 	  			    	
-		    }
 	    	
 	    	Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getEstablecimiento().getLocalidad().getCodigoPostal()));
 		    Departamento departamentoEstablecimiento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidadEstablecimiento.getDepartamento().getNombreDepartamento()));
@@ -296,44 +284,27 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    	Localidad localidad = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal","codigo",establecimiento.getLocalidad().getCodigoPostal()));
 	    	Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre",localidad.getDepartamento().getNombreDepartamento()));
 	    	
-	    	if (super.getEstablecimiento().getDirectivo()==null)
-		    {
-		         parametros.put("nombreDirector", "");
-		      	 parametros.put("dniDirector", "");
-		    }
-		    else
-		    {
-		    	parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
-		     	parametros.put("dniDirector", super.getEstablecimiento().getDirectivo().getCuil());
-		    }
-	    		   
-	    	parametros.put("direccionEstablecimiento", establecimiento.getDireccion());
+		    parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
+		    parametros.put("dniDirector", super.getEstablecimiento().getDirectivo().getCuil());
+		    parametros.put("direccionEstablecimiento", establecimiento.getDireccion());
 	    	parametros.put("provincia", departamento.getProvincia().getNombreProvincia());
 	    	parametros.put("DniAlumno", String(super.getCuil()));
 	    	parametros.put("caracterTutor", super.getApellido()+" "+super.getNombre());
-	    		    	   		    	
-	    	//parametros.put("dniDirector", directivo.getCuil()+"");
-	    	//consulta establecimiento
-
 	    	parametros.put("nombreEstablecimiento",establecimiento.getNombre());
 	    	parametros.put("Curso", this.getCursos().first().getAnio());
 	    	parametros.put("Turno", this.cursos.first().getTurno().toString());
 	    	parametros.put("division", this.cursos.first().getDivision());
-        		
-	    	//Netbook
-	    	if (super.getNetbooks()==null)
-		    {
-	    		parametros.put("modeloNetbook","");
-		    	  parametros.put("numeroSerieNetbook","");
-		    }
-		    else
-		    {
-		    	parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
-		    	parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
-		    }
-	    	  
+		    parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
+		    parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
+    		  
 	    	
     	return servicio.reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
+    	}
+    	catch(Exception ex)
+    	{	
+    		Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
+    		return archivonulo;
+    	}
     }
 	
 	private Object Long(Long cuil) {
