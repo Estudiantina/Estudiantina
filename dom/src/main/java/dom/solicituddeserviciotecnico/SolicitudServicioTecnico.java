@@ -35,6 +35,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.CssClass;
+import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
@@ -45,9 +46,8 @@ import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
+import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
-
-
 import servicio.email.Email;
 
 
@@ -88,7 +88,7 @@ import dom.tecnico.Tecnico;
 })
 @ObjectType("SERVICIOTECNICO")
 @Bookmarkable
-public class SolicitudServicioTecnico {
+public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTecnico> {
     
 
 
@@ -103,7 +103,6 @@ public class SolicitudServicioTecnico {
 	private Netbook netbook ;
 	private String codigoSolicitud;
 	private String comentario;
-	private IEstadoSolicitudDeServicioTecnico estado;
 	private Cerrado estadoCerrado;
 	private EnviadoAlServicioTecnico estadoEnviado;
 	private RecibidoDelServicioTecnico estadoRecibido;
@@ -112,7 +111,6 @@ public class SolicitudServicioTecnico {
     private Tecnico tecnicoAsignado;
     private Reparado estadoReparado;
 
-    @Hidden
     @javax.jdo.annotations.Column(allowsNull="false")
 	public EstaBorrado getEstaBorrado() {
 		return estaBorrado;
@@ -220,6 +218,7 @@ public class SolicitudServicioTecnico {
 		this.estadoAceptado = estadoAceptado;
 	}
 
+	
 	public SolicitudServicioTecnico() {
 		this.setEstaBorrado(EstaBorrado.ACTIVO);
 		this.estadoReparado = new Reparado(this);
@@ -251,27 +250,33 @@ public class SolicitudServicioTecnico {
 		this.estadoSolicitado = estadoSolicitado;
 	}
 
+	
+	private IEstadoSolicitudDeServicioTecnico estado;
 	@Persistent(extensions= {
 			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
 			value = "per-implementation"),
-			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = "dom.solicituddeserviciotecnico.estados.EnviadoAlServicioTecnico"
-			+",dom.solicituddeserviciotecnico.estados.RecibidoDelServicioTecnico"
+			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = 
+			"dom.solicituddeserviciotecnico.estados.Solicitado"
 			+",dom.solicituddeserviciotecnico.estados.Aceptado"
-			+",dom.solicituddeserviciotecnico.estados.Solicitado"
+			+",dom.solicituddeserviciotecnico.estados.EnviadoAlServicioTecnico"
+			+",dom.solicituddeserviciotecnico.estados.RecibidoDelServicioTecnico"
+			+",dom.solicituddeserviciotecnico.estados.Reparado"
 			+",dom.solicituddeserviciotecnico.estados.Cerrado"
-					)} , columns = {
-			@Column(name= "idEnvidado"),
-			@Column(name= "idRecibido"),
-			@Column(name= "idAceptado"),
-			@Column(name= "idSolicitado"),
-			@Column(name= "idCerrado"),
-			@Column(name= "idReparado")
-	})
-
+					)})
+	@Disabled
+	@Hidden
+	/**
+	 * PATRON STATE
+	 * @return retorna el estado de la solicitud
+	 */
 	private IEstadoSolicitudDeServicioTecnico getEstado() {
 		return estado;
 	}
-	
+	@Disabled
+	public void setEstado(IEstadoSolicitudDeServicioTecnico estadoSolicitud) {
+		this.estado = estadoSolicitud;
+	}
+
 	@Hidden(where = Where.ALL_TABLES)
 	@Named("Estado")
 	public String getNombreEstado()
@@ -279,10 +284,6 @@ public class SolicitudServicioTecnico {
 		return estado.getNombre();
 	}
 	
-	public void setEstado(IEstadoSolicitudDeServicioTecnico estadoSolicitud) {
-		this.estado = estadoSolicitud;
-	}
-
 	@Column(allowsNull="false")
 	@Hidden(where = Where.ALL_TABLES)
 	public Persona getPersona() {
@@ -509,5 +510,13 @@ public class SolicitudServicioTecnico {
 
 	@javax.inject.Inject 
     DomainObjectContainer container;
+
+
+
+	
+	@Override
+	public int compareTo(final SolicitudServicioTecnico solicitud) {
+		return ObjectContracts.compare(this, solicitud, "codigoSolicitud");
+	}
 	
 }

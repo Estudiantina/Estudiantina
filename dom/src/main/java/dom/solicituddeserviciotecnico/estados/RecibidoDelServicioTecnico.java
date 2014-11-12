@@ -8,6 +8,7 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
+import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
@@ -16,6 +17,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 import dom.tecnico.Tecnico;
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
+@javax.jdo.annotations.Version(strategy = VersionStrategy.VERSION_NUMBER, column = "version")
 @DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idRecibido" )
 @Uniques({ @Unique(name = "recibidoUnique" , members = { "idRecibido" } ) })
 @ObjectType("RECIBIDODELSERVICIOTECNICO")

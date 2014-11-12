@@ -17,7 +17,7 @@ public interface IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarRecibirDelServicioTecnico();
 	public void recibirDeServicioTecnico();
 	public void enviarAServicioTecnico();
-	public void avisarNetbookReparada(String solucion,Date fechaDeSolucion);
+	public void avisarNetbookReparada(final String solucion,final Date fechaDeSolucion);
 	public void finalizarSolicitud();
-	public void asignarTecnico(Tecnico tecnico);
+	public void asignarTecnico(final Tecnico tecnico);
 }

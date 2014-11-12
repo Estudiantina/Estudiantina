@@ -370,7 +370,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return tutor;
 	
 	}
-    //TODO autocompletar con persona en vez de con alumno
 	@Named("Buscar Persona")
 	@Hidden
     public List<Persona> autoComplete(@Named("Ingrese CUIL")String searchPhrase) {        
