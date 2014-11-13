@@ -25,6 +25,7 @@ import dom.login.Login;
 import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
 import dom.notificaciones.SolicitudNetbookPrestada;
+import dom.notificaciones.SolicitudTramiteDeMigracion;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 
 @Named("Solicitudes")
@@ -64,6 +65,22 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		container.informUser("Se Ha solicitado el prestamo de una Netbook a su nombre");
 		return "Se Ha solicitado una Nueva Netbook de Forma Correcta";
 	}
+	
+	public String solicitarTramiteDeMigracion(@Named("Motivo de Migracion") @MultiLine @Optional String detalles)
+	{
+		final SolicitudTramiteDeMigracion solicitudTramiteDeMigracion = container.newTransientInstance(SolicitudTramiteDeMigracion.class);
+		solicitudTramiteDeMigracion.setDetallesYobservaciones(detalles);	
+		String usuarioActual = container.getUser().getName();
+		Login login = firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",usuarioActual));
+		LocalDate fecha = new LocalDate();
+		solicitudTramiteDeMigracion.setFechaNotificacion(fecha);
+		solicitudTramiteDeMigracion.setPersona(login.getPersona());
+		solicitudTramiteDeMigracion.setVista(false);//la notificacion todavia no esta vista
+		container.persistIfNotAlready(solicitudTramiteDeMigracion);
+		container.informUser("Se Ha solicitado el Tramite de Migracion Correctamente");
+		return "Se Ha solicitado el Tramite De Migracion";
+	}
+	
   	
 	@Named("Notificaciones No Leidas")
 	public List<Notificaciones> verNotificacionesNoLeidas()
