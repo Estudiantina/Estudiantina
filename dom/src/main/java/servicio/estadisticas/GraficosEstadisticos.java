@@ -50,160 +50,153 @@ import dom.alumno.EstadoDeAlumno;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
 
-
 @DomainService
 @Named("Graficos Estadisticos")
-public class GraficosEstadisticos  {
-	
-//Para probar voy a realizar un grafico la cantidad de computadoras por modelo que existen.
-	///////////////////////////////////////
-	//Estadistica Modelos de Netbook
-	/////////////////////////////////////
-    @ActionSemantics(Of.SAFE)
-    public WickedChart filtrarPorModeloNetbook() {
-        
-        Map<ModeloNetbook, AtomicInteger> byCategory = Maps.newTreeMap();
-        List<Netbook> allToDos = repositorioNetbook.listaNetbooks();
-        for (Netbook unaComputadora : allToDos) {
-            ModeloNetbook category = unaComputadora.getModelo();
-            AtomicInteger integer = byCategory.get(category);
-            if(integer == null) {
-                integer = new AtomicInteger();
-                byCategory.put(category, integer);
-            }
-            integer.incrementAndGet();
-        }
-        
-        return new WickedChart(new PieWithGradientOptions(byCategory));
-    }
-    ///////////////////////////////////////
-    //Estadistica de estados de Alumnos
-    /////////////////////////////////////
-    @ActionSemantics(Of.SAFE)
-	public WickedChart filtrarPorEstadoAlumno(){
-		
-		Map<EstadoDeAlumno, AtomicInteger> byCategory = Maps.newTreeMap();
-		//EstadoDeAlumno estado = null;
-		List<Alumno> AllTodos = repositorioPersona.listarAlumnos();
-		for (Alumno unapersona: AllTodos){
-			EstadoDeAlumno category = unapersona.getEstadoDeAlumno();
-			
-            AtomicInteger integer = byCategory.get(category);
-            if(integer == null) {
-                integer = new AtomicInteger();
-                byCategory.put(category, integer);
-            }
-            integer.incrementAndGet();
+public class GraficosEstadisticos {
+
+	// Para probar voy a realizar un grafico la cantidad de computadoras por
+	// modelo que existen.
+	// /////////////////////////////////////
+	// Estadistica Modelos de Netbook
+	// ///////////////////////////////////
+	@ActionSemantics(Of.SAFE)
+	@Named("Estadisticas de modelo de netbook")
+	public WickedChart graficosDeModeloDeNetbook() {
+
+		Map<ModeloNetbook, AtomicInteger> porModelo = Maps.newTreeMap();
+		List<Netbook> allToDos = repositorioNetbook.listaNetbooks();
+		for (Netbook miNetbook : allToDos) {
+			ModeloNetbook modelo = miNetbook.getModelo();
+			AtomicInteger integer = porModelo.get(modelo);
+			if (integer == null) {
+				integer = new AtomicInteger();
+				porModelo.put(modelo, integer);
+			}
+			integer.incrementAndGet();
 		}
-		return new WickedChart(new PieWithGradientOption(byCategory));
+
+		return new WickedChart(
+				new OpcionesDeGradienteDeGraficoDeModeloDeNetbook(porModelo));
 	}
-    
-    
-    public static class PieWithGradientOptions extends Options {
-        private static final long serialVersionUID = 1L;
 
-        public PieWithGradientOptions(Map<ModeloNetbook, AtomicInteger> byCategory) {
-        
-            setChartOptions(new ChartOptions()
-                .setPlotBackgroundColor(new NullColor())
-                .setPlotBorderWidth(null)
-                .setPlotShadow(Boolean.FALSE));
-            
-            setTitle(new Title("Computadoras: Modelo."));
-        
-            PercentageFormatter formatter = new PercentageFormatter();
-            setTooltip(
-                    new Tooltip()
-                        .setFormatter(
-                                formatter)
-                        .       setPercentageDecimals(1));
-        
-            setPlotOptions(new PlotOptionsChoice()
-                .setPie(new PlotOptions()
-                .setAllowPointSelect(Boolean.TRUE)
-                .setCursor(Cursor.POINTER)
-                .setDataLabels(new DataLabels()
-                .setEnabled(Boolean.TRUE)
-                .setColor(new HexColor("#000000"))
-                .setConnectorColor(new HexColor("#000000"))
-                .setFormatter(formatter))));
+	// /////////////////////////////////////
+	// Estadistica de estados de Alumnos
+	// ///////////////////////////////////
+	/**
+	 * muestra un gráfico de torta en el viewer de tipo WickedChart mostrando
+	 * 
+	 * @return graficoDeTorta
+	 */
+	@ActionSemantics(Of.SAFE)
+	@Named("Estadisticas de alumnos Regulares y Libres")
+	public WickedChart graficosDeEstadoAlumno() {
 
-            Series<Point> series = new PointSeries()
-                .setType(SeriesType.PIE);
-            int i=0;
-            for (Map.Entry<ModeloNetbook, AtomicInteger> entry : byCategory.entrySet()) {
-                series
-                .addPoint(
-                        new Point(entry.getKey().name(), entry.getValue().get()).setColor(
-                                new RadialGradient()
-                                    .setCx(0.5)
-                                    .setCy(0.3)
-                                    .setR(0.7)
-                                        .addStop(0, new HighchartsColor(i))
-                                        .addStop(1, new HighchartsColor(i).brighten(-0.3f))));
-                i++;
-            }
-            addSeries(series);
-        }
-    }
-    
-    
-    public static class PieWithGradientOption extends Options {
-        private static final long serialVersionUID = 1L;
+		Map<EstadoDeAlumno, AtomicInteger> porEstadoDeAlumno = Maps.newTreeMap();
+		// EstadoDeAlumno estado = null;
+		List<Alumno> AllTodos = repositorioPersona.listarAlumnos();
+		for (Alumno unapersona : AllTodos) {
+			EstadoDeAlumno category = unapersona.getEstadoDeAlumno();
 
-        public PieWithGradientOption(Map<EstadoDeAlumno, AtomicInteger> byCategory) {
-        
-            setChartOptions(new ChartOptions()
-                .setPlotBackgroundColor(new NullColor())
-                .setPlotBorderWidth(null)
-                .setPlotShadow(Boolean.FALSE));
-            
-            setTitle(new Title("Estadistica de Estados de Alumnos."));
-        
-            PercentageFormatter formatter = new PercentageFormatter();
-            setTooltip(
-                    new Tooltip()
-                        .setFormatter(
-                                formatter)
-                        .       setPercentageDecimals(1));
-        
-            setPlotOptions(new PlotOptionsChoice()
-                .setPie(new PlotOptions()
-                .setAllowPointSelect(Boolean.TRUE)
-                .setCursor(Cursor.POINTER)
-                .setDataLabels(new DataLabels()
-                .setEnabled(Boolean.TRUE)
-                .setColor(new HexColor("#000000"))
-                .setConnectorColor(new HexColor("#000000"))
-                .setFormatter(formatter))));
+			AtomicInteger integer = porEstadoDeAlumno.get(category);
+			if (integer == null) {
+				integer = new AtomicInteger();
+				porEstadoDeAlumno.put(category, integer);
+			}
+			integer.incrementAndGet();
+		}
+		return new WickedChart(new OpcionesDeGradienteDeGraficoEstadoAlumno(
+				porEstadoDeAlumno));
+	}
 
-            Series<Point> series = new PointSeries()
-                .setType(SeriesType.PIE);
-            int i=0;
-            for (Map.Entry<EstadoDeAlumno, AtomicInteger> entry : byCategory.entrySet()) {
-                series
-                .addPoint(
-                        new Point(entry.getKey().name(), entry.getValue().get()).setColor(
-                                new RadialGradient()
-                                    .setCx(0.5)
-                                    .setCy(0.3)
-                                    .setR(0.7)
-                                        .addStop(0, new HighchartsColor(i))
-                                        .addStop(1, new HighchartsColor(i).brighten(-0.3f))));
-                i++;
-            }
-            addSeries(series);
-        }
-    }
+	public static class OpcionesDeGradienteDeGraficoDeModeloDeNetbook extends
+			Options {
+		private static final long serialVersionUID = 1L;
 
-    
-    // //////////////////////////////////////
-    // Injected services
-    // //////////////////////////////////////
+		public OpcionesDeGradienteDeGraficoDeModeloDeNetbook(
+				Map<ModeloNetbook, AtomicInteger> byCategory) {
 
-    @javax.inject.Inject
-    private RepositorioNetbook repositorioNetbook;
+			setChartOptions(new ChartOptions()
+					.setPlotBackgroundColor(new NullColor())
+					.setPlotBorderWidth(null).setPlotShadow(Boolean.FALSE));
 
-    @javax.inject.Inject
-    private RepositorioPersona repositorioPersona;
+			setTitle(new Title("Computadoras: Modelo."));
+
+			PercentageFormatter formatter = new PercentageFormatter();
+			setTooltip(new Tooltip().setFormatter(formatter)
+					.setPercentageDecimals(1));
+
+			setPlotOptions(new PlotOptionsChoice().setPie(new PlotOptions()
+					.setAllowPointSelect(Boolean.TRUE)
+					.setCursor(Cursor.POINTER)
+					.setDataLabels(
+							new DataLabels().setEnabled(Boolean.TRUE)
+									.setColor(new HexColor("#000000"))
+									.setConnectorColor(new HexColor("#000000"))
+									.setFormatter(formatter))));
+
+			Series<Point> series = new PointSeries().setType(SeriesType.PIE);
+			int i = 0;
+			for (Map.Entry<ModeloNetbook, AtomicInteger> entry : byCategory
+					.entrySet()) {
+				series.addPoint(new Point(entry.getKey().name(), entry
+						.getValue().get()).setColor(new RadialGradient()
+						.setCx(0.5).setCy(0.3).setR(0.7)
+						.addStop(0, new HighchartsColor(i))
+						.addStop(1, new HighchartsColor(i).brighten(-0.3f))));
+				i++;
+			}
+			addSeries(series);
+		}
+	}
+
+	public static class OpcionesDeGradienteDeGraficoEstadoAlumno extends
+			Options {
+		private static final long serialVersionUID = 1L;
+
+		public OpcionesDeGradienteDeGraficoEstadoAlumno(
+				Map<EstadoDeAlumno, AtomicInteger> byCategory) {
+
+			setChartOptions(new ChartOptions()
+					.setPlotBackgroundColor(new NullColor())
+					.setPlotBorderWidth(null).setPlotShadow(Boolean.FALSE));
+
+			setTitle(new Title("Estadistica de Estados de Alumnos."));
+
+			PercentageFormatter formatter = new PercentageFormatter();
+			setTooltip(new Tooltip().setFormatter(formatter)
+					.setPercentageDecimals(1));
+
+			setPlotOptions(new PlotOptionsChoice().setPie(new PlotOptions()
+					.setAllowPointSelect(Boolean.TRUE)
+					.setCursor(Cursor.POINTER)
+					.setDataLabels(
+							new DataLabels().setEnabled(Boolean.TRUE)
+									.setColor(new HexColor("#000000"))
+									.setConnectorColor(new HexColor("#000000"))
+									.setFormatter(formatter))));
+
+			Series<Point> series = new PointSeries().setType(SeriesType.PIE);
+			int i = 0;
+			for (Map.Entry<EstadoDeAlumno, AtomicInteger> entry : byCategory
+					.entrySet()) {
+				series.addPoint(new Point(entry.getKey().name(), entry
+						.getValue().get()).setColor(new RadialGradient()
+						.setCx(0.5).setCy(0.3).setR(0.7)
+						.addStop(0, new HighchartsColor(i))
+						.addStop(1, new HighchartsColor(i).brighten(-0.3f))));
+				i++;
+			}
+			addSeries(series);
+		}
+	}
+
+	// //////////////////////////////////////
+	// Injected services
+	// //////////////////////////////////////
+
+	@javax.inject.Inject
+	private RepositorioNetbook repositorioNetbook;
+
+	@javax.inject.Inject
+	private RepositorioPersona repositorioPersona;
 }
