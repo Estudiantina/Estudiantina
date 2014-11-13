@@ -13,16 +13,21 @@
 package dom.alumno;
 
 import java.io.FileNotFoundException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
 import javax.jdo.annotations.Element;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
+
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
+
 import net.sf.jasperreports.engine.JRException;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
@@ -35,8 +40,10 @@ import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+
 
 
 
@@ -311,6 +318,47 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
     		return archivonulo;
     	}
     }
+	
+	///////////////////////////////////////
+	//imprimir reporte para certificado de alumno regular
+	//////////////////////////////////////
+	@Named("Imprimir Certificado Alumno Regular")
+	public Blob imprimirCertificadoAlumnoRegular() throws JRException, FileNotFoundException  
+    {
+		try
+    	{
+    	HashMap<String,Object> parametros = new HashMap<String, Object>();
+    	
+    	 	Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.getCuil()));
+	    	Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
+	    	parametros.put("establecimiento", establecimiento.getNombre());
+	    	  	
+	    	Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getEstablecimiento().getLocalidad().getCodigoPostal()));
+		    Departamento departamentoEstablecimiento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidadEstablecimiento.getDepartamento().getNombreDepartamento()));
+		  
+		    Localidad localidad = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal","codigo",establecimiento.getLocalidad().getCodigoPostal()));
+	    	Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre",localidad.getDepartamento().getNombreDepartamento()));
+	    	
+		    parametros.put("dniAlumno", super.getCuil());
+		    parametros.put("alumno", super.getApellido()+" "+super.getNombre());
+		    
+	    	parametros.put("anoydivision", this.getCursos().first().getAnio()+ "  "+this.cursos.first().getDivision()) ;
+	    	//parametros.put("division", this.cursos.first().getDivision());
+	    	SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MMM/yyyy/");
+	    	Date fechahoy = new Date();
+			parametros.put("fechahoy", formatofecha.format(fechahoy));	
+		     
+	    	
+    	return servicio.reporte.GeneradorReporte.generarReporte("reportes/CertAlumnoRegular.jrxml", parametros, "CertAlumnoRegular");
+    	}
+    	catch(Exception ex)
+    	{	
+    		Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
+    		return archivonulo;
+    	}
+    }
+
+	
 	@javax.inject.Inject 
     DomainObjectContainer container;
 

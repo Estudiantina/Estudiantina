@@ -43,10 +43,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
         return "netbook";
     }
     
-    
-
-    
-	/**
+    /**
 	 * muestra una lista de todas las Netbooks que existen
 	 * @return lista de Netbooks
 	 */

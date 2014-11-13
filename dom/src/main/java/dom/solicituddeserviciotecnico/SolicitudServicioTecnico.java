@@ -370,18 +370,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		this.codigoSolicitud = codigoSolicitud;
 	}
 
-    /*
     @Hidden(where = Where.ALL_TABLES)
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getNumeroTiquetRegistro() {
-		return numeroTiquetRegistro;
-	}
-
-	public void setNumeroTiquetRegistro(String numeroTiquetRegistro) {
-		this.numeroTiquetRegistro = numeroTiquetRegistro;
-	}*/
-	
-	@Hidden(where = Where.ALL_TABLES)
     @MultiLine
     @javax.jdo.annotations.Column(allowsNull="true")
 	public String getComentario() {
