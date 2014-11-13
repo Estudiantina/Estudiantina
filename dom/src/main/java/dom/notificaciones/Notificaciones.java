@@ -45,7 +45,14 @@ public class Notificaciones {
 	
 
     public String iconName() {
+    	if (this.vista==false)
+    	{
     	return "notificacionVista";
+    	}
+    	else
+    	{
+    	return "notificacionAtendida";
+    	}
     }
     
     @Column(allowsNull="false")
@@ -76,7 +83,7 @@ public class Notificaciones {
 	public void setFechaNotificacion(LocalDate fechaNotificacion) {
 		this.fechaNotificacion = fechaNotificacion;
 	}
-	@Disabled(where = Where.ALL_TABLES)
+	@Hidden
 	@Column(allowsNull="false")
 	public boolean isVista() {
 		return vista;
@@ -84,5 +91,16 @@ public class Notificaciones {
 
 	public void setVista(boolean vista) {
 		this.vista = vista;
+	}
+	
+	public Notificaciones marcarComoNotificacionAtendida()
+	{
+		this.setVista(true);
+		return this;
+	}
+	
+	public boolean hideMarcarComoNotificacionAtendida()
+	{
+	     return vista;
 	}
 }

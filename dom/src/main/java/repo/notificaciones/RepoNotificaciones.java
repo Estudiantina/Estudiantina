@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.annotation.Named;
@@ -23,6 +24,8 @@ import org.joda.time.LocalDate;
 import dom.login.Login;
 import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
+import dom.notificaciones.SolicitudNetbookPrestada;
+import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 
 @Named("Solicitudes")
 public class RepoNotificaciones extends AbstractFactoryAndRepository {
@@ -47,6 +50,20 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		return "Se Ha solicitado un nuevo certificado";
 	}
 
+	public String pedirNetbookPrestada(@Named("Motivo de Prestamo") @MultiLine @Optional String detalles)
+	{
+		final SolicitudNetbookPrestada solicitudNetbookPrestada = container.newTransientInstance(SolicitudNetbookPrestada.class);
+		solicitudNetbookPrestada.setDetallesYobservaciones(detalles);	
+		String usuarioActual = container.getUser().getName();
+		Login login = firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",usuarioActual));
+		LocalDate fecha = new LocalDate();
+		solicitudNetbookPrestada.setFechaNotificacion(fecha);
+		solicitudNetbookPrestada.setPersona(login.getPersona());
+		solicitudNetbookPrestada.setVista(false);//la notificacion todavia no esta vista
+		container.persistIfNotAlready(solicitudNetbookPrestada);
+		container.informUser("Se Ha solicitado el prestamo de una Netbook a su nombre");
+		return "Se Ha solicitado una Nueva Netbook de Forma Correcta";
+	}
   	
 	@Named("Notificaciones No Leidas")
 	public List<Notificaciones> verNotificacionesNoLeidas()
