@@ -73,8 +73,6 @@ public class CuentaMail {
 		this.nombreCuenta = nombreCuenta;
 	}
 	
-	
-	
 	@Column(allowsNull="false")
 	public String getUsuario() {
 		return usuario;
@@ -83,8 +81,6 @@ public class CuentaMail {
 		this.usuario = usuario;
 	}
 	
-	
-	
 	@Column(allowsNull="false")
 	public boolean isCuentaPorDefecto() {
 		return cuentaPorDefecto;
@@ -92,7 +88,4 @@ public class CuentaMail {
 	public void setCuentaPorDefecto(boolean cuentaPorDefecto) {
 		this.cuentaPorDefecto = cuentaPorDefecto;
 	}
-	
-	
-	
 }

@@ -33,13 +33,11 @@ import dom.persona.Persona;
 @Audited
 @ObjectType("DIRECTIVO")
 public class Directivo extends Persona {
-
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4633674601613540127L;
-
 
 	/**
 	 * metodo que indica el titulo en el viewer
@@ -48,10 +46,8 @@ public class Directivo extends Persona {
 	 */
 	public String title()
 	{
-		
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 	}
-	
 	
 	public void modifyEstablecimiento(Establecimiento e) {
 		e.setDirectivo(this);

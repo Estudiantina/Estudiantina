@@ -79,9 +79,7 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
     	return allMatches(QueryDefault.create(Establecimiento.class, "traerlikePorNombre","nombre",searchPhrase));
     }
 	
-	
 	@javax.inject.Inject 
     DomainObjectContainer container;
-	
 
 }

@@ -35,7 +35,6 @@ import dom.tecnico.Tecnico;
 @ObjectType("RECIBIDODELSERVICIOTECNICO")
 public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTecnico {
 	
-	
 	/**
 	 * titulo del estado
 	 * return titulo RECIBIDO DEL SERVICIO TECNICO
@@ -57,9 +56,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	public SolicitudServicioTecnico getSolicitud() {
 		return solicitud;
 	}
-
-
-
+	
 	@Hidden
 	@Override
 	public boolean ocultarImprimir() {
@@ -67,8 +64,6 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 		return true;
 	}
 	
-	
-
 	@Hidden
 	@Override
 	public boolean ocultarSolucion() {
@@ -136,7 +131,6 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
     	throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
-
     @Hidden
 	@Override
 	public boolean ocultarAsignarTecnico() {
@@ -168,7 +162,3 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
-
-
-
-

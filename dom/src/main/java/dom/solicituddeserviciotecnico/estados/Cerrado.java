@@ -35,7 +35,6 @@ import dom.tecnico.Tecnico;
 @ObjectType("CERRADO")
 public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 
-	
 	/**
 	 * titulo del estado
 	 * return CERRADO
@@ -56,7 +55,6 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
     public SolicitudServicioTecnico getSolicitud() {
 		return solicitud;
 	}
-
 
 	@Hidden
 	@Override
@@ -155,9 +153,6 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 		
 		return true;
 	}
-
-	
-	
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;

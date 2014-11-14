@@ -12,7 +12,6 @@
  */
 package repo.persona;
 
-
 import java.util.Date;
 import java.util.List;
 
@@ -37,10 +36,8 @@ import dom.persona.Sexo;
 import dom.tecnico.Tecnico;
 import dom.tutor.Tutor;
 
-
 @Named("Personas")
 public class RepositorioPersona extends AbstractFactoryAndRepository {
-
 	
 	public String getId() {
         return "persona";
@@ -122,12 +119,10 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     alumno.setPiso(piso);
     alumno.setSexo(sexo);
     alumno.setAlturaDomicilio(alturaDomicilio);
-    
-    
+        
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
-	
 	}
 	
 	//*********************** VALIDACION ******************************************//
@@ -148,10 +143,10 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 */
 	
 	public String validateIngresarAlumno(
-			 final Establecimiento establecimiento,
-			 final Long cuil,
-			 final String nombre,
-			 final String apellido,
+				final Establecimiento establecimiento,
+				final Long cuil,
+				final String nombre,
+				final String apellido,
 				final String telefonoCelular,
 				final String telefinoFijo,
 				final String email,
@@ -206,7 +201,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	}
     //*****************************************************+************//	
 	
-	
 	/**
 	 * muestra un formulario para ingresar un
 	 * nuevo Tecnico
@@ -252,7 +246,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tecnico.setSexo(sexo);
 		
 		container.persistIfNotAlready(tecnico);
-	
 	
 	return tecnico;
 	
@@ -329,7 +322,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
                 
 		container.persistIfNotAlready(docente);
 	
-	
 	return docente;
 	
 	}
@@ -365,7 +357,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tutor.setTelefonoCelular(telefonoCelular);
 		tutor.setSexo(sexo);        
 		container.persistIfNotAlready(tutor);
-	
 	
 	return tutor;
 	

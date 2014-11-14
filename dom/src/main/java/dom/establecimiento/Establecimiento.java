@@ -25,7 +25,6 @@ import dom.directivo.Directivo;
 import dom.localidad.Localidad;
 import repo.establecimiento.RepositorioEstablecimiento;
 
-
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.establecimiento.Establecimiento WHERE nombre== :nombre"),
 	@Query(name="traerTodos", language="JDOQL", value = "SELECT FROM dom.establecimiento.Establecimiento ") ,
@@ -54,8 +53,6 @@ public class Establecimiento {
 		this.directivo = directivo;
 	}
 	
-	
-	
 	@Column(allowsNull="false")
 	public String getDistritoEscolar() {
 		return distritoEscolar;
@@ -79,24 +76,19 @@ public class Establecimiento {
         return "edificio";
     }
 	
-	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getEmail() {
 		return email;
 	}
-
-
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
-	
 	public String toString()
 	{
 		return nombre;		
 	}
-	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getNombre() {
@@ -114,7 +106,6 @@ public class Establecimiento {
 		this.direccion = direccion;
 	}
 	
-	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getTelefono() {
 		return telefono;
@@ -123,7 +114,6 @@ public class Establecimiento {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	
 		/**
 	 * la CUE es la identificacion la escuela solo en la provincia de neuquen
 	 * **/
@@ -135,9 +125,6 @@ public class Establecimiento {
 	public void setCue(String cue) {
 		this.cue = cue;
 	}
-
-
-
 
 	@javax.inject.Inject 
 	  private DomainObjectContainer container;
@@ -204,6 +191,4 @@ public class Establecimiento {
 			return false;
 		return true;
 	}
-
-
 }

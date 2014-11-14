@@ -78,7 +78,6 @@ public void setPassword(String password){
 	this.password = new String(Hex.encode(digest));	
 }
 
-
 	private Rol rol;
 
 	@Column(allowsNull = "true")
@@ -90,9 +89,4 @@ public void setPassword(String password){
 	public void setRol(final Rol rol) {
 		this.rol = rol;
 	}
-
-
-	
-
-
 }

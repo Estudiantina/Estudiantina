@@ -90,8 +90,6 @@ import dom.tecnico.Tecnico;
 @Bookmarkable
 public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTecnico> {
     
-
-
 	//public solicitante integrante de la institucion
 	private EstaBorrado estaBorrado;
 	private Persona persona;
@@ -119,7 +117,6 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	public void setEstaBorrado(EstaBorrado estaBorrado) {
 		this.estaBorrado = estaBorrado;
 	}
-	
 	
 	@Hidden
     @Column(allowsNull="true")
@@ -218,7 +215,6 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		this.estadoAceptado = estadoAceptado;
 	}
 
-	
 	public SolicitudServicioTecnico() {
 		this.setEstaBorrado(EstaBorrado.ACTIVO);
 		this.estadoReparado = new Reparado(this);
@@ -230,7 +226,6 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		this.estado = this.estadoSolicitado;
 	}
 
-	
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Cerrado getEstadoCerrado() {
@@ -250,7 +245,6 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		this.estadoSolicitado = estadoSolicitado;
 	}
 
-	
 	private IEstadoSolicitudDeServicioTecnico estado;
 	@Persistent(extensions= {
 			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
@@ -500,9 +494,6 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	@javax.inject.Inject 
     DomainObjectContainer container;
 
-
-
-	
 	@Override
 	public int compareTo(final SolicitudServicioTecnico solicitud) {
 		return ObjectContracts.compare(this, solicitud, "codigoSolicitud");

@@ -31,7 +31,6 @@ import repo.login.repologin;
 @AutoComplete(repository = repologin.class, action = "autoCompletarRol")
 @ObjectType("Rol")
 
-
 public class Rol {
 private String rol;
 
@@ -53,13 +52,10 @@ public void setRol(String rol) {
 		this.listaPermiso = listaPermiso;
 	}
     
-	
 	   public String iconName() {
 	    	   return "rol";
 	   }
-    
-    
-	
+ 
 	public Rol aniadirPermiso(String permiso)
 	{
 		
@@ -69,7 +65,6 @@ public void setRol(String rol) {
 		this.listaPermiso.add(mipermiso);
 		return this;
 	}
-
 
 	@javax.inject.Inject 
     DomainObjectContainer container;

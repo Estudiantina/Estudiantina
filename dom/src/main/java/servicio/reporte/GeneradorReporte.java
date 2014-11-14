@@ -61,9 +61,7 @@ public class GeneradorReporte {
 		exporter.setParameter(JRExporterParameter.JASPER_PRINT,print); 
 		exporter.setParameter(JRExporterParameter.OUTPUT_FILE,new java.io.File("/tmp/"+nombrereporte+".pdf"));
 		exporter.exportReport();
-		
-		
-        
+		        
 		File resume = new File("/tmp/"+nombrereporte+".pdf");
 		if (!(resume.exists()))
 		{
@@ -86,7 +84,5 @@ public class GeneradorReporte {
 		}	
 		Blob blob= new Blob(nombrereporte+".pdf","application/pdf",fileContent);
 		return blob;
-		
 	}
-	
 }

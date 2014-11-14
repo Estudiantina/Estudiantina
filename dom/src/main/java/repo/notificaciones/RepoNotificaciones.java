@@ -30,7 +30,6 @@ import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 
 @Named("Solicitudes")
 public class RepoNotificaciones extends AbstractFactoryAndRepository {
-
 	
 	public String getId() {
         return "Notificaciones";
@@ -79,8 +78,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		container.persistIfNotAlready(solicitudTramiteDeMigracion);
 		container.informUser("Se Ha solicitado el Tramite de Migracion Correctamente");
 		return "Se Ha solicitado el Tramite De Migracion";
-	}
-	
+	}	
   	
 	@Named("Notificaciones No Leidas")
 	public List<Notificaciones> verNotificacionesNoLeidas()

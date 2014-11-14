@@ -29,11 +29,8 @@ import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
 import dom.notificaciones.SolicitudNetbookPrestada;
 
-
-
 @Named("Netbook")
 public class RepositorioNetbook extends AbstractFactoryAndRepository {
-
 
 	public String getId() {
         return "Netbook";

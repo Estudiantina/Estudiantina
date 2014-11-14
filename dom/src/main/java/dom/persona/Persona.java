@@ -82,7 +82,6 @@ public class Persona implements Locatable,Serializable{
 	 */
 	private static final long serialVersionUID = 5632539687009387987L;
 	
-
 	private EstaBorrado estaBorrado = EstaBorrado.ACTIVO;
 	private Long cuil;
 	private String nombre;
@@ -327,7 +326,6 @@ public class Persona implements Locatable,Serializable{
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
 	
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
 	@PublishedAction // para que muestre la accion en la lista de objetos

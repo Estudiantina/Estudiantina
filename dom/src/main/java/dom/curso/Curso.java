@@ -32,7 +32,6 @@ import dom.establecimiento.Establecimiento;
 
 import repo.curso.RepositorioCurso;
 
-
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
 @javax.jdo.annotations.DatastoreIdentity(strategy = javax.jdo.annotations.IdGeneratorStrategy.IDENTITY)
 @javax.jdo.annotations.Queries({
@@ -82,7 +81,6 @@ public class Curso implements Comparable<Curso> {
 	    return this;
 	}
 	
-	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Anio getAnio() {
 		return anio;
@@ -109,7 +107,6 @@ public class Curso implements Comparable<Curso> {
         return "Los Cursos Seleccionados Fueron Eliminados"; 
     }
 	
-	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Establecimiento getEstablecimiento() {
 		return establecimiento;
@@ -128,18 +125,15 @@ public class Curso implements Comparable<Curso> {
 		return cicloLectivo;
 	}
 
-
 	public void setCicloLectivo(int cicloLectivo) {
 		this.cicloLectivo = cicloLectivo;
 	}
-
 
 	public String title()
 	{
 		return this.anio+" "+this.division+" "+cicloLectivo;
 	}
-	
-	
+		
 	@javax.jdo.annotations.Column(allowsNull="false")
 	
 	public Turno getTurno() {
@@ -148,7 +142,6 @@ public class Curso implements Comparable<Curso> {
 	public void setTurno(Turno turno) {
 		this.turno = turno;
 	}
-	
 	
   private DomainObjectContainer container;
 

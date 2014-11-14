@@ -66,7 +66,6 @@ public class RepositorioLocalidad extends AbstractFactoryAndRepository{
 		return nuevoDepartamento;
 	}
 	
-	
 	@Named("Nueva Provincia")
 	public Provincia ingresoProvincia(
 			@Named("Nombre De Provincia")final String nombreProvincia,
@@ -105,17 +104,10 @@ public class RepositorioLocalidad extends AbstractFactoryAndRepository{
 		return allMatches(QueryDefault.create(Departamento.class, "traerTodo"));
 	}
 	
-	
 	public List<Localidad> listaLocalidades(){
 		return allMatches(QueryDefault.create(Localidad.class, "traerTodo"));
-		
 	}
-	
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;
-	
 }
-	
-
-

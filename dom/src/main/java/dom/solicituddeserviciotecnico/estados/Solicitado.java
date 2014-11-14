@@ -36,7 +36,6 @@ import dom.tecnico.Tecnico;
 @ObjectType("SOLICITADO")
 public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 
-	
 	/**
 	 * titulo del estado
 	 * return SOLICITADO
@@ -57,8 +56,6 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	public Solicitado(SolicitudServicioTecnico solicitud) {
 		this.solicitud = solicitud;
 	}
-
-	
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
 	private SolicitudServicioTecnico getSolicitud() {

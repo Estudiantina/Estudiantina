@@ -35,7 +35,6 @@ import dom.tecnico.Tecnico;
 @ObjectType("ENVIADOALSERVICIOTECNICO")
 public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecnico {
 
-	
 	/**
 	 * titulo del estado
 	 * return titulo ENVIADO AL SERVICIO TECNICO
@@ -57,15 +56,11 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 		return solicitud;
 	}
 
-
-
 	@Hidden
 	@Override
 	public boolean ocultarImprimir() {
 		return true;
 	}
-
-	
 
 	@Hidden
 	@Override
@@ -107,7 +102,6 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
-
 	@Override
 	public void finalizarSolicitud() {
 		throw new UnsupportedOperationException("No impletandado todavía...");
@@ -119,7 +113,6 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
-
 	@Override
 	public boolean ocultarAsignarTecnico() {
 		return true;

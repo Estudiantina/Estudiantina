@@ -54,9 +54,7 @@ public class ServidorDeEmail {
 	public void setAuth(boolean auth) {
 		this.auth = auth;
 	}
-	
-	
-	
+
 	private boolean fallback;
 	@Column(allowsNull="false")
 	public boolean isFallback() {
@@ -80,8 +78,6 @@ public class ServidorDeEmail {
 		this.nombreServer = nombreServer;
 	}
 	
-	
-	
 	@Column(allowsNull="false")
 	public String getHost() {
 		return host;
@@ -90,16 +86,6 @@ public class ServidorDeEmail {
 		this.host = host;
 	}
 	
-	
-	
-
-	
-	
-	
-
-	
-	
-	
 	@Column(allowsNull="false")
 	public boolean isStarttlsenable() {
 		return starttlsenable;
@@ -107,9 +93,4 @@ public class ServidorDeEmail {
 	public void setStarttlsenable(boolean starttlsenable) {
 		this.starttlsenable = starttlsenable;
 	}
-	
-	
-	
-
-	
 }

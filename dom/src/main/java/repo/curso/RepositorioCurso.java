@@ -12,8 +12,6 @@
  */
 package repo.curso;
 
-
-
 import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
@@ -28,7 +26,6 @@ import dom.curso.Division;
 import dom.curso.Turno;
 import dom.establecimiento.Establecimiento;
 
-
 @Named("Cursos")
 public class RepositorioCurso extends AbstractFactoryAndRepository{
 	
@@ -36,7 +33,6 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
         return "Curso";
     }
     
-	
 	public String iconName() {
         return "curso";
     }
@@ -88,9 +84,6 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
         return allMatches(QueryDefault.create(Curso.class, "traerTodo"));
     }
 	
-	
 	@javax.inject.Inject 
     DomainObjectContainer container;
-	
-
 }

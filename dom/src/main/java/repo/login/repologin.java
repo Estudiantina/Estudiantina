@@ -12,8 +12,6 @@
  */
 package repo.login;
 
-
-
 import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
@@ -137,11 +135,7 @@ public class repologin extends AbstractFactoryAndRepository {
 		container.persistIfNotAlready(miCuenta);
 		return miCuenta;	
     }
-	
-    
-	
-	
-	
+		
 	@Named("Mail- Crear Un Nuevo Servidor")
     public ServidorDeEmail CrearNuevoServidorDeMail(
     @Named("Nombre Del Servidor") String nombreServer,
@@ -161,11 +155,7 @@ public class repologin extends AbstractFactoryAndRepository {
 		container.persistIfNotAlready(miServidor);
 		return miServidor;	
     }
-    
-    
-	
+    	
 	@javax.inject.Inject 
     DomainObjectContainer container;
-
-	
 }

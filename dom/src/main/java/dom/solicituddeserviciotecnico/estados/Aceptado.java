@@ -36,7 +36,6 @@ import dom.tecnico.Tecnico;
 @ObjectType("ACEPTADO")
 public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 
-	
 	public String getNombre()
 	{
 		return "ACEPTADO";

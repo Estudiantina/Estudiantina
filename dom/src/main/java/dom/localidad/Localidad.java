@@ -38,7 +38,6 @@ public class Localidad {
 	private String localidad;
 	private Departamento departamento;
 
-
 	public String iconName() {
 		return "Localidad";
 	   }
@@ -67,7 +66,6 @@ public class Localidad {
 		return codigoPostal;
 	}
 
-
 	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
@@ -77,14 +75,10 @@ public class Localidad {
 		return localidad;
 	}
 
-
 	public void setLocalidad(String localidad) {
 		this.localidad = localidad;
 	}
 
-	
-	
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -124,10 +118,4 @@ public class Localidad {
 			return false;
 		return true;
 	}
-
-
-
-	
-	
-
 }

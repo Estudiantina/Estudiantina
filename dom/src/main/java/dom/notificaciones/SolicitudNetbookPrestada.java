@@ -25,11 +25,4 @@ public class SolicitudNetbookPrestada extends Notificaciones {
 	{
 		return "Solicitar Netbook Prestada -"+this.getPersona().toString();
 	}
-   
-	
-   
-	
-	
-	
-	
 }

@@ -23,8 +23,6 @@ import javax.mail.internet.MimeMessage;
 
 import dom.email.CuentaMail;
 
-
-
 public class Email {
 	/**
 	 * envia un email para avisar a la persona
@@ -37,9 +35,6 @@ public class Email {
 	 */
 	public static void enviarEmail(CuentaMail cuentaDeEmail,String from,String to,String Asunto,String mensajeActual)
 	{
-		
-		
-
 		Properties props = new Properties();
 		props.put("mail.smtp.host", cuentaDeEmail.getServidorDeMail().getHost());
         props.setProperty("mail.smtp.port", ""+cuentaDeEmail.getServidorDeMail().getPort());
@@ -56,8 +51,7 @@ public class Email {
 		 try{
 
 	         MimeMessage message = new MimeMessage(session);
-	         
-	         
+	         	         
 	         message.setFrom(new InternetAddress(from));
 	         message.addRecipient(Message.RecipientType.TO,
 	                                  new InternetAddress(to));
@@ -71,7 +65,5 @@ public class Email {
 		 }catch (MessagingException mex) {
 	         mex.printStackTrace();
 	      }
-	    
 	}
-	
 }

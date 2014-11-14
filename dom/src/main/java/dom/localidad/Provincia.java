@@ -46,8 +46,6 @@ public class Provincia {
 		this.escudo = escudo;
 	}
 	
-	
-	
 	public String iconName() {
 		return "Localidad";
 	   }
@@ -63,10 +61,6 @@ public class Provincia {
 	public void setNombreProvincia(String nombreProvincia) {
 		this.nombreProvincia = nombreProvincia;
 	}
-
-
-
-
 
 	public String title()
 	{
