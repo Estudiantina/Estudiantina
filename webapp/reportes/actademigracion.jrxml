@@ -2,9 +2,11 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="actademigracion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0ae04b6e-ca20-4b83-8fc9-adbe9604978c">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="180"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Heading 1" vAlign="Middle" fontSize="22" isBold="true"/>
 	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
+	<parameter name="nombreDirector" class="java.lang.String"/>
+	<parameter name="dniDirector" class="java.lang.String"/>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
@@ -20,8 +22,8 @@
 		<band height="381" splitType="Stretch">
 			<textField>
 				<reportElement style="Heading 2" x="0" y="0" width="572" height="381" uuid="b9af26a8-cbe4-4d3d-a225-ee22d578c22b"/>
-				<textFieldExpression><![CDATA["Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: :"+
-", DNI Nº"+ ", en su \n"+
+				<textFieldExpression><![CDATA["Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: "+$P{nombreDirector}+
+", DNI Nº"+$P{dniDirector}+ ", en su \n"+
 "carácter de Director de la "+", CUE: "+", Distrito Escolar: "+"de la Provincia de "+", con domicilio en "+"en adelante \"EL CEDENTE\" y por la otra parte la/el Sr./a:"+"DNI Nº"+", en su carácter de Director/a de la escuela "+", Nº"+", CUE:"+" Distrito Escolar:"+"de la Ciudad de "+" Provincia de Buenos Aires, con domicilio en "+", en adelante “EL RECEPCIONISTA” , convienen por la presenta acta la migración del alumno "+" CUIL Nº: "+",comodatario de la netbook modelo:"+", serie Nº:"+", del establecimiento con director/a CEDENTE al establecimiento con director/a RECEPCIONISTA a fin de ser incorporado en la planta de alumnos comodatarios del establecimiento con director \"RECEPCIONISTA\" y la registración en el servidor del mismo establecimiento para otorgar los correspondientes certificados de seguridad, dejando de estar vinculada en el establecimiento con director \"CEDENTE\"."+
 "En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un solo efecto, por EL CEDENTE y por EL RECEPCIONISTA en la ciudad "+"Provincia de "+", a los "+"días del mes de "+"de 20"]]></textFieldExpression>
 			</textField>

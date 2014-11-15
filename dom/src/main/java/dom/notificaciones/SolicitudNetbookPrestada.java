@@ -44,7 +44,8 @@ public class SolicitudNetbookPrestada extends Notificaciones {
 
 		try{
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
-		
+		parametros.put("nombreDirector", "");
+		parametros.put("dniDirector", "");
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/actademigracion.jrxml", parametros, "Solicitud");
 		}
 		catch(Exception ex)
