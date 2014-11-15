@@ -38,6 +38,7 @@ public class SolicitudNetbookPrestada extends Notificaciones {
 	{
 		return "Solicitar Netbook Prestada -"+this.getPersona().toString();
 	}
+	
 	public Blob imprimir()
 	{
 
@@ -52,5 +53,10 @@ public class SolicitudNetbookPrestada extends Notificaciones {
 			return archivonulo;
 		}
 		
+	}
+	
+	public boolean hideImprimir()
+	{
+		return this.isVista();
 	}
 }
