@@ -38,29 +38,7 @@ public class SolicitudNetbookPrestada extends Notificaciones {
 	{
 		return "Solicitar Netbook Prestada -"+this.getPersona().toString();
 	}
-	
-	public Blob imprimir()
-	{
 
-		try{
-		HashMap<String,Object> parametros = new HashMap<String, Object>();
-		parametros.put("nombreDirector", "");
-		parametros.put("dniDirector", "");
-		parametros.put("distritoEscolar","");
-		parametros.put("provinciaEstablecimiento","");
-		parametros.put("domicilioEstablecimiento","");
-		return servicio.reporte.GeneradorReporte.generarReporte("reportes/actademigracion.jrxml", parametros, "Solicitud");
-		}
-		catch(Exception ex)
-		{	
-			Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
-			return archivonulo;
-		}
-		
-	}
 	
-	public boolean hideImprimir()
-	{
-		return this.isVista();
-	}
+	
 }

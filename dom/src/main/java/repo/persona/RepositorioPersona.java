@@ -406,6 +406,15 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				return listaAlumno;
 	}
     
+	@Hidden
+	public Persona buscarPorCuil(String cuil){
+		final Persona mipersona = this.container.firstMatch(new QueryDefault<Persona>(Persona.class,
+				"traerPorcuil"));
+		if (mipersona==null){
+			this.container.warnUser("No existe la persona");
+		}
+				return mipersona;
+	}
  	@javax.inject.Inject 
     DomainObjectContainer container;   
 }
