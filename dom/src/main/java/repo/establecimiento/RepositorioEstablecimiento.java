@@ -79,6 +79,13 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
     	return allMatches(QueryDefault.create(Establecimiento.class, "traerlikePorNombre","nombre",searchPhrase));
     }
 	
+	
+	@Hidden
+    public Establecimiento traerPorCue(String cue) {        
+    	return firstMatch(QueryDefault.create(Establecimiento.class, "traerPorcue","cue",cue));
+    }
+	
+	
 	@javax.inject.Inject 
     DomainObjectContainer container;
 

@@ -407,12 +407,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	}
     
 	@Hidden
-	public Persona buscarPorCuil(String cuil){
+	public Persona buscarPorCuil(Long cuil){
 		final Persona mipersona = this.container.firstMatch(new QueryDefault<Persona>(Persona.class,
-				"traerPorcuil"));
-		if (mipersona==null){
-			this.container.warnUser("No existe la persona");
-		}
+				"traerPorcuil","cuil",cuil));
 				return mipersona;
 	}
  	@javax.inject.Inject 
