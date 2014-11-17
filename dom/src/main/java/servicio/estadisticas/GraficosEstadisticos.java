@@ -54,11 +54,11 @@ import dom.netbook.Netbook;
 @Named("Graficos Estadisticos")
 public class GraficosEstadisticos {
 
-	// Para probar voy a realizar un grafico la cantidad de computadoras por
-	// modelo que existen.
-	// /////////////////////////////////////
-	// Estadistica Modelos de Netbook
-	// ///////////////////////////////////
+	/**
+	 * muestra un grafico de tortas con la 
+	 * cantidad de notebooks por modelo
+	 * @return Grafico de torta
+	 */
 	@ActionSemantics(Of.SAFE)
 	@Named("Estadisticas de modelo de netbook")
 	public WickedChart graficosDeModeloDeNetbook() {
@@ -79,9 +79,6 @@ public class GraficosEstadisticos {
 				new OpcionesDeGradienteDeGraficoDeModeloDeNetbook(porModelo));
 	}
 
-	// /////////////////////////////////////
-	// Estadistica de estados de Alumnos
-	// ///////////////////////////////////
 	/**
 	 * muestra un gráfico de torta en el viewer de tipo WickedChart mostrando
 	 * 
@@ -108,6 +105,7 @@ public class GraficosEstadisticos {
 				porEstadoDeAlumno));
 	}
 
+	
 	public static class OpcionesDeGradienteDeGraficoDeModeloDeNetbook extends
 			Options {
 		private static final long serialVersionUID = 1L;
@@ -190,9 +188,6 @@ public class GraficosEstadisticos {
 		}
 	}
 
-	// //////////////////////////////////////
-	// Injected services
-	// //////////////////////////////////////
 
 	@javax.inject.Inject
 	private RepositorioNetbook repositorioNetbook;

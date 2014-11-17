@@ -28,7 +28,6 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.util.ObjectContracts;
-
 import repo.persona.RepositorioPersona;
 import dom.curso.Curso;
 import dom.establecimiento.Establecimiento;

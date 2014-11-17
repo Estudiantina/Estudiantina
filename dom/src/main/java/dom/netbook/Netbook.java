@@ -205,6 +205,7 @@ public class Netbook implements Comparable<Netbook> {
 		this.numeroDeActaDeRobo = numeroDeActaDeRobo;
 	}
 
+	
       /**
       * TODO ImprimirReporte
       * TODO Generar acta de migracion de la netbook 
@@ -363,6 +364,11 @@ public class Netbook implements Comparable<Netbook> {
 		
 	}
   
+    /**
+     * lista una lista con el historial de reparaciones 
+     * en el viewer
+     * @return historial de reparaciones
+     */
   	public List<SolicitudServicioTecnico> getHistorialDeReparaciones()
   	{
   		return repoServicioTecnico.verHistorialReparaciones(this);
@@ -373,6 +379,7 @@ public class Netbook implements Comparable<Netbook> {
   	
 	@javax.inject.Inject
     private DomainObjectContainer container;
+	
 	@Override
 	public int compareTo(Netbook o) {
 		return ObjectContracts.compare(this, o, "idNetbook");
