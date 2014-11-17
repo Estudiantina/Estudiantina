@@ -14,6 +14,6 @@ package dom.alumno;
 
 public enum Nacionalidad {
 	
-	ARGENTINA, PARAGUAY, CHILE, BRASIL, URUGUAY, PERU, BOLIVIA 
+	ARGENTINA, BRASIL,  BOLIVIA, CHILE, PARAGUAY, PERU, URUGUAY  
 
 }

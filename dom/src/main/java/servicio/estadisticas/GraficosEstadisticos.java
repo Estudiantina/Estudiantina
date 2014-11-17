@@ -105,7 +105,6 @@ public class GraficosEstadisticos {
 				porEstadoDeAlumno));
 	}
 
-	
 	public static class OpcionesDeGradienteDeGraficoDeModeloDeNetbook extends
 			Options {
 		private static final long serialVersionUID = 1L;
@@ -187,7 +186,6 @@ public class GraficosEstadisticos {
 			addSeries(series);
 		}
 	}
-
 
 	@javax.inject.Inject
 	private RepositorioNetbook repositorioNetbook;

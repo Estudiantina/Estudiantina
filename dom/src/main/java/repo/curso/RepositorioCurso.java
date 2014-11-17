@@ -45,8 +45,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 			@Named("AÑO")final Anio anio,
 			@Named("division")final Division division,
 			@Named("ciclo lectivo")final int cicloLectivo,
-			@Named("Turno")final Turno turno
-			
+			@Named("Turno")final Turno turno	
 			)
 	{
 		

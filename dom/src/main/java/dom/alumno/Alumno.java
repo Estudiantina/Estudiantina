@@ -309,7 +309,6 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		    parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
 		    parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
     		  
-	    	
     	return servicio.reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
     	}
     	catch(Exception ex)
@@ -347,8 +346,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    	SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MMM/yyyy/");
 	    	Date fechahoy = new Date();
 			parametros.put("fechahoy", formatofecha.format(fechahoy));	
-		     
-	    	
+		     	    	
     	return servicio.reporte.GeneradorReporte.generarReporte("reportes/CertAlumnoRegular.jrxml", parametros, "CertAlumnoRegular");
     	}
     	catch(Exception ex)
@@ -358,7 +356,6 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
     	}
     }
 
-	
 	@javax.inject.Inject 
     DomainObjectContainer container;
 
