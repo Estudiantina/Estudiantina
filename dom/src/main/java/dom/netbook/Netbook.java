@@ -70,7 +70,6 @@ public class Netbook implements Comparable<Netbook> {
 	
 	private String idNetbook;
 	private ModeloNetbook modelo;
-	// private MarcaNetbook marca;
 	private String numeroDeSerie;
 	private String numeroLicenciaWindows;
 	private Date fechaDeExpiracion;

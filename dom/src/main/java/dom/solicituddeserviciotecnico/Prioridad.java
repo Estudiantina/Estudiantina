@@ -13,5 +13,5 @@
 package dom.solicituddeserviciotecnico;
 
 public enum Prioridad {
-baja,media,alta
+Alta,Media,Baja
 }
