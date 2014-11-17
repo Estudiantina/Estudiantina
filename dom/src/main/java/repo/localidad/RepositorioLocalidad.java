@@ -41,7 +41,7 @@ public class RepositorioLocalidad extends AbstractFactoryAndRepository{
 	public Localidad ingresoLocalidad(
 			@Named("Codigo Postal")@RegEx(validation = "\\d{1,10}")final String codigoPostal,
 			@Named("Localidad")final String localidad,
-			@Named("Provincia")final Departamento departamento
+			@Named("Departamento")final Departamento departamento
 			){
 		
 		final Localidad localidades = container.newTransientInstance(Localidad.class);
