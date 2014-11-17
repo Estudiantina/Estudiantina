@@ -46,35 +46,35 @@ public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
 	public Blob imprimir() throws FileNotFoundException, JRException
 	{
 
-		//try{
+		try{
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
 		Persona miPersona = repositorioPersona.buscarPorCuil(this.getPersona().getCuil());
 		Establecimiento miEstablecimiento = repositorioEstablecimiento.traerPorCue(miPersona.getEstablecimiento().getCue());
 		Netbook netbook = miPersona.getNetbooks().first();
-		//Persona miDirectivo = repositorioPersona.buscarPorCuil(miEstablecimiento.getDirectivo().getCuil());
-		parametros.put("nombreDirector","");
-		parametros.put("dniDirector", "");
+		Persona miDirectivo = repositorioPersona.buscarDirectivoPorCuil(miEstablecimiento.getDirectivo().getCuil());
+		parametros.put("nombreDirector",miDirectivo.getNombre()+" "+miDirectivo.getApellido());
+		parametros.put("dniDirector", miDirectivo.getCuil().toString());
 		parametros.put("distritoEscolar",miEstablecimiento.getDistritoEscolar());
 		parametros.put("provinciaEstablecimiento","");
 		parametros.put("domicilioEstablecimiento",miEstablecimiento.getDireccion());
 		parametros.put("nombreEstablecimiento",miEstablecimiento.getNombre());
 		parametros.put("CUEEstablecimiento",miEstablecimiento.getCue());
 		parametros.put("numeroEstablecimiento","");
-		parametros.put("ciudadEstablecimiento",miEstablecimiento.getLocalidad().toString());
+		parametros.put("nombreAlumno",miPersona.getNombre()+" "+miPersona.getApellido());
+		parametros.put("ciudadEstablecimiento",miEstablecimiento.getLocalidad().getLocalidad());
 		parametros.put("nombreEstablecimiento",miEstablecimiento.getNombre());
 		parametros.put("ciudadAlumno",miPersona.getLocalidad().toString());
 		parametros.put("CUILAlumno",miPersona.getCuil().toString());
 		parametros.put("modeloNetbook",netbook.getModelo().toString());
 		parametros.put("provincia","");
 		parametros.put("numeroSerieNetbook",netbook.getNumeroDeSerie().toString());
-		
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/actademigracion.jrxml", parametros, "Solicitud");
-		/*}
+		}
 		catch(Exception ex)
 		{	
 			Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
 			return archivonulo;
-		}*/
+		}
 		
 	}
 	

@@ -412,6 +412,13 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				"traerPorcuil","cuil",cuil));
 				return mipersona;
 	}
+	
+	@Hidden
+	public Directivo buscarDirectivoPorCuil(Long cuil){
+		final Directivo mipersona = this.container.firstMatch(new QueryDefault<Directivo>(Directivo.class,
+				"traerPorcuil","cuil",cuil));
+				return mipersona;
+	}
  	@javax.inject.Inject 
     DomainObjectContainer container;   
 }
