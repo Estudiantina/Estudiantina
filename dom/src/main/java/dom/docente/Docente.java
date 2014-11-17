@@ -16,12 +16,10 @@ import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
-
 import javax.jdo.annotations.IdentityType;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
@@ -29,9 +27,7 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Render.Type;
-
 import repo.persona.RepositorioPersona;
-
 import dom.curso.Curso;
 import dom.establecimiento.Establecimiento;
 import dom.persona.Persona;
@@ -91,11 +87,23 @@ public class Docente extends Persona{
     @Render(Type.EAGERLY)
     public SortedSet<Curso> getCursos() {
         	 		return cursos;
-    	 	}
+    }
     public void setCursos(SortedSet<Curso> cursos) {
     		    	 		this.cursos = cursos;
-    	 	}
+    }
 
+	public Docente agregarCurso(Curso curso) {
+	    cursos.add(curso);
+	    curso.getListaDocente().add(this);
+	    return this;
+	}
+
+	public Docente eliminarCurso(Curso curso) {
+	    cursos.remove(curso);
+	    curso.getListaDocente().remove(this);
+	    return this;
+	}
+    
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
