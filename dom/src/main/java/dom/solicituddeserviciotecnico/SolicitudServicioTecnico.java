@@ -109,6 +109,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
     private Tecnico tecnicoAsignado;
     private Reparado estadoReparado;
 
+    @Hidden
     @javax.jdo.annotations.Column(allowsNull="false")
 	public EstaBorrado getEstaBorrado() {
 		return estaBorrado;
