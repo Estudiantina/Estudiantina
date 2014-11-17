@@ -42,6 +42,12 @@ private String usuario;
 @SuppressWarnings("unused")
 private String password;
 private Persona persona;
+
+
+public String iconName() {
+	   return "rol";
+}
+
 @Unique
 @javax.jdo.annotations.Column(allowsNull="False")
 public Persona getPersona() {
