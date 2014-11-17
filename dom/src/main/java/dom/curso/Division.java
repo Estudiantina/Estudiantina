@@ -14,6 +14,6 @@ package dom.curso;
 
 public enum Division {
 	
-	Primero, Segundo, Tercero, Cuarto, Quinto, Sexto
+	PRIMERO, SSEGUNDO, TERCERO, CUARTO, QUINTO, SEXTO
 
 }
