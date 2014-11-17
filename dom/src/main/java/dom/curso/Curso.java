@@ -94,6 +94,20 @@ public class Curso implements Comparable<Curso> {
 	    return this;
 	}
 	
+	public Curso agregarDocente(Docente docente) {
+	    listaDocente.add(docente);
+	    docente.getCursos().add(this);
+	    return this;
+	}
+
+	public Curso eliminarDocente(Docente docente) {
+	    listaDocente.remove(docente);
+	    docente.getCursos().remove(this);
+	    return this;
+	}
+	
+	
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Anio getAnio() {
 		return anio;

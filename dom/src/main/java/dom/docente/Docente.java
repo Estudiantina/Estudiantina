@@ -27,6 +27,8 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Render.Type;
+import org.apache.isis.applib.util.ObjectContracts;
+
 import repo.persona.RepositorioPersona;
 import dom.curso.Curso;
 import dom.establecimiento.Establecimiento;
@@ -38,7 +40,7 @@ import dom.persona.Persona;
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @ObjectType("DOCENTE")
-public class Docente extends Persona{
+public class Docente extends Persona implements Comparable<Docente>{
 	/**
 	 * 
 	 */
@@ -106,4 +108,9 @@ public class Docente extends Persona{
     
 	@javax.inject.Inject 
     DomainObjectContainer container;
+
+	@Override
+	public int compareTo(Docente docente) {
+		return ObjectContracts.compare(this, docente , "cuil");
+	}
 }
