@@ -28,6 +28,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.util.ObjectContracts;
 import dom.alumno.Alumno;
+import dom.docente.Docente;
 import dom.establecimiento.Establecimiento;
 
 import repo.curso.RepositorioCurso;
@@ -69,6 +70,18 @@ public class Curso implements Comparable<Curso> {
 		this.listaAlumnos = listaAlumnos;
 	}
 
+	
+	private SortedSet<Docente> listaDocente = new TreeSet<Docente>();
+	
+	@Persistent(mappedBy="cursos")
+	@Render(Type.EAGERLY)
+	public SortedSet<Docente> getListaDocente() {
+		return listaDocente;
+	}
+	
+	public void setListaDocente(SortedSet<Docente> listaDocente) {
+		this.listaDocente = listaDocente;
+	}
 	public Curso agregarAlumno(Alumno alumno) {
 	    listaAlumnos.add(alumno);
 	    alumno.getCursos().add(this);

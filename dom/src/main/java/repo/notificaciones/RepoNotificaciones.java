@@ -26,7 +26,6 @@ import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
 import dom.notificaciones.SolicitudNetbookPrestada;
 import dom.notificaciones.SolicitudTramiteDeMigracion;
-import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 
 @Named("Solicitudes")
 public class RepoNotificaciones extends AbstractFactoryAndRepository {

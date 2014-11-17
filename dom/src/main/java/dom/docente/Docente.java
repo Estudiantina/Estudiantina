@@ -11,12 +11,16 @@
  * published by the Free Software Foundation.
  */
 package dom.docente;
+import javax.jdo.annotations.Element;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Join;
+import javax.jdo.annotations.Persistent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.jdo.annotations.IdentityType;
 import org.apache.isis.applib.DomainObjectContainer;
@@ -28,6 +32,7 @@ import org.apache.isis.applib.annotation.Render.Type;
 
 import repo.persona.RepositorioPersona;
 
+import dom.curso.Curso;
 import dom.establecimiento.Establecimiento;
 import dom.persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -77,6 +82,19 @@ public class Docente extends Persona{
 	public void setEstablecimientos(List<Establecimiento> establecimientos) {
 		this.establecimientos = establecimientos;
 	}
+	
+	private SortedSet<Curso> cursos = new TreeSet<Curso>();;
+	
+    @Persistent(table="DOCENTES_CURSOS")
+    @Join(column="DOCENTE_ID")
+    @Element(column ="CURSO_ID")
+    @Render(Type.EAGERLY)
+    public SortedSet<Curso> getCursos() {
+        	 		return cursos;
+    	 	}
+    public void setCursos(SortedSet<Curso> cursos) {
+    		    	 		this.cursos = cursos;
+    	 	}
 
 	@javax.inject.Inject 
     DomainObjectContainer container;
