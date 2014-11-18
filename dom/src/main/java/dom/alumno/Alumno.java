@@ -266,7 +266,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	}
 	
 	@Named("Imprimir Contrato Comodato")
-	public Blob imprimir() throws JRException, FileNotFoundException  
+	public Blob imprimir() 
     {
 		try
     	{
@@ -282,7 +282,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    	parametros.put("cudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());
 		    parametros.put("nombreTutor", this.getTutor().getApellido()+" "+this.getTutor().getNombre());
 		    //PARAMETROS DEL TUTOR	    	
-	    	parametros.put("dniTutor",this.getTutor().getCuil());
+	    	parametros.put("dniTutor",this.getTutor().getCuil().toString());
 	    	parametros.put("domicilio",this.getTutor().getDomicilio());
 	    	parametros.put("domicilioDpto",this.getTutor().getPiso());
 	    	parametros.put("ciudadTutor",this.getTutor().getLocalidad().toString());
@@ -297,15 +297,21 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    	Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre",localidad.getDepartamento().getNombreDepartamento()));
 	    	
 		    parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
-		    parametros.put("dniDirector", super.getEstablecimiento().getDirectivo().getCuil());
+		    if (establecimiento.getDirectivo() != null){
+		    	 parametros.put("dniDirector",  establecimiento.getDirectivo().getCuil().toString());
+	 		           }
+	 		       else {
+	 			         parametros.put("dniDirector", "");
+	 		             }
+		   
 		    parametros.put("direccionEstablecimiento", establecimiento.getDireccion());
 	    	parametros.put("provincia", departamento.getProvincia().getNombreProvincia());
-	    	parametros.put("DniAlumno", super.getCuil());
+	    	parametros.put("DniAlumno", super.getCuil().toString());
 	    	parametros.put("caracterTutor", super.getApellido()+" "+super.getNombre());
 	    	parametros.put("nombreEstablecimiento",establecimiento.getNombre());
-	    	parametros.put("Curso", this.getCursos().first().getAnio());
+	    	parametros.put("Curso", this.getCursos().first().getAnio().toString());
 	    	parametros.put("Turno", this.cursos.first().getTurno().toString());
-	    	parametros.put("division", this.cursos.first().getDivision());
+	    	parametros.put("division", this.cursos.first().getDivision().toString());
 		    parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
 		    parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
     		  

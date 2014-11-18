@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoComodato" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5c773cb5-3261-4506-b1f7-bf1e4b7413e0">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="576"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Heading 3" fontSize="14" isBold="true"/>
 	<style name="Default"/>
 	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
@@ -44,16 +44,12 @@
 				<text><![CDATA[CONTRATO DE COMODATO ESCUELA SECUNDARIA / INSTITUTO DE
 FORMACION DOCENTE]]></text>
 			</staticText>
-			<image>
-				<reportElement x="16" y="0" width="283" height="56" uuid="02724760-ccdf-4516-b3cd-8822fc5f2dd8"/>
-				<imageExpression><![CDATA["/home/santi/workspace/Estudiantina/webapp/reportes/conectar.jpg"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<detail>
 		<band height="692">
 			<textField>
-				<reportElement x="43" y="24" width="125" height="20" uuid="60b7f8b9-1b79-4f05-8b08-46ddbdc1afee"/>
+				<reportElement x="53" y="24" width="125" height="20" uuid="60b7f8b9-1b79-4f05-8b08-46ddbdc1afee"/>
 				<textFieldExpression><![CDATA[$P{nombreDirector}]]></textFieldExpression>
 			</textField>
 			<textField>
