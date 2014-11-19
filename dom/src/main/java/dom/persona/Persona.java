@@ -39,7 +39,9 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PublishedAction;
+import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Where;
+import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 import com.danhaywood.isis.wicket.gmap3.applib.Location;
@@ -124,7 +126,7 @@ public class Persona implements Locatable,Serializable{
 	public void setPiso(String piso) {
 		this.piso = piso;
 	}
-
+	@Render(Type.EAGERLY)
 	public SortedSet<Netbook> getNetbooks() {
 		return netbooks;
 	}
