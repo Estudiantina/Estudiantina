@@ -37,6 +37,7 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.RegEx;
+import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
@@ -50,6 +51,7 @@ import repo.netbook.RepositorioNetbook;
 import repo.solicitudserviciotecnico.RepoSolicitudServicioTecnico;
 
 import org.apache.isis.applib.annotation.CssClass;
+import org.apache.isis.applib.annotation.Render.Type;
 
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
@@ -327,7 +329,7 @@ public class Netbook implements Comparable<Netbook> {
     * @throws JRException 
     * @throws FileNotFoundException 
     */
-   
+  
   public Blob imprimirActaRecepcionDeNetbook() throws JRException, FileNotFoundException
 	{
 		
@@ -368,6 +370,7 @@ public class Netbook implements Comparable<Netbook> {
      * en el viewer
      * @return historial de reparaciones
      */
+    @Render(Type.EAGERLY)
   	public List<SolicitudServicioTecnico> getHistorialDeReparaciones()
   	{
   		return repoServicioTecnico.verHistorialReparaciones(this);
