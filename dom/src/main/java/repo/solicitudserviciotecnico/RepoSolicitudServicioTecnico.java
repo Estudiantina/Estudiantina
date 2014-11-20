@@ -61,7 +61,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 		return servicioTecnico;	
 	}
 	
-	public List<SolicitudServicioTecnico> listadeSolicitudes() {
+	public List<SolicitudServicioTecnico> listaDeSolicitudes() {
         return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerPorPrioridad"));
     }
 	
