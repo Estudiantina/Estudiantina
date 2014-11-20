@@ -29,7 +29,7 @@ import dom.persona.Persona;
 	@javax.jdo.annotations.Query(name = "traerTodoDirectivo", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE estaBorrado== 'ACTIVO'"),
 	@javax.jdo.annotations.Query(name = "traerDirectivoPorEstablecimiento", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE establecimiento == :institucion && estaBorrado== 'ACTIVO'")
 })
-@AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
+@AutoComplete(repository = RepositorioPersona.class, action = "autoCompletarDirectivo")
 @Audited
 @ObjectType("DIRECTIVO")
 public class Directivo extends Persona {

@@ -32,6 +32,10 @@
 	<parameter name="direccionEstablecimiento" class="java.lang.String"/>
 	<parameter name="cudadEstablecimiento" class="java.lang.String"/>
 	<parameter name="provinciaEstablecimiento" class="java.lang.String"/>
+	<parameter name="piso" class="java.lang.String"/>
+	<parameter name="marcaNetbook" class="java.lang.String"/>
+	<parameter name="modeloNetbook" class="java.lang.String"/>
+	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
@@ -58,20 +62,20 @@ $P{nombreEstablecimiento} +" , Nº  "+ $P{numeroEstablecimiento} +" ,Distrito Es
 "Ciudad de " + $P{ciudadEstablecimiento} + " Provincia de "+ $P{provincia} +" con \n" +
 "domicilio en "+ $P{domicilioEstablecimiento} +" ,en adelante EL COMODANTE y \n" +
 "por la otra la/el Señora/Señor "+ $P{nombreTutor} +" .DNI \n" +
-$P{dniTutor} +" ,con domicilio en la calle "+ $P{domicilio} +" piso….., \n" +
+$P{dniTutor} +" ,con domicilio en la calle "+ $P{domicilio} +" piso"+$P{piso}+", \n" +
 " dpto "+ $P{domicilioDpto} +" ,de la ciudad "+ $P{ciudadTutor} +" ,Provincia \n " +
 "de "+ $P{ProvinciaTutor} +" ; por sí, como mayor de edad o menor emancipado, \n " +
 "o en su carácter de madre/padre/tutora/tutor/representante legal \n" +
-"de "+ $P{caracterTutor} +" DNI: "+ $P{DniAlumno} +",alumna/o del curso "+$P{Curso}+", división "+$P{division}+", \n" +
-"turno"+$P{Turno}+", del establecimiento educativo"+$P{Establecimiento}+", sito en la \n" +
-"calle " + $P{direccionEstablecimiento} + ", de la ciudad de"+ $P{ciudadEstablecimiento} + "\n" +
-"provincia de"+ $P{provinciaEstablecimiento} +", en adelante “EL COMODATARIO”, ambos \n" +
+"de "+ $P{caracterTutor} +" DNI: "+ $P{DniAlumno} +",alumna/o del curso "+$P{Curso}+" , división "+$P{division}+", \n" +
+"turno "+$P{Turno}+" , del establecimiento educativo "+$P{Establecimiento}+" , sito en la \n" +
+"calle " + $P{direccionEstablecimiento} + " , de la ciudad de "+ $P{ciudadEstablecimiento} + "\n" +
+"provincia de "+ $P{provinciaEstablecimiento} +", en adelante “EL COMODATARIO”, ambos \n" +
 "mayores de edad y hábiles para este acto, convienen en celebrar el presente \n" +
 "CONTRATO DE COMODATO, sujeto a las siguientes cláusulas y \n" +
 "condiciones: \n"+
-"PRIMERA:" + "EL COMODANTE da en COMODATO al COMODATARIO, y \n"+
-"éste acepta, una laptop educativa Marca……………. Modelo………... \n"+
-"Numero de Serie………………………….. . \n"+
+"PRIMERA: " + "EL COMODANTE da en COMODATO al COMODATARIO, y \n"+
+"éste acepta, una laptop educativa Marca "+$P{marcaNetbook}+" Modelo"+$P{modeloNetbook}+" \n"+
+"Numero de Serie "+$P{numeroSerieNetbook}+" \n"+
 "SEGUNDA: EL COMODATARIO destinará la laptop que recibe en \n"+
 "COMODATO a fines educativos en su carácter de estudiante y para el uso \n"+
 "de su grupo familiar, en el marco del PROGRAMA CONECTAR \n"+

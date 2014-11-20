@@ -284,9 +284,9 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		    //PARAMETROS DEL TUTOR	    	
 	    	parametros.put("dniTutor",this.getTutor().getCuil().toString());
 	    	parametros.put("domicilio",this.getTutor().getDomicilio());
-	    	parametros.put("domicilioDpto",this.getTutor().getPiso());
+	    	parametros.put("piso",this.getTutor().getPiso());
 	    	parametros.put("ciudadTutor",this.getTutor().getLocalidad().toString());
-	  			    	
+	    
 	    	
 	    	Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getEstablecimiento().getLocalidad().getCodigoPostal()));
 		    Departamento departamentoEstablecimiento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidadEstablecimiento.getDepartamento().getNombreDepartamento()));
@@ -309,6 +309,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    	parametros.put("DniAlumno", super.getCuil().toString());
 	    	parametros.put("caracterTutor", super.getApellido()+" "+super.getNombre());
 	    	parametros.put("nombreEstablecimiento",establecimiento.getNombre());
+	    	parametros.put("numeroEstablecimiento","");
 	    	parametros.put("Curso", this.getCursos().first().getAnio().toString());
 	    	parametros.put("Turno", this.cursos.first().getTurno().toString());
 	    	parametros.put("division", this.cursos.first().getDivision().toString());

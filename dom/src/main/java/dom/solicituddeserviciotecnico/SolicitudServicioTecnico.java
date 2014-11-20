@@ -321,7 +321,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	}
 
     @Optional
-	@javax.jdo.annotations.Column(allowsNull="true")
+	@javax.jdo.annotations.Column(allowsNull="true",length=5000)
     @MultiLine
     @Hidden(where = Where.ALL_TABLES)
 	public String getSolucion() {
@@ -422,7 +422,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		}
 	}
 	@Named("Avisar Netbook Reparada")
-	public SolicitudServicioTecnico avisarPorMailQueEstaLista(@Named("Solucion") String solucion,@Named("Fecha Solucion") Date fechaDeSolucion)
+	public SolicitudServicioTecnico avisarPorMailQueEstaLista(@MultiLine@Named("Solucion") String solucion,@Named("Fecha Solucion") Date fechaDeSolucion)
 	{
 		try
 		{

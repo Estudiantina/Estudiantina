@@ -382,6 +382,13 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Tutor.class, "traerTutorPorcuil","cuil",temp));
 	}
 
+    @Hidden
+	public List<Directivo> autoCompletarDirectivo (@Named("Ingrese CUIL")String searchPhrase)
+	{
+		Long temp = Long.parseLong(searchPhrase);
+		return allMatches(QueryDefault.create(Directivo.class, "traerPorcuil","cuil",temp));
+		
+	}
     /**
 	 * Listar los alumnos por estados.
 	 * @return List<Alumno>
