@@ -119,7 +119,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Override
 	public void finalizarSolicitud() {
 	
-		throw new UnsupportedOperationException("No impletandado todavía...");
+		this.getSolicitud().setEstado(this.getSolicitud().getEstadoCerrado());
 		
 	}
 
