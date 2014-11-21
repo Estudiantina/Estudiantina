@@ -17,6 +17,7 @@ import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Persistent;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.joda.time.LocalDate;
@@ -53,7 +54,7 @@ public class Notificaciones {
     }
     
     @Column(allowsNull="false")
-    @Hidden
+    @Named("Solicitante")
 	public Persona getPersona() {
 		return persona;
 	}
