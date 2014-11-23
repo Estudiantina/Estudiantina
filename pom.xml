@@ -362,6 +362,5 @@
   <modules>
     <module>dom</module>
     <module>webapp</module>
-    <module>fixture</module>
   </modules>
 </project>
