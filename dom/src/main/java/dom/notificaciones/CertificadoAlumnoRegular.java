@@ -12,10 +12,16 @@
  */
 package dom.notificaciones;
 
+import java.io.FileNotFoundException;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+
+import net.sf.jasperreports.engine.JRException;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.value.Blob;
+import dom.alumno.Alumno;
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @ObjectType("PedidoCertificados")
@@ -25,4 +31,14 @@ public class CertificadoAlumnoRegular extends Notificaciones{
 	{
 		return "Pedido Certificado Alumno Regular -"+this.getPersona().toString();
 	}
+	
+	public Blob imprimirCertificadoAlumnoRegular() throws FileNotFoundException, JRException
+	{
+		Alumno miAlumno = (Alumno) this.getPersona();
+	
+		return miAlumno.imprimirCertificadoAlumnoRegular();
+		
+		
+	}
+	
 }

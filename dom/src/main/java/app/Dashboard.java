@@ -19,7 +19,7 @@ import org.apache.isis.applib.annotation.Render;
 public class Dashboard extends AbstractViewModel {
 
 	public String title() {
-		return "";
+		return "Notificaciones No Leidas";
 	}
 
 	public String iconName() {
