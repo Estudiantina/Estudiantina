@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
@@ -66,6 +67,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
     }
 	
 	@Named("Historial de Reparaciones")
+	@Hidden
 	public List<SolicitudServicioTecnico> verHistorialReparaciones(Netbook netbook) {
 	
 		return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerHistorial", "netbookBusqueda", netbook));

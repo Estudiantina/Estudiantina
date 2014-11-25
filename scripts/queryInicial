@@ -1,17 +1,20 @@
+/* AGREGAR UNA PROVINCIA DE PRUEBA */
 INSERT INTO "Provincia"(
             "Provincia_ID", "nombreProvincia")
     VALUES (1, 'Neuquen');
 
+/* AGREGAR UN DEPARTAMENTO DE PRUEBA */
 INSERT INTO "Departamento"(
             "Departamento_ID", "nombreDepartamento", "provincia_Provincia_ID_OID")
     VALUES (1, 'Confluencia', 1);
 
+/* AGREGAR UNA LOCALIDAD DE PRUEBA */
 INSERT INTO "Localidad"(
             "codigoPostal", "departamento_Departamento_ID_OID", 
             localidad)
     VALUES ('8300', 1 , 
             'Neuquen');
-
+/* AGREGAR UN ESTABLECIMIENTO DE PRUEBA */
 INSERT INTO "Establecimiento"(
             "Establecimiento_ID", cue, direccion, "distritoEscolar", email, 
             "localidad_Localidad_ID_OID", nombre, telefono)
@@ -27,15 +30,100 @@ INSERT INTO "Persona"(
             'ACTIVO', 1, '11-06-1970', 
             1, null, 'pepe', '', 'MASCULINO', '5555555', 
             '444444', 'dom.tecnico.Tecnico');
-
+/* ESTABLECER PERSONA DE PRUEBA DE TECNICO */
 INSERT INTO "Tecnico"(
             "Tecnico_ID")
     VALUES (1);
 
+/* CONFIGURACION DE ROLES*/
 INSERT INTO "Rol"(
             "Rol_ID", rol)
     VALUES (1, 'usuario_adiministrador');
 
+INSERT INTO "Rol"(
+            "Rol_ID", rol)
+    VALUES (2, 'usuario_alumno');
+
+INSERT INTO "Rol"(
+            "Rol_ID", rol)
+    VALUES (3, 'usuario_tecnico');
+
+INSERT INTO "Rol"(
+            "Rol_ID", rol)
+    VALUES (4, 'usuario_docente');
+
+INSERT INTO "Rol"(
+            "Rol_ID", rol)
+    VALUES (5, 'usuario_directivo');
+
+
+
+
+
+/*ASIGNAR PERMISOS ALUMNO*/
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (1,'*', 1,1);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (2,'dom.alumno:Alumno:cursos:r', 2,1);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (3,'dom.alumno:Alumno:estadoDeAlumno:r', 2,2);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (4,'dom.alumno:Alumno:fechaIngreso:r', 2,3);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (5,'dom.alumno:Alumno:nacionalidad:r', 2,4);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (6,'dom.alumno:Alumno:tutor:r', 2,5);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (7,'dom.alumno:Alumno:EstadoDeAlumno:r', 2,6);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (8,'dom.alumno:Alumno:Nacionalidad:r', 2,7);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (9,'dom.alumno:Alumno:alturaDomicilio:*', 2,8);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (10,'dom.alumno:Alumno:apellido:r', 2,9);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (11,'dom.alumno:Alumno:cuil:r', 2,10);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (12,'dom.alumno:Alumno:domicilio:r', 2,11);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (13,'dom.alumno:Alumno:email:*', 2,12);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (14,'dom.alumno:Alumno:fechaNacimiento:r', 2,13);
+
+INSERT INTO "Permisos"("Permisos_ID",
+            permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
+    VALUES (15,'repo.persona:RepositorioPersona:VerMisDatos:*', 2,14);
+
+
+
+/* CONFIGURACION DE ADMINISTRADOR */
 INSERT INTO "Permisos"(
             "Permisos_ID", permiso, "listaPermiso_Rol_ID_OID", "listaPermiso_INTEGER_IDX")
     VALUES (1, '*', 1, 1);
@@ -45,6 +133,9 @@ INSERT INTO "Login"(
             usuario)
     VALUES (1, '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, 1, 
             'admin');
+
+
+
 
 
 
