@@ -10,14 +10,16 @@ import org.apache.isis.applib.annotation.MemberGroupLayout;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
-
+import org.apache.isis.applib.annotation.Render.Type;
 import repo.notificaciones.RepoNotificaciones;
 import dom.notificaciones.Notificaciones;
+import org.apache.isis.applib.annotation.Render;
 @MemberGroupLayout(columnSpans = { 0, 0, 0, 12 })
+
 public class Dashboard extends AbstractViewModel {
 
 	public String title() {
-		return "Notificaciones No Leidas";
+		return "";
 	}
 
 	public String iconName() {
@@ -47,7 +49,7 @@ public class Dashboard extends AbstractViewModel {
 	// lista de notificaciones 
 	// //////////////////////////////////////
 	@Named("Notificaciones No leidas")
-	//@Render(Type.EAGERLY)
+	@Render(Type.EAGERLY)
 	@Disabled
 	@MemberOrder(sequence = "9")
 	@MultiLine(numberOfLines = 6)

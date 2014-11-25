@@ -21,6 +21,7 @@ public class DashBoardServicio {
 
 	// //////////////////////////////////////
 	@ActionSemantics(Of.SAFE)
+
 	@HomePage
 	public Dashboard lookup() {
 		return container.newViewModelInstance(Dashboard.class, ID);
