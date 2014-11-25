@@ -40,7 +40,7 @@ public class CertificadoAlumnoRegular extends Notificaciones{
 		
 		
 	}
-	public boolean hideimprimirCertificadoAlumnoRegular()
+	public boolean hideImprimirCertificadoAlumnoRegular()
 	{
 		return this.isVista();
 	}
