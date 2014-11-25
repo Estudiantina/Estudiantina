@@ -34,7 +34,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
         return "Notificaciones";
     }
 
-	public String pedirCertificado(@Named("detalles") @Optional String detalles)
+	public String pedirCertificadoAlumnoRegular(@Named("detalles") @Optional String detalles)
 	{
 		final CertificadoAlumnoRegular certificadoAlumnoRegular = container.newTransientInstance(CertificadoAlumnoRegular.class);
 		certificadoAlumnoRegular.setDetallesYobservaciones(detalles);	
