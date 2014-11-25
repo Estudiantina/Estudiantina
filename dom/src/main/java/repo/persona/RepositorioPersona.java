@@ -18,6 +18,7 @@ import java.util.List;
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Optional;
+import org.apache.isis.applib.annotation.Prototype;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
@@ -51,6 +52,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * muestra una lista de todas las Personas que existen
 	 * @return lista de Alumnos
 	 */
+	
     public List<Persona> listarPersonas() {
         return allMatches(QueryDefault.create(Persona.class, "traerPersonas"));
     }
