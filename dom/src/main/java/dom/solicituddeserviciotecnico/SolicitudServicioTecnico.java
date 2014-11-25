@@ -81,11 +81,6 @@ import dom.tecnico.Tecnico;
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
-@javax.jdo.annotations.Uniques({
-    @javax.jdo.annotations.Unique(
-            name="SolicitudServicioTecnico_Campos_unicos", 
-            members={"codigoSolicitud"})
-})
 @ObjectType("SERVICIOTECNICO")
 @Bookmarkable
 public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTecnico> {
@@ -355,7 +350,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 
 	@Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="true")
-	 @Optional
+	@Optional
 	public String getCodigoSolicitud() {
 		return codigoSolicitud;
 	}
