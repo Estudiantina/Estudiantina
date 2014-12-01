@@ -487,6 +487,19 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
                     "traerPorPrioridad"));
     }
 
+    public boolean hideEliminar()
+    {
+    	if (getNombreEstado()=="Aceptado")
+    	{
+		return false;
+    	}
+    	else
+    	{
+    	return true;
+    	}
+    }
+    
+    
 	@javax.inject.Inject 
     DomainObjectContainer container;
 
