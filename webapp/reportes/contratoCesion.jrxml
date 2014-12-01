@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoCesion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ca52da1-a8bd-468c-922e-1bc4ee5205e1">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoCesion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ca52da1-a8bd-468c-922e-1bc4ee5205e1">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="288"/>
 	<style name="Heading 1" fontSize="22" isBold="true"/>
 	<style name="Default" isPdfEmbedded="true"/>
 	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
 	<style name="Heading" fontSize="14" isBold="false"/>
+	<style name="detalle" forecolor="#000000" fill="Solid" hAlign="Justified" vAlign="Top" isBlankWhenNull="true" fontName="Courier 10 Pitch" fontSize="13"/>
 	<parameter name="nombreDirector" class="java.lang.String"/>
 	<parameter name="dniDirector" class="java.lang.String"/>
 	<parameter name="Instituto" class="java.lang.String"/>
@@ -32,9 +33,9 @@
 	<parameter name="nombreAlumno" class="java.lang.String"/>
 	<parameter name="dniAlumno" class="java.lang.String"/>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="56" splitType="Stretch">
 			<staticText>
-				<reportElement style="Heading 1" x="0" y="17" width="572" height="24" uuid="f50decf5-1449-45c6-84b3-62090f6866f3"/>
+				<reportElement style="Heading 1" x="34" y="17" width="482" height="24" uuid="f50decf5-1449-45c6-84b3-62090f6866f3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18"/>
 				</textElement>
@@ -43,9 +44,9 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band height="576" splitType="Stretch">
+		<band height="671" splitType="Stretch">
 			<textField>
-				<reportElement style="Heading" x="0" y="0" width="572" height="570" uuid="f32c2a9f-0bde-40fb-ba04-5144d375d363"/>
+				<reportElement style="detalle" x="23" y="0" width="532" height="483" uuid="f32c2a9f-0bde-40fb-ba04-5144d375d363"/>
 				<textElement>
 					<font size="13"/>
 				</textElement>
@@ -63,16 +64,35 @@
 "establecimiento educativo mencionado, en adelante “EL CESIONARIO”, \n"+
 "ambos mayores de edad y hábiles para este acto, convienen en celebrar el \n"+
 "presente CONTRATO DE CESION EN PROPIEDAD, sujeto a las siguientes \n"+
-"cláusulas y condiciones:\n"+
-"PRIMERA: LA AUTORIDAD EDUCATIVA da en forma gratuita y definitiva en \n"+
-"PROPIEDAD al CESIONARIO y éste acepta, una laptop educativa Marca "+$P{marcaNetbook}+"\n"+
-"Modelo "+$P{modeloNetbook}+" Numero de Serie "+$P{numeroSerieNetbook}+" , con cargo de destinarla a fines formativos y \n"+
-"de compartirla con su grupo familiar primario, comprometiéndose a no \n"+
-"enajenarla de ninguna forma y bajo ninguna circunstancia o concepto. \n"+
-"En prueba de conformidad se firman DOS (2) ejemplares de un mismo tenor \n"+
-"y a un solo efecto, por EL CEDENTE y por EL CESIONARIO en la ciudad \n"+
-$P{domicilioCiudadTutor}+" Provincia de "+$P{provinciaTutor} +" , a los \n"+
-"............................. días del mes de ................................... de 20....... \n"]]></textFieldExpression>
+"cláusulas y condiciones:\n"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="detalle" x="23" y="471" width="532" height="130" uuid="888b5460-e8c5-413c-b360-5096cbe703c3"/>
+				<text><![CDATA[PRIMERA: LA AUTORIDAD EDUCATIVA da en forma gratuita y definitiva en PROPIEDAD al CESIONARIO y éste acepta, una laptop educativa Marca…....................... Modelo.................. Numero de Serie......................, con cargo de destinarla a fines formativos y de compartirla con su grupo familiar primario, comprometiéndose a no enajenarla de ninguna forma y bajo ninguna circunstancia o concepto.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="86" y="501" width="100" height="20" uuid="c38562b5-4ae2-47ca-8211-000caff671f3"/>
+				<textFieldExpression><![CDATA[$P{marcaNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="483" width="122" height="20" uuid="6f9f32e8-49eb-453b-9a72-afb5bbafe532"/>
+				<textFieldExpression><![CDATA[$P{modeloNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="265" y="501" width="140" height="20" uuid="fcb3392f-1203-4c26-8381-46eef5e3831f"/>
+				<textFieldExpression><![CDATA[$P{numeroSerieNetbook}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="detalle" x="24" y="583" width="532" height="88" uuid="77784009-7f6e-46e2-bb9b-75bb578f0b88"/>
+				<text><![CDATA[En prueba de conformidad se firman DOS (2) ejemplares de un mismo tenor y a un solo efecto, por EL CEDENTE y por EL CESIONARIO en la ciudad ................................. Provincia de .............................., a los ...................... días del mes de .............................. de 20.......... ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="422" y="601" width="156" height="20" uuid="f54f7567-dc2e-4eb9-8931-00f224ae44f4"/>
+				<textFieldExpression><![CDATA[$P{domicilioCiudadTutor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="613" width="135" height="20" uuid="27387c61-4b40-49d6-a633-7f615373096b"/>
+				<textFieldExpression><![CDATA[$P{provinciaTutor}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

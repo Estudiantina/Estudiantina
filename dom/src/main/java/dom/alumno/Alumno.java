@@ -204,7 +204,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 
 	public Blob imprimirContratoDeCesion() throws FileNotFoundException, JRException
 	{
-		try{
+	 	try{
 	    HashMap<String, Object> parametros = new HashMap<String, Object>();
 	    	    
 	    /*
@@ -221,20 +221,31 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    
 	    if (this.getTutor().getPiso()==null)
 	    {
-	    parametros.put("domicilioPisoTutor", "");
+	       parametros.put("domicilioPisoTutor", "..................");
 	    }
 	    else
 	    {
-	    parametros.put("domicilioPisoTutor", this.getTutor().getPiso());
+	        parametros.put("domicilioPisoTutor", this.getTutor().getPiso());
 	    }
+	    
 	    parametros.put("domicilioDepartamentoTutor",this.getTutor().getLocalidad().getDepartamento().toString());
 	    parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
 	    parametros.put("Instituto",this.getEstablecimiento().getNombre());
 	    parametros.put("ciudadDeEstablecimiento", this.getEstablecimiento().getLocalidad().toString());
 	    parametros.put("nombreAlumno", super.getApellido()+" "+super.getNombre());
 	    parametros.put("dniAlumno", super.getCuil());
-	    parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
-	    parametros.put("dniDirector", super.getEstablecimiento().getDirectivo().getCuil());
+	    
+	     if (super.getEstablecimiento().getDirectivo() != null){
+	    	 
+	    	parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
+	 	    parametros.put("dniDirector", super.getEstablecimiento().getDirectivo().getCuil());
+	 	             }
+		       else {
+			         parametros.put("dniDirector", "..........................");
+			         parametros.put("nombreDirector", "................................");
+		             }
+	    
+	    
 	    parametros.put("nombreAlumno", super.getApellido()+" "+super.getNombre());
 	    parametros.put("distritoEscolar", super.getEstablecimiento().getDistritoEscolar());
 	    parametros.put("ciudadDeEstablecimiento", super.getEstablecimiento().getLocalidad().getLocalidad());
@@ -265,11 +276,14 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 		}
 	}
 	
+    ///////////////////////////////////////
+    //imprimir reporte para contrato de comodato
+    //////////////////////////////////////
 	@Named("Imprimir Contrato Comodato")
-	public Blob imprimir() 
+	public Blob imprimir() throws JRException, FileNotFoundException 
     {
-		try
-    	{
+	  try {
+		  
     	HashMap<String,Object> parametros = new HashMap<String, Object>();
     	
     	 	Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.getCuil()));
@@ -296,12 +310,13 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	    	Localidad localidad = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal","codigo",establecimiento.getLocalidad().getCodigoPostal()));
 	    	Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre",localidad.getDepartamento().getNombreDepartamento()));
 	    	
-		    parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
-		    if (establecimiento.getDirectivo() != null){
+		      if (establecimiento.getDirectivo() != null){
 		    	 parametros.put("dniDirector",  establecimiento.getDirectivo().getCuil().toString());
+		    	 parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
 	 		           }
 	 		       else {
-	 			         parametros.put("dniDirector", "");
+	 			         parametros.put("dniDirector", "..........................");
+	 			         parametros.put("nombreDirector", "................................");
 	 		             }
 		   
 		    parametros.put("direccionEstablecimiento", establecimiento.getDireccion());
