@@ -71,6 +71,7 @@ public class repologin extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Login.class, "todasLasCuentas"));
 	}
 	
+	
 	/**
 	 * metodo que busca un usuario
 	 * para que lo pueda modificar 
