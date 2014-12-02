@@ -4,9 +4,9 @@ import org.apache.isis.applib.fixturescripts.FixtureScript;
 import repo.login.repologin;
 import dom.login.Rol;
 
-public class LoginFixture extends FixtureScript{
+public class RolesFixture extends FixtureScript{
 
-	public LoginFixture() {
+	public RolesFixture() {
 		// TODO Auto-generated constructor stub
 		withDiscoverability(Discoverability.DISCOVERABLE);
 	}
@@ -14,9 +14,12 @@ public class LoginFixture extends FixtureScript{
 	// //////////////////////////////////////
 	@Override
 	protected void execute(ExecutionContext executionContext) {
-		create("Perez",executionContext);
-		
-
+		create("usuario_administrador",executionContext);
+		create("usuario_alumno",executionContext);
+		create("usuario_director",executionContext);
+		create("usuario_tecnico",executionContext);
+		create("usuario_directivo",executionContext);
+		create("usuario_docente",executionContext);
 	}
 
 	// //////////////////////////////////////

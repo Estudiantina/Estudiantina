@@ -30,7 +30,7 @@ public class FixturesService extends FixtureScripts {
     @Programmatic
     @MemberOrder(sequence="30")
     public Object instalarRoles() {
-        final List<FixtureResult> run = findFixtureScriptFor(LoginFixture.class).run(null);
+        final List<FixtureResult> run = findFixtureScriptFor(RolesFixture.class).run(null);
         return run.get(0).getObject();
     }
 
