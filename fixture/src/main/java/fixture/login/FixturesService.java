@@ -1,10 +1,8 @@
 package fixture.login;
 import java.util.List;
-import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Programmatic;
-import org.apache.isis.applib.annotation.Prototype;
 import org.apache.isis.applib.fixturescripts.FixtureResult;
 import org.apache.isis.applib.fixturescripts.FixtureScript;
 import org.apache.isis.applib.fixturescripts.FixtureScripts;
@@ -28,10 +26,16 @@ public class FixturesService extends FixtureScripts {
     
 
     @Programmatic
-    @MemberOrder(sequence="30")
+    @MemberOrder(sequence="20")
     public Object instalarRoles() {
         final List<FixtureResult> run = findFixtureScriptFor(RolesFixture.class).run(null);
         return run.get(0).getObject();
     }
 
+    @Programmatic
+    @MemberOrder(sequence="30")
+    public Object instalarPermisos() {
+        final List<FixtureResult> run = findFixtureScriptFor(PermisosFixture.class).run(null);
+        return run.get(0).getObject();
+    }
 }

@@ -24,6 +24,7 @@ import org.apache.isis.applib.value.Password;
 import dom.email.CuentaMail;
 import dom.email.ServidorDeEmail;
 import dom.login.Login;
+import dom.login.Permisos;
 import dom.login.Rol;
 import dom.persona.Persona;
 @Named("Cuentas")
@@ -156,7 +157,19 @@ public class repologin extends AbstractFactoryAndRepository {
 		container.persistIfNotAlready(miServidor);
 		return miServidor;	
     }
-    	
+	
+	@Hidden
+    public Rol buscarRol(@Named("rol")String searchPhrase) {        
+		return firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre",searchPhrase));
+    }
+    @Hidden
+	public Permisos aniadirPermiso(Rol rol,String permiso)
+	{
+		final Permisos miPermiso = container.newTransientInstance(Permisos.class);
+		miPermiso.setPermiso(permiso);
+		rol.getListaPermiso().add(miPermiso);	
+		return miPermiso;
+	}
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }

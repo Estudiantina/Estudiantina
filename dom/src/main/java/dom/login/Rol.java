@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.Queries;
 import javax.jdo.annotations.Query;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
@@ -26,8 +28,10 @@ import org.apache.isis.applib.annotation.Render.Type;
 
 import repo.login.repologin;
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
-@Query(name="TraerRoles", language="JDOQL", value = "SELECT FROM dom.Login.Rol")
-
+@Queries({
+@Query(name="TraerRoles", language="JDOQL", value = "SELECT FROM dom.Login.Rol"),
+@Query(name="traerporNombre", language="JDOQL", value = "SELECT FROM dom.Login.Rol WHERE rol== :nombre")
+})
 @AutoComplete(repository = repologin.class, action = "autoCompletarRol")
 @ObjectType("Rol")
 
