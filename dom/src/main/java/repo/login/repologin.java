@@ -167,7 +167,8 @@ public class repologin extends AbstractFactoryAndRepository {
 	{
 		final Permisos miPermiso = container.newTransientInstance(Permisos.class);
 		miPermiso.setPermiso(permiso);
-		rol.getListaPermiso().add(miPermiso);	
+		rol.getListaPermiso().add(miPermiso);
+		container.persistIfNotAlready(miPermiso);
 		return miPermiso;
 	}
 	@javax.inject.Inject 

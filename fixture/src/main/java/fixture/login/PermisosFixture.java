@@ -6,6 +6,11 @@ import dom.login.Permisos;
 
 public class PermisosFixture extends FixtureScript{
 
+	
+	public PermisosFixture()
+	{
+		withDiscoverability(Discoverability.DISCOVERABLE);
+	}
 	@Override
 	protected void execute(ExecutionContext executionContext) {
 		
