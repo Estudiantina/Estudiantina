@@ -11,6 +11,7 @@ public class PermisosFixture extends FixtureScript{
 	{
 		withDiscoverability(Discoverability.DISCOVERABLE);
 	}
+	
 	@Override
 	protected void execute(ExecutionContext executionContext) {
 		
