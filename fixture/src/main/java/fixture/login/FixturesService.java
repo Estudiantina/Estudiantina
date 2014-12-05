@@ -41,4 +41,11 @@ public class FixturesService extends FixtureScripts {
         final List<FixtureResult> run = findFixtureScriptFor(PermisosFixture.class).run(null);
         return run.get(0).getObject();
     }
+    
+    @Programmatic
+    @MemberOrder(sequence="40")
+    public Object instalarProvincias() {
+        final List<FixtureResult> run = findFixtureScriptFor(ProvinciasFixture.class).run(null);
+        return run.get(0).getObject();
+    }
 }
