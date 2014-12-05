@@ -58,6 +58,12 @@ public class FixturesService extends FixtureScripts {
         return run.get(0).getObject();
     }
     
+    @Programmatic
+    @MemberOrder(sequence="60")
+    public Object instalarLocalidades() {
+        final List<FixtureResult> run = findFixtureScriptFor(LocalidadesFixture.class).run(null);
+        return run.get(0).getObject();
+    }
 
     @PostConstruct //Hace que se ejecute al inicio
     @Override //se sobre escribe el metodo por eso hay que llamarlo otra vez para que no pinche
@@ -68,6 +74,6 @@ public class FixturesService extends FixtureScripts {
     	this.instalarProvincias();
     	this.instalarDepartamentos();
     	this.instalarPermisos();
-    	
+        this.instalarLocalidades();	
     }
 }
