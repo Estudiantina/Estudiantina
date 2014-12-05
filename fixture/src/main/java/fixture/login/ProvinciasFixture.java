@@ -14,7 +14,7 @@ public class ProvinciasFixture extends FixtureScript {
 	
 	@Override
 	protected void execute(ExecutionContext executionContext) {
-		create("Neuquen", executionContext);
+		//create("Neuquen", executionContext);
 		create("Rio Negro", executionContext);
 		create("Buenos Aires", executionContext);
 		create("Santa Fe", executionContext);
