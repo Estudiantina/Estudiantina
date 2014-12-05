@@ -1,6 +1,8 @@
 package fixture.login;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
@@ -34,7 +36,7 @@ public class FixturesService extends FixtureScripts {
         final List<FixtureResult> run = findFixtureScriptFor(RolesFixture.class).run(null);
         return run.get(0).getObject();
     }
-
+    
     @Programmatic
     @MemberOrder(sequence="30")
     public Object instalarPermisos() {
@@ -54,5 +56,18 @@ public class FixturesService extends FixtureScripts {
     public Object instalarDepartamentos() {
         final List<FixtureResult> run = findFixtureScriptFor(DepartamentosFixture.class).run(null);
         return run.get(0).getObject();
+    }
+    
+
+    @PostConstruct //Hace que se ejecute al inicio
+    @Override //se sobre escribe el metodo por eso hay que llamarlo otra vez para que no pinche
+    public void init()
+    {
+    	super.init();//se llama al metodo init heredado
+    	this.instalarRoles();
+    	this.instalarProvincias();
+    	this.instalarDepartamentos();
+    	this.instalarPermisos();
+    	
     }
 }

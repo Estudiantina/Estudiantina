@@ -1,6 +1,8 @@
 package fixture.login;
 
 import org.apache.isis.applib.fixturescripts.FixtureScript;
+import org.apache.isis.applib.fixturescripts.FixtureScript.ExecutionContext;
+
 import repo.login.repologin;
 import dom.login.Permisos;
 
@@ -14,14 +16,17 @@ public class PermisosFixture extends FixtureScript{
 	
 	@Override
 	protected void execute(ExecutionContext executionContext) {
-		
+
+		if(estaVacio(executionContext))
+		{
 		//
 		//PERMISOS PARA USUARIOS ADMINISTRADORES
 		//
-		//create("usuario_administrador","*",executionContext);
+		create("usuario_administrador","*",executionContext);
 		//
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
+		
 		create("usuario_alumno","dom.alumno:Alumno:cursos:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:estadoDeAlumno:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:fechaIngreso:r",executionContext);
@@ -94,7 +99,7 @@ public class PermisosFixture extends FixtureScript{
 		//PERMISOS ALUMNO solicitud de tramite de migracion 
 		create("usuario_alumno","repo.notificaciones:RepoNotificaciones:solicitarTramiteDeMigracion:*",executionContext);
 		create("usuario_alumno","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:r",executionContext);
-		
+		}
 		
 		
 		
@@ -120,6 +125,11 @@ public class PermisosFixture extends FixtureScript{
 				repoLogin.aniadirPermiso(repoLogin.buscarRol(rol),permiso));
 	}
 
+	private boolean estaVacio(ExecutionContext executionContext) {
+		return executionContext.add(this,
+				repoLogin.verRoles().get(0).getListaPermiso().size()==0);
+	}
+	
 	@javax.inject.Inject
 	private repologin repoLogin;
 }

@@ -1,9 +1,9 @@
 package fixture.login;
+
 import org.apache.isis.applib.fixturescripts.FixtureScript;
 
 import repo.login.repologin;
 import dom.login.Rol;
-
 public class RolesFixture extends FixtureScript{
 
 	public RolesFixture() {
@@ -14,12 +14,15 @@ public class RolesFixture extends FixtureScript{
 	// //////////////////////////////////////
 	@Override
 	protected void execute(ExecutionContext executionContext) {
+	    if (estaVacio(executionContext))
+	    {
 		create("usuario_administrador",executionContext);
 		create("usuario_alumno",executionContext);
 		create("usuario_director",executionContext);
 		create("usuario_tecnico",executionContext);
 		create("usuario_directivo",executionContext);
 		create("usuario_docente",executionContext);
+	    }
 	}
 
 	// //////////////////////////////////////
@@ -28,6 +31,11 @@ public class RolesFixture extends FixtureScript{
 			ExecutionContext executionContext) {
 		return executionContext.add(this,
 				usuarios.altaRol(rol));
+	}
+	
+	private boolean estaVacio(ExecutionContext executionContext) {
+		return executionContext.add(this,
+				usuarios.verRoles().size()==0);
 	}
 
 	@javax.inject.Inject
