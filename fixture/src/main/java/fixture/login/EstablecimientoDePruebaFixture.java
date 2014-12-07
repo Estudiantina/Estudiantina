@@ -27,7 +27,7 @@ public class EstablecimientoDePruebaFixture extends FixtureScript {
 	private Establecimiento create(String nombre, String direccion,String telefono,String email,String distritoEscolar,String cue, String localidad,
 			ExecutionContext executionContext) {
 		return executionContext.add(this,
-				repositorioEstablecimiento.ingresarEstablecimiento(nombre, direccion, telefono, email, distritoEscolar, cue, repoLocalidad.listaLocalidades().get(0)));
+				repositorioEstablecimiento.ingresarEstablecimiento(nombre, direccion, telefono, email, distritoEscolar, cue, repoLocalidad.autoCompletarLocalidad(localidad).get(0)));
 	}
 	private boolean estaVacio(ExecutionContext executionContext) {
 		return executionContext.add(this,

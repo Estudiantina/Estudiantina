@@ -18,10 +18,7 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.IdentityType;
-
-import javax.jdo.annotations.Unique;
-
-
+import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
@@ -39,7 +36,7 @@ import dom.persona.Persona;
 @ObjectType("Login")
 public class Login {
 private String usuario;
-@SuppressWarnings("unused")
+@javax.jdo.annotations.Column(allowsNull="False",length=300)
 private String password;
 private Persona persona;
 
@@ -48,8 +45,7 @@ public String iconName() {
 	   return "rol";
 }
 
-@Unique
-@javax.jdo.annotations.Column(allowsNull="False")
+@javax.jdo.annotations.Column(allowsNull="True")
 public Persona getPersona() {
 	return persona;
 }
@@ -66,7 +62,8 @@ public void setUsuario(String usuario) {
 	this.usuario = usuario;
 }
 
-@javax.jdo.annotations.Column(allowsNull="False")
+
+@MaxLength(300)
 public void setPassword(String password){
 	MessageDigest md = null;
 	try {
@@ -83,6 +80,8 @@ public void setPassword(String password){
 	
 	this.password = new String(Hex.encode(digest));	
 }
+
+
 
 	private Rol rol;
 

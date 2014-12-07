@@ -72,6 +72,20 @@ public class FixturesService extends FixtureScripts {
         return run.get(0).getObject();
     }
     
+    @Programmatic
+    @MemberOrder(sequence="80")
+    public Object instalarPersonaDePrueba() {
+        final List<FixtureResult> run = findFixtureScriptFor(PersonaDePruebaFixture.class).run(null);
+        return run.get(0).getObject();
+    }
+    
+    @Programmatic
+    @MemberOrder(sequence="90")
+    public Object instalarCuentaDePrueba() {
+        final List<FixtureResult> run = findFixtureScriptFor(CuentaDePruebaFixture.class).run(null);
+        return run.get(0).getObject();
+    }
+    
     @PostConstruct //Hace que se ejecute al inicio
     @Override //se sobre escribe el metodo por eso hay que llamarlo otra vez para que no pinche
     public void init()
@@ -83,5 +97,7 @@ public class FixturesService extends FixtureScripts {
     	this.instalarPermisos();
         this.instalarLocalidades();
         this.instalarEstablecimientoDePrueba();
+        this.instalarPersonaDePrueba();
+        this.instalarCuentaDePrueba();
     }
 }

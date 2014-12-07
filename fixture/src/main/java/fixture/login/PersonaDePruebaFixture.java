@@ -25,7 +25,8 @@ public class PersonaDePruebaFixture extends FixtureScript {
 		if (estaVacio(executionContext))
 		{
 			Date fechaNacimiento = new Date();
-			create(repositorioEstablecimiento.autoComplete("ifes").get(0), (long) 3333, "Nombre", "Prueba", "29915444444", "444444", "matias@informaticos.com", "peru", 81, "",repositorioLocalidad.autoCompletarLocalidad("Neuquen").get(0) ,fechaNacimiento , Sexo.MASCULINO, executionContext);
+			Long cuil = (long) 3333;
+			create(repositorioEstablecimiento.traerPorCue("33356"), cuil, "Nombre", "Prueba", "29915444", "444444", "matias@informaticos.com", "peru", 81, "",repositorioLocalidad.autoCompletarLocalidad("8300").get(0) ,fechaNacimiento , Sexo.MASCULINO, executionContext);
 			
 		}
 	}
@@ -35,25 +36,27 @@ public class PersonaDePruebaFixture extends FixtureScript {
 			final String nombre,
 			final String apellido,
 			final String telefonoCelular,
-			String telefinoFijo,
+			final String telefinoFijo,
 			final String email,
-			String domicilio,
-			int alturaDomicilio,
-			String piso,
-			Localidad localidad,
+			final String domicilio,
+			final int alturaDomicilio,
+			final String piso,
+			final Localidad localidad,
 			final Date fechaNacimiento,
-			Sexo sexo,
+			final Sexo sexo,
 			ExecutionContext executionContext) {		
 		
 		
 		return executionContext.add(this,
-				repositorioPersona.ingresarTecnico(repositorioEstablecimiento.autoComplete("ifes").get(0), (long) 3333, "Nombre", "Prueba", "29915444444", "444444", "matias@informaticos.com", "peru", 81, "",repositorioLocalidad.autoCompletarLocalidad("Neuquen").get(0) ,fechaNacimiento , Sexo.MASCULINO));
+				repositorioPersona.ingresarTecnico(establecimiento, cuil, nombre, apellido, telefonoCelular, telefonoCelular, email, domicilio, alturaDomicilio, piso,localidad ,fechaNacimiento , sexo));
 				
 	}
+	
 	private boolean estaVacio(ExecutionContext executionContext) {
 		return executionContext.add(this,
 				repositorioPersona.listarPersonas().size()==0);
 	}
+	
 	@Inject
 	private RepositorioLocalidad repositorioLocalidad;
 	@Inject

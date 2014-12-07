@@ -34,19 +34,20 @@ public class repologin extends AbstractFactoryAndRepository {
 		return "seguridad";	
 	}
 	@Named("dar de alta a un usuario")
-	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")Password password,@Named("Persona (Ingrese CUIL)")Persona persona)
+	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")Password password,@Named("Persona (Ingrese CUIL)")Persona persona,@Named("rol")Rol rol)
 	{
-		return altaUsuario(usuario,password.getPassword(),persona);
+		return altaUsuario(usuario,password.getPassword(),persona,rol);
 	}
 	
 	@Named("dar de alta a un usuario")
 	@Hidden
-	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")String password,@Named("Persona (Ingrese CUIL)")Persona persona)
+	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")String password,@Named("Persona (Ingrese CUIL)")Persona persona,@Named("Rol") Rol rol)
 	{
 		final Login login = container.newTransientInstance(Login.class);
 		login.setPersona(persona);
 		login.setUsuario(usuario);
 		login.setPassword(password);
+		login.setRol(rol);
 		container.persistIfNotAlready(login);
 		return login;
 	}
