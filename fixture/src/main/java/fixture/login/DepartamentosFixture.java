@@ -3,8 +3,6 @@ package fixture.login;
 import javax.inject.Inject;
 
 import org.apache.isis.applib.fixturescripts.FixtureScript;
-import org.apache.isis.applib.fixturescripts.FixtureScript.ExecutionContext;
-
 import repo.localidad.RepositorioLocalidad;
 import dom.localidad.Departamento;
 

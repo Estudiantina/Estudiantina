@@ -1,14 +1,8 @@
 package fixture.login;
 
 import org.apache.isis.applib.fixturescripts.FixtureScript;
-import org.apache.isis.applib.fixturescripts.FixtureScript.Discoverability;
-import org.apache.isis.applib.fixturescripts.FixtureScript.ExecutionContext;
-
 import repo.localidad.RepositorioLocalidad;
-import repo.login.repologin;
 import dom.localidad.Localidad;
-import dom.login.Permisos;
-
 public class LocalidadesFixture extends FixtureScript{
 
 	public LocalidadesFixture()

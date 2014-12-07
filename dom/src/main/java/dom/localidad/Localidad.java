@@ -15,10 +15,13 @@ package dom.localidad;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Unique;
 
-
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.util.ObjectContracts;
+
+import dom.netbook.Netbook;
 import repo.localidad.RepositorioLocalidad;
+
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Queries;
 import javax.jdo.annotations.DatastoreIdentity;
@@ -33,7 +36,7 @@ import javax.jdo.annotations.Query;
 	})
 @AutoComplete(repository = RepositorioLocalidad.class, action = "autoCompletarLocalidad")
 @ObjectType("Localidades")
-public class Localidad {
+public class Localidad  implements Comparable<Localidad>{
 	private String codigoPostal;
 	private String localidad;
 	private Departamento departamento;
@@ -117,5 +120,10 @@ public class Localidad {
 		} else if (!localidad.equals(other.localidad))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Localidad arg0) {
+		return ObjectContracts.compare(this, arg0, "codigoPostal");
 	}
 }
