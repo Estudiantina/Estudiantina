@@ -87,7 +87,6 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	@Named("Numero De Licencia de Windows")@MaxLength(30)final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
 	@MaxLength(17)@RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]") @Named("Direccion Mac (Patron 0-9 ; a-f 12:34:56:78:90:ab)")final String direccionMac)
-
 	{
 		final Netbook netbook = container.newTransientInstance(Netbook.class);
 	    netbook.setFechaDeExpiracion(fechaDeExpiracion);

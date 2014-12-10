@@ -45,6 +45,7 @@ public class Notificaciones {
 	private Establecimiento establecimiento;
 
 	@Column(allowsNull="false")
+	@Hidden
     public Establecimiento getEstablecimiento() {
 		return establecimiento;
 	}

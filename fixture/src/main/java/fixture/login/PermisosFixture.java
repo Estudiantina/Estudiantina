@@ -158,6 +158,10 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:marcarComoNotificacionAtendida:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:imprimirCertificadoAlumnoRegular:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:*",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:detallesYobservaciones:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:establecimiento:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:fechaNotificacion:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:persona:r",executionContext);
 		
 		
 		
