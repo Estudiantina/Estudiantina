@@ -142,7 +142,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	}
 
 	private Tutor tutor;
-	@javax.jdo.annotations.Column(allowsNull="true")
+	@javax.jdo.annotations.Column(allowsNull="false")
 	public Tutor getTutor() {
 		return tutor;
 	}

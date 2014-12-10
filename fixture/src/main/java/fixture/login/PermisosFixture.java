@@ -144,7 +144,7 @@ public class PermisosFixture extends FixtureScript{
 		//Permisos de Docente en Notificaciones
 		create("usuario_directivo","repo.notificaciones:RepoNotificaciones:verNotificacionesNoLeidas:*",executionContext);
 		create("usuario_directivo","repo.notificaciones:RepoNotificaciones:verNotificacionesDeHoy:*",executionContext);
-		create("usuario_directivo","app:Dashboard:getAllNotificaciones:*",executionContext);
+		create("usuario_directivo","app:Dashboard:AllNotificaciones:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:Notificaciones:detallesYobservaciones:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:Notificaciones:establecimiento:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:Notificaciones:fechaNotificacion:r",executionContext);

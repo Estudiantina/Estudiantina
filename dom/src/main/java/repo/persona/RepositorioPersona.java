@@ -97,7 +97,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("FECHA INGRESO")Date fechaIngreso,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NACIONALIDAD")Nacionalidad nacionalidad,
 			@Named("SEXO") Sexo sexo,
-			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno
+			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno,
+			@Named("Tutor del Alumno") Tutor tutor
 			
 			)
 	{
@@ -119,7 +120,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     alumno.setPiso(piso);
     alumno.setSexo(sexo);
     alumno.setAlturaDomicilio(alturaDomicilio);
-        
+    alumno.setTutor(tutor);
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
