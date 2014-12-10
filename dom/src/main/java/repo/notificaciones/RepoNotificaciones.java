@@ -90,16 +90,13 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 	@Named("Notificaciones No Leidas")
 	public List<Notificaciones> verNotificacionesNoLeidas()
 	{	
-		
 		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesNoLeidas","institucion",repoPersona.VerMisDatos().getEstablecimiento()));
 		
 	}
 	
 	public List<Notificaciones> verTodasLasNotificaciones()
 	{
-
 		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificaciones"));
-		
 	}
 
 	@Named("Notificaciones de Hoy")

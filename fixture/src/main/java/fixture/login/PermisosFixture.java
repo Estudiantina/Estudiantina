@@ -93,7 +93,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","repo.persona:RepositorioPersona:VerMisDatos:*",executionContext);
 
 		//PERMISOS ALUMNO Pedido De Certificados
-		create("usuario_alumno","repo.notificaciones:RepoNotificaciones:PedirCertificado:*",executionContext);
+		create("usuario_alumno","repo.notificaciones:RepoNotificaciones:pedirCertificadoAlumnoRegular:*",executionContext);
 		//PERMISOS ALUMNO Pedido de NetbookPrestada
 		create("usuario_alumno","repo.notificaciones:RepoNotificaciones:PedirNetbookPrestada:*",executionContext);
 
