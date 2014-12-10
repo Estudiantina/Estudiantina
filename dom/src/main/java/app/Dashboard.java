@@ -12,12 +12,9 @@ import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Render.Type;
-
 import repo.notificaciones.RepoNotificaciones;
 import repo.persona.RepositorioPersona;
 import dom.notificaciones.Notificaciones;
-import dom.tecnico.Tecnico;
-
 import org.apache.isis.applib.annotation.Render;
 @MemberGroupLayout(columnSpans = { 0, 0, 0, 12 })
 

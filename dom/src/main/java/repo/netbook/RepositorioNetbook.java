@@ -28,7 +28,6 @@ import org.apache.isis.applib.query.QueryDefault;
 import org.joda.time.LocalDate;
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
-import dom.login.Login;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
 import dom.notificaciones.SolicitudNetbookPrestada;

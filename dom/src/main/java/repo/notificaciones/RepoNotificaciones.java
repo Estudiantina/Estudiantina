@@ -23,8 +23,6 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.annotation.Named;
 import org.joda.time.LocalDate;
-
-import repo.establecimiento.RepositorioEstablecimiento;
 import repo.persona.RepositorioPersona;
 import dom.login.Login;
 import dom.notificaciones.CertificadoAlumnoRegular;

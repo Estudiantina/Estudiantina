@@ -19,9 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
 import javax.jdo.annotations.Column;
-import javax.jdo.annotations.DiscriminatorStrategy;
 import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Persistent;

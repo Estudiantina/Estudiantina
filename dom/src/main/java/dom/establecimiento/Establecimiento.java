@@ -15,7 +15,6 @@ package dom.establecimiento;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
-import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
@@ -127,8 +126,7 @@ public class Establecimiento {
 		this.cue = cue;
 	}
 
-	@javax.inject.Inject 
-	  private DomainObjectContainer container;
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
