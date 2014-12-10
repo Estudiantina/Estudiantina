@@ -159,7 +159,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				final Date fechaIngreso,
 				final Nacionalidad nacionalidad,
 				final Sexo sexo,
-				final EstadoDeAlumno estadoDeAlumno
+				final EstadoDeAlumno estadoDeAlumno,
+				final Tutor tutor
 				
 			) {
         return validarDatosDeAlumno(cuil,fechaNacimiento,fechaIngreso);

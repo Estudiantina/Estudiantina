@@ -174,17 +174,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
-	
-	/*
-	public String validate(){
 		
-		if (fechaIngreso.compareTo(getFechaNacimiento()) < getFechaNacimiento().getTime()){
-			return "La fecha de Naciomiento debe ser posterior";
-		}
-		return null;
-	}*/
-	
-	
 	@javax.jdo.annotations.Column(allowsNull="false")	
 	public Nacionalidad getNacionalidad() {
 		return nacionalidad;
