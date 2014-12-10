@@ -295,7 +295,7 @@ public class Netbook implements Comparable<Netbook> {
 		
 		if (this.getPersona() != null){
 		
-		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", this.getPersona().getCuil() ));
+		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", this.getPersona().getCuil(),"institucion",this.establecimiento ));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
 		
 		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
