@@ -21,6 +21,9 @@ public class PermisosFixture extends FixtureScript{
 		//PERMISOS PARA USUARIOS ADMINISTRADORES
 		//
 		create("usuario_administrador","*",executionContext);
+		
+		//PERMISOS PARA USUARIOS TECNICOS
+		create("usuario_tecnico","*",executionContext);
 		//
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO

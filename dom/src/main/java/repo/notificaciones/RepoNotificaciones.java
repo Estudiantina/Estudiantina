@@ -14,6 +14,8 @@ package repo.notificaciones;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.MultiLine;
@@ -21,6 +23,8 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.annotation.Named;
 import org.joda.time.LocalDate;
+
+import repo.establecimiento.RepositorioEstablecimiento;
 import dom.login.Login;
 import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
@@ -43,6 +47,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		LocalDate fecha = new LocalDate();
 		certificadoAlumnoRegular.setFechaNotificacion(fecha);
 		certificadoAlumnoRegular.setPersona(login.getPersona());
+		certificadoAlumnoRegular.setEstablecimiento(login.getPersona().getEstablecimiento());
 		certificadoAlumnoRegular.setVista(false);//la notificacion todavia no esta vista
 		container.persistIfNotAlready(certificadoAlumnoRegular);
 		container.informUser("Se Ha solicitado un nuevo certificado De Alumno Regular");
@@ -58,6 +63,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		LocalDate fecha = new LocalDate();
 		solicitudNetbookPrestada.setFechaNotificacion(fecha);
 		solicitudNetbookPrestada.setPersona(login.getPersona());
+		solicitudNetbookPrestada.setEstablecimiento(login.getPersona().getEstablecimiento());
 		solicitudNetbookPrestada.setVista(false);//la notificacion todavia no esta vista
 		container.persistIfNotAlready(solicitudNetbookPrestada);
 		container.informUser("Se Ha solicitado el prestamo de una Netbook a su nombre");
@@ -73,6 +79,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		LocalDate fecha = new LocalDate();
 		solicitudTramiteDeMigracion.setFechaNotificacion(fecha);
 		solicitudTramiteDeMigracion.setPersona(login.getPersona());
+		solicitudTramiteDeMigracion.setEstablecimiento(login.getPersona().getEstablecimiento());
 		solicitudTramiteDeMigracion.setVista(false);//la notificacion todavia no esta vista
 		container.persistIfNotAlready(solicitudTramiteDeMigracion);
 		container.informUser("Se Ha solicitado el Tramite de Migracion Correctamente");
@@ -81,7 +88,8 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
   	
 	@Named("Notificaciones No Leidas")
 	public List<Notificaciones> verNotificacionesNoLeidas()
-	{		
+	{	
+		
 		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesNoLeidas"));
 		
 	}
@@ -103,7 +111,8 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesEntreFechas","fechaAnterior",fechaAnterior,"fechaPosterior",fechaPosterior));
 		
 	}
-
+	@Inject
+	RepositorioEstablecimiento repoEstablecimiento;
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
