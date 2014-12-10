@@ -25,6 +25,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.joda.time.LocalDate;
 
 import repo.establecimiento.RepositorioEstablecimiento;
+import repo.persona.RepositorioPersona;
 import dom.login.Login;
 import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
@@ -90,7 +91,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 	public List<Notificaciones> verNotificacionesNoLeidas()
 	{	
 		
-		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesNoLeidas"));
+		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesNoLeidas","institucion",repoPersona.VerMisDatos().getEstablecimiento()));
 		
 	}
 	
@@ -108,11 +109,11 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
  
 		LocalDate fechaPosterior = LocalDate.now().minusDays(-1);
 		
-		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesEntreFechas","fechaAnterior",fechaAnterior,"fechaPosterior",fechaPosterior));
+		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesEntreFechas","fechaAnterior",fechaAnterior,"fechaPosterior",fechaPosterior,"institucion",repoPersona.VerMisDatos().getEstablecimiento()));
 		
 	}
 	@Inject
-	RepositorioEstablecimiento repoEstablecimiento;
+	RepositorioPersona repoPersona;
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
