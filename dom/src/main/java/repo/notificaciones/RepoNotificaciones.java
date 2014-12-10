@@ -100,7 +100,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 	}
 
 	@Named("Notificaciones de Hoy")
-	public List<Notificaciones> verNotificaciones()
+	public List<Notificaciones> verNotificacionesDeHoy()
 	{	
 		LocalDate fechaAnterior = LocalDate.now().minusDays(2); 
  

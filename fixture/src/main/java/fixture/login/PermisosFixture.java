@@ -100,6 +100,50 @@ public class PermisosFixture extends FixtureScript{
 		//PERMISOS ALUMNO solicitud de tramite de migracion 
 		create("usuario_alumno","repo.notificaciones:RepoNotificaciones:solicitarTramiteDeMigracion:*",executionContext);
 		create("usuario_alumno","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:r",executionContext);
+		
+		//
+		//PERMISOS PARA DIRECTIVOS
+		//TODO establecer permisos de directivos
+		// PERMISOS DE DIRECTIVOS SOBRE ALUMNOS
+		create("usuario_directivo","dom.alumno:Alumno:cursos:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:estadoDeAlumno:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:fechaIngreso:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:nacionalidad:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:tutor:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:agregarCurso:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:eliminarCurso:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:imprimirContratoDeComodato:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:alturaDomicilio:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:apellido:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:cuil:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:domicilio:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:email:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:establecimiento:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:fechaNacimiento:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:localidad:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:location:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:netbooks:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:nombre:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:piso:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:sexo:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:telefonoCelular:r",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:telefonoFijo:r",executionContext);
+		// Permisos de Docente sobre Curso
+		create("usuario_directivo","dom.curso:Anio:*:*",executionContext);
+		create("usuario_directivo","dom.curso:Division:*:*",executionContext);
+		create("usuario_directivo","dom.curso:Turno:*:*",executionContext);
+		create("usuario_directivo","dom.curso:Curso:anio:r",executionContext);
+		create("usuario_directivo","dom.curso:Curso:cicloLectivo:r",executionContext);
+		create("usuario_directivo","dom.curso:Curso:division:r",executionContext);
+		create("usuario_directivo","dom.curso:Curso:Establecimiento:r",executionContext);
+		create("usuario_directivo","dom.curso:Curso:listaAlumnos:r",executionContext);
+		create("usuario_directivo","dom.curso:Curso:listaDocente:r",executionContext);
+		create("usuario_directivo","dom.curso:Curso:turno:r",executionContext);
+		create("usuario_directivo","dom.curso:Curso:listaAlumnos:r",executionContext);
+		
+		//Permisos de Docente en repositorios
+		create("usuario_directivo","repo.notificaciones:RepoNotificaciones:verNotificacionesNoLeidas:*",executionContext);
+		create("usuario_directivo","repo.notificaciones:RepoNotificaciones:verNotificacionesDeHoy:*",executionContext);
 		}
 		
 		
@@ -107,10 +151,7 @@ public class PermisosFixture extends FixtureScript{
 		
 		
 		
-		//
-		//PERMISOS PARA DIRECTIVOS
-		//TODO establecer permisos de directivos
-		
+				
 		
 		//
 		//

@@ -280,7 +280,7 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
     //imprimir reporte para contrato de comodato
     //////////////////////////////////////
 	@Named("Imprimir Contrato Comodato")
-	public Blob imprimir() throws JRException, FileNotFoundException 
+	public Blob imprimirContratoDeComodato() throws JRException, FileNotFoundException 
     {
 	  try {
 		  
