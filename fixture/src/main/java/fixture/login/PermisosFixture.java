@@ -150,13 +150,14 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.notificaciones:Notificaciones:fechaNotificacion:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:Notificaciones:persona:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:Notificaciones:marcarComoNotificacionAtendida:*",executionContext);
-		
+		//PERMISOS DE USUARIO DIRECTIVO EN NOTIFICACIONES DE CERTIFICADO DE ALUMNO REGULAR 
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:detallesYobservaciones:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:establecimiento:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:fechaNotificacion:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:persona:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:marcarComoNotificacionAtendida:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:imprimirCertificadoAlumnoRegular:*",executionContext);
+		//
 		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:detallesYobservaciones:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:establecimiento:r",executionContext);
@@ -164,7 +165,17 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:persona:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:asignarNetbook:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:marcarComoNotificacionAtendida:*",executionContext);
-		
+		//PERMISOS DE USUARIO DIRECTIVO SOBRE NETBOOKS
+		create("usuario_directivo","repo.netbook:RepositorioNetbook:listaNetbookPorId:*",executionContext);
+		create("usuario_directivo","dom.netbook:ModeloNetbook:*:*",executionContext);
+		create("usuario_directivo","dom.netbook:Netbook:direccionMac:r",executionContext);
+		create("usuario_directivo","dom.netbook:Netbook:fechaDeExpiracion:r",executionContext);
+		create("usuario_directivo","dom.netbook:Netbook:idNebook:r",executionContext);
+		create("usuario_directivo","dom.netbook:Netbook:modelo:r",executionContext);
+		create("usuario_directivo","dom.netbook:Netbook:numeroDeActaDeRobo:r",executionContext);
+		create("usuario_directivo","dom.netbook:Netbook:numeroDeSerie:r",executionContext);
+		create("usuario_directivo","dom.netbook:Netbook:persona:r",executionContext);
+		create("usuario_directivo","dom.netbook:Netbook:situacionDeNetbook:r",executionContext);
 		
 		}
 		
