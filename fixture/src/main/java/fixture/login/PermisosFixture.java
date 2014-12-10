@@ -157,7 +157,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:persona:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:marcarComoNotificacionAtendida:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:imprimirCertificadoAlumnoRegular:*",executionContext);
-		//
+		//PERMISOS DE USUARIO DIRECTIVO EN NOTIFICACIONES DE SOLICITUD DE TRAMITE DE MIGRACION
 		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:detallesYobservaciones:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:establecimiento:r",executionContext);
@@ -175,7 +175,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.netbook:Netbook:numeroDeActaDeRobo:r",executionContext);
 		create("usuario_directivo","dom.netbook:Netbook:numeroDeSerie:r",executionContext);
 		create("usuario_directivo","dom.netbook:Netbook:persona:r",executionContext);
-		create("usuario_directivo","dom.netbook:Netbook:situacionDeNetbook:r",executionContext);
+		create("usuario_directivo","dom.netbook:Netbook:situacionDeNetbook:*",executionContext);
 		
 		}
 		

@@ -78,8 +78,15 @@ public class Netbook implements Comparable<Netbook> {
 	private String direccionMac;
 	private String situacionDeNetbook;
 	private String numeroDeActaDeRobo;
-
 	private Persona persona ;
+	private Establecimiento establecimiento;
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Establecimiento getEstablecimiento() {
+		return establecimiento;
+	}
+	public void setEstablecimiento(Establecimiento establecimiento) {
+		this.establecimiento = establecimiento;
+	}
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Persona getPersona() {
 		return persona;

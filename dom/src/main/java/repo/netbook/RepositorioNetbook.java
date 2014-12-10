@@ -13,8 +13,8 @@
 package repo.netbook;
 
 import java.util.Date;
-
 import java.util.List;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
@@ -24,6 +24,8 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 import org.joda.time.LocalDate;
+
+import dom.establecimiento.Establecimiento;
 import dom.login.Login;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
@@ -86,7 +88,9 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	@Named("Numero De Serie")@MaxLength(30)final String numeroDeSerie,
 	@Named("Numero De Licencia de Windows")@MaxLength(30)final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
-	@MaxLength(17)@RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]") @Named("Direccion Mac (Patron 0-9 ; a-f 12:34:56:78:90:ab)")final String direccionMac)
+	@MaxLength(17)@RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]") @Named("Direccion Mac (Patron 0-9 ; a-f 12:34:56:78:90:ab)")final String direccionMac,
+	@Named("Establecimiento") @Optional Establecimiento establecimiento
+	)
 	{
 		final Netbook netbook = container.newTransientInstance(Netbook.class);
 	    netbook.setFechaDeExpiracion(fechaDeExpiracion);
@@ -96,7 +100,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setNumeroDeSerie(numeroDeSerie);
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
 	    netbook.setSituacionDeNetbook("Entregada");
-	    //netbook.setPersona(null);	    
+	    netbook.setEstablecimiento(establecimiento);	    
 	    container.persistIfNotAlready(netbook);
 	    
 		return netbook;
