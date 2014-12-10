@@ -15,6 +15,8 @@ package repo.solicitudserviciotecnico;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
@@ -23,6 +25,7 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 
+import repo.persona.RepositorioPersona;
 import dom.netbook.Netbook;
 import dom.solicituddeserviciotecnico.Prioridad;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
@@ -63,6 +66,10 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
         return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerPorPrioridad"));
     }
 	
+	public List<SolicitudServicioTecnico> listaDeSolicitudesPendientes() {
+        return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerSolicitudesPendientes","institucion",repoPersona.VerMisDatos().getEstablecimiento()));
+    }
+	
 	@Named("Historial de Reparaciones")
 	@Hidden
 	public List<SolicitudServicioTecnico> verHistorialReparaciones(Netbook netbook) {
@@ -81,7 +88,9 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			
 			return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "taerTipoDeSoluciones", "motivoDeSolicitud", traerPorTema));
 		}
-		
+	
+	@Inject
+	RepositorioPersona repoPersona;
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }

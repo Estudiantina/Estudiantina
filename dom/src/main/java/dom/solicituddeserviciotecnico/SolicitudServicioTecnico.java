@@ -13,7 +13,6 @@
 package dom.solicituddeserviciotecnico;
 
 import java.io.ByteArrayInputStream;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -22,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.jdo.annotations.Column;
+import javax.jdo.annotations.DiscriminatorStrategy;
 import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Persistent;
@@ -48,6 +48,7 @@ import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+
 import servicio.email.Email;
 
 
@@ -73,7 +74,9 @@ import dom.tecnico.Tecnico;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorPrioridad", language = "JDOQL",
           value = "SELECT FROM repo.netbook.SolicitudServicioTecnico WHERE estaBorrado== 'ACTIVO'"),
-	@Query(name="traerHistorial", language="JDOQL",
+          @Query(name="traerSolicitudesPendientes", language="JDOQL",
+      	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE this.persona.establecimiento == :institucion && (this.estado == this.estadoEnviado || this.estado == this.estadoRecibido || this.estado == this.estadoAceptado || this.estado == this.estadoSolicitado || this.estado == this.estadoReparado ) && estaBorrado== 'ACTIVO'"),
+    @Query(name="traerHistorial", language="JDOQL",
 	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE netbook == :netbookBusqueda && estaBorrado== 'ACTIVO'"),
           @Query(name="taerTipoDeSoluciones", language="JDOQL", 
 	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 && estaBorrado== 'ACTIVO' range 0, 5")})
@@ -240,7 +243,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	public void setEstadoSolicitado(Solicitado estadoSolicitado) {
 		this.estadoSolicitado = estadoSolicitado;
 	}
-
+	
 	private IEstadoSolicitudDeServicioTecnico estado;
 	@Persistent(extensions= {
 			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
