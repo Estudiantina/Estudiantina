@@ -15,6 +15,8 @@ package repo.netbook;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
@@ -24,7 +26,7 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 import org.joda.time.LocalDate;
-
+import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.login.Login;
 import dom.netbook.ModeloNetbook;
@@ -47,7 +49,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 * @return lista de Netbooks
 	 */
     public List<Netbook> listaNetbooks() {
-        return allMatches(QueryDefault.create(Netbook.class, "traerTodo"));
+        return allMatches(QueryDefault.create(Netbook.class, "traerTodo","institucion",this.repositorioPersona.VerMisDatos().getEstablecimiento()));
     }
     
     /**
@@ -64,7 +66,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     	}
     	else
     	{
-    	return allMatches(QueryDefault.create(Netbook.class, "traerlikePorId","idNetbook",searchPhrase));
+    	return allMatches(QueryDefault.create(Netbook.class, "traerlikePorId","idNetbook",searchPhrase,"institucion",repositorioPersona.VerMisDatos().getEstablecimiento()));
     	}
     }
     /**
@@ -89,7 +91,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	@Named("Numero De Licencia de Windows")@MaxLength(30)final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
 	@MaxLength(17)@RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]") @Named("Direccion Mac (Patron 0-9 ; a-f 12:34:56:78:90:ab)")final String direccionMac,
-	@Named("Establecimiento") @Optional Establecimiento establecimiento
+	@Named("Establecimiento") Establecimiento establecimiento
 	)
 	{
 		final Netbook netbook = container.newTransientInstance(Netbook.class);
@@ -122,7 +124,8 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 			final String numeroDeSerie,
 			final String numeroLicenciaWindows,
 			final Date fechaDeExpiracion,
-			final String direccionMac
+			final String direccionMac,
+			final Establecimiento establecimiento
 			) {
         return validarDatosDeNetbook(numeroDeSerie,numeroLicenciaWindows,fechaDeExpiracion,direccionMac);
     }
@@ -167,7 +170,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 */
 	@Named("Buscar Netbook")
     public List<Netbook> listaNetbookPorId(@Named("Id de Netbook")String idNet) {        
-    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet));
+    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet,"institucion",repositorioPersona.VerMisDatos().getEstablecimiento()));
     }
 	
     /**
@@ -182,12 +185,14 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 		final SolicitudNetbookPrestada solicitud = container.newTransientInstance(SolicitudNetbookPrestada.class);
 		solicitud.setDetallesYobservaciones(motivo);
 		solicitud.setFechaNotificacion(LocalDate.now());
-		Login login = container.firstMatch(QueryDefault.create(Login.class,"buscarPorUsuario","usuario",container.getUser().getName())) ;
-		solicitud.setPersona(login.getPersona());
+		solicitud.setPersona(repositorioPersona.VerMisDatos());
 		container.persistIfNotAlready(solicitud);
 		container.informUser("La Solicitud ha sido realizada");
 		return "Solicitud realizada";
 	}
+	
+	@Inject
+	RepositorioPersona repositorioPersona;
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;

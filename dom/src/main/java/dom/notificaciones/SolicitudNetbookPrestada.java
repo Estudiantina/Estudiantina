@@ -15,11 +15,8 @@ import javax.inject.Inject;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
-
-import repo.netbook.RepositorioNetbook;
 import dom.netbook.Netbook;
 import dom.persona.Persona;
 
