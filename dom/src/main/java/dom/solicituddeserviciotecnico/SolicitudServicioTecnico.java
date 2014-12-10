@@ -37,6 +37,8 @@ import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.CssClass;
 import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.MemberGroupLayout;
+import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
@@ -85,6 +87,7 @@ import dom.tecnico.Tecnico;
         strategy=VersionStrategy.VERSION_NUMBER, 
         column="version")
 @ObjectType("SERVICIOTECNICO")
+@MemberGroupLayout(columnSpans={3,3,1,6}, left={"Datos Vinculados","Prioridad"},middle={"Datos De Solicitud"},right={"Estado"})
 @Bookmarkable
 public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTecnico> {
     
@@ -126,7 +129,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	public void setEstadoReparado(Reparado estadoReparado) {
 		this.estadoReparado = estadoReparado;
 	}
-
+	@MemberOrder(name="Datos De Solicitud", sequence="1")
 	@Column(allowsNull="true")
 	public Tecnico getTecnicoAsignado() {
 		return tecnicoAsignado;
@@ -272,6 +275,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 
 	@Hidden(where = Where.ALL_TABLES)
 	@Named("Estado")
+	@MemberOrder(name="Estado", sequence="1")
 	public String getNombreEstado()
 	{
 		return estado.getNombre();
@@ -279,6 +283,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	
 	@Column(allowsNull="false")
 	@Hidden(where = Where.ALL_TABLES)
+	@MemberOrder(name="Datos Vinculados", sequence="1")
 	public Persona getPersona() {
 		return persona;
 	}
@@ -292,6 +297,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
     }
 	
 	@Column(allowsNull="false")
+	@MemberOrder(name="Datos Vinculados", sequence="1")
 	public Netbook getNetbook() {
 		return netbook;
 	}
@@ -301,6 +307,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	
 	@Title
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(name="Datos De Solicitud", sequence="1")
 	public String getMotivoDeSolicitud() {
 		return motivoDeSolicitud;
 	}
@@ -310,6 +317,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(name="Datos De Solicitud", sequence="1")
 	public Date getFechaDeSolicitud() {
 		return fechaDeSolicitud;
 	}
@@ -333,6 +341,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	@Hidden(where = Where.ALL_TABLES)
     @javax.jdo.annotations.Column(allowsNull="true")
     @Optional
+    @MemberOrder(name="Datos De Solicitud", sequence="1")
 	public Date getFechaDeSolucion() {
 		return fechaDeSolucion;
 	}
@@ -343,6 +352,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 
 	@Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@MemberOrder(name="Prioridad", sequence="1")
 	public Prioridad getPrioridad() {
 		return prioridad;
 	}
@@ -354,6 +364,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	@Hidden(where = Where.ALL_TABLES)
 	@javax.jdo.annotations.Column(allowsNull="true")
 	@Optional
+	@MemberOrder(name="Datos De Solicitud", sequence="1")
 	public String getCodigoSolicitud() {
 		return codigoSolicitud;
 	}
@@ -363,9 +374,11 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		this.codigoSolicitud = codigoSolicitud;
 	}
 
+
     @Hidden(where = Where.ALL_TABLES)
     @MultiLine
     @javax.jdo.annotations.Column(allowsNull="true")
+    @MemberOrder(name="Datos De Solicitud", sequence="1")
 	public String getComentario() {
 		return comentario;
 	}
