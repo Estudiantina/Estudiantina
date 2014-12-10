@@ -123,7 +123,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.alumno:Alumno:localidad:r",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:location:r",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:netbooks:*",executionContext);
-		create("usuario_directivo","dom.alumno:Alumno:nombre:*",executionContext);
+		create("usuario_directivo","dom.alumno:Alumno:nombre:r",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:piso:r",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:sexo:r",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:telefonoCelular:r",executionContext);
@@ -141,9 +141,26 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.curso:Curso:turno:r",executionContext);
 		create("usuario_directivo","dom.curso:Curso:listaAlumnos:r",executionContext);
 		
-		//Permisos de Docente en repositorios
+		//Permisos de Docente en Notificaciones
 		create("usuario_directivo","repo.notificaciones:RepoNotificaciones:verNotificacionesNoLeidas:*",executionContext);
 		create("usuario_directivo","repo.notificaciones:RepoNotificaciones:verNotificacionesDeHoy:*",executionContext);
+		create("usuario_directivo","app:Dashboard:getAllNotificaciones:*",executionContext);
+		create("usuario_directivo","dom.notificaciones:Notificaciones:detallesYobservaciones:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:Notificaciones:establecimiento:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:Notificaciones:fechaNotificacion:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:Notificaciones:persona:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:Notificaciones:marcarComoNotificacionAtendida:*",executionContext);
+		
+		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:detallesYobservaciones:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:establecimiento:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:fechaNotificacion:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:persona:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:marcarComoNotificacionAtendida:*",executionContext);
+		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:imprimirCertificadoAlumnoRegular:*",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:*",executionContext);
+		
+		
+		
 		}
 		
 		
