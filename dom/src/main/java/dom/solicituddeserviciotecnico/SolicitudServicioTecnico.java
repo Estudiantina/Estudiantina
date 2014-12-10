@@ -412,7 +412,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		}
 		catch(Exception ex)
 		{	
-			Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
+			Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos el escudo de la provincia tambien es necesario".getBytes());
 			return archivonulo;
 		}
 	}
