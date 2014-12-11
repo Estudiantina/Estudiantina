@@ -162,6 +162,34 @@ li.x-caution a {
     background-color:#20B5C2;
 }	
 
+/*.entityActions .cssMenuPanel .menuh a:hover*/
+
+.entityActions .cssMenuPanel .menuh li.x-highlight a,
+li.x-highlight a {
+    background-color: #51A95C;
+}
+
+.entityActions .cssMenuPanel .menuh li.icono-eliminar a,
+li.icono-eliminar {
+	color:transparent;
+	border-radius: 4px 4px 4px 4px;
+	background-color: #F0EFEA;
+    background: url("../images/icoWrong.png") no-repeat scroll left center #F0EFEA;
+    height:38px;
+    
+}
+
+
+.entityActions .cssMenuPanel .menuh li.boton-imprimir a,
+li.boton-imprimir {
+	color:transparent;
+	border-radius: 4px 4px 4px 4px;
+	background-color: #F0EFEA;
+    background: url("../images/imprimir.png") no-repeat scroll left center #F0EFEA;
+    height:50px;
+    
+}
+
 
 
 .scalarName, .collectionName
