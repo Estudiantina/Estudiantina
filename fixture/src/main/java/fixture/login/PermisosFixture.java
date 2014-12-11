@@ -46,6 +46,19 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:solucion:*",executionContext);
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:tecnicoAsignado:*",executionContext);
 		
+		//PERMISOS DE TECNICOS PARA NETBOOKS
+		create("usuario_tecnico","repo.netbook:RepositorioNetbook:ingresarNuevaNetbookAlEstablecimiento:*",executionContext);
+		create("usuario_tecnico","dom.netbook:ModeloNetbook:*:*",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:direccionMac:r",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:establecimento:r",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:fechaDeExpiracion:*",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:idNetbook:r",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:modelo:r",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:numeroDeActaDeRobo:*",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:numeroDeSerie:*",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:numeroDeLicenciaWindows:*",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:persona:*",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:situacionDeNetbook:*",executionContext);
 		//
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
