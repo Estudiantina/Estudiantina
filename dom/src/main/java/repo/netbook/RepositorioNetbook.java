@@ -107,6 +107,40 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 		return netbook;
 	}
 	/**
+	 * Agrega una nueva Netbook tomando como establecimiento
+	 * el establecimiento que esta la persona
+	 * @param idNetbook
+	 * @param modelo
+	 * @param numeroDeSerie
+	 * @param numeroLicenciaWindows
+	 * @param fechaDeExpiracion
+	 * @param direccionMac
+	 * @return
+	 */
+	public Netbook ingresarNuevaNetbookAlEstablecimiento(
+			@Named("id de Netbook")@MaxLength(10)final String idNetbook,
+			@Named("Modelo")final ModeloNetbook modelo,
+			@Named("Numero De Serie")@MaxLength(30)final String numeroDeSerie,
+			@Named("Numero De Licencia de Windows")@MaxLength(30)final String numeroLicenciaWindows,
+			@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
+			@MaxLength(17)@RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]") @Named("Direccion Mac (Patron 0-9 ; a-f 12:34:56:78:90:ab)")final String direccionMac
+			)
+			{
+				final Netbook netbook = container.newTransientInstance(Netbook.class);
+			    netbook.setFechaDeExpiracion(fechaDeExpiracion);
+			    netbook.setIdNetbook(idNetbook);
+			    netbook.setDireccionMac(direccionMac);
+			    netbook.setModelo(modelo);
+			    netbook.setNumeroDeSerie(numeroDeSerie);
+			    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
+			    netbook.setSituacionDeNetbook("Entregada");
+			    netbook.setEstablecimiento(repositorioPersona.VerMisDatos().getEstablecimiento());	    
+			    container.persistIfNotAlready(netbook);
+				return netbook;
+			}
+	
+	
+	/**
 	 * metodo que valida los parametros cuando una nueva netbook es creada
 	 * @param idNetbook
 	 * @param modelo
