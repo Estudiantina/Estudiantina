@@ -213,6 +213,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      * @param motivo motivo justificatorio para prestar netbook
      * @return Solicitud realizada
      */
+	@Hidden
 	public String solicitarNetbookPrestada(@Named("motivo")String motivo)
 	{
 		final SolicitudNetbookPrestada solicitud = container.newTransientInstance(SolicitudNetbookPrestada.class);
