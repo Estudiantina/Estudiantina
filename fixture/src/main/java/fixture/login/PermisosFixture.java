@@ -21,13 +21,34 @@ public class PermisosFixture extends FixtureScript{
 		//PERMISOS PARA USUARIOS ADMINISTRADORES
 		//
 		create("usuario_administrador","*",executionContext);
+		///
+		///
+		///PERMISO PARA USUARIOS TECNICOS
+		///
+		///
 		
-		//PERMISOS PARA USUARIOS TECNICOS
-		create("usuario_tecnico","*",executionContext);
+		//PERMISOS DE SERVICIO PARA USUARIOS TECNICOS
+		create("usuario_tecnico","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:listaDeSolicitudesPendientes:*",executionContext);
+		create("usuario_tecnico","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:listaDeSoluciones:*",executionContext);
+		create("usuario_tecnico","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
+		
+		//PERMISOS EN EL DOMINIO PARA USUARIOS TECNICOS
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:Prioridad:*:*",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:codigoSolicitud:r",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:comentario:r",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:estado:r",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:fechaDeSolicitud:r",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:fechaDeSolucion:*",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:motivoDeSolicitud:r",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:netbook:r",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:persona:r",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:prioridad:*",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:solucion:*",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:tecnicoAsignado:*",executionContext);
+		
 		//
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
-		
 		create("usuario_alumno","dom.alumno:Alumno:cursos:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:estadoDeAlumno:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:fechaIngreso:r",executionContext);
@@ -35,6 +56,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.alumno:Alumno:tutor:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:EstadoDeAlumno:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:Nacionalidad:r",executionContext);
+		
 		//PERMISOS ALUMNO parte de dominio de Persona
 		create("usuario_alumno","dom.alumno:Alumno:alturaDomicilio:*",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:apellido:r",executionContext);

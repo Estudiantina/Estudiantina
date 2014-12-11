@@ -18,7 +18,6 @@ public class RolesFixture extends FixtureScript{
 	    {
 		create("usuario_administrador",executionContext);
 		create("usuario_alumno",executionContext);
-		create("usuario_director",executionContext);
 		create("usuario_tecnico",executionContext);
 		create("usuario_directivo",executionContext);
 		create("usuario_docente",executionContext);

@@ -3,10 +3,8 @@ package fixture.login;
 import javax.inject.Inject;
 
 import org.apache.isis.applib.fixturescripts.FixtureScript;
-
 import dom.login.Login;
 import dom.login.Rol;
-import dom.persona.Persona;
 import repo.login.repologin;
 import repo.persona.RepositorioPersona;
 
