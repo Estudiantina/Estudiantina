@@ -36,6 +36,21 @@ public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
 		return "Migracion De Alumno -"+this.getPersona().toString();
 	}
 	
+	private Establecimiento escuelaAMigrar;
+	
+	
+	public Establecimiento getEscuelaAMigrar() {
+		return escuelaAMigrar;
+	}
+
+
+
+	public void setEscuelaAMigrar(Establecimiento escuelaAMigrar) {
+		this.escuelaAMigrar = escuelaAMigrar;
+	}
+
+
+
 	public Blob imprimir() throws FileNotFoundException, JRException
 	{
 
@@ -70,6 +85,7 @@ public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
 		}
 		
 	}
+	
 	
 	
 	public boolean hideImprimir()
