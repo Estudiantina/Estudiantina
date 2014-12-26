@@ -129,6 +129,11 @@ public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
     		    	 		this.cursos = cursos;
     	 	}
 
+    /**
+     * 
+     * @param curso
+     * @return
+     */
 	public Alumno agregarCurso(Curso curso) {
 	    cursos.add(curso);
 	    curso.getListaAlumnos().add(this);

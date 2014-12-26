@@ -139,17 +139,30 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		container.informUser("cuando se quiera reparar cliquee en asigne un Tecnico");
 		return this;
 	}
-	
+	/**
+	 * Oculta el boton EnviarAServicioTecnico
+	 * dependiendo del estado en el que este la solicitud
+	 * @return true si se oculta false si no se oculta
+	 */
 	public boolean hideEnviarAServicioTecnico()
 	{
 		return this.getEstado().ocultarEnviarAServicioTecnico();
 	}
-	
+	/**
+	 * ejecuta la accion recibirDelServicioTecnico
+	 * mediante el estado en el que este
+	 * @return SolicitudServicioTecnico actual
+	 */
 	public SolicitudServicioTecnico recibirDelServicioTecnico()
 	{
 		this.getEstado().recibirDeServicioTecnico();
 		return this;
 	}
+	/**
+	 * Oculta el boton RecibirDelServicioTecnico
+	 * dependiendo del estado en el que este la solicitud
+	 * @return true si se oculta false si no se oculta
+	 */
 	public boolean hideRecibirDelServicioTecnico()
 	{
 		return this.getEstado().ocultarRecibirDelServicioTecnico();
@@ -159,6 +172,11 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		this.tecnicoAsignado = tecnicoAsignado;
 	}
 
+	/**
+	 * Oculta la propiedad de TecnicoAsignado
+	 * dependiendo del estado en el que este la solicitud
+	 * @return true si se oculta false si no se oculta
+	 */
 	public boolean hideTecnicoAsignado()
 	{
 		return this.getEstado().ocultarTecnicoAsignado();
@@ -169,22 +187,41 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		this.estado.asignarTecnico(tecnico);
 		return this;
 	}
-
+	/**
+	 * Oculta la propiedad de AsignarTecnico
+	 * dependiendo del estado en el que este la solicitud
+	 * @return true si se oculta false si no se oculta
+	 */
 	public boolean hideAsignarTecnico()
 	{
 		return this.getEstado().ocultarAsignarTecnico();
 	}
 
+	/**
+	 * Oculta la el boton de AvisarPorMailQueEstaLista
+	 * dependiendo del estado en el que este la solicitud
+	 * @return true si se oculta false si no se oculta
+	 */
 	public boolean hideAvisarPorMailQueEstaLista()
 	{
 		return this.getEstado().ocultarAvisarPorMailQueEstaLista();
 	}
 
+	/**
+	 * Oculta la el boton de Imprimir
+	 * dependiendo del estado en el que este la solicitud
+	 * @return true si se oculta false si no se oculta
+	 */
 	public boolean hideImprimir()
 	{
 		return this.getEstado().ocultarImprimir();
 	}
-	
+	/**
+	 * el estado enviado se mantiene oculto
+	 * ya que se persiste en la interfaz
+	 * y se muestra el estado por un metodo getNombre
+	 * @return
+	 */
 	@Hidden
 	@Column(allowsNull="true")
     public EnviadoAlServicioTecnico getEstadoEnviado() {
@@ -464,7 +501,11 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		this.getEstado().finalizarSolicitud();
 		return this;
 	}
-	
+	/**
+	 * Oculta la propiedad de Solucion
+	 * dependiendo del estado en el que este la solicitud
+	 * @return true si se oculta false si no se oculta
+	 */
 	@Hidden
 	public boolean hideSolucion()
 	{
@@ -477,13 +518,21 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		return this.getEstado().ocultarFechaDeSolucion();
 		
 	}
-	
+	/**
+	 * oculta FinalizarSolicitud en caso de
+	 * que 
+	 * @return trae todas las solicitudes
+	 */
 	@Hidden
 	public boolean hideFinalizarSolicitud()
 	{
 		return this.getEstado().ocultarFinalizarSolicitud();
 	}
 
+	/**
+	 * elimina la SolicitudServicioTecnico actual
+	 * @return trae todas las solicitudes
+	 */
 	@Bulk //para que ejecute la accion en una lista masiva de objetos
 	@PublishedAction // para que muestre la accion en la lista de objetos
 	@Named("eliminar Solicitud")
@@ -494,6 +543,11 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
         return this.traerTodas(); 
     }
 	
+	/**
+	 * muestra todas las solicitudes de SolicitudServicioTecnico
+	 * existentes en la base de datos.
+	 * @return todas Las solicitudes
+	 */
     @Programmatic
     public List<SolicitudServicioTecnico> traerTodas() {
         return container.allMatches(
@@ -501,6 +555,11 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
                     "traerPorPrioridad"));
     }
 
+	/**
+	 * Oculta la propiedad de Eliminar
+	 * dependiendo del estado en el que este la solicitud
+	 * @return true si se oculta false si no se oculta
+	 */
     public boolean hideEliminar()
     {
     	if (getNombreEstado()=="Aceptado")
