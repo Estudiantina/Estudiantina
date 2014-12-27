@@ -49,8 +49,9 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:asignarTecnico:*",executionContext);
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:avisarPorMailQueEstaLista:*",executionContext);
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:enviarAServicioTecnico:*",executionContext);
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:recibirDelServicioTecnico:*",executionContext);
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:finalizarSolicitud:*",executionContext);
-		
+		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:imprimir:*",executionContext);
 		//PERMISOS DE TECNICOS PARA NETBOOKS
 		create("usuario_tecnico","repo.netbook:RepositorioNetbook:ingresarNuevaNetbookAlEstablecimiento:*",executionContext);
 		create("usuario_tecnico","repo.netbook:RepositorioNetbook:listaNetbookPorId:*",executionContext);

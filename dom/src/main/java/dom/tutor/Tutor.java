@@ -63,6 +63,10 @@ public class Tutor extends Persona {
 		this.alumnos = alumnos;
 	}
 	
+	public boolean hideNetbooks()
+	{
+		return true;
+	}
 	public void addToAlumnos(Alumno a) {
         if(a == null || alumnos.contains(a)) return;
         a.setTutor(this);
