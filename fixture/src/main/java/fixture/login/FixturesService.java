@@ -4,6 +4,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.apache.isis.applib.annotation.DomainService;
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Programmatic;
@@ -14,6 +15,7 @@ import org.apache.isis.applib.fixturescripts.SimpleFixtureScript;
 
 @Named("Prototyping")
 @DomainService(menuOrder = "200")
+@Hidden
 public class FixturesService extends FixtureScripts {
 
     public FixturesService() {
