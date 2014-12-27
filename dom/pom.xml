@@ -103,6 +103,13 @@
 		<version>3.2.3.RELEASE</version>
    		</dependency>
             
+       <dependency>
+    	<groupId>org.isisaddons.wicket.fullcalendar2</groupId>
+    	<artifactId>isis-wicket-fullcalendar2-cpt</artifactId>
+    	<version>1.6.0</version>
+	   </dependency>
+       
+       
    		<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-context</artifactId>

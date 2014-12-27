@@ -49,6 +49,8 @@ import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+import org.isisaddons.wicket.fullcalendar2.applib.CalendarEvent;
+import org.isisaddons.wicket.fullcalendar2.applib.CalendarEventable;
 import org.joda.time.LocalDate;
 
 import servicio.email.Email;
@@ -89,7 +91,7 @@ import dom.tecnico.Tecnico;
 @ObjectType("SERVICIOTECNICO")
 @MemberGroupLayout(columnSpans={3,3,1,6}, left={"Datos Vinculados","Prioridad"},middle={"Datos De Solicitud"},right={"Estado"})
 @Bookmarkable
-public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTecnico> {
+public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTecnico>, CalendarEventable {
     
 	//public solicitante integrante de la institucion
 	private EstaBorrado estaBorrado;
@@ -581,6 +583,21 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	@Override
 	public int compareTo(final SolicitudServicioTecnico solicitud) {
 		return ObjectContracts.compare(this, solicitud, "codigoSolicitud");
+	}
+	@Programmatic
+	@Override
+	public String getCalendarName() {
+		// TODO Auto-generated method stub
+		return "Solicitudes de estado "+this.getNombreEstado();
+	}
+	/**
+	 * 
+	 */
+    @Hidden
+	@Override
+	public CalendarEvent toCalendarEvent() {
+		// TODO Auto-generated method stub
+		 return new CalendarEvent(getFechaDeSolicitud().toDateTimeAtStartOfDay(), getCalendarName(), container.titleOf(this));
 	}
 	
 }
