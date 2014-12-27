@@ -43,7 +43,6 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
     public SolicitudServicioTecnico solicitarServicioTecnico(
 			@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")final String motivoDeSolicitud,
-			@Named("fecha de solicitud")LocalDate fechaDeSolicitud,
 			@Named("prioridad")Prioridad prioridad,
 			@Named("Comentario")@Optional @MultiLine String comentario
             )
@@ -52,7 +51,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 		servicioTecnico.setNetbook(netbook);
 		servicioTecnico.setPersona(netbook.getPersona());
 	    servicioTecnico.setComentario(comentario);
-	    servicioTecnico.setFechaDeSolicitud(fechaDeSolicitud);
+	    servicioTecnico.setFechaDeSolicitud(new LocalDate());
 	    servicioTecnico.setMotivoDeSolicitud(motivoDeSolicitud);
 	    servicioTecnico.setPrioridad(prioridad);
 	    servicioTecnico.setSolucion("");
