@@ -12,7 +12,6 @@
  */
 package repo.solicitudserviciotecnico;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -24,6 +23,7 @@ import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
+import org.joda.time.LocalDate;
 
 import repo.persona.RepositorioPersona;
 import dom.netbook.Netbook;
@@ -43,7 +43,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
     public SolicitudServicioTecnico solicitarServicioTecnico(
 			@Named("Netbook")final Netbook netbook,
 			@Named("motivo de solicitud")final String motivoDeSolicitud,
-			@Named("fecha de solicitud")Date fechaDeSolicitud,
+			@Named("fecha de solicitud")LocalDate fechaDeSolicitud,
 			@Named("prioridad")Prioridad prioridad,
 			@Named("Comentario")@Optional @MultiLine String comentario
             )

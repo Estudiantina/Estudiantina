@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.IdentityType;
@@ -48,6 +49,7 @@ import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+import org.joda.time.LocalDate;
 
 import servicio.email.Email;
 
@@ -93,7 +95,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	private EstaBorrado estaBorrado;
 	private Persona persona;
 	private String motivoDeSolicitud;
-	private Date fechaDeSolicitud;
+	private LocalDate fechaDeSolicitud;
 	private String solucion;
 	private Date fechaDeSolucion;
 	private Prioridad prioridad;
@@ -353,11 +355,11 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	@MemberOrder(name="Datos De Solicitud", sequence="1")
-	public Date getFechaDeSolicitud() {
+	public LocalDate getFechaDeSolicitud() {
 		return fechaDeSolicitud;
 	}
 
-	public void setFechaDeSolicitud(Date fechaDeSolicitud) {
+	public void setFechaDeSolicitud(LocalDate fechaDeSolicitud) {
 		this.fechaDeSolicitud = fechaDeSolicitud;
 	}
 
