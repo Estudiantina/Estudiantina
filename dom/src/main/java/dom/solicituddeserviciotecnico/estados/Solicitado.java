@@ -12,7 +12,7 @@
  */
 package dom.solicituddeserviciotecnico.estados;
 
-import java.util.Date;
+
 
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
@@ -25,6 +25,7 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.joda.time.LocalDate;
 
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 import dom.tecnico.Tecnico;
@@ -120,7 +121,7 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	}
 	@Hidden
 	@Override
-	public void avisarNetbookReparada(String solucion,Date fechaDeSolucion) {
+	public void avisarNetbookReparada(String solucion,LocalDate fechaDeSolucion) {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}

@@ -64,7 +64,7 @@ public class SimpleApplication extends IsisWicketApplication {
         IRequestParameters requestParameters = request.getRequestParameters();
         final org.apache.wicket.util.string.StringValue user = requestParameters.getParameterValue("user");
         final org.apache.wicket.util.string.StringValue password = requestParameters.getParameterValue("pass");
-        final org.apache.wicket.util.string.StringValue captcha = requestParameters.getParameterValue("captcha");
+        
         s.signIn(user.toString(), password.toString());
         return s;
     }

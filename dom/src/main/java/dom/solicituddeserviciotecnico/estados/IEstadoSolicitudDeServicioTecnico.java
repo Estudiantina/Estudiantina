@@ -12,7 +12,9 @@
  */
 package dom.solicituddeserviciotecnico.estados;
 
-import java.util.Date;
+
+
+import org.joda.time.LocalDate;
 
 import dom.tecnico.Tecnico;
 
@@ -29,7 +31,7 @@ public interface IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarRecibirDelServicioTecnico();
 	public void recibirDeServicioTecnico();
 	public void enviarAServicioTecnico();
-	public void avisarNetbookReparada(final String solucion,final Date fechaDeSolucion);
+	public void avisarNetbookReparada(final String solucion,final LocalDate fechaDeSolucion);
 	public void finalizarSolicitud();
 	public void asignarTecnico(final Tecnico tecnico);
 }

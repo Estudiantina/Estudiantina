@@ -97,7 +97,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	private String motivoDeSolicitud;
 	private LocalDate fechaDeSolicitud;
 	private String solucion;
-	private Date fechaDeSolucion;
+	private LocalDate fechaDeSolucion;
 	private Prioridad prioridad;
 	private Netbook netbook ;
 	private String codigoSolicitud;
@@ -379,11 +379,11 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
     @javax.jdo.annotations.Column(allowsNull="true")
     @Optional
     @MemberOrder(name="Datos De Solicitud", sequence="1")
-	public Date getFechaDeSolucion() {
+	public LocalDate getFechaDeSolucion() {
 		return fechaDeSolucion;
 	}
 
-	public void setFechaDeSolucion(Date fechaDeSolucion) {
+	public void setFechaDeSolucion(LocalDate fechaDeSolucion) {
 		this.fechaDeSolucion = fechaDeSolucion;
 	}
 
@@ -470,7 +470,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		}
 	}
 	@Named("Avisar Netbook Reparada")
-	public SolicitudServicioTecnico avisarPorMailQueEstaLista(@MultiLine@Named("Solucion") String solucion,@Named("Fecha Solucion") Date fechaDeSolucion)
+	public SolicitudServicioTecnico avisarPorMailQueEstaLista(@MultiLine@Named("Solucion") String solucion,@Named("Fecha Solucion") LocalDate fechaDeSolucion)
 	{
 		try
 		{
