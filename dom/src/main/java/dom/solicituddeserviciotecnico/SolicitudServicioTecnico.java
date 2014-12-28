@@ -366,6 +366,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	}
 
     @Optional
+    @MemberOrder(name="Datos De Solicitud", sequence="1")
 	@javax.jdo.annotations.Column(allowsNull="true",length=5000)
     @MultiLine
     @Hidden(where = Where.ALL_TABLES)
