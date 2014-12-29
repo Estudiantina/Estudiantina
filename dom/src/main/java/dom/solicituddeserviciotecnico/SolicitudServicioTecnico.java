@@ -592,7 +592,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	@Override
 	public String getCalendarName() {
 		// TODO Auto-generated method stub
-		return "Solicitudes de estado "+this.getNombreEstado();
+		return this.getNombreEstado();
 	}
 	/**
 	 * Utilizado por los 
