@@ -129,7 +129,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	}
 	@Hidden
 	@Override
-	public void asignarTecnico(Tecnico tecnico) {
+	public void asignarTecnico(final Tecnico tecnico,final String codigoSolicitud) {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}

@@ -121,7 +121,7 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
 
     @Hidden
 	@Override
-	public void asignarTecnico(Tecnico tecnico) {
+	public void asignarTecnico(Tecnico tecnico,String codigoSolicitud) {
 		
     	throw new UnsupportedOperationException("No impletandado todavía...");
 		

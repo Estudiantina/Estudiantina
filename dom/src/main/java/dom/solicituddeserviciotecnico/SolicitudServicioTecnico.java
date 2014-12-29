@@ -186,9 +186,9 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		return this.getEstado().ocultarTecnicoAsignado();
 	}
 	
-	public SolicitudServicioTecnico asignarTecnico(Tecnico tecnico)
+	public SolicitudServicioTecnico asignarTecnico(Tecnico tecnico,String codigoDeSolicitud)
 	{
-		this.estado.asignarTecnico(tecnico);
+		this.estado.asignarTecnico(tecnico,codigoDeSolicitud);
 		return this;
 	}
 	/**
@@ -534,19 +534,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		return this.getEstado().ocultarFinalizarSolicitud();
 	}
 
-	/**
-	 * elimina la SolicitudServicioTecnico actual
-	 * @return trae todas las solicitudes
-	 */
-	@Bulk //para que ejecute la accion en una lista masiva de objetos
-	@PublishedAction // para que muestre la accion en la lista de objetos
-	@Named("eliminar Solicitud")
-	public List<SolicitudServicioTecnico> eliminar() {
-        this.setEstaBorrado(EstaBorrado.BORRADO);
-        container.informUser("las Solicitudes selecionadas fueron eliminadas");
 
-        return this.traerTodas(); 
-    }
 	
 	/**
 	 * muestra todas las solicitudes de SolicitudServicioTecnico
@@ -560,22 +548,6 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
                     "traerPorPrioridad"));
     }
 
-	/**
-	 * Oculta la propiedad de Eliminar
-	 * dependiendo del estado en el que este la solicitud
-	 * @return true si se oculta false si no se oculta
-	 */
-    public boolean hideEliminar()
-    {
-    	if (getNombreEstado()=="Aceptado")
-    	{
-		return false;
-    	}
-    	else
-    	{
-    	return true;
-    	}
-    }
     
     
 	@javax.inject.Inject 
