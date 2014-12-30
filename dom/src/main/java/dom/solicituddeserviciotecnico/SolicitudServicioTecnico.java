@@ -82,7 +82,9 @@ import dom.tecnico.Tecnico;
       	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE this.persona.establecimiento == :institucion && (this.estado == this.estadoEnviado || this.estado == this.estadoRecibido || this.estado == this.estadoAceptado || this.estado == this.estadoSolicitado || this.estado == this.estadoReparado ) && estaBorrado== 'ACTIVO'"),
     @Query(name="traerHistorial", language="JDOQL",
 	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE netbook == :netbookBusqueda && estaBorrado== 'ACTIVO'"),
-          @Query(name="taerTipoDeSoluciones", language="JDOQL", 
+	@Query(name="traerUltimaSolicitud", language="JDOQL",
+	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE netbook == :netbookBusqueda && estaBorrado== 'ACTIVO' order by fechaDeSolicitud desc "),      
+	@Query(name="taerTipoDeSoluciones", language="JDOQL", 
 	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 && estaBorrado== 'ACTIVO' range 0, 5")})
 
 @javax.jdo.annotations.Version(

@@ -90,7 +90,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	
 	public SolicitudServicioTecnico verUltimaSolicitud()
 	{
-		return firstMatch(QueryDefault.create(SolicitudServicioTecnico.class, "traerHistorial","netbookBusqueda",repoPersona.VerMisDatos().getNetbooks().first()));
+		return firstMatch(QueryDefault.create(SolicitudServicioTecnico.class, "traerUltimaSolicitud","netbookBusqueda",repoPersona.VerMisDatos().getNetbooks().last()));
 	}
 	
 	@Inject
