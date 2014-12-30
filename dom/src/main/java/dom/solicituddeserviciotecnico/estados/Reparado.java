@@ -55,7 +55,7 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	@Override
 	public boolean ocultarImprimir() {
 	
-		return false;
+		return true;
 	}
 	@Hidden
 	@Override
