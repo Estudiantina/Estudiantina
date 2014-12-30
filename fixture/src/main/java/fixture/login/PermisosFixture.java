@@ -55,6 +55,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:solucion:r",executionContext);
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:nombreEstado:r",executionContext);
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:tecnicoAsignado:r",executionContext);
+		
 		//PERMISOS DE TECNICOS PARA NETBOOKS
 		create("usuario_tecnico","repo.netbook:RepositorioNetbook:ingresarNuevaNetbookAlEstablecimiento:*",executionContext);
 		create("usuario_tecnico","repo.netbook:RepositorioNetbook:listaNetbookPorId:*",executionContext);
@@ -123,13 +124,14 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:netbook:r",executionContext);
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:persona:r",executionContext);
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:NombreEstado:r",executionContext);
+		
 		//dom.solicituddeserviciotecnico.estados:*:*
 
 
 		//PERMISOS ALUMNO repositorio SolicitudServicioTecnico
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
-
+		create("usuario_tecnico","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
 
 
 

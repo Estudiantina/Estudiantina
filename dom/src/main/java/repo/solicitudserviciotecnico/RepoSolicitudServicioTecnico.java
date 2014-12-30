@@ -88,6 +88,11 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "taerTipoDeSoluciones", "motivoDeSolicitud", traerPorTema));
 		}
 	
+	public SolicitudServicioTecnico verUltimaSolicitud()
+	{
+		return firstMatch(QueryDefault.create(SolicitudServicioTecnico.class, "traerHistorial","netbookBusqueda",repoPersona.VerMisDatos().getNetbooks().first()));
+	}
+	
 	@Inject
 	RepositorioPersona repoPersona;
 	@javax.inject.Inject 

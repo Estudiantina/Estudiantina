@@ -186,7 +186,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		return this.getEstado().ocultarTecnicoAsignado();
 	}
 	
-	public SolicitudServicioTecnico asignarTecnico(Tecnico tecnico,String codigoDeSolicitud)
+	public SolicitudServicioTecnico asignarTecnico(@Named("Cuil De Tecnico") Tecnico tecnico,@Named("Codigo De Solicitud")String codigoDeSolicitud)
 	{
 		this.estado.asignarTecnico(tecnico,codigoDeSolicitud);
 		return this;
