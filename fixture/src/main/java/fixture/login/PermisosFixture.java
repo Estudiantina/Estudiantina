@@ -149,6 +149,73 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","repo.notificaciones:RepoNotificaciones:solicitarTramiteDeMigracion:*",executionContext);
 		create("usuario_alumno","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:r",executionContext);
 		
+		
+		//
+		//--------------------PERMISOS DOCENTE-------------------
+		//		
+
+		//PERMISOS DOCENTE parte de dominio de Persona
+		create("usuario_docente","dom.docente:Docente:alturaDomicilio:*",executionContext);
+		create("usuario_docente","dom.docente:Docente:apellido:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:cuil:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:domicilio:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:email:*",executionContext);
+		create("usuario_docente","dom.docente:Docente:establecimiento:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:fechaNacimiento:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:Netbooks:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:nombre:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:piso:*",executionContext);
+		create("usuario_docente","dom.docente:Docente:localidad:*",executionContext);
+		create("usuario_docente","dom.docente:Docente:sexo:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:telefonoCelular:*",executionContext);
+		create("usuario_docente","dom.docente:Docente:telefonoFijo:*",executionContext);
+		//PERMISOS DOCENTE permisos para ver la netbook
+		create("usuario_docente","dom.netbook:ModeloNetbook:*:r",executionContext);
+		create("usuario_docente","dom.netbook:Netbook:direccionMac:r",executionContext);
+		create("usuario_docente","dom.netbook:Netbook:fechaDeExpiracion:r",executionContext);
+		create("usuario_docente","dom.netbook:Netbook:idNetbook:r",executionContext);
+		create("usuario_docente","dom.netbook:Netbook:modelo:r",executionContext);
+		create("usuario_docente","dom.netbook:Netbook:numeroDeSerie:r",executionContext);
+		create("usuario_docente","dom.netbook:Netbook:numeroLicenciaWindows:r",executionContext);
+		create("usuario_docente","dom.netbook:Netbook:persona:r",executionContext);
+		create("usuario_docente","dom.netbook:Netbook:HistorialDeReparaciones:*",executionContext);
+		create("usuario_docente","dom.netbook:Netbook:repoServicioTecnico:*",executionContext);
+
+
+		//PERMISOS DOCENTE permisos dominio solicitud servicio tecnico
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:codigoSolicitud:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:comentario:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:estado:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:estadoEnviado:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:estadoRecibido:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:reparado:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:estadoSolicitado:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:fechaDeSolicitud:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:fechaDeSolucion:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:motivoDeSolicitud:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:netbook:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:persona:r",executionContext);
+		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:NombreEstado:r",executionContext);
+		
+		
+
+		//PERMISOS DOCENTE repositorio SolicitudServicioTecnico
+		create("usuario_docente","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
+		create("usuario_docente","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
+		create("usuario_docente","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
+		
+		//parte de repositorio Persona
+		create("usuario_docente","repo.persona:RepositorioPersona:VerMisDatos:*",executionContext);
+
+		//PERMISOS DOCENTE Pedido de NetbookPrestada
+		create("usuario_docente","repo.notificaciones:RepoNotificaciones:PedirNetbookPrestada:*",executionContext);
+
+		//PERMISOS DOCENTE solicitud de tramite de migracion 
+		create("usuario_docente","repo.notificaciones:RepoNotificaciones:solicitarTramiteDeMigracion:*",executionContext);
+		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:r",executionContext);
+		
+		
+		
 		//
 		//PERMISOS PARA DIRECTIVOS
 		//TODO establecer permisos de directivos
