@@ -88,7 +88,6 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "taerTipoDeSoluciones", "motivoDeSolicitud", traerPorTema));
 		}
 	
-	@SuppressWarnings("unused")
 	public SolicitudServicioTecnico verUltimaSolicitud()
 	{
 		Netbook netbook=null;
