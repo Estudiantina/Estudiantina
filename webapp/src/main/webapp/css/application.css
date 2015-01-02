@@ -110,7 +110,7 @@ font-size: 0.85em;
 
 #header {
  
-    background: url("/images/logo.png") no-repeat scroll center;
+    background: url("images/logo.png") no-repeat scroll center;
     
 }
 .actionPanel .myBlockContainer {
