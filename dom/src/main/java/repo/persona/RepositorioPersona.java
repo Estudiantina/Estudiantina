@@ -82,7 +82,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * @return Alumno
 	 */
 	public Alumno ingresarAlumno (
-			@Named("Establecimiento") final Establecimiento establecimiento,
 			@Named("CUIL")Long cuil,
 			@RegEx(validation = "[A-Za-z ]+")  @Named("NOMBRE")String nombre,
 			@RegEx(validation = "[A-Za-z]+")   @Named("APELLIDO")String apellido,
@@ -105,7 +104,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 		final Alumno alumno = container.newTransientInstance(Alumno.class);
 	alumno.setLocalidad(localidad);
-	alumno.setEstablecimiento(establecimiento);
+	alumno.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
 	alumno.setCuil(cuil);
 	alumno.setNombre(nombre);
 	alumno.setApellido(apellido);
@@ -144,7 +143,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 */
 	
 	public String validateIngresarAlumno(
-				final Establecimiento establecimiento,
 				final Long cuil,
 				final String nombre,
 				final String apellido,
@@ -254,7 +252,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	}
 
 	public Directivo ingresarDirectivo (
-			@Named("Establecimiento") final Establecimiento establecimiento,
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
 			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
@@ -275,7 +272,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		directivo.setCuil(cuil);
 		directivo.setDomicilio(domicilio);
 		directivo.setEmail(email);
-		directivo.setEstablecimiento(establecimiento);
+		directivo.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
 		directivo.setNombre(nombre);
 		directivo.setTelefonoFijo(telefinoFijo);
 		directivo.setTelefonoCelular(telefonoCelular);
@@ -289,7 +286,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	}
 	
 	public Docente ingresarDocente (
-			@Named("Establecimiento") final Establecimiento establecimiento,
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
 			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
@@ -314,7 +310,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setAlturaDomicilio(alturaDomicilio);
 		docente.setPiso(piso);
 		docente.setEmail(email);
-		docente.setEstablecimiento(establecimiento);
+		docente.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
 		docente.setNombre(nombre);
 		docente.setTelefonoFijo(telefinoFijo);
 		docente.setTelefonoCelular(telefonoCelular);
@@ -329,7 +325,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	}
 		
 	public Tutor ingresarTutor (
-			@Named("Establecimiento") final Establecimiento establecimiento,
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
 			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
@@ -353,7 +348,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tutor.setAlturaDomicilio(alturaDomicilio);
 		tutor.setPiso(piso);
 		tutor.setEmail(email);
-		tutor.setEstablecimiento(establecimiento);
+		tutor.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
 		tutor.setNombre(nombre);
 		tutor.setTelefonoFijo(telefinoFijo);
 		tutor.setTelefonoCelular(telefonoCelular);
