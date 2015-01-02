@@ -172,7 +172,7 @@ public class repologin extends AbstractFactoryAndRepository {
 		return firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre",searchPhrase));
     }
     @Hidden
-	public Permisos aniadirPermiso(Rol rol,String permiso)
+	public Permisos aniadirPermiso(Rol rol,@Named("Permiso")String permiso)
 	{
 		final Permisos miPermiso = container.newTransientInstance(Permisos.class);
 		miPermiso.setPermiso(permiso);

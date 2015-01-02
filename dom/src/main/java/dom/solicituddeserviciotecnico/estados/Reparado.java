@@ -55,7 +55,7 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	@Override
 	public boolean ocultarImprimir() {
 	
-		return false;
+		return true;
 	}
 	@Hidden
 	@Override
@@ -111,7 +111,7 @@ public class Reparado implements IEstadoSolicitudDeServicioTecnico {
 	}
 	@Hidden
 	@Override
-	public void asignarTecnico(Tecnico tecnico) {
+	public void asignarTecnico(final Tecnico tecnico,final String codigoSolicitud) {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}

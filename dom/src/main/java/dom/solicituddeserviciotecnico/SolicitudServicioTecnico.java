@@ -16,10 +16,8 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.IdentityType;
@@ -27,9 +25,7 @@ import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
-
 import net.sf.jasperreports.engine.JRException;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
@@ -82,7 +78,9 @@ import dom.tecnico.Tecnico;
       	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE this.persona.establecimiento == :institucion && (this.estado == this.estadoEnviado || this.estado == this.estadoRecibido || this.estado == this.estadoAceptado || this.estado == this.estadoSolicitado || this.estado == this.estadoReparado ) && estaBorrado== 'ACTIVO'"),
     @Query(name="traerHistorial", language="JDOQL",
 	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE netbook == :netbookBusqueda && estaBorrado== 'ACTIVO'"),
-          @Query(name="taerTipoDeSoluciones", language="JDOQL", 
+	@Query(name="traerUltimaSolicitud", language="JDOQL",
+	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE netbook == :netbookBusqueda && estaBorrado== 'ACTIVO' order by fechaDeSolicitud desc "),      
+	@Query(name="taerTipoDeSoluciones", language="JDOQL", 
 	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 && estaBorrado== 'ACTIVO' range 0, 5")})
 
 @javax.jdo.annotations.Version(
@@ -186,9 +184,9 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		return this.getEstado().ocultarTecnicoAsignado();
 	}
 	
-	public SolicitudServicioTecnico asignarTecnico(Tecnico tecnico)
+	public SolicitudServicioTecnico asignarTecnico(@Named("Cuil De Tecnico") Tecnico tecnico,@Named("Codigo De Solicitud")String codigoDeSolicitud)
 	{
-		this.estado.asignarTecnico(tecnico);
+		this.estado.asignarTecnico(tecnico,codigoDeSolicitud);
 		return this;
 	}
 	/**
@@ -534,19 +532,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		return this.getEstado().ocultarFinalizarSolicitud();
 	}
 
-	/**
-	 * elimina la SolicitudServicioTecnico actual
-	 * @return trae todas las solicitudes
-	 */
-	@Bulk //para que ejecute la accion en una lista masiva de objetos
-	@PublishedAction // para que muestre la accion en la lista de objetos
-	@Named("eliminar Solicitud")
-	public List<SolicitudServicioTecnico> eliminar() {
-        this.setEstaBorrado(EstaBorrado.BORRADO);
-        container.informUser("las Solicitudes selecionadas fueron eliminadas");
 
-        return this.traerTodas(); 
-    }
 	
 	/**
 	 * muestra todas las solicitudes de SolicitudServicioTecnico
@@ -560,22 +546,6 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
                     "traerPorPrioridad"));
     }
 
-	/**
-	 * Oculta la propiedad de Eliminar
-	 * dependiendo del estado en el que este la solicitud
-	 * @return true si se oculta false si no se oculta
-	 */
-    public boolean hideEliminar()
-    {
-    	if (getNombreEstado()=="Aceptado")
-    	{
-		return false;
-    	}
-    	else
-    	{
-    	return true;
-    	}
-    }
     
     
 	@javax.inject.Inject 
@@ -592,7 +562,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	@Override
 	public String getCalendarName() {
 		// TODO Auto-generated method stub
-		return "Solicitudes de estado "+this.getNombreEstado();
+		return this.getNombreEstado();
 	}
 	/**
 	 * Utilizado por los 

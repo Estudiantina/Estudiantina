@@ -133,8 +133,9 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	}
 	@Hidden
 	@Override
-	public void asignarTecnico(Tecnico tecnico) {
+	public void asignarTecnico(final Tecnico tecnico,final String codigoSolicitud) {
 		this.getSolicitud().setTecnicoAsignado(tecnico);
+		this.getSolicitud().setCodigoSolicitud(codigoSolicitud);
 		this.getSolicitud().setEstado(this.getSolicitud().getEstadoAceptado());
 		
 	}

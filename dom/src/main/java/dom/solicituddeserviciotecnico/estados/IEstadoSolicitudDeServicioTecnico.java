@@ -33,5 +33,5 @@ public interface IEstadoSolicitudDeServicioTecnico {
 	public void enviarAServicioTecnico();
 	public void avisarNetbookReparada(final String solucion,final LocalDate fechaDeSolucion);
 	public void finalizarSolicitud();
-	public void asignarTecnico(final Tecnico tecnico);
+	public void asignarTecnico(final Tecnico tecnico,final String codigoSolicitud);
 }
