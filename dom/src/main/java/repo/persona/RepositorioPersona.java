@@ -177,11 +177,11 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	{
 		//validar fecha de ingreso y fecha de nacimiento
 		Date fechahoy = new Date();
-		if(fechaIngreso.compareTo(fechahoy)>0)
+		/*if(fechaIngreso.compareTo(fechahoy)>0)
 		{
 			return "FECHA DE INGRESO: debe ser menor al dia de hoy";
 		}
-		else
+		else*/
 		{
 			if(fechaNacimiento.compareTo(fechaIngreso) >0)
 			{
