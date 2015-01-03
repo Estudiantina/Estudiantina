@@ -70,6 +70,9 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.netbook:Netbook:numeroDeLicenciaWindows:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:persona:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:situacionDeNetbook:*",executionContext);
+		create("usuario_tecnico","dom.persona:Persona:netbooks:r",executionContext);
+			
+		
 		//PERMISOS DE TECNICOS PARA REPOSITORIONETBOOKS
 		create("usuario_tecnico","dom.persona:Persona:aniadirNetbook:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:aniadirNetbook:*",executionContext);
@@ -122,7 +125,8 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.alumno:Alumno:sexo:r",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:telefonoFijo:*",executionContext);
-		
+		create("usuario_tecnico","dom.alumno:Alumno:netbooks:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:cursos:r",executionContext);	
 		//PERMISOS EN TUTOR
 		//PARA USUARIO TECNICO
 		//
@@ -139,7 +143,6 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tutor:Tutor:sexo:r",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoFijo:*",executionContext);
-		
 		
 		//PERMISOS DE REPOSITORIO PERSONA 
 		//PARA USUARIOS CON ROL DE TECNICO
@@ -220,7 +223,7 @@ public class PermisosFixture extends FixtureScript{
 		//PERMISOS ALUMNO repositorio SolicitudServicioTecnico
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
-		create("usuario_tecnico","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
+		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
 
 
 
