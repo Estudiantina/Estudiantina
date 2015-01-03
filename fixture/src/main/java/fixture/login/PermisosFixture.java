@@ -108,6 +108,24 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.alumno:Alumno:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:telefonoFijo:*",executionContext);
 		
+		//PERMISOS EN TUTOR
+		//PARA USUARIO TECNICO
+		//
+		create("usuario_tecnico","dom.tutor:Tutor:alturaDomicilio:*",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:apellido:r",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:cuil:r",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:domicilio:r",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:email:*",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:establecimiento:r",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:fechaNacimiento:r",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:nombre:r",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:piso:*",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:localidad:*",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:sexo:r",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:telefonoCelular:*",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:telefonoFijo:*",executionContext);
+		
+		
 		//PERMISOS DE REPOSITORIO PERSONA 
 		//PARA USUARIOS CON ROL DE TECNICO
 		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarAlumno:*",executionContext);
@@ -120,6 +138,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarDirectivo:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTecnico:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTutor:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:buscarPersonaPorCuilEnEstablecimientoActual:*",executionContext);
 		//
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
