@@ -38,7 +38,8 @@ import repo.curso.RepositorioCurso;
 @javax.jdo.annotations.Queries({
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.curso.Curso"),
 	@javax.jdo.annotations.Query(name = "traerCursoPorlikeAnio", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE anio== :anio && division== :division range 0, 4"),
-	@javax.jdo.annotations.Query(name = "traerPorCurso", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE dom.curso.Curso = :curso")
+	@javax.jdo.annotations.Query(name = "traerPorCurso", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE dom.curso.Curso = :curso"),
+	@javax.jdo.annotations.Query(name = "buscarPorTodo", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE anio== :anio && division== :division && cicloLectivo== :cicloLectivo && turno==:turno && establecimiento==:establecimiento"),
 	
 	})
 @ObjectType("CURSO")

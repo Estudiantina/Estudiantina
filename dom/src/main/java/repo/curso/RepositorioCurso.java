@@ -20,6 +20,7 @@ import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 
+import repo.persona.RepositorioPersona;
 import dom.curso.Anio;
 import dom.curso.Curso;
 import dom.curso.Division;
@@ -60,6 +61,12 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		return curso;
 		
 	}
+	
+	
+	public List<Curso> buscarCursoEnEsteEstablecimiento(@Named("año")Anio anio,@Named("Division")Division division,Turno turno,@Named("cicloLectivo")Integer cicloLectivo)
+	{
+		return allMatches(QueryDefault.create(Curso.class, "buscarPorTodo","anio",anio,"division",division,"turno",turno,"establecimiento",repoPersona.VerMisDatos().getEstablecimiento(),"cicloLectivo",cicloLectivo));
+	}
 	/**
 	 * autocompletar campos de Cursos
 	 * @param busqueda parametro de busqueda de cursos por 
@@ -82,7 +89,9 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
     public List<Curso> listaCursos() {
         return allMatches(QueryDefault.create(Curso.class, "traerTodo"));
     }
-	
+    @javax.inject.Inject
+    RepositorioPersona repoPersona;
+    
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
