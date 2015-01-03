@@ -409,13 +409,19 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		}
 				return listaAlumno;
 	}
-    
-	@Hidden
+    @Hidden
 	public Persona buscarPorCuil(Long cuil){
 		final Persona mipersona = this.container.firstMatch(new QueryDefault<Persona>(Persona.class,
 				"traerPorcuil","cuil",cuil));
 				return mipersona;
 	}
+    @Named("buscar persona por cuil en este Establecimiento")
+    public Persona buscarPersonaPorCuilEnEstablecimientoActual(Long cuil)
+    {
+    	final Persona mipersona = this.container.firstMatch(new QueryDefault<Persona>(Persona.class,
+				"traerPorcuilEstablecimientoActual","cuil",cuil,"establecimiento",this.VerMisDatos().getEstablecimiento()));
+				return mipersona;
+    }
 	
 	@Hidden
 	public Directivo buscarDirectivoPorCuil(Long cuil){

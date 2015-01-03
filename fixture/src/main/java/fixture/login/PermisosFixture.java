@@ -71,6 +71,55 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.netbook:Netbook:persona:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:situacionDeNetbook:*",executionContext);
 		
+		
+		//PERMISOS EN DOCENTE 
+		//PARA USUARIO TECNICO
+		//
+		create("usuario_tecnico","dom.docente:Docente:alturaDomicilio:*",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:apellido:r",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:cuil:r",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:domicilio:r",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:email:*",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:establecimiento:r",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:fechaNacimiento:r",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:Netbooks:r",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:nombre:r",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:piso:*",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:localidad:*",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:sexo:r",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:telefonoCelular:*",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:telefonoFijo:*",executionContext);
+		
+		//PERMISOS EN ALUMNO 
+		//PARA USUARIO TECNICO
+		//
+		create("usuario_tecnico","dom.alumno:Alumno:alturaDomicilio:*",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:apellido:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:cuil:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:domicilio:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:email:*",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:establecimiento:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:fechaNacimiento:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:Netbooks:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:nombre:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:piso:*",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:localidad:*",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:sexo:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:telefonoCelular:*",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:telefonoFijo:*",executionContext);
+		
+		//PERMISOS DE REPOSITORIO PERSONA 
+		//PARA USUARIOS CON ROL DE TECNICO
+		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarAlumno:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarDirectivo:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarTutor:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:autoComplete:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:buscarDirectivoPorCuil:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:buscarPorCuil:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarAlumno:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarDirectivo:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTecnico:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTutor:*",executionContext);
 		//
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
@@ -81,6 +130,9 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.alumno:Alumno:tutor:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:EstadoDeAlumno:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:Nacionalidad:r",executionContext);
+		
+		
+		
 		
 		//PERMISOS ALUMNO parte de dominio de Persona
 		create("usuario_alumno","dom.alumno:Alumno:alturaDomicilio:*",executionContext);
