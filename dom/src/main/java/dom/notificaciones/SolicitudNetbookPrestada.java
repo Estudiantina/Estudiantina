@@ -36,7 +36,7 @@ public class SolicitudNetbookPrestada extends Notificaciones {
 		{
 		container.informUser("verifique el estados de las demas netbook si es que existen");
 		}
-		this.getPersona().anadirNetbook(netbook);
+		this.getPersona().aniadirNetbook(netbook);
 		return this.getPersona();
 	}
 	

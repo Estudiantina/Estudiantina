@@ -62,7 +62,15 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		
 	}
 	
-	
+	/**
+	 * busca el curso por todas propiedades
+	 * en el establecimiento actual
+	 * @param anio
+	 * @param division
+	 * @param turno
+	 * @param cicloLectivo
+	 * @return
+	 */
 	public List<Curso> buscarCursoEnEsteEstablecimiento(@Named("año")Anio anio,@Named("Division")Division division,Turno turno,@Named("cicloLectivo")Integer cicloLectivo)
 	{
 		return allMatches(QueryDefault.create(Curso.class, "buscarPorTodo","anio",anio,"division",division,"turno",turno,"establecimiento",repoPersona.VerMisDatos().getEstablecimiento(),"cicloLectivo",cicloLectivo));

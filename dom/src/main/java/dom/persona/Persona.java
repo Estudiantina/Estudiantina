@@ -241,7 +241,7 @@ public class Persona implements Locatable,Serializable{
 	}
 	
 	@Named("añadir netbook")
-	public Persona anadirNetbook(Netbook net)
+	public Persona aniadirNetbook(Netbook net)
 	{
 		this.netbooks.add(net);
 		net.setPersona(this);

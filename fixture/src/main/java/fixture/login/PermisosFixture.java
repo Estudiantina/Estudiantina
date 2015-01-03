@@ -70,8 +70,23 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.netbook:Netbook:numeroDeLicenciaWindows:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:persona:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:situacionDeNetbook:*",executionContext);
-		
-		
+		//PERMISOS DE TECNICOS PARA REPOSITORIONETBOOKS
+		create("usuario_tecnico","dom.persona:Persona:aniadirNetbook:*",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:aniadirNetbook:*",executionContext);
+		//PERMISOS EN CURSOS PARA TECNICOS
+		create("usuario_tecnico","repo.curso:RepositorioCurso:buscarCursoEnEsteEstablecimiento:*",executionContext);
+		create("usuario_tecnico","dom.curso:Turno:*:*",executionContext);
+		create("usuario_tecnico","dom.curso:Division:*:*",executionContext);
+		create("usuario_tecnico","dom.curso:Anio:*:*",executionContext);
+		create("usuario_tecnico","dom.curso:Curso:anio:r",executionContext);
+		create("usuario_tecnico","dom.curso:Curso:cicloLectivo:r",executionContext);
+		create("usuario_tecnico","dom.curso:Curso:division:r",executionContext);
+		create("usuario_tecnico","dom.curso:Curso:establecimiento:r",executionContext);
+		create("usuario_tecnico","dom.curso:Curso:listaAlumnos:r",executionContext);
+		create("usuario_tecnico","dom.curso:Curso:listaDocente:r",executionContext);
+		create("usuario_tecnico","dom.curso:Curso:turno:r",executionContext);
+		create("usuario_tecnico","dom.curso:Curso:agregarAlumno:*",executionContext);
+		create("usuario_tecnico","dom.curso:Curso:agregarDocente:*",executionContext);
 		//PERMISOS EN DOCENTE 
 		//PARA USUARIO TECNICO
 		//
@@ -139,6 +154,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTecnico:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTutor:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:buscarPersonaPorCuilEnEstablecimientoActual:*",executionContext);
+		
 		//
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
@@ -149,7 +165,9 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.alumno:Alumno:tutor:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:EstadoDeAlumno:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:Nacionalidad:r",executionContext);
-		
+		create("usuario_alumno","dom.persona:Persona:netbooks:r",executionContext);
+		create("usuario_alumno","dom.alumno:Alumno:netbooks:r",executionContext);
+		create("usuario_alumno","dom.alumno:Alumno:cursos:r",executionContext);
 		
 		
 		
