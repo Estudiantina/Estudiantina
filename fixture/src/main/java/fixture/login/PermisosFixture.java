@@ -117,7 +117,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.docente:Docente:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:telefonoFijo:*",executionContext);
 		
-		//PERMISOS EN DOCENTE 
+		//PERMISOS EN TUTOR 
 		//PARA USUARIO TECNICO
 		create("usuario_tecnico","dom.tutor:Tutor:alturaDomicilio:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:apellido:r",executionContext);
@@ -133,7 +133,8 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tutor:Tutor:sexo:r",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoFijo:*",executionContext);
-		
+		create("usuario_tecnico","dom.tutor:Tutor:alumnos:*",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:localizacion:*",executionContext);
 		//PERMISOS EN ALUMNO 
 		//PARA USUARIO TECNICO
 		//
