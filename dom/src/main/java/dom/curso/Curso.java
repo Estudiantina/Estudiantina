@@ -110,6 +110,7 @@ public class Curso implements Comparable<Curso> {
 	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@Named("Año")
 	public Anio getAnio() {
 		return anio;
 	}	
