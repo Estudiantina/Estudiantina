@@ -80,6 +80,7 @@ public class Netbook implements Comparable<Netbook> {
 	private String numeroDeActaDeRobo;
 	private Persona persona ;
 	private Establecimiento establecimiento;
+	
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Establecimiento getEstablecimiento() {
 		return establecimiento;
@@ -213,6 +214,23 @@ public class Netbook implements Comparable<Netbook> {
 		this.numeroDeActaDeRobo = numeroDeActaDeRobo;
 	}
 
+
+	/**
+	 * oculta el numero de acta de robo en el caso
+	 * de que no este robada.
+	 * @return
+	 */
+	public boolean hideNumeroDeActaDeRobo()
+	{
+		if (situacionDeNetbook == SituacionDeNetbook.ROBADA)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
 	
       /**
       * TODO ImprimirReporte

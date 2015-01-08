@@ -173,14 +173,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	public static String validarDatosDeAlumno(Long cuil,Date fechaNacimiento,Date fechaIngreso)
 	{
-		//validar fecha de ingreso y fecha de nacimiento
-		Date fechahoy = new Date();
-		/*if(fechaIngreso.compareTo(fechahoy)>0)
-		{
-			return "FECHA DE INGRESO: debe ser menor al dia de hoy";
-		}
-		else*/
-		{
+		
 			if(fechaNacimiento.compareTo(fechaIngreso) >0)
 			{
 				return "FECHA NACIMIENTO: debe ser menor a la fecha de ingreso";
@@ -196,8 +189,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				{
 					return null;
 				}
+				
 			}
-		}
+		
 	}
     //*****************************************************+************//	
 	
