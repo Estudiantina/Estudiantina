@@ -26,10 +26,12 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 import org.joda.time.LocalDate;
+
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
+import dom.netbook.SituacionDeNetbook;
 import dom.notificaciones.SolicitudNetbookPrestada;
 
 @Named("Netbook")
@@ -100,7 +102,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setModelo(modelo);
 	    netbook.setNumeroDeSerie(numeroDeSerie);
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-	    netbook.setSituacionDeNetbook("Entregada");
+	    netbook.setSituacionDeNetbook(SituacionDeNetbook.enStock);
 	    netbook.setEstablecimiento(establecimiento);	    
 	    container.persistIfNotAlready(netbook);
 	    
@@ -133,7 +135,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 			    netbook.setModelo(modelo);
 			    netbook.setNumeroDeSerie(numeroDeSerie);
 			    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-			    netbook.setSituacionDeNetbook("Entregada");
+			    netbook.setSituacionDeNetbook(SituacionDeNetbook.enStock);
 			    netbook.setEstablecimiento(repositorioPersona.VerMisDatos().getEstablecimiento());	    
 			    container.persistIfNotAlready(netbook);
 				return netbook;

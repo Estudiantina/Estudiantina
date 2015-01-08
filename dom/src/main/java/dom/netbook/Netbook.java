@@ -56,8 +56,8 @@ import org.apache.isis.applib.annotation.Render.Type;
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorId", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE idNetbook== :idNetbook && establecimiento == :institucion"),
-@Query(name="traerlikePorId", language="JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion && idNetbook.indexOf(:idNetbook) >=0 range 0, 4"),
-	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion")})
+@Query(name="traerlikePorId", language="JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion && idNetbook.indexOf(:idNetbook) >=0 range 0, 4"),	
+@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion")})
 @AutoComplete(repository = RepositorioNetbook.class, action = "autoComplete")
 @Audited
 @MemberGroupLayout(columnSpans={3,3,0,6}, left={"Informacion De Hardware","Datos De Software"},middle={"Informacion General","Estado"} )
@@ -76,7 +76,7 @@ public class Netbook implements Comparable<Netbook> {
 	private String numeroLicenciaWindows;
 	private Date fechaDeExpiracion;
 	private String direccionMac;
-	private String situacionDeNetbook;
+	private SituacionDeNetbook situacionDeNetbook;
 	private String numeroDeActaDeRobo;
 	private Persona persona ;
 	private Establecimiento establecimiento;
@@ -182,10 +182,10 @@ public class Netbook implements Comparable<Netbook> {
 	
 	@MemberOrder(name="Informacion General",sequence="2")
 	@Column(allowsNull="false",length=10)
-	public String getSituacionDeNetbook() {
+	public SituacionDeNetbook getSituacionDeNetbook() {
 		return situacionDeNetbook;
 	}
-	public void setSituacionDeNetbook(String situacionDeNetbook) {
+	public void setSituacionDeNetbook(SituacionDeNetbook situacionDeNetbook) {
 		this.situacionDeNetbook = situacionDeNetbook;
 	}
 	

@@ -26,6 +26,7 @@ import repo.netbook.RepositorioNetbook;
 import repo.persona.RepositorioPersona;
 //import servicio.estadisticas.GenerarEstadistica.PieWithGradientOptions;
 
+
 import com.google.common.collect.Maps;
 import com.googlecode.wickedcharts.highcharts.options.ChartOptions;
 import com.googlecode.wickedcharts.highcharts.options.Cursor;
@@ -49,6 +50,7 @@ import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
+import dom.persona.Persona;
 
 @DomainService
 @Named("Graficos Estadisticos")
@@ -105,6 +107,8 @@ public class GraficosEstadisticos {
 				porEstadoDeAlumno));
 	}
 
+
+	
 	public static class OpcionesDeGradienteDeGraficoDeModeloDeNetbook extends
 			Options {
 		private static final long serialVersionUID = 1L;
