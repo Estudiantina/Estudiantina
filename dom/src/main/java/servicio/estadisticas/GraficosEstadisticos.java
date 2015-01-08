@@ -27,6 +27,7 @@ import repo.persona.RepositorioPersona;
 //import servicio.estadisticas.GenerarEstadistica.PieWithGradientOptions;
 
 
+
 import com.google.common.collect.Maps;
 import com.googlecode.wickedcharts.highcharts.options.ChartOptions;
 import com.googlecode.wickedcharts.highcharts.options.Cursor;
@@ -50,6 +51,7 @@ import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
+import dom.netbook.SituacionDeNetbook;
 import dom.persona.Persona;
 
 @DomainService
@@ -106,7 +108,31 @@ public class GraficosEstadisticos {
 		return new WickedChart(new OpcionesDeGradienteDeGraficoEstadoAlumno(
 				porEstadoDeAlumno));
 	}
+	/**
+	 * muestra un gráfico de torta en el viewer de tipo WickedChart mostrando
+	 * 
+	 * @return graficoDeTorta
+	 */
+	@ActionSemantics(Of.SAFE)
+	@Named("por Situacion De Netbook")
+	public WickedChart graficosDeNetbooksAsignadas() {
 
+		Map<SituacionDeNetbook, AtomicInteger> porSituacionDeNetbook = Maps.newTreeMap();
+		// EstadoDeAlumno estado = null;
+		List<Netbook> listaNetbook = repositorioNetbook.listaNetbooks();
+		for (Netbook netbook : listaNetbook) {
+			SituacionDeNetbook situacionDeNetbook = netbook.getSituacionDeNetbook();
+
+			AtomicInteger integer = porSituacionDeNetbook.get(situacionDeNetbook);
+			if (integer == null) {
+				integer = new AtomicInteger();
+				porSituacionDeNetbook.put(situacionDeNetbook, integer);
+			}
+			integer.incrementAndGet();
+		}
+		return new WickedChart(new OpcionesDeGradienteDeGraficoSituacionNetbook(
+				porSituacionDeNetbook));
+	}
 
 	
 	public static class OpcionesDeGradienteDeGraficoDeModeloDeNetbook extends
@@ -190,6 +216,50 @@ public class GraficosEstadisticos {
 			addSeries(series);
 		}
 	}
+	
+	
+	
+	
+	public static class OpcionesDeGradienteDeGraficoSituacionNetbook extends
+	Options {
+private static final long serialVersionUID = 1L;
+
+public OpcionesDeGradienteDeGraficoSituacionNetbook(
+		Map<SituacionDeNetbook, AtomicInteger> byCategory) {
+
+	setChartOptions(new ChartOptions()
+			.setPlotBackgroundColor(new NullColor())
+			.setPlotBorderWidth(null).setPlotShadow(Boolean.FALSE));
+
+	setTitle(new Title("Estadistica de Situacion De Netbooks."));
+
+	PercentageFormatter formatter = new PercentageFormatter();
+	setTooltip(new Tooltip().setFormatter(formatter)
+			.setPercentageDecimals(1));
+
+	setPlotOptions(new PlotOptionsChoice().setPie(new PlotOptions()
+			.setAllowPointSelect(Boolean.TRUE)
+			.setCursor(Cursor.POINTER)
+			.setDataLabels(
+					new DataLabels().setEnabled(Boolean.TRUE)
+							.setColor(new HexColor("#000000"))
+							.setConnectorColor(new HexColor("#000000"))
+							.setFormatter(formatter))));
+
+	Series<Point> series = new PointSeries().setType(SeriesType.PIE);
+	int i = 0;
+	for (Map.Entry<SituacionDeNetbook, AtomicInteger> entry : byCategory
+			.entrySet()) {
+		series.addPoint(new Point(entry.getKey().name(), entry
+				.getValue().get()).setColor(new RadialGradient()
+				.setCx(0.5).setCy(0.3).setR(0.7)
+				.addStop(0, new HighchartsColor(i))
+				.addStop(1, new HighchartsColor(i).brighten(-0.3f))));
+		i++;
+	}
+	addSeries(series);
+}
+}
 
 	@javax.inject.Inject
 	private RepositorioNetbook repositorioNetbook;

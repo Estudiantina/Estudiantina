@@ -102,7 +102,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setModelo(modelo);
 	    netbook.setNumeroDeSerie(numeroDeSerie);
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-	    netbook.setSituacionDeNetbook(SituacionDeNetbook.enStock);
+	    netbook.setSituacionDeNetbook(SituacionDeNetbook.ENSTOCK);
 	    netbook.setEstablecimiento(establecimiento);	    
 	    container.persistIfNotAlready(netbook);
 	    
@@ -135,7 +135,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 			    netbook.setModelo(modelo);
 			    netbook.setNumeroDeSerie(numeroDeSerie);
 			    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-			    netbook.setSituacionDeNetbook(SituacionDeNetbook.enStock);
+			    netbook.setSituacionDeNetbook(SituacionDeNetbook.ENSTOCK);
 			    netbook.setEstablecimiento(repositorioPersona.VerMisDatos().getEstablecimiento());	    
 			    container.persistIfNotAlready(netbook);
 				return netbook;
