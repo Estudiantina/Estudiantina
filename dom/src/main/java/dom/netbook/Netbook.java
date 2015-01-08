@@ -196,6 +196,7 @@ public class Netbook implements Comparable<Netbook> {
 	public SituacionDeNetbook getSituacionDeNetbook() {
 		return situacionDeNetbook;
 	}
+	@Hidden
 	public void setSituacionDeNetbook(SituacionDeNetbook situacionDeNetbook) {
 		this.situacionDeNetbook = situacionDeNetbook;
 	}
@@ -307,7 +308,22 @@ public class Netbook implements Comparable<Netbook> {
  		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
  		
  	}
-     
+    /**
+     * oculta imprimir acta de migracion en el caso de
+     * que no este asignada
+     * @return
+     */
+    public boolean hideImprimirActaMigracion()
+    {
+    	if(situacionDeNetbook == SituacionDeNetbook.ASIGNADA)
+    	{
+    		return false;
+    	}
+    	else
+    	{
+    		return true;
+    	}
+    }
     /**
      * TODO ImprimirReporte
      * TODO Generar acta de prestamo de netbook
