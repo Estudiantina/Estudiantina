@@ -144,12 +144,12 @@ public class Persona implements Locatable,Serializable{
 	
 	public void addToNetbooks(Netbook e) {
         if(e == null || netbooks.contains(e)) return;
-        e.setPersona(this);
+        e.asignarPersona(this);
         netbooks.add(e);
     }
 	public void removeFromNetbooks(Netbook e) {
         if(e == null || !netbooks.contains(e)) return;
-        e.setPersona(null);
+        e.asignarPersona(null);
         netbooks.remove(e);
     }
 		
@@ -258,7 +258,7 @@ public class Persona implements Locatable,Serializable{
 		net.setSituacionDeNetbook(SituacionDeNetbook.ASIGNADA);
 		}
 		this.netbooks.add(net);		
-		net.setPersona(this);
+		net.asignarPersona(this);
 		return this;
 	}
 	

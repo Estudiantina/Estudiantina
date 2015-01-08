@@ -27,6 +27,7 @@ import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.MemberGroupLayout;
@@ -41,9 +42,12 @@ import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
 import org.apache.isis.applib.query.QueryDefault;
+
 import javax.jdo.annotations.Column;
+
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+
 import dom.establecimiento.Establecimiento;
 import dom.persona.Persona;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
@@ -92,7 +96,13 @@ public class Netbook implements Comparable<Netbook> {
 	public Persona getPersona() {
 		return persona;
 	}
-	public void setPersona(Persona persona) {
+	
+	@SuppressWarnings("unused")
+	private void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
+	public void asignarPersona(Persona persona) {
 		this.persona = persona;
 	}
 	
@@ -216,8 +226,9 @@ public class Netbook implements Comparable<Netbook> {
 
 
 	/**
-	 * oculta el numero de acta de robo en el caso
-	 * de que no este robada.
+	 * oculta el numero de acta 
+	 * de robo en el caso
+	 * de que no este robada
 	 * @return
 	 */
 	public boolean hideNumeroDeActaDeRobo()
