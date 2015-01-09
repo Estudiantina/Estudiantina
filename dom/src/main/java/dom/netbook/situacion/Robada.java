@@ -1,8 +1,23 @@
 package dom.netbook.situacion;
 
+import javax.jdo.annotations.DatastoreIdentity;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Unique;
+import javax.jdo.annotations.Uniques;
+import javax.jdo.annotations.VersionStrategy;
+
+import org.apache.isis.applib.annotation.ObjectType;
+
 import dom.netbook.Netbook;
 import dom.persona.Persona;
+@PersistenceCapable(identityType = IdentityType.DATASTORE)
+@javax.jdo.annotations.Version(strategy = VersionStrategy.VERSION_NUMBER, column = "version")
+@DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idRobada" )
+@Uniques({ @Unique(name = "robadaUnique" , members = { "idRobada" } ) })
 
+@ObjectType("ROBADA")
 public class Robada implements ISituacionDeNetbook{
 
 	private Netbook netbook;
@@ -12,27 +27,27 @@ public class Robada implements ISituacionDeNetbook{
 	}
 
 	@Override
-	public String getNombreSituacion() {
-		return "Robada";
+	public SituacionDeNetbook getNombreSituacion() {
+		return SituacionDeNetbook.ROBADA;
 	}
 	
 	@Override
-	public boolean hideImprimirActaMigracion() {
+	public boolean ocultarImprimirActaMigracion() {
 		return true;
 	}
 
 	@Override
-	public boolean hideImprimirActaPrestamo() {
+	public boolean ocultarImprimirActaPrestamo() {
 		return true;
 	}
 
 	@Override
-	public boolean hideNumeroActaDeRobo() {
+	public boolean ocultarNumeroActaDeRobo() {
 		return false;
 	}
 
 	@Override
-	public boolean hidePersona() {
+	public boolean ocultarPersona() {
 		return false;
 	}
 
@@ -73,7 +88,7 @@ public class Robada implements ISituacionDeNetbook{
 	}
 
 	@Override
-	public boolean hideAsignarPersona() {
+	public boolean ocultarAsignarPersona() {
 		return true;
 	}
 

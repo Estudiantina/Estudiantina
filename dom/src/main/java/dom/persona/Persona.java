@@ -56,7 +56,7 @@ import dom.EstaBorrado;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Localidad;
 import dom.netbook.Netbook;
-import dom.netbook.SituacionDeNetbook;
+import dom.netbook.situacion.SituacionDeNetbook;
 
 /**
  * Clase que representa la entidad Persona en nuestro sistema.
@@ -249,14 +249,6 @@ public class Persona implements Locatable,Serializable{
 	@Named("añadir netbook")
 	public Persona aniadirNetbook(Netbook net)
 	{
-		if (this.netbooks.size()>0)
-		{
-		net.setSituacionDeNetbook(SituacionDeNetbook.PRESTADA);
-		}
-		else
-		{
-		net.setSituacionDeNetbook(SituacionDeNetbook.ASIGNADA);
-		}
 		this.netbooks.add(net);		
 		net.asignarPersona(this);
 		return this;

@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.jdo.annotations.Extension;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 
@@ -49,6 +51,13 @@ import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
 
 import dom.establecimiento.Establecimiento;
+import dom.netbook.situacion.Asignada;
+import dom.netbook.situacion.EnStock;
+import dom.netbook.situacion.Entregada;
+import dom.netbook.situacion.ISituacionDeNetbook;
+import dom.netbook.situacion.Prestada;
+import dom.netbook.situacion.Robada;
+import dom.netbook.situacion.SituacionDeNetbook;
 import dom.persona.Persona;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 import repo.netbook.RepositorioNetbook;
@@ -80,10 +89,110 @@ public class Netbook implements Comparable<Netbook> {
 	private String numeroLicenciaWindows;
 	private Date fechaDeExpiracion;
 	private String direccionMac;
-	private SituacionDeNetbook situacionDeNetbook;
 	private String numeroDeActaDeRobo;
 	private Persona persona ;
 	private Establecimiento establecimiento;
+	
+	//propiedades de situación de Netbook
+	private Asignada asignada;
+	private EnStock enStock;
+	private Entregada entregada;
+	private Prestada prestada;
+	private Robada robada;
+	
+	
+	
+	public Netbook() {
+		this.asignada = new Asignada(this);
+		this.enStock = new EnStock(this);
+		this.entregada = new Entregada(this);
+		this.prestada = new Prestada(this);
+		this.robada = new Robada(this);
+		this.situacionDeNetbook = this.asignada;
+	}
+	
+	
+	private ISituacionDeNetbook situacionDeNetbook;
+/*	@Persistent(extensions= {
+			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
+			value = "per-implementation"),
+			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = 
+			"dom.netbook.situacion.Asignada"
+			+",dom.netbook.situacion.EnStock"
+			+",dom.netbook.situacion.Entregada"
+			+",dom.netbook.situacion.Prestada"
+			+",dom.netbook.situacion.Robada"
+					)})
+	@Hidden*/
+	@Persistent(extensions= {
+			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
+			value = "per-implementation"),
+			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = 
+			"dom.netbook.situacion.EnStock"
+			+",dom.netbook.situacion.Asignada"
+			+",dom.netbook.situacion.Entregada"
+			+",dom.netbook.situacion.Prestada"
+			+",dom.netbook.situacion.Robada"
+					)})
+	@Disabled
+	@Hidden
+	private ISituacionDeNetbook getSituacionDeNetbook() {
+		return situacionDeNetbook;
+	}
+	
+	
+	
+	public void setSituacionDeNetbook(ISituacionDeNetbook situacionDeNetbook) {
+		this.situacionDeNetbook = situacionDeNetbook;
+	}
+
+
+
+	public SituacionDeNetbook getSituacion()
+	{
+		return SituacionDeNetbook.ENTREGADA;
+	}
+	@Hidden
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Asignada getAsignada() {
+		return asignada;
+	}
+	public void setAsignada(Asignada asignada) {
+		this.asignada = asignada;
+	}
+	@Hidden
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public EnStock getEnStock() {
+		return enStock;
+	}
+	public void setEnStock(EnStock enStock) {
+		this.enStock = enStock;
+	}
+	@Hidden
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Entregada getEntregada() {
+		return entregada;
+	}
+	public void setEntregada(Entregada entregada) {
+		this.entregada = entregada;
+	}
+	@Hidden
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Prestada getPrestada() {
+		return prestada;
+	}
+	public void setPrestada(Prestada prestada) {
+		this.prestada = prestada;
+	}
+	@Hidden
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Robada getRobada() {
+		return robada;
+	}
+	public void setRobada(Robada robada) {
+		this.robada = robada;
+	}
+	
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Establecimiento getEstablecimiento() {
@@ -191,15 +300,8 @@ public class Netbook implements Comparable<Netbook> {
 		this.fechaDeExpiracion = fechaDeExpiracion;
 	}
 	
-	@MemberOrder(name="Informacion General",sequence="2")
-	@Column(allowsNull="false",length=10)
-	public SituacionDeNetbook getSituacionDeNetbook() {
-		return situacionDeNetbook;
-	}
-	@Hidden
-	public void setSituacionDeNetbook(SituacionDeNetbook situacionDeNetbook) {
-		this.situacionDeNetbook = situacionDeNetbook;
-	}
+
+	
 	
 	@Unique
 	@Column(allowsNull="false",length=10)
@@ -226,23 +328,7 @@ public class Netbook implements Comparable<Netbook> {
 	}
 
 
-	/**
-	 * oculta el numero de acta 
-	 * de robo en el caso
-	 * de que no este robada
-	 * @return
-	 */
-	public boolean hideNumeroDeActaDeRobo()
-	{
-		if (situacionDeNetbook == SituacionDeNetbook.ROBADA)
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
+
 	
       /**
       * TODO ImprimirReporte
@@ -308,41 +394,11 @@ public class Netbook implements Comparable<Netbook> {
  		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
  		
  	}
-    /**
-     * oculta imprimir acta de migracion en el caso de
-     * que no este asignada
-     * @return
-     */
-    public boolean hideImprimirActaMigracion()
-    {
-    	if(situacionDeNetbook == SituacionDeNetbook.ASIGNADA)
-    	{
-    		return false;
-    	}
-    	else
-    	{
-    		return true;
-    	}
-    }
+
     
     
     
-    /**
-     * oculta imprimir acta de prestamo en el caso de
-     * que no este prestada
-     * @return
-     */
-    public boolean hideImprimirActaPrestamo()
-    {
-    	if(situacionDeNetbook == SituacionDeNetbook.PRESTADA)
-    	{
-    		return false;
-    	}
-    	else
-    	{
-    		return true;
-    	}
-    }
+
     /**
      * TODO ImprimirReporte
      * TODO Generar acta de prestamo de netbook

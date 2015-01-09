@@ -31,7 +31,7 @@ import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
-import dom.netbook.SituacionDeNetbook;
+import dom.netbook.situacion.SituacionDeNetbook;
 import dom.notificaciones.SolicitudNetbookPrestada;
 
 @Named("Netbook")
@@ -102,7 +102,6 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setModelo(modelo);
 	    netbook.setNumeroDeSerie(numeroDeSerie);
 	    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-	    netbook.setSituacionDeNetbook(SituacionDeNetbook.ENSTOCK);
 	    netbook.setEstablecimiento(establecimiento);	    
 	    container.persistIfNotAlready(netbook);
 	    
@@ -135,7 +134,6 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 			    netbook.setModelo(modelo);
 			    netbook.setNumeroDeSerie(numeroDeSerie);
 			    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-			    netbook.setSituacionDeNetbook(SituacionDeNetbook.ENSTOCK);
 			    netbook.setEstablecimiento(repositorioPersona.VerMisDatos().getEstablecimiento());	    
 			    container.persistIfNotAlready(netbook);
 				return netbook;

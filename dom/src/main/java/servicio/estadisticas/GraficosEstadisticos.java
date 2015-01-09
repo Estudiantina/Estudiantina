@@ -28,6 +28,7 @@ import repo.persona.RepositorioPersona;
 
 
 
+
 import com.google.common.collect.Maps;
 import com.googlecode.wickedcharts.highcharts.options.ChartOptions;
 import com.googlecode.wickedcharts.highcharts.options.Cursor;
@@ -46,13 +47,12 @@ import com.googlecode.wickedcharts.highcharts.options.functions.PercentageFormat
 import com.googlecode.wickedcharts.highcharts.options.series.Point;
 import com.googlecode.wickedcharts.highcharts.options.series.PointSeries;
 import com.googlecode.wickedcharts.highcharts.options.series.Series;
-
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.netbook.ModeloNetbook;
 import dom.netbook.Netbook;
-import dom.netbook.SituacionDeNetbook;
-import dom.persona.Persona;
+import dom.netbook.situacion.SituacionDeNetbook;
+
 
 @DomainService
 @Named("Graficos Estadisticos")
@@ -121,7 +121,7 @@ public class GraficosEstadisticos {
 		// EstadoDeAlumno estado = null;
 		List<Netbook> listaNetbook = repositorioNetbook.listaNetbooks();
 		for (Netbook netbook : listaNetbook) {
-			SituacionDeNetbook situacionDeNetbook = netbook.getSituacionDeNetbook();
+			SituacionDeNetbook situacionDeNetbook = netbook.getSituacion();
 
 			AtomicInteger integer = porSituacionDeNetbook.get(situacionDeNetbook);
 			if (integer == null) {
