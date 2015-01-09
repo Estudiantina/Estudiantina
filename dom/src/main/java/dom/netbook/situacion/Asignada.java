@@ -6,20 +6,17 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean hideImprimirActaMigracion() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean hideImprimirActaPrestamo() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean hideNumeroActaDeRobo() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -30,19 +27,18 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public void asignarPersona(Persona persona) {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 
 	@Override
 	public void imprimirActaMigracion() {
-		// TODO Auto-generated method stub
-		
+		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
 	@Override
-	public void imprimitActaPrestamo() {
-		// TODO Auto-generated method stub
+	public void imprimirActaPrestamo() {
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 
@@ -62,6 +58,12 @@ public class Asignada implements ISituacionDeNetbook {
 	public void establecerNetbookComoRobada() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean hideAsignarPersona() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

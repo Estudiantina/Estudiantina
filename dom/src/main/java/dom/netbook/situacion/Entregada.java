@@ -2,32 +2,36 @@ package dom.netbook.situacion;
 
 import dom.persona.Persona;
 
-public class EnStock implements ISituacionDeNetbook {
+public class Entregada implements ISituacionDeNetbook{
 
 	@Override
 	public boolean hideImprimirActaMigracion() {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean hideImprimirActaPrestamo() {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean hideNumeroActaDeRobo() {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean hidePersona() {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	public void asignarPersona(Persona persona) {
+	public boolean hideAsignarPersona() {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
@@ -61,8 +65,9 @@ public class EnStock implements ISituacionDeNetbook {
 	}
 
 	@Override
-	public boolean hideAsignarPersona() {
-		return false;
+	public void asignarPersona(Persona persona) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -41,7 +41,7 @@ public class Robada implements ISituacionDeNetbook{
 	}
 
 	@Override
-	public void imprimitActaPrestamo() {
+	public void imprimirActaPrestamo() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -62,6 +62,12 @@ public class Robada implements ISituacionDeNetbook{
 	public void establecerNetbookComoRobada() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean hideAsignarPersona() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

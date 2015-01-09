@@ -8,8 +8,9 @@ public interface ISituacionDeNetbook {
 	public boolean hideImprimirActaPrestamo();
 	public boolean hideNumeroActaDeRobo();
 	public boolean hidePersona();
+	public boolean hideAsignarPersona();
 	public void imprimirActaMigracion();
-	public void imprimitActaPrestamo();
+	public void imprimirActaPrestamo();
 	public void imprimirActaRecepcionDeNetbook();
 	public void desasignarNetbookDePersona();
 	public void establecerNetbookComoRobada();
