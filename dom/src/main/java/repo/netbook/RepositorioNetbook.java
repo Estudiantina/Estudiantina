@@ -70,6 +70,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     	return allMatches(QueryDefault.create(Netbook.class, "traerlikePorId","idNetbook",searchPhrase,"institucion",repositorioPersona.VerMisDatos().getEstablecimiento()));
     	}
     }
+    
     /**
      * Crea y guarda una netbook en el sistema
      * las propiedades de la netbook

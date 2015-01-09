@@ -103,27 +103,16 @@ public class Netbook implements Comparable<Netbook> {
 	
 	
 	public Netbook() {
-		this.asignada = new Asignada(this);
 		this.enStock = new EnStock(this);
+		this.asignada = new Asignada(this);
 		this.entregada = new Entregada(this);
 		this.prestada = new Prestada(this);
 		this.robada = new Robada(this);
-		this.situacionDeNetbook = this.asignada;
+		this.situacionDeNetbook = this.getEnStock();
 	}
 	
 	
 	private ISituacionDeNetbook situacionDeNetbook;
-/*	@Persistent(extensions= {
-			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
-			value = "per-implementation"),
-			@Extension(vendorName = "datanucleus", key = "implementation-clases", value = 
-			"dom.netbook.situacion.Asignada"
-			+",dom.netbook.situacion.EnStock"
-			+",dom.netbook.situacion.Entregada"
-			+",dom.netbook.situacion.Prestada"
-			+",dom.netbook.situacion.Robada"
-					)})
-	@Hidden*/
 	@Persistent(extensions= {
 			@Extension(vendorName = "datanucleous", key = "mapping-strategy",
 			value = "per-implementation"),
@@ -201,18 +190,18 @@ public class Netbook implements Comparable<Netbook> {
 	public void setEstablecimiento(Establecimiento establecimiento) {
 		this.establecimiento = establecimiento;
 	}
+	
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Persona getPersona() {
 		return persona;
 	}
-	
-	@SuppressWarnings("unused")
-	private void setPersona(Persona persona) {
+	@Hidden
+	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
 
 	public void asignarPersona(Persona persona) {
-		this.persona = persona;
+		this.situacionDeNetbook.asignarPersona(persona);
 	}
 	
 	public void modifyPersona(Persona p) {

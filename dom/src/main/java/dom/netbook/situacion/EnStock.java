@@ -52,7 +52,8 @@ public class EnStock implements ISituacionDeNetbook {
 
 	@Override
 	public void asignarPersona(Persona persona) {
-		// TODO Auto-generated method stub
+		this.netbook.setPersona(persona);
+		this.netbook.setSituacionDeNetbook(this.netbook.getAsignada());
 		
 	}
 
