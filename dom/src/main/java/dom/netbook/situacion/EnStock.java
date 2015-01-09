@@ -1,8 +1,14 @@
 package dom.netbook.situacion;
 
+import dom.netbook.Netbook;
 import dom.persona.Persona;
 
 public class EnStock implements ISituacionDeNetbook {
+
+	private Netbook netbook;
+	public EnStock(Netbook netbook) {
+		this.netbook = netbook;
+	}
 
 	@Override
 	public String getNombreSituacion() {

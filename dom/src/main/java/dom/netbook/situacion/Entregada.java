@@ -1,8 +1,15 @@
 package dom.netbook.situacion;
 
+import dom.netbook.Netbook;
 import dom.persona.Persona;
 
 public class Entregada implements ISituacionDeNetbook{
+
+	private Netbook netbook;
+	
+	public Entregada(Netbook netbook) {
+		this.netbook = netbook;
+	}
 
 	@Override
 	public String getNombreSituacion() {

@@ -1,14 +1,22 @@
 package dom.netbook.situacion;
 
+import dom.netbook.Netbook;
 import dom.persona.Persona;
 
 public class Asignada implements ISituacionDeNetbook {
+
+	private Netbook netbook;
+	
+	public Asignada(Netbook netbook) {
+		this.netbook = netbook;
+	}
 
 	@Override
 	public String getNombreSituacion() {
 		return "Asignada";
 	}
 	
+
 	@Override
 	public boolean hideImprimirActaMigracion() {
 		return true;

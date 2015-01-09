@@ -1,8 +1,15 @@
 package dom.netbook.situacion;
 
+import dom.netbook.Netbook;
 import dom.persona.Persona;
 
 public class Prestada implements ISituacionDeNetbook {
+
+	private Netbook netbook;
+	
+	public Prestada(Netbook netbook) {
+		this.netbook = netbook;
+	}
 
 	@Override
 	public String getNombreSituacion() {
@@ -11,25 +18,21 @@ public class Prestada implements ISituacionDeNetbook {
 	
 	@Override
 	public boolean hideImprimirActaMigracion() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean hideImprimirActaPrestamo() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean hideNumeroActaDeRobo() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean hidePersona() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
