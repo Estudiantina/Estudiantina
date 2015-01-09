@@ -3,7 +3,7 @@ package dom.netbook.situacion;
 import dom.persona.Persona;
 
 public interface ISituacionDeNetbook {
-
+	public String getNombreSituacion();
 	public boolean hideImprimirActaMigracion();
 	public boolean hideImprimirActaPrestamo();
 	public boolean hideNumeroActaDeRobo();

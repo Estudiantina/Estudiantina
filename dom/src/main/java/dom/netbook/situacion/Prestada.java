@@ -5,6 +5,11 @@ import dom.persona.Persona;
 public class Prestada implements ISituacionDeNetbook {
 
 	@Override
+	public String getNombreSituacion() {
+		return "Prestada";
+	}
+	
+	@Override
 	public boolean hideImprimirActaMigracion() {
 		// TODO Auto-generated method stub
 		return false;

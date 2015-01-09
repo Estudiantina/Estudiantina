@@ -5,6 +5,11 @@ import dom.persona.Persona;
 public class EnStock implements ISituacionDeNetbook {
 
 	@Override
+	public String getNombreSituacion() {
+		return "En Stock";
+	}
+	
+	@Override
 	public boolean hideImprimirActaMigracion() {
 		return true;
 	}
@@ -64,5 +69,7 @@ public class EnStock implements ISituacionDeNetbook {
 	public boolean hideAsignarPersona() {
 		return false;
 	}
+
+
 
 }
