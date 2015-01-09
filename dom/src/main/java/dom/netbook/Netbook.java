@@ -324,6 +324,25 @@ public class Netbook implements Comparable<Netbook> {
     		return true;
     	}
     }
+    
+    
+    
+    /**
+     * oculta imprimir acta de prestamo en el caso de
+     * que no este prestada
+     * @return
+     */
+    public boolean hideImprimirActaPrestamo()
+    {
+    	if(situacionDeNetbook == SituacionDeNetbook.PRESTADA)
+    	{
+    		return false;
+    	}
+    	else
+    	{
+    		return true;
+    	}
+    }
     /**
      * TODO ImprimirReporte
      * TODO Generar acta de prestamo de netbook
