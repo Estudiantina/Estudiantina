@@ -97,6 +97,12 @@ public class EnStock implements ISituacionDeNetbook {
 		return true;
 	}
 
+	@Override
+	public boolean ocultarImprimirActaRecepcionDeNetbook() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 
 }

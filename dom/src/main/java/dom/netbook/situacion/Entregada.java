@@ -104,4 +104,10 @@ public class Entregada implements ISituacionDeNetbook{
 		return false;
 	}
 
+	@Override
+	public boolean ocultarImprimirActaRecepcionDeNetbook() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

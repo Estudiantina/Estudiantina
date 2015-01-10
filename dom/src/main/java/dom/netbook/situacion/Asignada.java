@@ -100,5 +100,11 @@ public class Asignada implements ISituacionDeNetbook {
 		return false;
 	}
 
+	@Override
+	public boolean ocultarImprimirActaRecepcionDeNetbook() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 }

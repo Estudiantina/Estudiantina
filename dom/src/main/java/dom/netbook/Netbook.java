@@ -488,7 +488,16 @@ public class Netbook implements Comparable<Netbook> {
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/reciboNetbook.jrxml", parametros, "Solicitud");
 		
 	}
-  
+  /**
+   * oculta la accion de Acta de Recepcion
+   * dependiendo de la situacion en que
+   * se encuentre la netbook
+   * @return true oculta false no oculta
+   */
+    public boolean hideImprimirActaRecepcionDeNetbook()
+    {
+    	return this.getSituacionDeNetbook().ocultarImprimirActaRecepcionDeNetbook();
+    }
     /**
      * lista una lista con el historial de reparaciones 
      * en el viewer
