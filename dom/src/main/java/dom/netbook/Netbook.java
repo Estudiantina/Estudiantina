@@ -204,8 +204,9 @@ public class Netbook implements Comparable<Netbook> {
 		this.persona = persona;
 	}
 
-	public void asignarPersona(Persona persona) {
+	public Netbook asignarPersona(Persona persona) {
 		this.situacionDeNetbook.asignarPersona(persona);
+		return this;
 	}
 	
 	public void modifyPersona(Persona p) {
