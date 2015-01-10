@@ -91,8 +91,7 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarAsignarPersona() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 

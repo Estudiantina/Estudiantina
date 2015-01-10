@@ -141,6 +141,7 @@ public class Netbook implements Comparable<Netbook> {
 		return this;
 	}
 
+	
 	public SituacionDeNetbook getSituacion()
 	{
 		return this.getSituacionDeNetbook().getNombreSituacion();
@@ -208,6 +209,11 @@ public class Netbook implements Comparable<Netbook> {
 		this.situacionDeNetbook.asignarPersona(persona);
 		return this;
 	}
+	
+    public boolean hideAsignarPersona()
+    {
+    	return this.getSituacionDeNetbook().ocultarAsignarPersona();
+    }
 	
 	public void modifyPersona(Persona p) {
         if(p==null || persona==p) return;
