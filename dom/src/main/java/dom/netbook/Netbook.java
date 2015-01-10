@@ -130,12 +130,16 @@ public class Netbook implements Comparable<Netbook> {
 	}
 	
 	
-	
 	public void setSituacionDeNetbook(ISituacionDeNetbook situacionDeNetbook) {
 		this.situacionDeNetbook = situacionDeNetbook;
 	}
 
 
+	public Netbook desasignarNetbook()
+	{
+		this.getSituacionDeNetbook().desasignarNetbookDePersona();
+		return this;
+	}
 
 	public SituacionDeNetbook getSituacion()
 	{
