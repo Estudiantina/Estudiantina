@@ -387,7 +387,10 @@ public class Netbook implements Comparable<Netbook> {
  	}
 
     
-    
+    public boolean hideImprimirActaMigracion()
+    {
+    	return this.getSituacionDeNetbook().ocultarImprimirActaMigracion();
+    }
     
 
     /**
@@ -438,7 +441,12 @@ public class Netbook implements Comparable<Netbook> {
 		
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaAutorizacionPrestamoNet.jrxml", parametros, "Solicitud");
 		}
-   
+   /**
+    * oculta la accion de Imprimir Acta de Prestamo
+    * dependiendo de la situacion en que
+    * se encuentre la netbook
+    * @return true oculta false no oculta
+    */
    public boolean hideImprimirActaPrestamo()
    {
 	   return this.getSituacionDeNetbook().ocultarImprimirActaPrestamo();
@@ -488,6 +496,7 @@ public class Netbook implements Comparable<Netbook> {
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/reciboNetbook.jrxml", parametros, "Solicitud");
 		
 	}
+  
   /**
    * oculta la accion de Acta de Recepcion
    * dependiendo de la situacion en que
@@ -498,6 +507,7 @@ public class Netbook implements Comparable<Netbook> {
     {
     	return this.getSituacionDeNetbook().ocultarImprimirActaRecepcionDeNetbook();
     }
+    
     /**
      * lista una lista con el historial de reparaciones 
      * en el viewer
