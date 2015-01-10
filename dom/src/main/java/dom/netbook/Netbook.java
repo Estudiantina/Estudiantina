@@ -269,23 +269,6 @@ public class Netbook implements Comparable<Netbook> {
 		this.numeroDeSerie = numeroDeSerie;
 	}
 	
-	@Bulk //para que ejecute la accion en una lista masiva de objetos
-	@PublishedAction // para que muestre la accion en la lista de objetos
-	@Named("Eliminar")
-	@CssClass("icono-eliminar")//agregar icono mediante CSS al boton eliminar
-	public List<Netbook> eliminar() {
-        container.removeIfNotAlready(this);
-        container.informUser("las netbook selecionadas fueron eliminadas");
-
-        return this.traerTodas(); 
-    }
-	
-    @Programmatic
-    public List<Netbook> traerTodas() {
-        return container.allMatches(
-            new QueryDefault<Netbook>(Netbook.class, 
-                    "traerTodo","institucion",this.establecimiento));
-    }
 	
 	@Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software",sequence="2")
@@ -455,6 +438,12 @@ public class Netbook implements Comparable<Netbook> {
 		
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaAutorizacionPrestamoNet.jrxml", parametros, "Solicitud");
 		}
+   
+   public boolean hideImprimirActaPrestamo()
+   {
+	   return this.getSituacionDeNetbook().ocultarImprimirActaPrestamo();
+   }
+   
    
     /**
     * TODO ImprimirReporte
