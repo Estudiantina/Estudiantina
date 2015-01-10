@@ -1,5 +1,6 @@
 package dom.netbook.situacion;
 
+import javax.inject.Inject;
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -8,6 +9,7 @@ import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.VersionStrategy;
 
+import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
 
 import dom.netbook.Netbook;
@@ -52,9 +54,21 @@ public class EnStock implements ISituacionDeNetbook {
 
 	@Override
 	public void asignarPersona(Persona persona) {
+		
+		if(persona.getNetbooks().size()==0)
+		{
 		this.netbook.setPersona(persona);
 		this.netbook.setSituacionDeNetbook(this.netbook.getAsignada());
-		
+		}
+		if(persona.getNetbooks().size()==1)
+		{
+		this.netbook.setPersona(persona);
+		this.netbook.setSituacionDeNetbook(this.netbook.getPrestada());
+		}
+		if(persona.getNetbooks().size()==2)
+		{
+			container.informUser("no se puede asignar mas de dos netbooks");
+		}
 	}
 
 	@Override
@@ -103,6 +117,7 @@ public class EnStock implements ISituacionDeNetbook {
 		return true;
 	}
 
-
+	@javax.inject.Inject
+    private DomainObjectContainer container;
 
 }
