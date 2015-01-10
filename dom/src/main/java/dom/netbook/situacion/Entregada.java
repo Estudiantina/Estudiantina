@@ -98,4 +98,10 @@ public class Entregada implements ISituacionDeNetbook{
 		
 	}
 
+	@Override
+	public boolean ocultarDesasignarNetbookDePersona() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

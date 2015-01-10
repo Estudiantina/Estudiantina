@@ -140,6 +140,10 @@ public class Netbook implements Comparable<Netbook> {
 		this.getSituacionDeNetbook().desasignarNetbookDePersona();
 		return this;
 	}
+	public boolean hideDesasignarNetbook()
+	{
+		return this.getSituacionDeNetbook().ocultarDesasignarNetbookDePersona();
+	}
 
 	
 	public SituacionDeNetbook getSituacion()
@@ -209,7 +213,11 @@ public class Netbook implements Comparable<Netbook> {
 		this.situacionDeNetbook.asignarPersona(persona);
 		return this;
 	}
-	
+	/**
+	 * oculta accion de Asignar Persona segun
+	 * que situacion se encuentre la netbook
+	 * @return
+	 */
     public boolean hideAsignarPersona()
     {
     	return this.getSituacionDeNetbook().ocultarAsignarPersona();

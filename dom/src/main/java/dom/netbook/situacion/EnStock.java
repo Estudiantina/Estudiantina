@@ -92,6 +92,11 @@ public class EnStock implements ISituacionDeNetbook {
 		return false;
 	}
 
+	@Override
+	public boolean ocultarDesasignarNetbookDePersona() {
+		return true;
+	}
+
 
 
 }

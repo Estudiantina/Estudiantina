@@ -93,4 +93,10 @@ public class Prestada implements ISituacionDeNetbook {
 		return false;
 	}
 
+	@Override
+	public boolean ocultarDesasignarNetbookDePersona() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

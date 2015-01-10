@@ -92,6 +92,12 @@ public class Robada implements ISituacionDeNetbook{
 		return true;
 	}
 
+	@Override
+	public boolean ocultarDesasignarNetbookDePersona() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 
 }
