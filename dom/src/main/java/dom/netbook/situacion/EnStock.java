@@ -57,18 +57,20 @@ public class EnStock implements ISituacionDeNetbook {
 		
 		if(persona.getNetbooks().size()==0)
 		{
-		this.netbook.setPersona(persona);
+			persona.getNetbooks().add(netbook);
+			netbook.setPersona(persona);
 		this.netbook.setSituacionDeNetbook(this.netbook.getAsignada());
 		}
-		if(persona.getNetbooks().size()==1)
+		else if(persona.getNetbooks().size()==1)
 		{
-		this.netbook.setPersona(persona);
+			persona.getNetbooks().add(netbook);
+			netbook.setPersona(persona);
 		this.netbook.setSituacionDeNetbook(this.netbook.getPrestada());
 		}
-		if(persona.getNetbooks().size()==2)
+		/*else if(persona.getNetbooks().size()==2)
 		{
 			container.informUser("no se puede asignar mas de dos netbooks");
-		}
+		}*/
 	}
 
 	@Override
