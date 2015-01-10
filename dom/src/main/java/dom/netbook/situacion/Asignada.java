@@ -78,7 +78,8 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public void desasignarNetbookDePersona() {
-		// TODO Auto-generated method stub
+		this.netbook.setSituacionDeNetbook(this.netbook.getEnStock());
+		this.netbook.setPersona(null);
 		
 	}
 
