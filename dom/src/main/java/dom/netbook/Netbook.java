@@ -143,7 +143,7 @@ public class Netbook implements Comparable<Netbook> {
 
 	public SituacionDeNetbook getSituacion()
 	{
-		return SituacionDeNetbook.ENTREGADA;
+		return this.getSituacionDeNetbook().getNombreSituacion();
 	}
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
