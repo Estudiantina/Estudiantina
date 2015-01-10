@@ -317,6 +317,12 @@ public class Netbook implements Comparable<Netbook> {
 	public void setNumeroDeActaDeRobo(String numeroDeActaDeRobo) {
 		this.numeroDeActaDeRobo = numeroDeActaDeRobo;
 	}
+	
+	public boolean hideNumeroDeActaDeRobo()
+	{
+		return this.getSituacionDeNetbook().ocultarNumeroActaDeRobo();
+		
+	}
 
 
 
