@@ -79,7 +79,6 @@ public class Prestada implements ISituacionDeNetbook {
 	public void desasignarNetbookDePersona() {
 		this.netbook.setSituacionDeNetbook(this.netbook.getEnStock());
 		this.netbook.setPersona(null);
-		
 	}
 
 	@Override
@@ -90,8 +89,7 @@ public class Prestada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarAsignarPersona() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override

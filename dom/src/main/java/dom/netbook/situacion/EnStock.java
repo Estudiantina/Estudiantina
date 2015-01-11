@@ -1,5 +1,7 @@
 package dom.netbook.situacion;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
@@ -54,17 +56,21 @@ public class EnStock implements ISituacionDeNetbook {
 
 	@Override
 	public void asignarPersona(Persona persona) {
-		
-		
-		
-		
-		if(persona.getNetbooks().size()==0)
+		int netbooksAsignadas=0;
+		for (Netbook netbook : persona.getNetbooks())
+		{
+			if(netbook.getSituacion()==SituacionDeNetbook.ASIGNADA)
+			{
+				netbooksAsignadas++;
+			}
+		}
+		if(netbooksAsignadas==0)
 		{
 			persona.getNetbooks().add(netbook);
 			netbook.setPersona(persona);
 		this.netbook.setSituacionDeNetbook(this.netbook.getAsignada());
 		}
-		else if(persona.getNetbooks().size()==1)
+		else if(netbooksAsignadas==1)
 		{
 			persona.getNetbooks().add(netbook);
 			netbook.setPersona(persona);
