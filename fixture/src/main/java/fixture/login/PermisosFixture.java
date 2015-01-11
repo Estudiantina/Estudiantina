@@ -89,6 +89,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.alumno:Alumno:aniadirNetbook:*",executionContext);
 		//PERMISOS EN CURSOS PARA TECNICOS
 		create("usuario_tecnico","repo.curso:RepositorioCurso:buscarCursoEnEsteEstablecimiento:*",executionContext);
+		create("usuario_tecnico","repo.curso:RepositorioCurso:verCursosDentroDelEstablecimiento:*",executionContext);
 		create("usuario_tecnico","dom.curso:Turno:*:*",executionContext);
 		create("usuario_tecnico","dom.curso:Division:*:*",executionContext);
 		create("usuario_tecnico","dom.curso:Anio:*:*",executionContext);
@@ -101,6 +102,17 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.curso:Curso:turno:r",executionContext);
 		create("usuario_tecnico","dom.curso:Curso:agregarAlumno:*",executionContext);
 		create("usuario_tecnico","dom.curso:Curso:agregarDocente:*",executionContext);
+		//PERMISOS EN ESTABLECIMIENTO PARA USUARIOS TECNICOS
+		create("usuario_tecnico","dom.establecimiento:Establecimiento:cue:r",executionContext);
+		create("usuario_tecnico","dom.establecimiento:Establecimiento:cursos:r",executionContext);
+		create("usuario_tecnico","dom.establecimiento:Establecimiento:direccion:r",executionContext);
+		create("usuario_tecnico","dom.establecimiento:Establecimiento:directivo:r",executionContext);
+		create("usuario_tecnico","dom.establecimiento:Establecimiento:distritoEscolar:r",executionContext);
+		create("usuario_tecnico","dom.establecimiento:Establecimiento:email:r",executionContext);
+		create("usuario_tecnico","dom.establecimiento:Establecimiento:localidad:r",executionContext);
+		create("usuario_tecnico","dom.establecimiento:Establecimiento:nombre:r",executionContext);
+		create("usuario_tecnico","dom.establecimiento:Establecimiento:telefono:r",executionContext);
+		
 		//PERMISOS EN DOCENTE 
 		//PARA USUARIO TECNICO
 		//

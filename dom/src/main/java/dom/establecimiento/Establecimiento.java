@@ -36,7 +36,8 @@ import repo.establecimiento.RepositorioEstablecimiento;
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.establecimiento.Establecimiento WHERE nombre== :nombre"),
 	@javax.jdo.annotations.Query(name = "traerPorcue", language = "JDOQL", value = "SELECT FROM dom.establecimiento.Establecimiento WHERE cue== :cue"),
 	@Query(name="traerTodos", language="JDOQL", value = "SELECT FROM dom.establecimiento.Establecimiento ") ,
-			@Query(name="traerlikePorNombre", language="JDOQL", value = "SELECT FROM dom.establecimiento.Establecimiento WHERE nombre.indexOf(:nombre) >= 0 range 0, 4"),
+	@Query(name="traerPorEstablecimiento", language="JDOQL", value = "SELECT FROM dom.establecimiento.Establecimiento WHERE this ==:establecimiento") ,
+	@Query(name="traerlikePorNombre", language="JDOQL", value = "SELECT FROM dom.establecimiento.Establecimiento WHERE nombre.indexOf(:nombre) >= 0 range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.establecimiento.Establecimiento ")})
 @AutoComplete(repository = RepositorioEstablecimiento.class, action = "autoComplete")
 @Audited

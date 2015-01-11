@@ -98,6 +98,14 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
     public List<Curso> listaCursos() {
         return allMatches(QueryDefault.create(Curso.class, "traerTodo"));
     }
+    
+    public Establecimiento verCursosDentroDelEstablecimiento()
+    {
+    	return firstMatch(QueryDefault.create(Establecimiento.class, "traerPorEstablecimiento", "establecimiento",repoPersona.VerMisDatos().getEstablecimiento()));
+    }
+    
+    
+    
     @javax.inject.Inject
     RepositorioPersona repoPersona;
     
