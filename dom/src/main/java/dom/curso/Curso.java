@@ -58,7 +58,7 @@ public class Curso implements Comparable<Curso> {
 	 * agregar alumno al curso
 	 * 
 	 */
-	
+
 	private SortedSet<Alumno> listaAlumnos = new TreeSet<Alumno>();
 	
 	@Persistent(mappedBy="cursos")
@@ -189,9 +189,7 @@ public class Curso implements Comparable<Curso> {
 	}
 
 	@Override
-	public int compareTo(Curso curso) {
-		// TODO Apéndice de método generado automáticamente
-		
+	public int compareTo(Curso curso) {		
 		return ObjectContracts.compare(this, curso, "anio");
 	}
 }

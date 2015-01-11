@@ -52,6 +52,7 @@ public class Establecimiento {
 	private Localidad localidad;
 	private String distritoEscolar;
 	private Directivo directivo;
+	@javax.jdo.annotations.Persistent(mappedBy="establecimiento")
 	private SortedSet<Curso> cursos =  new TreeSet<Curso>();
 	
 	public SortedSet<Curso> getCursos() {
