@@ -63,13 +63,13 @@ public class EnStock implements ISituacionDeNetbook {
 		if(netbooksAsignadas==0)
 		{
 			persona.getNetbooks().add(netbook);
-			netbook.setearPersona(persona);
+			netbook.setPersona(persona);
 		this.netbook.setSituacionDeNetbook(this.netbook.getAsignada());
 		}
 		else if(netbooksAsignadas==1)
 		{
 			persona.getNetbooks().add(netbook);
-			netbook.setearPersona(persona);
+			netbook.setPersona(persona);
 		this.netbook.setSituacionDeNetbook(this.netbook.getPrestada());
 		}
 	}
