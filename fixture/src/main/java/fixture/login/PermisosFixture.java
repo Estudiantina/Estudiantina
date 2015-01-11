@@ -79,8 +79,10 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.netbook:Netbook:numeroDeLicenciaWindows:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:persona:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:situacionDeNetbook:*",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:asignarPersona:*",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:desasignarNetbook:*",executionContext);
 		create("usuario_tecnico","dom.persona:Persona:netbooks:r",executionContext);
-			
+		
 		
 		//PERMISOS DE TECNICOS PARA REPOSITORIONETBOOKS
 		create("usuario_tecnico","dom.persona:Persona:aniadirNetbook:*",executionContext);
@@ -183,6 +185,10 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTecnico:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTutor:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:buscarPersonaPorCuilEnEstablecimientoActual:*",executionContext);
+		
+		//PERMISOS DE ESTADISTICAS 
+		//PARA USUARIOS CON ROL DE TECNICO
+		create("usuario_tecnico","servicio.estadisticas:GraficosEstadisticos:graficosDeNetbooksAsignadas:*",executionContext);
 		
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
