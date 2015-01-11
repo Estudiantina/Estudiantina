@@ -12,16 +12,24 @@
  */
 package dom.establecimiento;
 
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
+
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+
 import javax.jdo.annotations.Column;
 
+import dom.curso.Curso;
 import dom.directivo.Directivo;
 import dom.localidad.Localidad;
+import dom.netbook.Netbook;
 import repo.establecimiento.RepositorioEstablecimiento;
 
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
@@ -43,8 +51,15 @@ public class Establecimiento {
 	private String cue;
 	private Localidad localidad;
 	private String distritoEscolar;
-	
 	private Directivo directivo;
+	private SortedSet<Curso> cursos =  new TreeSet<Curso>();
+	
+	public SortedSet<Curso> getCursos() {
+		return cursos;
+	}
+	public void setCursos(SortedSet<Curso> cursos) {
+		this.cursos = cursos;
+	}
 	@Column(allowsNull="true")
 	public Directivo getDirectivo() {
 		return directivo;

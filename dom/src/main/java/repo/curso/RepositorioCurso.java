@@ -90,6 +90,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		return allMatches(QueryDefault.create(Curso.class, "traerCursoPorlikeAnio","anio",anio,"division",division));
 		
 	}
+	
 	/**
 	 * muestra una lista de todos las Cursos que existen
 	 * @return lista de Netbooks
