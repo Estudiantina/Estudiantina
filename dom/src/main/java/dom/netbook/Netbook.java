@@ -503,6 +503,7 @@ public class Netbook implements Comparable<Netbook> {
 		
 	}
   
+
   /**
    * oculta la accion de Acta de Recepcion
    * dependiendo de la situacion en que
@@ -513,6 +514,24 @@ public class Netbook implements Comparable<Netbook> {
     {
     	return this.getSituacionDeNetbook().ocultarImprimirActaRecepcionDeNetbook();
     }
+
+    /**
+     * reporta la Netbook como robada
+     * @param reportar
+     */
+    public Netbook reportarComoRobada(@Named("Numero de Acta De Robo")String numeroDeActa)
+    {
+    	container.informUser("se ha reportado la Netbook como ROBADA");
+    	this.getSituacionDeNetbook().reportarComoRobada(numeroDeActa);
+    	return this;
+    }
+    
+    public boolean hideReportarComoRobada()
+    {
+    	return this.getSituacionDeNetbook().ocultarReportarComoRobada();
+    }
+    
+    
     
     /**
      * lista una lista con el historial de reparaciones 

@@ -20,6 +20,7 @@ import dom.persona.Persona;
 @ObjectType("ROBADA")
 public class Robada implements ISituacionDeNetbook{
 
+	@SuppressWarnings("unused")
 	private Netbook netbook;
 	
 	public Robada(Netbook netbook) {
@@ -95,13 +96,24 @@ public class Robada implements ISituacionDeNetbook{
 	@Override
 	public boolean ocultarDesasignarNetbookDePersona() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean ocultarImprimirActaRecepcionDeNetbook() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
+	}
+
+	@Override
+	public boolean ocultarReportarComoRobada() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public void reportarComoRobada(String numeroDeActa) {
+		
 	}
 
 

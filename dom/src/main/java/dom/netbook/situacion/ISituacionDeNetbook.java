@@ -11,6 +11,8 @@ public interface ISituacionDeNetbook {
 	public boolean ocultarAsignarPersona();
 	public boolean ocultarDesasignarNetbookDePersona();
 	public boolean ocultarImprimirActaRecepcionDeNetbook();
+	public boolean ocultarReportarComoRobada();
+	public void reportarComoRobada(String numeroDeActa);
 	public void imprimirActaMigracion();
 	public void imprimirActaPrestamo();
 	public void imprimirActaRecepcionDeNetbook();

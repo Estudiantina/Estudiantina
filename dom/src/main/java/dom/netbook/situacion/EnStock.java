@@ -55,6 +55,9 @@ public class EnStock implements ISituacionDeNetbook {
 	@Override
 	public void asignarPersona(Persona persona) {
 		
+		
+		
+		
 		if(persona.getNetbooks().size()==0)
 		{
 			persona.getNetbooks().add(netbook);
@@ -121,5 +124,16 @@ public class EnStock implements ISituacionDeNetbook {
 
 	@javax.inject.Inject
     private DomainObjectContainer container;
+	
+	@Override
+	public boolean ocultarReportarComoRobada() {
+		return true;
+	}
+
+	@Override
+	public void reportarComoRobada(String numeroDeActa) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

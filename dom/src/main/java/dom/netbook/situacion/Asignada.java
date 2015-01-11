@@ -106,5 +106,17 @@ public class Asignada implements ISituacionDeNetbook {
 		return false;
 	}
 
+	@Override
+	public boolean ocultarReportarComoRobada() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void reportarComoRobada(String numeroDeActa) {
+		this.netbook.setNumeroDeActaDeRobo(numeroDeActa);
+		this.netbook.setSituacionDeNetbook(this.netbook.getRobada());
+	}
+
 
 }
