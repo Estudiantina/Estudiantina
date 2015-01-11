@@ -1,8 +1,6 @@
 package dom.netbook.situacion;
 
-import java.util.List;
 
-import javax.inject.Inject;
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -10,8 +8,6 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.VersionStrategy;
-
-import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
 
 import dom.netbook.Netbook;
@@ -67,19 +63,15 @@ public class EnStock implements ISituacionDeNetbook {
 		if(netbooksAsignadas==0)
 		{
 			persona.getNetbooks().add(netbook);
-			netbook.setPersona(persona);
+			netbook.setearPersona(persona);
 		this.netbook.setSituacionDeNetbook(this.netbook.getAsignada());
 		}
 		else if(netbooksAsignadas==1)
 		{
 			persona.getNetbooks().add(netbook);
-			netbook.setPersona(persona);
+			netbook.setearPersona(persona);
 		this.netbook.setSituacionDeNetbook(this.netbook.getPrestada());
 		}
-		/*else if(persona.getNetbooks().size()==2)
-		{
-			container.informUser("no se puede asignar mas de dos netbooks");
-		}*/
 	}
 
 	@Override
@@ -124,12 +116,8 @@ public class EnStock implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarImprimirActaRecepcionDeNetbook() {
-		// TODO Auto-generated method stub
 		return true;
 	}
-
-	@javax.inject.Inject
-    private DomainObjectContainer container;
 	
 	@Override
 	public boolean ocultarReportarComoRobada() {

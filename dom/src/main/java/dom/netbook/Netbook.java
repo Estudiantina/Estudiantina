@@ -28,7 +28,6 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bookmarkable;
-import org.apache.isis.applib.annotation.Bulk;
 import org.apache.isis.applib.annotation.Disabled;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
@@ -37,8 +36,6 @@ import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
-import org.apache.isis.applib.annotation.PublishedAction;
-import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Title;
@@ -62,8 +59,6 @@ import dom.persona.Persona;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 import repo.netbook.RepositorioNetbook;
 import repo.solicitudserviciotecnico.RepoSolicitudServicioTecnico;
-
-import org.apache.isis.applib.annotation.CssClass;
 import org.apache.isis.applib.annotation.Render.Type;
 
 @javax.jdo.annotations.PersistenceCapable()
@@ -205,10 +200,15 @@ public class Netbook implements Comparable<Netbook> {
 		return persona;
 	}
 	@Hidden
-	public void setPersona(Persona persona) {
+	private void setPersona(Persona persona) {
 		this.persona = persona;
 	}
 
+	@Hidden
+	public void setearPersona(Persona persona) {
+		this.persona = persona;
+	}
+	
 	public Netbook asignarPersona(Persona persona) {
 		this.situacionDeNetbook.asignarPersona(persona);
 		return this;

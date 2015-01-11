@@ -71,20 +71,18 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public void imprimirActaRecepcionDeNetbook() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void desasignarNetbookDePersona() {
 		this.netbook.setSituacionDeNetbook(this.netbook.getEnStock());
-		this.netbook.setPersona(null);
+		this.netbook.setearPersona(null);
 		
 	}
 
 	@Override
 	public void establecerNetbookComoRobada() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -95,19 +93,16 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarDesasignarNetbookDePersona() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean ocultarImprimirActaRecepcionDeNetbook() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean ocultarReportarComoRobada() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
