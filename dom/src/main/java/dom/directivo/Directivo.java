@@ -21,7 +21,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
@@ -32,7 +32,7 @@ import dom.persona.Persona;
 @AutoComplete(repository = RepositorioPersona.class, action = "autoCompletarDirectivo")
 @Audited
 @ObjectType("DIRECTIVO")
-public class Directivo extends Persona {
+public class Directivo extends PersonaGestionable {
 	
 	/**
 	 * 

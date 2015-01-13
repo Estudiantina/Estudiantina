@@ -26,7 +26,7 @@ import dom.email.ServidorDeEmail;
 import dom.login.Login;
 import dom.login.Permisos;
 import dom.login.Rol;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 @Named("Cuentas")
 public class repologin extends AbstractFactoryAndRepository {	
 	public String iconName()
@@ -34,14 +34,14 @@ public class repologin extends AbstractFactoryAndRepository {
 		return "seguridad";	
 	}
 	@Named("dar de alta a un usuario")
-	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")Password password,@Named("Persona (Ingrese CUIL)")Persona persona,@Named("rol")Rol rol)
+	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")Password password,@Named("Persona (Ingrese CUIL)")PersonaGestionable persona,@Named("rol")Rol rol)
 	{
 		return altaUsuario(usuario,password.getPassword(),persona,rol);
 	}
 	
 	@Named("dar de alta a un usuario")
 	@Hidden
-	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")String password,@Named("Persona (Ingrese CUIL)")Persona persona,@Named("Rol") Rol rol)
+	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")String password,@Named("Persona (Ingrese CUIL)")PersonaGestionable persona,@Named("Rol") Rol rol)
 	{
 		final Login login = container.newTransientInstance(Login.class);
 		login.setPersona(persona);

@@ -81,11 +81,11 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.netbook:Netbook:situacionDeNetbook:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:asignarPersona:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:desasignarNetbook:*",executionContext);
-		create("usuario_tecnico","dom.persona:Persona:netbooks:r",executionContext);
+		create("usuario_tecnico","dom.persona.presonagestionable:PersonaGestionable:netbooks:r",executionContext);
 		
 		
 		//PERMISOS DE TECNICOS PARA REPOSITORIONETBOOKS
-		create("usuario_tecnico","dom.persona:Persona:aniadirNetbook:*",executionContext);
+		create("usuario_tecnico","dom.persona.presonagestionable:PersonaGestionable:aniadirNetbook:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:aniadirNetbook:*",executionContext);
 		//PERMISOS EN CURSOS PARA TECNICOS
 		create("usuario_tecnico","repo.curso:RepositorioCurso:buscarCursoEnEsteEstablecimiento:*",executionContext);
@@ -211,7 +211,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.alumno:Alumno:tutor:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:EstadoDeAlumno:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:Nacionalidad:r",executionContext);
-		create("usuario_alumno","dom.persona:Persona:netbooks:r",executionContext);
+		create("usuario_alumno","dom.persona.presonagestionable:PersonaGestionable:netbooks:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:netbooks:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:cursos:r",executionContext);
 		

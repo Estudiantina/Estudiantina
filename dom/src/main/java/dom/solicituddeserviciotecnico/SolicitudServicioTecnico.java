@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.IdentityType;
@@ -25,7 +26,9 @@ import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.VersionStrategy;
+
 import net.sf.jasperreports.engine.JRException;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Bulk;
@@ -62,7 +65,7 @@ import dom.localidad.Departamento;
 import dom.localidad.Localidad;
 import dom.localidad.Provincia;
 import dom.netbook.Netbook;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 import dom.solicituddeserviciotecnico.estados.Cerrado;
 import dom.solicituddeserviciotecnico.estados.EnviadoAlServicioTecnico;
 import dom.solicituddeserviciotecnico.estados.IEstadoSolicitudDeServicioTecnico;
@@ -93,7 +96,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
     
 	//public solicitante integrante de la institucion
 	private EstaBorrado estaBorrado;
-	private Persona persona;
+	private PersonaGestionable persona;
 	private String motivoDeSolicitud;
 	private LocalDate fechaDeSolicitud;
 	private String solucion;
@@ -321,11 +324,11 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	@Column(allowsNull="false")
 	@Hidden(where = Where.ALL_TABLES)
 	@MemberOrder(name="Datos Vinculados", sequence="1")
-	public Persona getPersona() {
+	public PersonaGestionable getPersona() {
 		return persona;
 	}
 
-	public void setPersona(Persona persona) {
+	public void setPersona(PersonaGestionable persona) {
 		this.persona = persona;
 	}
 
@@ -445,7 +448,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		parametros.put("numeroSerieNetbook", this.getNetbook().getNumeroDeSerie());
 		parametros.put("apellidoYnombre", this.getPersona().getApellido()+" "+this.getPersona().getNombre());
 		parametros.put("cuilDni", this.getPersona().getCuil());
-		Persona per = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
+		PersonaGestionable per = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",per.getEstablecimiento().getNombre()));
 		//TODO establecer parametro de curso y division
 		parametros.put("nombreInstitucion", establecimiento.getNombre());

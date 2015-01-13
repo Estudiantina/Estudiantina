@@ -1,6 +1,6 @@
 package dom.netbook.situacion;
 
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 
 public interface ISituacionDeNetbook {
 	public SituacionDeNetbook getNombreSituacion();
@@ -18,5 +18,5 @@ public interface ISituacionDeNetbook {
 	public void imprimirActaRecepcionDeNetbook();
 	public void desasignarNetbookDePersona();
 	public void establecerNetbookComoRobada();
-	public void asignarPersona(Persona persona);
+	public void asignarPersona(PersonaGestionable persona);
 }

@@ -18,13 +18,14 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.IdentityType;
+
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Title;
 import org.bouncycastle.util.encoders.Hex;
 
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "buscarPorUsuario", language = "JDOQL", value = "SELECT FROM dom.Login.Login WHERE usuario== :usuario"),
 	@javax.jdo.annotations.Query(name = "todasLasCuentas", language = "JDOQL", value = "SELECT FROM dom.Login.Login")})
@@ -38,7 +39,7 @@ public class Login {
 private String usuario;
 @javax.jdo.annotations.Column(allowsNull="False",length=300)
 private String password;
-private Persona persona;
+private PersonaGestionable persona;
 
 
 public String iconName() {
@@ -46,10 +47,10 @@ public String iconName() {
 }
 
 @javax.jdo.annotations.Column(allowsNull="True")
-public Persona getPersona() {
+public PersonaGestionable getPersona() {
 	return persona;
 }
-public void setPersona(Persona persona) {
+public void setPersona(PersonaGestionable persona) {
 	this.persona = persona;
 }
 @javax.jdo.annotations.Column(allowsNull="False")

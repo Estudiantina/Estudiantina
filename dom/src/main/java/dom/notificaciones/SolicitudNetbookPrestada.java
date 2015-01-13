@@ -15,10 +15,12 @@ import javax.inject.Inject;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
+
 import dom.netbook.Netbook;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -30,7 +32,7 @@ public class SolicitudNetbookPrestada extends Notificaciones {
 		return "Solicitar Netbook Prestada -"+this.getPersona().toString();
 	}
 	
-	public Persona asignarNetbook(Netbook netbook)
+	public PersonaGestionable asignarNetbook(Netbook netbook)
 	{
 		if (this.getPersona().getNetbooks().size()>1)
 		{

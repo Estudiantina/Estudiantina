@@ -10,7 +10,7 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  */
-package dom.persona;
+package dom.persona.personagestionable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -57,6 +57,7 @@ import dom.establecimiento.Establecimiento;
 import dom.localidad.Localidad;
 import dom.netbook.Netbook;
 import dom.netbook.situacion.SituacionDeNetbook;
+import dom.persona.Sexo;
 
 /**
  * Clase que representa la entidad Persona en nuestro sistema.
@@ -69,9 +70,9 @@ import dom.netbook.situacion.SituacionDeNetbook;
         strategy = DiscriminatorStrategy.CLASS_NAME,
         column = "discriminator")
 //el discriminador sirve para ver de que clase viene 
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.persona.Persona WHERE estaBorrado== 'ACTIVO' "),
-	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.persona.Persona WHERE cuil== :cuil && estaBorrado== 'ACTIVO'"),
-	@javax.jdo.annotations.Query(name = "traerPorcuilEstablecimientoActual", language = "JDOQL", value = "SELECT FROM dom.persona.Persona WHERE cuil== :cuil && estaBorrado== 'ACTIVO' && establecimiento== :establecimiento")
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.persona.personagestionable.PersonaGestionable WHERE estaBorrado== 'ACTIVO' "),
+	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.persona.personagestionable.PersonaGestionable WHERE cuil== :cuil && estaBorrado== 'ACTIVO'"),
+	@javax.jdo.annotations.Query(name = "traerPorcuilEstablecimientoActual", language = "JDOQL", value = "SELECT FROM dom.persona.personagestionable.PersonaGestionable WHERE cuil== :cuil && estaBorrado== 'ACTIVO' && establecimiento== :establecimiento")
 })
 
 @javax.jdo.annotations.Uniques({
@@ -83,8 +84,8 @@ import dom.netbook.situacion.SituacionDeNetbook;
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @Bookmarkable
-@ObjectType("Persona")
-public class Persona implements Locatable,Serializable{
+@ObjectType("PersonaGestionable")
+public class PersonaGestionable implements Locatable,Serializable{
 	
 	/**
 	 * 
@@ -143,7 +144,7 @@ public class Persona implements Locatable,Serializable{
 	}
 	
 	public void addToNetbooks(Netbook e) {
-        if(e == null || netbooks.contains(e)) return;
+      if(e == null || netbooks.contains(e)) return;
         e.asignarPersona(this);
         netbooks.add(e);
     }
@@ -194,14 +195,14 @@ public class Persona implements Locatable,Serializable{
      * metodo para obtener localizacion
      * @return
      */
-    public List<Persona> getLocalizacion()
+    public List<PersonaGestionable> getLocalizacion()
     {
-    	List<Persona> lisPer = new ArrayList<Persona>();
+    	List<PersonaGestionable> lisPer = new ArrayList<PersonaGestionable>();
     	lisPer.add(this);
     	return lisPer;
     }
 
-    public Persona resignarNetbook(Netbook net)
+    public PersonaGestionable resignarNetbook(Netbook net)
     {
     	netbooks.remove(net);
 		return this;
@@ -247,7 +248,7 @@ public class Persona implements Locatable,Serializable{
 	}
 	
 	@Named("añadir netbook")
-	public Persona aniadirNetbook(Netbook net)
+	public PersonaGestionable aniadirNetbook(Netbook net)
 	{
 		this.netbooks.add(net);		
 		net.asignarPersona(this);
@@ -340,16 +341,16 @@ public class Persona implements Locatable,Serializable{
 	@PublishedAction // para que muestre la accion en la lista de objetos
 	@Named("eliminar netbook")
 	@CssClass("icono-eliminar")
-	public List<Persona> eliminar() {
+	public List<PersonaGestionable> eliminar() {
 		this.setEstaBorrado(EstaBorrado.BORRADO);
         container.informUser("las personas selecionadas fueron eliminadas");
         return this.traerTodas(); 
     }
 	
     @Programmatic
-    public List<Persona> traerTodas() {
+    public List<PersonaGestionable> traerTodas() {
         return container.allMatches(
-            new QueryDefault<Persona>(Persona.class, 
+            new QueryDefault<PersonaGestionable>(PersonaGestionable.class, 
                     "traerPersonas"));
     }
     	

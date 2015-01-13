@@ -8,10 +8,11 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.VersionStrategy;
+
 import org.apache.isis.applib.annotation.ObjectType;
 
 import dom.netbook.Netbook;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
 @javax.jdo.annotations.Version(strategy = VersionStrategy.VERSION_NUMBER, column = "version")
 @DatastoreIdentity(strategy = IdGeneratorStrategy.IDENTITY , column = "idEnStock" )
@@ -51,7 +52,7 @@ public class EnStock implements ISituacionDeNetbook {
 	}
 
 	@Override
-	public void asignarPersona(Persona persona) {
+	public void asignarPersona(PersonaGestionable persona) {
 		int netbooksAsignadas=0;
 		for (Netbook netbook : persona.getNetbooks())
 		{

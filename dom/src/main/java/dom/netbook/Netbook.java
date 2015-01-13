@@ -55,10 +55,11 @@ import dom.netbook.situacion.ISituacionDeNetbook;
 import dom.netbook.situacion.Prestada;
 import dom.netbook.situacion.Robada;
 import dom.netbook.situacion.SituacionDeNetbook;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 import repo.netbook.RepositorioNetbook;
 import repo.solicitudserviciotecnico.RepoSolicitudServicioTecnico;
+
 import org.apache.isis.applib.annotation.Render.Type;
 
 @javax.jdo.annotations.PersistenceCapable()
@@ -85,7 +86,7 @@ public class Netbook implements Comparable<Netbook> {
 	private Date fechaDeExpiracion;
 	private String direccionMac;
 	private String numeroDeActaDeRobo;
-	private Persona persona ;
+	private PersonaGestionable persona ;
 	private Establecimiento establecimiento;
 	
 	//propiedades de situación de Netbook
@@ -196,16 +197,16 @@ public class Netbook implements Comparable<Netbook> {
 	}
 	
 	@javax.jdo.annotations.Column(allowsNull="true")
-	public Persona getPersona() {
+	public PersonaGestionable getPersona() {
 		return persona;
 	}
 	@Hidden
-	public void setPersona(Persona persona) {
+	public void setPersona(PersonaGestionable persona) {
 		this.persona = persona;
 	}
 
 	
-	public Netbook asignarPersona(Persona persona) {
+	public Netbook asignarPersona(PersonaGestionable persona) {
 		this.situacionDeNetbook.asignarPersona(persona);
 		return this;
 	}
@@ -224,7 +225,7 @@ public class Netbook implements Comparable<Netbook> {
     	return this.getSituacionDeNetbook().ocultarAsignarPersona();
     }
 	
-	public void modifyPersona(Persona p) {
+	public void modifyPersona(PersonaGestionable p) {
         if(p==null || persona==p) return;
         if(persona != null) {
             persona.removeFromNetbooks(this);
@@ -342,7 +343,7 @@ public class Netbook implements Comparable<Netbook> {
  		HashMap<String,Object> parametros = new HashMap<String, Object>();
  		 		
  		if (this.getPersona() != null){
- 		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
+ 		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
  				
  		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
  		
@@ -416,7 +417,7 @@ public class Netbook implements Comparable<Netbook> {
 		
 		if (this.getPersona() != null){
 		
-		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", this.getPersona().getCuil(),"institucion",this.establecimiento ));
+		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil", this.getPersona().getCuil(),"institucion",this.establecimiento ));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
 		
 		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
@@ -476,7 +477,7 @@ public class Netbook implements Comparable<Netbook> {
 		
 		if (this.getPersona() != null){
 		
-		Persona persona = container.firstMatch(QueryDefault.create(Persona.class, "traerPorcuil","cuil", this.getPersona().getCuil() ));
+		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil", this.getPersona().getCuil() ));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
 		
 		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );

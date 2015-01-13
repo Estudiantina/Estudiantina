@@ -16,11 +16,14 @@ import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
 import javax.jdo.annotations.IdentityType;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
@@ -28,10 +31,11 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.util.ObjectContracts;
+
 import repo.persona.RepositorioPersona;
 import dom.curso.Curso;
 import dom.establecimiento.Establecimiento;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.docente.Docente WHERE cuil== :cuil"),
@@ -39,7 +43,7 @@ import dom.persona.Persona;
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @ObjectType("DOCENTE")
-public class Docente extends Persona implements Comparable<Docente>{
+public class Docente extends PersonaGestionable implements Comparable<Docente>{
 	/**
 	 * 
 	 */

@@ -13,16 +13,20 @@
 package dom.notificaciones;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+
 import javax.inject.Inject;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+
 import net.sf.jasperreports.engine.JRException;
+
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.value.Blob;
+
 import dom.establecimiento.Establecimiento;
 import dom.netbook.Netbook;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 import repo.establecimiento.RepositorioEstablecimiento;
 import repo.persona.RepositorioPersona;
 
@@ -56,10 +60,10 @@ public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
 
 		try{
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
-		Persona miPersona = repositorioPersona.buscarPorCuil(this.getPersona().getCuil());
+		PersonaGestionable miPersona = repositorioPersona.buscarPorCuil(this.getPersona().getCuil());
 		Establecimiento miEstablecimiento = repositorioEstablecimiento.traerPorCue(miPersona.getEstablecimiento().getCue());
 		Netbook netbook = miPersona.getNetbooks().first();
-		Persona miDirectivo = repositorioPersona.buscarDirectivoPorCuil(miEstablecimiento.getDirectivo().getCuil());
+		PersonaGestionable miDirectivo = repositorioPersona.buscarDirectivoPorCuil(miEstablecimiento.getDirectivo().getCuil());
 		parametros.put("nombreDirector",miDirectivo.getNombre()+" "+miDirectivo.getApellido());
 		parametros.put("dniDirector", miDirectivo.getCuil().toString());
 		parametros.put("distritoEscolar",miEstablecimiento.getDistritoEscolar());

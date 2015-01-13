@@ -24,7 +24,7 @@ import org.apache.isis.applib.annotation.Optional;
 import org.joda.time.LocalDate;
 
 import dom.establecimiento.Establecimiento;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 
 import javax.jdo.annotations.Column;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -40,7 +40,7 @@ public class Notificaciones {
 
 	private boolean vista;
 	private LocalDate fechaNotificacion;
-    private Persona persona;
+    private PersonaGestionable persona;
     private String detallesYobservaciones;
 	private Establecimiento establecimiento;
 
@@ -68,11 +68,11 @@ public class Notificaciones {
     
     @Column(allowsNull="false")
     @Named("Solicitante")
-	public Persona getPersona() {
+	public PersonaGestionable getPersona() {
 		return persona;
 	}
 
-	public void setPersona(Persona persona) {
+	public void setPersona(PersonaGestionable persona) {
 		this.persona = persona;
 	}
 	@Column(allowsNull="true")

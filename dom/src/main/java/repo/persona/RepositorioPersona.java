@@ -22,6 +22,7 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
+
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.alumno.Nacionalidad;
@@ -30,8 +31,8 @@ import dom.docente.Docente;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Localidad;
 import dom.login.Login;
-import dom.persona.Persona;
 import dom.persona.Sexo;
+import dom.persona.personagestionable.PersonaGestionable;
 import dom.tecnico.Tecnico;
 import dom.tutor.Tutor;
 
@@ -51,15 +52,15 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * @return lista de Alumnos
 	 */
 	
-    public List<Persona> listarPersonas() {
-        return allMatches(QueryDefault.create(Persona.class, "traerPersonas"));
+    public List<PersonaGestionable> listarPersonas() {
+        return allMatches(QueryDefault.create(PersonaGestionable.class, "traerPersonas"));
     }
     /**
      * el metodo retorna los datos del usuario actual
      * @return datos del usuario actual
      */
     @Named("Ver Mis Datos")
-    public Persona VerMisDatos() {
+    public PersonaGestionable VerMisDatos() {
     	Login log =firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",container.getUser().getName()));
     	return log.getPersona();
     }
@@ -403,9 +404,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	}
 	@Named("Buscar Persona")
 	@Hidden
-    public List<Persona> autoComplete(@Named("Ingrese CUIL")String searchPhrase) {        
+    public List<PersonaGestionable> autoComplete(@Named("Ingrese CUIL")String searchPhrase) {        
     	Long temp = Long.parseLong(searchPhrase);
-		return allMatches(QueryDefault.create(Persona.class, "traerPorcuil","cuil",temp));
+		return allMatches(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",temp));
     }
     @Hidden
 	public List<Alumno> autoCompletarAlumno (@Named("Ingrese CUIL")String searchPhrase)
@@ -453,15 +454,15 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				return listaAlumno;
 	}
     @Hidden
-	public Persona buscarPorCuil(Long cuil){
-		final Persona mipersona = this.container.firstMatch(new QueryDefault<Persona>(Persona.class,
+	public PersonaGestionable buscarPorCuil(Long cuil){
+		final PersonaGestionable mipersona = this.container.firstMatch(new QueryDefault<PersonaGestionable>(PersonaGestionable.class,
 				"traerPorcuil","cuil",cuil));
 				return mipersona;
 	}
     @Named("buscar persona por cuil en este Establecimiento")
-    public Persona buscarPersonaPorCuilEnEstablecimientoActual(@Named("cuil")Long cuil)
+    public PersonaGestionable buscarPersonaPorCuilEnEstablecimientoActual(@Named("cuil")Long cuil)
     {
-    	final Persona mipersona = this.container.firstMatch(new QueryDefault<Persona>(Persona.class,
+    	final PersonaGestionable mipersona = this.container.firstMatch(new QueryDefault<PersonaGestionable>(PersonaGestionable.class,
 				"traerPorcuilEstablecimientoActual","cuil",cuil,"establecimiento",this.VerMisDatos().getEstablecimiento()));
 				return mipersona;
     }

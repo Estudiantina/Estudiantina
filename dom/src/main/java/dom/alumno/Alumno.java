@@ -52,13 +52,15 @@ import javax.jdo.annotations.InheritanceStrategy;
 
 
 
+
+
 import repo.persona.RepositorioPersona;
 import servicio.reporte.GeneradorReporte;
 import dom.curso.Curso;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Departamento;
 import dom.localidad.Localidad;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 import dom.tutor.Tutor;
 
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
@@ -72,7 +74,7 @@ import dom.tutor.Tutor;
 @Audited
 
 @ObjectType("ALUMNO")
-public class Alumno extends Persona implements Locatable,Comparable<Alumno>{
+public class Alumno extends PersonaGestionable implements Locatable,Comparable<Alumno>{
 
 	/**
 	 * 

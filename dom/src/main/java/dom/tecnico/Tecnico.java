@@ -20,7 +20,7 @@ import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
 
 import repo.persona.RepositorioPersona;
-import dom.persona.Persona;
+import dom.persona.personagestionable.PersonaGestionable;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
@@ -29,7 +29,7 @@ import dom.persona.Persona;
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @ObjectType("TECNICO")
-public class Tecnico extends Persona {
+public class Tecnico extends PersonaGestionable {
 
 	/**
 	 * 
