@@ -186,7 +186,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tutor:Tutor:alturaDomicilio:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:apellido:r",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:cuil:r",executionContext);
-		create("usuario_tecnico","dom.tutor:Tutor:domicilio:r",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:domicilio:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:email:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:establecimiento:r",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:fechaNacimiento:r",executionContext);
@@ -214,6 +214,21 @@ public class PermisosFixture extends FixtureScript{
 		//PERMISOS DE ESTADISTICAS 
 		//PARA USUARIOS CON ROL DE TECNICO
 		create("usuario_tecnico","servicio.estadisticas:GraficosEstadisticos:graficosDeNetbooksAsignadas:*",executionContext);
+		//PERMISOS EN TECNICO
+		//PARA USUARIOS TECNICO
+		create("usuario_tecnico","dom.tecnico:Tecnico:alturaDomicilio:*",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:apellido:r",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:cuil:r",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:domicilio:*",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:email:*",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:establecimiento:r",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:fechaNacimiento:r",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:nombre:r",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:piso:*",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:localidad:*",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:sexo:r",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:telefonoCelular:*",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:telefonoFijo:*",executionContext);
 		
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
