@@ -167,6 +167,20 @@ public class PersonaGestionable extends Persona implements Locatable,Serializabl
 		return "la cuenta se ha creado correctamente";
 	}
 	
+	public boolean hideCrearCuenta()
+	{
+		Login login =container.firstMatch(QueryDefault.create(Login.class, "buscarPorPersona","persona",repoPersona.verMisDatos()));
+		if (login==null)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	@javax.inject.Inject 
+    RepositorioPersona repoPersona;
 	@javax.inject.Inject 
     repologin repoLogin;
 	@javax.inject.Inject 

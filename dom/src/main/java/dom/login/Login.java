@@ -28,6 +28,7 @@ import org.bouncycastle.util.encoders.Hex;
 import dom.persona.personagestionable.PersonaGestionable;
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "buscarPorUsuario", language = "JDOQL", value = "SELECT FROM dom.Login.Login WHERE usuario== :usuario"),
+	@javax.jdo.annotations.Query(name = "buscarPorPersona", language = "JDOQL", value = "SELECT FROM dom.Login.Login WHERE persona== :persona"),
 	@javax.jdo.annotations.Query(name = "todasLasCuentas", language = "JDOQL", value = "SELECT FROM dom.Login.Login")})
 @javax.jdo.annotations.Uniques({
     @javax.jdo.annotations.Unique(

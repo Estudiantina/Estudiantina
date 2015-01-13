@@ -142,7 +142,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.docente:Docente:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:telefonoFijo:*",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:crearCuenta:*",executionContext);
-		
+		create("usuario_tecnico","dom.tecnico:Tecnico:localizacion:*",executionContext);
 		//PERMISOS EN TUTOR 
 		//PARA USUARIO TECNICO
 		create("usuario_tecnico","dom.tutor:Tutor:alturaDomicilio:*",executionContext);
@@ -181,7 +181,8 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.alumno:Alumno:netbooks:r",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:cursos:r",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:crearCuenta:*",executionContext);
-		
+		create("usuario_tecnico","dom.alumno:Alumno:localizacion:*",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:tutor:r",executionContext);
 		//PERMISOS EN TUTOR
 		//PARA USUARIO TECNICO		
 		create("usuario_tecnico","dom.tutor:Tutor:alturaDomicilio:*",executionContext);
@@ -197,7 +198,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tutor:Tutor:sexo:r",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoFijo:*",executionContext);
-		
+		create("usuario_tecnico","dom.tutor:Tutor:localizacion:*",executionContext);
 		//PERMISOS DE REPOSITORIO PERSONA 
 		//PARA USUARIOS CON ROL DE TECNICO
 		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarAlumno:*",executionContext);
@@ -230,7 +231,8 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tecnico:Tecnico:sexo:r",executionContext);
 		create("usuario_tecnico","dom.tecnico:Tecnico:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.tecnico:Tecnico:telefonoFijo:*",executionContext);
-		create("usuario_tecnico","dom.tecnico:tecnico:crearCuenta:*",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:crearCuenta:*",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:Localizacion:*",executionContext);
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
 		create("usuario_alumno","dom.alumno:Alumno:cursos:r",executionContext);
@@ -270,7 +272,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.netbook:Netbook:persona:r",executionContext);
 		create("usuario_alumno","dom.netbook:Netbook:HistorialDeReparaciones:*",executionContext);
 		create("usuario_alumno","dom.netbook:Netbook:repoServicioTecnico:*",executionContext);
-
+		
 
 		//PERMISOS ALUMNO permisos dominio solicitud servicio tecnico
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:codigoSolicitud:r",executionContext);
