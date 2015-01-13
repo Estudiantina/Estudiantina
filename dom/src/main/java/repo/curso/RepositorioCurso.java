@@ -80,7 +80,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		curso.setDivision(division);
 		curso.setCicloLectivo(cicloLectivo);
 		curso.setTurno(turno);
-		curso.setEstablecimiento(repoPersona.VerMisDatos().getEstablecimiento());
+		curso.setEstablecimiento(repoPersona.verMisDatos().getEstablecimiento());
 		container.persistIfNotAlready(curso);
 		return curso;	
 	}
@@ -97,7 +97,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 	 */
 	public List<Curso> buscarCursoEnEsteEstablecimiento(@Named("año")Anio anio,@Named("Division")Division division,Turno turno,@Named("cicloLectivo")Integer cicloLectivo)
 	{
-		return allMatches(QueryDefault.create(Curso.class, "buscarPorTodo","anio",anio,"division",division,"turno",turno,"establecimiento",repoPersona.VerMisDatos().getEstablecimiento(),"cicloLectivo",cicloLectivo));
+		return allMatches(QueryDefault.create(Curso.class, "buscarPorTodo","anio",anio,"division",division,"turno",turno,"establecimiento",repoPersona.verMisDatos().getEstablecimiento(),"cicloLectivo",cicloLectivo));
 	}
 	/**
 	 * autocompletar campos de Cursos
@@ -125,7 +125,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
     
     public Establecimiento verCursosDentroDelEstablecimiento()
     {
-    	return firstMatch(QueryDefault.create(Establecimiento.class, "traerPorEstablecimiento", "establecimiento",repoPersona.VerMisDatos().getEstablecimiento()));
+    	return firstMatch(QueryDefault.create(Establecimiento.class, "traerPorEstablecimiento", "establecimiento",repoPersona.verMisDatos().getEstablecimiento()));
     }
     
     

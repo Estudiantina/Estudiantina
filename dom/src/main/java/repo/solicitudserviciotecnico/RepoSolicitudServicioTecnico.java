@@ -66,7 +66,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
     }
 	
 	public List<SolicitudServicioTecnico> listaDeSolicitudesPendientes() {
-        return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerSolicitudesPendientes","institucion",repoPersona.VerMisDatos().getEstablecimiento()));
+        return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerSolicitudesPendientes","institucion",repoPersona.verMisDatos().getEstablecimiento()));
     }
 	
 	@Named("Historial de Reparaciones")
@@ -93,7 +93,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 		Netbook netbook=null;
 		try
 		{
-		netbook =repoPersona.VerMisDatos().getNetbooks().first();
+		netbook =repoPersona.verMisDatos().getNetbooks().first();
 		}
 		catch (Exception ex)
 		{

@@ -210,7 +210,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTecnicoDentroDelEstablecimiento:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTutor:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:buscarPersonaPorCuilEnEstablecimientoActual:*",executionContext);
-		
+		create("usuario_tecnico","repo.persona:RepositorioPersona:verMisDatos:*",executionContext);
 		//PERMISOS DE ESTADISTICAS 
 		//PARA USUARIOS CON ROL DE TECNICO
 		create("usuario_tecnico","servicio.estadisticas:GraficosEstadisticos:graficosDeNetbooksAsignadas:*",executionContext);

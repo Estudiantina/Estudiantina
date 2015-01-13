@@ -50,7 +50,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 * @return lista de Netbooks
 	 */
     public List<Netbook> listaNetbooks() {
-        return allMatches(QueryDefault.create(Netbook.class, "traerTodo","institucion",this.repositorioPersona.VerMisDatos().getEstablecimiento()));
+        return allMatches(QueryDefault.create(Netbook.class, "traerTodo","institucion",this.repositorioPersona.verMisDatos().getEstablecimiento()));
     }
     
     /**
@@ -67,7 +67,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     	}
     	else
     	{
-    	return allMatches(QueryDefault.create(Netbook.class, "traerlikePorId","idNetbook",searchPhrase,"institucion",repositorioPersona.VerMisDatos().getEstablecimiento()));
+    	return allMatches(QueryDefault.create(Netbook.class, "traerlikePorId","idNetbook",searchPhrase,"institucion",repositorioPersona.verMisDatos().getEstablecimiento()));
     	}
     }
     
@@ -135,7 +135,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 			    netbook.setModelo(modelo);
 			    netbook.setNumeroDeSerie(numeroDeSerie);
 			    netbook.setNumeroLicenciaWindows(numeroLicenciaWindows);
-			    netbook.setEstablecimiento(repositorioPersona.VerMisDatos().getEstablecimiento());	    
+			    netbook.setEstablecimiento(repositorioPersona.verMisDatos().getEstablecimiento());	    
 			    container.persistIfNotAlready(netbook);
 				return netbook;
 			}
@@ -204,7 +204,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 */
 	@Named("Buscar Netbook")
     public List<Netbook> listaNetbookPorId(@Named("Id de Netbook")String idNet) {        
-    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet,"institucion",repositorioPersona.VerMisDatos().getEstablecimiento()));
+    	return allMatches(QueryDefault.create(Netbook.class, "traerPorId","idNetbook",idNet,"institucion",repositorioPersona.verMisDatos().getEstablecimiento()));
     }
 	
     /**
@@ -220,7 +220,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 		final SolicitudNetbookPrestada solicitud = container.newTransientInstance(SolicitudNetbookPrestada.class);
 		solicitud.setDetallesYobservaciones(motivo);
 		solicitud.setFechaNotificacion(LocalDate.now());
-		solicitud.setPersona(repositorioPersona.VerMisDatos());
+		solicitud.setPersona(repositorioPersona.verMisDatos());
 		container.persistIfNotAlready(solicitud);
 		container.informUser("La Solicitud ha sido realizada");
 		return "Solicitud realizada";

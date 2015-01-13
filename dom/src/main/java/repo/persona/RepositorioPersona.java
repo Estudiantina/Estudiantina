@@ -61,7 +61,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
      * @return datos del usuario actual
      */
     @Named("Ver Mis Datos")
-    public PersonaGestionable VerMisDatos() {
+    public PersonaGestionable verMisDatos() {
     	Login log =firstMatch(QueryDefault.create(Login.class, "buscarPorUsuario","usuario",container.getUser().getName()));
     	return log.getPersona();
     }
@@ -107,7 +107,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 		final Alumno alumno = container.newTransientInstance(Alumno.class);
 	alumno.setLocalidad(localidad);
-	alumno.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
+	alumno.setEstablecimiento(this.verMisDatos().getEstablecimiento());
 	alumno.setCuil(cuil);
 	alumno.setNombre(nombre);
 	alumno.setApellido(apellido);
@@ -284,7 +284,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tecnico.setDomicilio(domicilio);
 		tecnico.setEmail(email);
 		tecnico.setFechaNacimiento(fechaNacimiento);
-		tecnico.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
+		tecnico.setEstablecimiento(this.verMisDatos().getEstablecimiento());
 		tecnico.setNombre(nombre);
 		tecnico.setTelefonoFijo(telefinoFijo);
 		tecnico.setTelefonoCelular(telefonoCelular);
@@ -318,7 +318,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		directivo.setCuil(cuil);
 		directivo.setDomicilio(domicilio);
 		directivo.setEmail(email);
-		directivo.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
+		directivo.setEstablecimiento(this.verMisDatos().getEstablecimiento());
 		directivo.setNombre(nombre);
 		directivo.setTelefonoFijo(telefinoFijo);
 		directivo.setTelefonoCelular(telefonoCelular);
@@ -356,7 +356,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		docente.setAlturaDomicilio(alturaDomicilio);
 		docente.setPiso(piso);
 		docente.setEmail(email);
-		docente.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
+		docente.setEstablecimiento(this.verMisDatos().getEstablecimiento());
 		docente.setNombre(nombre);
 		docente.setTelefonoFijo(telefinoFijo);
 		docente.setTelefonoCelular(telefonoCelular);
@@ -464,7 +464,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     public PersonaGestionable buscarPersonaPorCuilEnEstablecimientoActual(@Named("cuil")Long cuil)
     {
     	final PersonaGestionable mipersona = this.container.firstMatch(new QueryDefault<PersonaGestionable>(PersonaGestionable.class,
-				"traerPorcuilEstablecimientoActual","cuil",cuil,"establecimiento",this.VerMisDatos().getEstablecimiento()));
+				"traerPorcuilEstablecimientoActual","cuil",cuil,"establecimiento",this.verMisDatos().getEstablecimiento()));
 				return mipersona;
     }
 	

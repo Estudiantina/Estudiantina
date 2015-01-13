@@ -88,7 +88,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 	@Named("Notificaciones No Leidas")
 	public List<Notificaciones> verNotificacionesNoLeidas()
 	{	
-		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesNoLeidas","institucion",repoPersona.VerMisDatos().getEstablecimiento()));
+		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesNoLeidas","institucion",repoPersona.verMisDatos().getEstablecimiento()));
 		
 	}
 	
@@ -104,7 +104,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
  
 		LocalDate fechaPosterior = LocalDate.now().minusDays(-1);
 		
-		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesEntreFechas","fechaAnterior",fechaAnterior,"fechaPosterior",fechaPosterior,"institucion",repoPersona.VerMisDatos().getEstablecimiento()));
+		return allMatches(QueryDefault.create(Notificaciones.class, "traerNotificacionesEntreFechas","fechaAnterior",fechaAnterior,"fechaPosterior",fechaPosterior,"institucion",repoPersona.verMisDatos().getEstablecimiento()));
 		
 	}
 	@Inject
