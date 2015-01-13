@@ -104,6 +104,17 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.curso:Curso:agregarAlumno:*",executionContext);
 		create("usuario_tecnico","dom.curso:Curso:agregarDocente:*",executionContext);
 		
+		
+		//PERMISOS EN NOTIFICACIONES EN USUARIO 
+		create("usuario_tecnico","app:Dashboard:AllNotificaciones:*",executionContext);
+		create("usuario_tecnico","dom.notificaciones:Notificaciones:detallesyobservaciones:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:Notificaciones:establecimiento:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:Notificaciones:fechaNotificacion:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:Notificaciones:persona:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:Notificaciones:vista:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:Notificaciones:marcarComoNotificacionAtendida:*",executionContext);
+		create("usuario_tecnico","dom.notificaciones:SolicitudNetbookPrestada:asignarNetbook:*",executionContext);
+		
 		//PERMISOS EN ESTABLECIMIENTO PARA USUARIOS TECNICOS
 		create("usuario_tecnico","dom.establecimiento:Establecimiento:cue:r",executionContext);
 		create("usuario_tecnico","dom.establecimiento:Establecimiento:cursos:r",executionContext);
