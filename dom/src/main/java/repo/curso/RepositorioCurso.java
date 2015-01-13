@@ -62,6 +62,30 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		
 	}
 	
+	
+	/**
+	 * ingresa un curso en el establecimiento actual
+	 * @return curso Ingresado
+	 */
+	public Curso ingresarCursoEnEstablecimientoActual (
+			@Named("AÑO")final Anio anio,
+			@Named("division")final Division division,
+			@Named("ciclo lectivo")final int cicloLectivo,
+			@Named("Turno")final Turno turno	
+			)
+	{
+		
+		final Curso curso = container.newTransientInstance(Curso.class);
+		curso.setAnio(anio);
+		curso.setDivision(division);
+		curso.setCicloLectivo(cicloLectivo);
+		curso.setTurno(turno);
+		curso.setEstablecimiento(repoPersona.VerMisDatos().getEstablecimiento());
+		container.persistIfNotAlready(curso);
+		return curso;	
+	}
+	
+	
 	/**
 	 * busca el curso por todas propiedades
 	 * en el establecimiento actual

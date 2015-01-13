@@ -19,7 +19,7 @@ public class EstablecimientoDePruebaFixture extends FixtureScript {
 
 		if(estaVacio(executionContext))
 		{
-		create("ifes", "Santa Fe 332", "4484444", "ifes@ifes.com", "ifes", "33356", "8300", executionContext);
+		create("dePrueba", "Santa Fe 332", "4484444", "deprueba@deprueba.com", "dePrueba", "33356", "8300", executionContext);
 		}
 	}
 
