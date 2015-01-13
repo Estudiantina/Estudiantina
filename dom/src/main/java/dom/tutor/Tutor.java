@@ -25,6 +25,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 
 import repo.persona.RepositorioPersona;
 import dom.alumno.Alumno;
+import dom.persona.Persona;
 import dom.persona.personagestionable.PersonaGestionable;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
@@ -34,7 +35,7 @@ import dom.persona.personagestionable.PersonaGestionable;
 
 @Audited
 @ObjectType("Tutor")
-public class Tutor extends PersonaGestionable {
+public class Tutor extends Persona {
 
 	/**
 	 * 
@@ -62,10 +63,6 @@ public class Tutor extends PersonaGestionable {
 		this.alumnos = alumnos;
 	}
 	
-	public boolean hideNetbooks()
-	{
-		return true;
-	}
 	public void addToAlumnos(Alumno a) {
         if(a == null || alumnos.contains(a)) return;
         a.setTutor(this);

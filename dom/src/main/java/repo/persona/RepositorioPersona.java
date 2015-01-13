@@ -392,7 +392,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tutor.setAlturaDomicilio(alturaDomicilio);
 		tutor.setPiso(piso);
 		tutor.setEmail(email);
-		tutor.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
 		tutor.setNombre(nombre);
 		tutor.setTelefonoFijo(telefinoFijo);
 		tutor.setTelefonoCelular(telefonoCelular);
