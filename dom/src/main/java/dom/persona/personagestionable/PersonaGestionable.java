@@ -57,6 +57,7 @@ import dom.establecimiento.Establecimiento;
 import dom.localidad.Localidad;
 import dom.netbook.Netbook;
 import dom.netbook.situacion.SituacionDeNetbook;
+import dom.persona.Persona;
 import dom.persona.Sexo;
 
 /**
@@ -66,74 +67,26 @@ import dom.persona.Sexo;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
-@javax.jdo.annotations.Discriminator(
-        strategy = DiscriminatorStrategy.CLASS_NAME,
-        column = "discriminator")
 //el discriminador sirve para ver de que clase viene 
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPersonas", language = "JDOQL", value = "SELECT FROM dom.persona.personagestionable.PersonaGestionable WHERE estaBorrado== 'ACTIVO' "),
 	@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.persona.personagestionable.PersonaGestionable WHERE cuil== :cuil && estaBorrado== 'ACTIVO'"),
 	@javax.jdo.annotations.Query(name = "traerPorcuilEstablecimientoActual", language = "JDOQL", value = "SELECT FROM dom.persona.personagestionable.PersonaGestionable WHERE cuil== :cuil && estaBorrado== 'ACTIVO' && establecimiento== :establecimiento")
 })
 
-@javax.jdo.annotations.Uniques({
-    @javax.jdo.annotations.Unique(
-            name="Persona_Campos_Unicos", 
-            members={"cuil","telefonoCelular","telefonoFijo","email"})
-})
-
 @AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @Bookmarkable
 @ObjectType("PersonaGestionable")
-public class PersonaGestionable implements Locatable,Serializable{
+public class PersonaGestionable extends Persona implements Locatable,Serializable{
 	
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 5632539687009387987L;
-	
-	private EstaBorrado estaBorrado = EstaBorrado.ACTIVO;
-	private Long cuil;
-	private String nombre;
-	private String apellido;
-	private String telefonoCelular;
-	private String telefonoFijo;
-	private String email;
-	private String domicilio;
-	private int alturaDomicilio;
-	private String piso ;
-	private Date fechaNacimiento;
+	private static final long serialVersionUID = -6133054169102080125L;
 	private SortedSet<Netbook> netbooks =  new TreeSet<Netbook>();
 	private Establecimiento establecimiento;
-	private Localidad localidad;
-	private Sexo sexo;
-	@Column(allowsNull="false")
-	@Hidden
-	public EstaBorrado getEstaBorrado() {
-		return estaBorrado;
-	}
 
-	public void setEstaBorrado(EstaBorrado estaBorrado) {
-		this.estaBorrado = estaBorrado;
-	}
-	
-	@Column(allowsNull="true")
-	public int getAlturaDomicilio() {
-		return alturaDomicilio;
-	}
-
-	public void setAlturaDomicilio(int alturaDomicilio) {
-		this.alturaDomicilio = alturaDomicilio;
-	}
-	@Column(allowsNull="true")
-	@Hidden(where = Where.ALL_TABLES)//no la muestra el piso cuando esta en las tablas
-	public String getPiso() {
-		return piso;
-	}
-
-	public void setPiso(String piso) {
-		this.piso = piso;
-	}
 	@Render(Type.EAGERLY)
 	public SortedSet<Netbook> getNetbooks() {
 		return netbooks;
@@ -153,54 +106,9 @@ public class PersonaGestionable implements Locatable,Serializable{
         e.asignarPersona(null);
         netbooks.remove(e);
     }
-		
-	@Column(allowsNull="true")
-	@Hidden(where = Where.ALL_TABLES)//no la muestra la localidad cuando esta en las tablas
-	public Localidad getLocalidad() {
-		return localidad;
-	}
-	public void setLocalidad(Localidad localidad) {
-		this.localidad = localidad;
-	}
 
-	/**
-	 * propiedad necesaria para 
-	 * ver la geolocalizacion geografica de una o varias 
-	 * personas
-	 * Se persiste en la base de datos
-	 */
-	@Persistent
-	private Location location;
-    
-	/**
-     * metodo para geolocalizar
-     * persona.
-     * @return objeto con cordenadas
-     */	
-	@MemberOrder(name="Localizacion", sequence = "10")
-    @Optional
-    @Hidden
-    public Location getLocation() {
-		if (this.domicilio!="")
-    	{
-		String algo = this.domicilio+" "+this.alturaDomicilio+", "+this.getLocalidad().getLocalidad();
-		LocationLookupService loc = new LocationLookupService();
-    	this.location=loc.lookup(algo);
-    	}
-		
-		return location;
-    }
 	
-    /**
-     * metodo para obtener localizacion
-     * @return
-     */
-    public List<PersonaGestionable> getLocalizacion()
-    {
-    	List<PersonaGestionable> lisPer = new ArrayList<PersonaGestionable>();
-    	lisPer.add(this);
-    	return lisPer;
-    }
+
 
     public PersonaGestionable resignarNetbook(Netbook net)
     {
@@ -255,104 +163,6 @@ public class PersonaGestionable implements Locatable,Serializable{
 		return this;
 	}
 	
-	@MaxLength(12)
-	@javax.jdo.annotations.Column(allowsNull="false")
-    @MemberOrder(sequence="1")
-	@Unique
-	public Long getCuil() {
-		return cuil;
-	}
-	public void setCuil(Long cuil) {
-		this.cuil = cuil;
-	}
-	
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getApellido() {
-		return apellido;
-	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-	
-	@javax.jdo.annotations.Column(allowsNull="false")
-	@Hidden(where = Where.ALL_TABLES) // no muestra el telefono celular en todas las tablas
-	public String getTelefonoCelular() {
-		return telefonoCelular;
-	}
-	public void setTelefonoCelular(String telefonoCelular) {
-		this.telefonoCelular = telefonoCelular;
-	}
-	@Hidden(where = Where.ALL_TABLES)//no la muestra el telefono fijo cuando esta en las tablas
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getTelefonoFijo() {
-		return telefonoFijo;
-	}
-	public void setTelefonoFijo(String telefinoFijo) {
-		this.telefonoFijo = telefinoFijo;
-	}
-	
-	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	@javax.jdo.annotations.Column(allowsNull="false")
-	@Hidden(where = Where.ALL_TABLES)//no la muestra el domicilio cuando estan todas las tablas
-	public String getDomicilio() {
-		return domicilio;
-	}
-	
-	public void setDomicilio(String domicilio) {	
-			
-		this.domicilio = domicilio;
-	}
-
-	@javax.jdo.annotations.Column(allowsNull="true")
-	@Hidden(where = Where.ALL_TABLES)//no la muestra el sexo cuando esta en las tablas
-	public Sexo getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(Sexo sexo) {
-		this.sexo = sexo;
-	}
-	
-	@javax.jdo.annotations.Column(allowsNull="false")
-	@Hidden(where = Where.ALL_TABLES) // no muestra la fecha de nacimiento en las tablas
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
-	}
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
-	
-	@Bulk //para que ejecute la accion en una lista masiva de objetos
-	@PublishedAction // para que muestre la accion en la lista de objetos
-	@Named("eliminar netbook")
-	@CssClass("icono-eliminar")
-	public List<PersonaGestionable> eliminar() {
-		this.setEstaBorrado(EstaBorrado.BORRADO);
-        container.informUser("las personas selecionadas fueron eliminadas");
-        return this.traerTodas(); 
-    }
-	
-    @Programmatic
-    public List<PersonaGestionable> traerTodas() {
-        return container.allMatches(
-            new QueryDefault<PersonaGestionable>(PersonaGestionable.class, 
-                    "traerPersonas"));
-    }
     	
 	@javax.inject.Inject 
     DomainObjectContainer container;
