@@ -15,13 +15,19 @@ package dom.establecimiento;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
+
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
+
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.Render;
+import org.apache.isis.applib.annotation.Render.Type;
+
 import javax.jdo.annotations.Column;
+
 import dom.curso.Curso;
 import dom.directivo.Directivo;
 import dom.localidad.Localidad;
@@ -50,7 +56,7 @@ public class Establecimiento {
 	private Directivo directivo;
 	@javax.jdo.annotations.Persistent(mappedBy="establecimiento")
 	private SortedSet<Curso> cursos =  new TreeSet<Curso>();
-	
+	@Render(Type.EAGERLY)
 	public SortedSet<Curso> getCursos() {
 		return cursos;
 	}

@@ -107,12 +107,12 @@ public class PermisosFixture extends FixtureScript{
 		
 		//PERMISOS EN NOTIFICACIONES EN USUARIO 
 		create("usuario_tecnico","app:Dashboard:AllNotificaciones:*",executionContext);
-		create("usuario_tecnico","dom.notificaciones:Notificaciones:detallesyobservaciones:r",executionContext);
-		create("usuario_tecnico","dom.notificaciones:Notificaciones:establecimiento:r",executionContext);
-		create("usuario_tecnico","dom.notificaciones:Notificaciones:fechaNotificacion:r",executionContext);
-		create("usuario_tecnico","dom.notificaciones:Notificaciones:persona:r",executionContext);
-		create("usuario_tecnico","dom.notificaciones:Notificaciones:vista:r",executionContext);
-		create("usuario_tecnico","dom.notificaciones:Notificaciones:marcarComoNotificacionAtendida:*",executionContext);
+		create("usuario_tecnico","dom.notificaciones:SolicitudNetbookPrestada:detallesyobservaciones:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:SolicitudNetbookPrestada:establecimiento:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:SolicitudNetbookPrestada:fechaNotificacion:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:SolicitudNetbookPrestada:persona:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:SolicitudNetbookPrestada:vista:r",executionContext);
+		create("usuario_tecnico","dom.notificaciones:SolicitudNetbookPrestada:marcarComoNotificacionAtendida:*",executionContext);
 		create("usuario_tecnico","dom.notificaciones:SolicitudNetbookPrestada:asignarNetbook:*",executionContext);
 		
 		//PERMISOS EN ESTABLECIMIENTO PARA USUARIOS TECNICOS
