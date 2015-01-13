@@ -13,6 +13,7 @@
 package dom.persona.personagestionable;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -31,6 +32,7 @@ import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Password;
+import org.eclipse.jdt.core.dom.ThisExpression;
 
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
 
@@ -169,14 +171,15 @@ public class PersonaGestionable extends Persona implements Locatable,Serializabl
 	
 	public boolean hideCrearCuenta()
 	{
-		Login login =container.firstMatch(QueryDefault.create(Login.class, "buscarPorPersona","persona",repoPersona.verMisDatos()));
-		if (login==null)
+		List<Login> login =container.allMatches(QueryDefault.create(Login.class, "buscarPorPersona","persona",this));
+	
+		if (login.size()>0)
 		{
-			return false;
+			return true;
 		}
 		else
 		{
-			return true;
+			return false;
 		}
 	}
 	@javax.inject.Inject 
