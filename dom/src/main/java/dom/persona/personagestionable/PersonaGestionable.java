@@ -132,7 +132,7 @@ public class PersonaGestionable extends Persona implements Locatable,Serializabl
 	@Named("añadir netbook")
 	public PersonaGestionable aniadirNetbook(Netbook net)
 	{
-		this.netbooks.add(net);		
+				
 		net.asignarPersona(this);
 		return this;
 	}

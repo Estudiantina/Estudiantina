@@ -34,11 +34,7 @@ public class SolicitudNetbookPrestada extends Notificaciones {
 	
 	public PersonaGestionable asignarNetbook(Netbook netbook)
 	{
-		if (this.getPersona().getNetbooks().size()>1)
-		{
-		container.informUser("verifique el estados de las demas netbook si es que existen");
-		}
-		this.getPersona().aniadirNetbook(netbook);
+		netbook.asignarPersona(this.getPersona());
 		return this.getPersona();
 	}
 	
