@@ -31,6 +31,7 @@ import dom.docente.Docente;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Localidad;
 import dom.login.Login;
+import dom.persona.Persona;
 import dom.persona.Sexo;
 import dom.persona.personagestionable.PersonaGestionable;
 import dom.tecnico.Tecnico;
@@ -52,8 +53,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * @return lista de Alumnos
 	 */
 	
-    public List<PersonaGestionable> listarPersonas() {
-        return allMatches(QueryDefault.create(PersonaGestionable.class, "traerPersonas"));
+    public List<Persona> listarPersonas() {
+        return allMatches(QueryDefault.create(Persona.class, "traerPersonas"));
     }
     /**
      * el metodo retorna los datos del usuario actual
