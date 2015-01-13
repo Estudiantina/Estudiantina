@@ -245,6 +245,55 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	}
 
+	/**
+	 * muestra un formulario para ingresar un
+	 * nuevo Tecnico dentro del establecimiento
+	 * @param cuil
+	 * @param nombre
+	 * @param apellido
+	 * @param telefonoCelular
+	 * @param telefinoFijo
+	 * @param email
+	 * @param domicilio
+	 * @param fechaNacimiento
+	 * @param sexo
+	 * @return
+	 */
+	public Tecnico ingresarTecnicoDentroDelEstablecimiento (
+			@Named("CUIL") final Long cuil,
+			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
+			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")  @Named("CORREO ELECTRONICO")final String email,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomicilio,
+			@Optional @Named("Piso") String piso,
+			@Named("Cod Postal Ciudad")Localidad localidad,
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,
+			@Named("SEXO") Sexo sexo
+			)
+	{
+		final Tecnico tecnico = container.newTransientInstance(Tecnico.class);
+		tecnico.setLocalidad(localidad);
+		tecnico.setApellido(apellido);
+		tecnico.setCuil(cuil);
+		tecnico.setDomicilio(domicilio);
+		tecnico.setEmail(email);
+		tecnico.setFechaNacimiento(fechaNacimiento);
+		tecnico.setEstablecimiento(this.VerMisDatos().getEstablecimiento());
+		tecnico.setNombre(nombre);
+		tecnico.setTelefonoFijo(telefinoFijo);
+		tecnico.setTelefonoCelular(telefonoCelular);
+		tecnico.setSexo(sexo);
+		
+		container.persistIfNotAlready(tecnico);
+	
+	return tecnico;
+	
+	}
+	
+	
 	public Directivo ingresarDirectivo (
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
