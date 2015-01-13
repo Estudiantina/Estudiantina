@@ -147,19 +147,20 @@ public class PersonaGestionable extends Persona implements Locatable,Serializabl
 	
 	public String crearCuenta(String usuario,Password password)
 	{
-		if (this.getClass().toString()=="dom.alumno.Alumno")
+
+		if (this.getClass().getCanonicalName()=="dom.alumno.Alumno")
 		{
 		repoLogin.altaUsuario(usuario, password.getPassword(), this,container.firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre","usuario_alumno")));
 		}else
-		if (this.getClass().toString()=="dom.tecnico.Tecnico")
+		if (this.getClass().getCanonicalName()=="dom.tecnico.Tecnico")
 		{
 		repoLogin.altaUsuario(usuario, password.getPassword(), this,container.firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre","usuario_tecnico")));
 		}else
-		if (this.getClass().toString()=="dom.docente.Docente")
+		if (this.getClass().getCanonicalName()=="dom.docente.Docente")
 		{
 		repoLogin.altaUsuario(usuario, password.getPassword(), this,container.firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre","usuario_docente")));
 		}else
-		if (this.getClass().toString()=="dom.directivo.Directivo")
+		if (this.getClass().getCanonicalName()=="dom.directivo.Directivo")
 		{
 		repoLogin.altaUsuario(usuario, password.getPassword(), this,container.firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre","usuario_directivo")));
 		}
