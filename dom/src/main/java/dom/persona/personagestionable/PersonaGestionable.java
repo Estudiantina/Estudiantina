@@ -13,13 +13,14 @@
 package dom.persona.personagestionable;
 
 import java.io.Serializable;
-
 import java.util.SortedSet;
 import java.util.TreeSet;
+
 import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
@@ -28,9 +29,16 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Render.Type;
+import org.apache.isis.applib.query.QueryDefault;
+import org.apache.isis.applib.value.Password;
+
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
+
+import repo.login.repologin;
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
+import dom.login.Login;
+import dom.login.Rol;
 import dom.netbook.Netbook;
 import dom.persona.Persona;
 
@@ -137,7 +145,29 @@ public class PersonaGestionable extends Persona implements Locatable,Serializabl
 		return this;
 	}
 	
-    	
+	public String crearCuenta(String usuario,Password password)
+	{
+		if (this.getClass().toString()=="dom.alumno.Alumno")
+		{
+		repoLogin.altaUsuario(usuario, password.getPassword(), this,container.firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre","usuario_alumno")));
+		}else
+		if (this.getClass().toString()=="dom.tecnico.Tecnico")
+		{
+		repoLogin.altaUsuario(usuario, password.getPassword(), this,container.firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre","usuario_tecnico")));
+		}else
+		if (this.getClass().toString()=="dom.docente.Docente")
+		{
+		repoLogin.altaUsuario(usuario, password.getPassword(), this,container.firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre","usuario_docente")));
+		}else
+		if (this.getClass().toString()=="dom.directivo.Directivo")
+		{
+		repoLogin.altaUsuario(usuario, password.getPassword(), this,container.firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre","usuario_directivo")));
+		}
+		return "la cuenta se ha creado correctamente";
+	}
+	
+	@javax.inject.Inject 
+    repologin repoLogin;
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
