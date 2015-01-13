@@ -83,6 +83,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * 
 	 * @return Alumno
 	 */
+    @Named("ingresar alumno en este establecimiento")
 	public Alumno ingresarAlumno (
 			@Named("CUIL")Long cuil,
 			@RegEx(validation = "[A-Za-z ]+")  @Named("NOMBRE")String nombre,
@@ -295,7 +296,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	}
 	
-	
+	@Named("ingresar Direcivo en este establecimiento")
 	public Directivo ingresarDirectivo (
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
@@ -329,7 +330,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return directivo;
 	
 	}
-	
+	@Named("ingresar Docente en este establecimiento")
 	public Docente ingresarDocente (
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
@@ -368,7 +369,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return docente;
 	
 	}
-		
+	
 	public Tutor ingresarTutor (
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
