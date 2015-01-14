@@ -296,7 +296,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	}
 	
-	@Named("ingresar Direcivo en este establecimiento")
+	@Named("ingresar Directivo en este establecimiento")
 	public Directivo ingresarDirectivo (
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
