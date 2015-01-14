@@ -324,7 +324,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		directivo.setTelefonoCelular(telefonoCelular);
 		directivo.setFechaNacimiento(fechaNacimiento);
 		directivo.setSexo(sexo);
-		
+		directivo.setAlturaDomicilio(alturaDomicilio);
 		container.persistIfNotAlready(directivo);
 
 	return directivo;
