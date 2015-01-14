@@ -199,6 +199,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoFijo:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:localizacion:*",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:alumnos:*",executionContext);
 		//PERMISOS DE REPOSITORIO PERSONA 
 		//PARA USUARIOS CON ROL DE TECNICO
 		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarAlumno:*",executionContext);

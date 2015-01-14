@@ -52,7 +52,7 @@ public class Tutor extends Persona {
 		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString();
 		
 	}
-	
+	@javax.jdo.annotations.Persistent(mappedBy="tutor")
 	private SortedSet<Alumno> alumnos = new TreeSet<Alumno>();
 
 	public SortedSet<Alumno> getAlumnos() {
