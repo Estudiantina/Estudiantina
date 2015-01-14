@@ -319,6 +319,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		directivo.setDomicilio(domicilio);
 		directivo.setEmail(email);
 		directivo.setEstablecimiento(this.verMisDatos().getEstablecimiento());
+		this.verMisDatos().getEstablecimiento().setDirectivo(directivo);
 		directivo.setNombre(nombre);
 		directivo.setTelefonoFijo(telefinoFijo);
 		directivo.setTelefonoCelular(telefonoCelular);
