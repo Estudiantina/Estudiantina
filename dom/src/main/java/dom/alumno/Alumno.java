@@ -211,7 +211,7 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 		*/
 	    
 	    parametros.put("domicilioCiudadTutor", this.getTutor().getLocalidad().toString());
-	    parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
+	    parametros.put("modeloNetbook",super.getNetbooks().first().getMarca().toString());
 	    // TODO parametros.put("marcaNetbook",super.getNetbooks().first().getMarca());
 	    parametros.put("alturaDomicilioTutor", this.getTutor().getAlturaDomicilio());
 	    //TODO parametros.put("domicilioProvinciaTutor","")
@@ -325,7 +325,7 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	    	parametros.put("Curso", this.getCursos().first().getAnio().toString());
 	    	parametros.put("Turno", this.cursos.first().getTurno().toString());
 	    	parametros.put("division", this.cursos.first().getDivision().toString());
-		    parametros.put("modeloNetbook",super.getNetbooks().first().getModelo().toString());
+		    parametros.put("modeloNetbook",super.getNetbooks().first().getMarca().toString());
 		    parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
     		  
     	return servicio.reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");

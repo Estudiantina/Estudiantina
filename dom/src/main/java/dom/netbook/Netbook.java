@@ -80,7 +80,8 @@ import org.apache.isis.applib.annotation.Render.Type;
 public class Netbook implements Comparable<Netbook> {
 	
 	private String idNetbook;
-	private ModeloNetbook modelo;
+	private Marca marca;
+	
 	private String numeroDeSerie;
 	private String numeroLicenciaWindows;
 	private Date fechaDeExpiracion;
@@ -254,11 +255,11 @@ public class Netbook implements Comparable<Netbook> {
 	}
 	@Column(allowsNull="false")
 	@MemberOrder(name="Informacion De Hardware", sequence="2")
-	public ModeloNetbook getModelo() {
-		return modelo;
+	public Marca getMarca() {
+		return marca;
 	}
-	public void setModelo(ModeloNetbook modelo) {
-		this.modelo = modelo;
+	public void setModelo(Marca marca) {
+		this.marca = marca;
 	}
 	
 	@Column(allowsNull="false",length=30)
@@ -359,7 +360,7 @@ public class Netbook implements Comparable<Netbook> {
  		
       	parametros.put("alumno", persona.getNombre()+", "+persona.getApellido());
         parametros.put("cuil_alumno", persona.getCuil());
- 		parametros.put("netbookModelo", this.getModelo());
+ 		parametros.put("netbookModelo", this.getMarca());
  		parametros.put("numeroSerieNetbook", this.getNumeroDeSerie());
  		
  		    if (establecimiento.getDirectivo() != null){
@@ -387,7 +388,7 @@ public class Netbook implements Comparable<Netbook> {
  	        parametros.put("cuil_alumno", "");
  	 		parametros.put("nombreDirector", "");
  			
- 			parametros.put("netbookModelo", this.getModelo());
+ 			parametros.put("netbookModelo", this.getMarca());
  	 		parametros.put("numeroSerieNetbook", this.getNumeroDeSerie());
  		}
  		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
@@ -423,7 +424,7 @@ public class Netbook implements Comparable<Netbook> {
 		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
 		parametros.put("cursoAlumno", "");
 		parametros.put("divisionAlumno", "");
-		parametros.put("marcaNetbook", this.getModelo());
+		parametros.put("marcaNetbook", this.getMarca());
 		parametros.put("serieNetbook", this.getNumeroDeSerie());
 		parametros.put("nombreTutor","");
 					
@@ -443,7 +444,7 @@ public class Netbook implements Comparable<Netbook> {
 			parametros.put("divisionAlumno", "");
 			parametros.put("nombreTutor","");
 			parametros.put("nombreDirector", "" );
-			parametros.put("marcaNetbook", this.getModelo());
+			parametros.put("marcaNetbook", this.getMarca());
 			parametros.put("serieNetbook", this.getNumeroDeSerie());
 		}
 		
@@ -479,8 +480,8 @@ public class Netbook implements Comparable<Netbook> {
 		
 		parametros.put("nombreAlumno", persona.getNombre());
 		parametros.put("apellidoAlumno",persona.getApellido());
-		parametros.put("modeloNetbook", this.getModelo());
-		parametros.put("marcaNetbook", this.getModelo());
+		parametros.put("modeloNetbook", this.getMarca());
+		parametros.put("marcaNetbook", this.getMarca());
 		parametros.put("serieNetbook", this.getNumeroDeSerie());
 		parametros.put("establecimientoEducativo", establecimiento.getNombre());
 		parametros.put("ciudad", establecimiento.getLocalidad());

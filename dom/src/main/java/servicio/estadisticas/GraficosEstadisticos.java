@@ -49,7 +49,7 @@ import com.googlecode.wickedcharts.highcharts.options.series.PointSeries;
 import com.googlecode.wickedcharts.highcharts.options.series.Series;
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
-import dom.netbook.ModeloNetbook;
+import dom.netbook.Marca;
 import dom.netbook.Netbook;
 import dom.netbook.situacion.SituacionDeNetbook;
 
@@ -67,10 +67,10 @@ public class GraficosEstadisticos {
 	@Named("Estadisticas de modelo de netbook")
 	public WickedChart graficosDeModeloDeNetbook() {
 
-		Map<ModeloNetbook, AtomicInteger> porModelo = Maps.newTreeMap();
+		Map<Marca, AtomicInteger> porModelo = Maps.newTreeMap();
 		List<Netbook> allToDos = repositorioNetbook.listaNetbooks();
 		for (Netbook miNetbook : allToDos) {
-			ModeloNetbook modelo = miNetbook.getModelo();
+			Marca modelo = miNetbook.getMarca();
 			AtomicInteger integer = porModelo.get(modelo);
 			if (integer == null) {
 				integer = new AtomicInteger();
@@ -140,7 +140,7 @@ public class GraficosEstadisticos {
 		private static final long serialVersionUID = 1L;
 
 		public OpcionesDeGradienteDeGraficoDeModeloDeNetbook(
-				Map<ModeloNetbook, AtomicInteger> byCategory) {
+				Map<Marca, AtomicInteger> byCategory) {
 
 			setChartOptions(new ChartOptions()
 					.setPlotBackgroundColor(new NullColor())
@@ -163,7 +163,7 @@ public class GraficosEstadisticos {
 
 			Series<Point> series = new PointSeries().setType(SeriesType.PIE);
 			int i = 0;
-			for (Map.Entry<ModeloNetbook, AtomicInteger> entry : byCategory
+			for (Map.Entry<Marca, AtomicInteger> entry : byCategory
 					.entrySet()) {
 				series.addPoint(new Point(entry.getKey().name(), entry
 						.getValue().get()).setColor(new RadialGradient()

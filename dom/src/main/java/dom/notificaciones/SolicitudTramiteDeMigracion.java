@@ -57,7 +57,6 @@ public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
 
 	public Blob imprimir() throws FileNotFoundException, JRException
 	{
-
 		try{
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
 		PersonaGestionable miPersona = repositorioPersona.buscarPorCuil(this.getPersona().getCuil());
@@ -77,7 +76,7 @@ public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
 		parametros.put("nombreEstablecimiento",miEstablecimiento.getNombre());
 		parametros.put("ciudadAlumno",miPersona.getLocalidad().toString());
 		parametros.put("CUILAlumno",miPersona.getCuil().toString());
-		parametros.put("modeloNetbook",netbook.getModelo().toString());
+		parametros.put("modeloNetbook",netbook.getMarca().toString());
 		parametros.put("provincia","");
 		parametros.put("numeroSerieNetbook",netbook.getNumeroDeSerie().toString());
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/actademigracion.jrxml", parametros, "Solicitud");

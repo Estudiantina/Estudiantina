@@ -29,7 +29,7 @@ import org.joda.time.LocalDate;
 
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
-import dom.netbook.ModeloNetbook;
+import dom.netbook.Marca;
 import dom.netbook.Netbook;
 import dom.netbook.situacion.SituacionDeNetbook;
 import dom.notificaciones.SolicitudNetbookPrestada;
@@ -88,7 +88,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      */
 	public Netbook ingresarNetbook(
 	@Named("id de Netbook")@MaxLength(10)final String idNetbook,
-	@Named("Modelo")final ModeloNetbook modelo,
+	@Named("Modelo")final Marca modelo,
 	@Named("Numero De Serie")@MaxLength(30)final String numeroDeSerie,
 	@Named("Numero De Licencia de Windows")@MaxLength(30)final String numeroLicenciaWindows,
 	@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
@@ -121,7 +121,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 */
 	public Netbook ingresarNuevaNetbookAlEstablecimiento(
 			@Named("id de Netbook")@MaxLength(10)final String idNetbook,
-			@Named("Modelo")final ModeloNetbook modelo,
+			@Named("Modelo")final Marca modelo,
 			@Named("Numero De Serie")@MaxLength(30)final String numeroDeSerie,
 			@Named("Numero De Licencia de Windows")@MaxLength(30)final String numeroLicenciaWindows,
 			@Named("Fecha de Expiracion") @Optional final Date fechaDeExpiracion,
@@ -154,7 +154,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 */
 	
 	public String validateIngresarNetbook(final String idNetbook,
-			final ModeloNetbook modelo,
+			final Marca modelo,
 			final String numeroDeSerie,
 			final String numeroLicenciaWindows,
 			final Date fechaDeExpiracion,
