@@ -35,13 +35,13 @@ public class Entregada implements ISituacionDeNetbook{
 	@Override
 	public boolean ocultarImprimirActaMigracion() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean ocultarImprimirActaPrestamo() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
