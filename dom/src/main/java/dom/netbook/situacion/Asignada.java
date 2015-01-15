@@ -142,7 +142,7 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public void entregarNetbookAlAlumno() {
-		// TODO Auto-generated method stub
+		this.netbook.setSituacionDeNetbook(this.netbook.getEntregada());
 		
 	}
 
