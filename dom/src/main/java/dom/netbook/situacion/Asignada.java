@@ -140,4 +140,16 @@ public class Asignada implements ISituacionDeNetbook {
 	@javax.inject.Inject
     private DomainObjectContainer container;
 
+	@Override
+	public void entregarNetbookAlAlumno() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ocultarEntregarNetbookAlAlumno() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

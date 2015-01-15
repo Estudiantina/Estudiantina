@@ -119,4 +119,15 @@ public class Prestada implements ISituacionDeNetbook {
 		this.netbook.setSituacionDeNetbook(this.netbook.getRobada());		
 	}
 
+	@Override
+	public void entregarNetbookAlAlumno() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ocultarEntregarNetbookAlAlumno() {
+		return true;
+	}
+
 }

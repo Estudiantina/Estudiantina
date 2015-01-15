@@ -117,6 +117,17 @@ public class Robada implements ISituacionDeNetbook{
 		
 	}
 
+	@Override
+	public void entregarNetbookAlAlumno() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ocultarEntregarNetbookAlAlumno() {
+		return true;
+	}
+
 
 
 }

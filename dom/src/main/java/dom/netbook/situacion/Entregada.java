@@ -46,8 +46,7 @@ public class Entregada implements ISituacionDeNetbook{
 
 	@Override
 	public boolean ocultarNumeroActaDeRobo() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -59,14 +58,12 @@ public class Entregada implements ISituacionDeNetbook{
 	@Override
 	public boolean ocultarAsignarPersona() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public Blob imprimirActaMigracion() {
-		return null;
-		// TODO Auto-generated method stub
-		
+		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
 	@Override
@@ -78,52 +75,56 @@ public class Entregada implements ISituacionDeNetbook{
 	@Override
 	public Blob imprimirActaRecepcionDeNetbook() {
 		throw new UnsupportedOperationException("No impletandado todavía...");
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void desasignarNetbookDePersona() {
-		this.netbook.setPersona(null);
-		this.netbook.setSituacionDeNetbook(this.netbook.getEnStock());
-		
+
+		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
 	@Override
 	public void establecerNetbookComoRobada() {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 
 	@Override
 	public void asignarPersona(PersonaGestionable persona) {
 		// TODO Auto-generated method stub
-		
+		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
 	@Override
 	public boolean ocultarDesasignarNetbookDePersona() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean ocultarImprimirActaRecepcionDeNetbook() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean ocultarReportarComoRobada() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public void reportarComoRobada(String numeroDeActa) {
-		this.netbook.setNumeroDeActaDeRobo(numeroDeActa);
-		this.netbook.setSituacionDeNetbook(this.netbook.getRobada());
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		
+	}
+
+	@Override
+	public void entregarNetbookAlAlumno() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ocultarEntregarNetbookAlAlumno() {
+		return true;
 	}
 
 }

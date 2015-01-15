@@ -20,5 +20,7 @@ public interface ISituacionDeNetbook {
 	public Blob imprimirActaRecepcionDeNetbook();
 	public void desasignarNetbookDePersona();
 	public void establecerNetbookComoRobada();
+	public void entregarNetbookAlAlumno();
+	public boolean ocultarEntregarNetbookAlAlumno();
 	public void asignarPersona(PersonaGestionable persona);
 }

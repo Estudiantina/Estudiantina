@@ -509,6 +509,18 @@ public class Netbook implements Comparable<Netbook> {
     	return this;
     }
     
+    public Netbook entregarNetbookAlAlumno()
+    {
+    	this.getSituacionDeNetbook().entregarNetbookAlAlumno();
+    	return this;
+    }
+    
+    public boolean hideEntregarNetbookAlAlumno()
+    {
+    	this.getSituacionDeNetbook().ocultarEntregarNetbookAlAlumno();
+    }
+    
+    @Hidden
     public boolean hideReportarComoRobada()
     {
     	return this.getSituacionDeNetbook().ocultarReportarComoRobada();
