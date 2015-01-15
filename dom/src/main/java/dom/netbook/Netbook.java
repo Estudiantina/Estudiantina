@@ -81,7 +81,7 @@ public class Netbook implements Comparable<Netbook> {
 	
 	private String idNetbook;
 	private Marca marca;
-	
+	private String modelo;
 	private String numeroDeSerie;
 	private String numeroLicenciaWindows;
 	private Date fechaDeExpiracion;
@@ -258,10 +258,19 @@ public class Netbook implements Comparable<Netbook> {
 	public Marca getMarca() {
 		return marca;
 	}
-	public void setModelo(Marca marca) {
+	
+	public void setMarca(Marca marca) {
 		this.marca = marca;
 	}
-	
+	@javax.jdo.annotations.Column(allowsNull="false")
+	public String getModelo() {
+		return modelo;
+	}
+
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
 	@Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software", sequence="1")
 	@Hidden(where = Where.ALL_TABLES)
@@ -542,4 +551,7 @@ public class Netbook implements Comparable<Netbook> {
 	public int compareTo(Netbook o) {
 		return ObjectContracts.compare(this, o, "idNetbook");
 	}
+
+
+	
 }
