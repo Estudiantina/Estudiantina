@@ -85,6 +85,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.netbook:Netbook:imprimirActaPrestamo:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:imprimirActaRecepcionDeNetbook:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:historialDeReparaciones:*",executionContext);
+		create("usuario_tecnico","dom.netbook:Netbook:entregarNetbookAlAlumno:*",executionContext);
 		create("usuario_tecnico","dom.persona.presonagestionable:PersonaGestionable:netbooks:r",executionContext);
 		
 		
