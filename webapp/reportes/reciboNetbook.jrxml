@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reciboNetbook" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="452c2e46-1b79-4b49-b4ec-b6253401defc">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="240"/>
+	<property name="ireport.y" value="384"/>
 	<parameter name="ciudad" class="java.lang.String"/>
 	<parameter name="departamento" class="java.lang.String"/>
 	<parameter name="establecimientoEducativo" class="java.lang.String"/>
@@ -10,17 +10,18 @@
 	<parameter name="modeloNetbook" class="java.lang.String"/>
 	<parameter name="serieNetbook" class="java.lang.String"/>
 	<parameter name="nombreAlumno" class="java.lang.String"/>
+	<parameter name="apellidoAlumno" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="45" splitType="Stretch">
 			<textField>
-				<reportElement x="10" y="0" width="197" height="45" uuid="382d4ab9-5702-4df7-b38d-15f2cbce8a62"/>
+				<reportElement x="10" y="0" width="403" height="23" uuid="382d4ab9-5702-4df7-b38d-15f2cbce8a62"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{establecimientoEducativo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Establecimiento "+$P{establecimientoEducativo}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -36,98 +37,70 @@
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="339" splitType="Stretch">
+		<band height="358" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="7" width="547" height="91" uuid="8f756d40-5ded-48f1-ac73-a7eaeb21b769"/>
+				<textFieldExpression><![CDATA["	EN LA CIUDAD DE "+$P{ciudad}+" , DEPARTAMENTO "+$P{departamento}+", RETIRO/ENTREGO DEL ESTABLECIMIENTO EDUCATIVO "+$P{establecimientoEducativo}+", LA NETBOK MARCA "+$P{marcaNetbook}+" , MODELO"+$P{modeloNetbook}+", SERIE NRO "+$P{serieNetbook}+" , PERTENECIENTE AL ALUMNO/A "+$P{apellidoAlumno}+" "+$P{nombreAlumno}+" , EL CUAL SE ENCUENTRA EN LA SIGUIENTE CONDICIONES: ……………………………………………......................................................................................................................................................................................................................................................................................................................................................……………………"]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement x="0" y="0" width="544" height="160" uuid="f6b335f0-e19c-422a-b3c5-0bccd75f5ef4"/>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
+				<reportElement x="72" y="170" width="156" height="20" uuid="96cabe69-7643-4c75-93d5-a09265a667c7"/>
+				<textElement>
+					<font size="14"/>
 				</textElement>
-				<text><![CDATA[EN LA CIUDAD DE ......................., DEPARTAMENTO ..........................., RETIRO/ENTREGO DEL ESTABLECIMIENTO EDUCATIVO ........................., LA NETBOK MARCA ............................, MODELO………………………………, SERIE NRO ……...…………………………………, PERTENECIENTE AL ALUMNO/A ………....………………………………………, EL CUAL SE ENCUENTRA EN LA SIGUIENTE CONDICIONES: ……………………………………………......................................................................................................................................................................................................................................................................................................................................................……………………
-
-
-                            ENTREGUE CONFORME                             RECIBI CONFORME ]]></text>
+				<text><![CDATA[Entregue Conforme]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="221" y="294" width="100" height="20" uuid="6dba1269-5fb6-49ad-ab5e-39da36b27f28"/>
+				<reportElement x="308" y="170" width="151" height="20" uuid="4bd3feef-488b-4d25-a79a-384e594ecd85"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Recibi Conforme]]></text>
+			</staticText>
+			<line>
+				<reportElement x="74" y="168" width="150" height="1" uuid="0aee6a06-fdf4-4514-a9e5-90e1e2c83140"/>
+			</line>
+			<line>
+				<reportElement x="308" y="167" width="150" height="1" uuid="41f184f3-711b-4867-9734-1e0679b5cd7a"/>
+			</line>
+			<textField>
+				<reportElement x="10" y="315" width="403" height="23" uuid="848dc734-6ac2-49de-a095-3ea4620608fd"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Establecimiento "+$P{establecimientoEducativo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="231" y="338" width="100" height="20" uuid="7677b693-432f-499a-a3eb-b5650c23a95b"/>
 				<textElement textAlignment="Justified">
 					<font size="16" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[RECIBO]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="253" y="14" width="160" height="20" uuid="ff95e3a6-3d9e-426b-af2a-d33465855c25"/>
-				<textFieldExpression><![CDATA[$P{establecimientoEducativo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="10" y="283" width="211" height="45" uuid="b01913fb-e69c-4b58-83cb-9c8a364079de"/>
-				<textElement>
-					<font size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{establecimientoEducativo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="121" y="0" width="100" height="20" uuid="512a9ffd-d0f4-4a4b-a71f-83108dfa7968"/>
-				<textFieldExpression><![CDATA[$P{ciudad}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="321" y="0" width="100" height="20" uuid="92522891-ad5e-4e6d-aee8-c2b8ac09ddec"/>
-				<textFieldExpression><![CDATA[$P{departamento}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="431" y="12" width="100" height="20" uuid="77c509a9-22d4-4aeb-b7ff-d85fd0925dbc"/>
-				<textFieldExpression><![CDATA[$P{marcaNetbook}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="89" y="26" width="118" height="20" uuid="507651d7-b6cc-49b0-81d9-1bd0a136fcd6"/>
-				<textFieldExpression><![CDATA[$P{modeloNetbook}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="360" y="26" width="100" height="20" uuid="7ffb15a0-996c-4a57-94d8-e2a36603eeee"/>
-				<textFieldExpression><![CDATA[$P{serieNetbook}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="231" y="38" width="132" height="20" uuid="4c38594e-eacf-4f6f-a603-40bec7e2e4f0"/>
-				<textFieldExpression><![CDATA[$P{nombreAlumno}]]></textFieldExpression>
-			</textField>
 		</band>
 		<band height="205">
 			<staticText>
-				<reportElement x="10" y="10" width="534" height="168" uuid="baef51cc-45d0-46e5-9ed1-38ee988cd5cc"/>
-				<textElement textAlignment="Justified">
-					<font size="12"/>
+				<reportElement x="77" y="180" width="156" height="20" uuid="7b6be2e2-8f53-4e93-93c6-341cb005ae4a"/>
+				<textElement>
+					<font size="14"/>
 				</textElement>
-				<text><![CDATA[EN LA CIUDAD DE ......................., DEPARTAMENTO ..........................., RETIRO/ENTREGO DEL ESTABLECIMIENTO EDUCATIVO ........................., LA NETBOK MARCA ............................, MODELO………………………………, SERIE NRO ……...…………………………………, PERTENECIENTE AL ALUMNO/A ………....………………………………………, EL CUAL SE ENCUENTRA EN LA SIGUIENTE CONDICIONES: ………………………………………………….........................................................................................................................................................................................................................................................................…………..............................................………………
-
-
-                        ENTREGUE CONFORME                             RECIBI CONFORME ]]></text>
+				<text><![CDATA[Entregue Conforme]]></text>
+			</staticText>
+			<line>
+				<reportElement x="79" y="178" width="150" height="1" uuid="f0caeabe-9978-487c-8f4d-f7259e2c6a4c"/>
+			</line>
+			<line>
+				<reportElement x="313" y="177" width="150" height="1" uuid="bccbbc5c-bc9b-4377-8ef5-ee9dd76a2048"/>
+			</line>
+			<staticText>
+				<reportElement x="313" y="180" width="151" height="20" uuid="5523535a-b5e5-44e3-835e-780614d73269"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Recibi Conforme]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="258" y="23" width="160" height="20" uuid="0919cb8a-f1d6-4498-9804-b7a13027ce8c"/>
-				<textFieldExpression><![CDATA[$P{establecimientoEducativo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="121" y="10" width="100" height="20" uuid="617c4489-3ceb-4f94-862f-88c64a3f0a63"/>
-				<textFieldExpression><![CDATA[$P{ciudad}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="331" y="10" width="100" height="20" uuid="17b7f7f1-4d55-49c2-ae68-6e7b8a827526"/>
-				<textFieldExpression><![CDATA[$P{departamento}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="444" y="22" width="100" height="20" uuid="8a1589af-0992-4960-8402-fc580bbbcf44"/>
-				<textFieldExpression><![CDATA[$P{marcaNetbook}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="73" y="37" width="118" height="20" uuid="39e309eb-2de4-4244-9f18-80db34d02391"/>
-				<textFieldExpression><![CDATA[$P{modeloNetbook}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="326" y="34" width="100" height="20" uuid="3ae2e101-a5af-4507-83ed-c4d124cfc44e"/>
-				<textFieldExpression><![CDATA[$P{serieNetbook}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="238" y="47" width="132" height="20" uuid="286a4508-1585-4186-9ac4-83e1ef0d753d"/>
-				<textFieldExpression><![CDATA[$P{nombreAlumno}]]></textFieldExpression>
+				<reportElement x="10" y="17" width="547" height="91" uuid="8cd0daf4-fce6-400a-9db5-9ab42713c53c"/>
+				<textFieldExpression><![CDATA["	EN LA CIUDAD DE "+$P{ciudad}+" , DEPARTAMENTO "+$P{departamento}+", RETIRO/ENTREGO DEL ESTABLECIMIENTO EDUCATIVO "+$P{establecimientoEducativo}+", LA NETBOK MARCA "+$P{marcaNetbook}+" , MODELO "+$P{modeloNetbook}+", SERIE NRO "+$P{serieNetbook}+" , PERTENECIENTE AL ALUMNO/A "+$P{apellidoAlumno}+" "+$P{nombreAlumno}+" , EL CUAL SE ENCUENTRA EN LA SIGUIENTE CONDICIONES: ……………………………………………......................................................................................................................................................................................................................................................................................................................................................……………………"]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

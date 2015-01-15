@@ -474,32 +474,17 @@ public class Netbook implements Comparable<Netbook> {
 	{
 		
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
-		
-		if (this.getPersona() != null){
-		
 		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil", this.getPersona().getCuil() ));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
 		
-		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
+		parametros.put("nombreAlumno", persona.getNombre());
+		parametros.put("apellidoAlumno",persona.getApellido());
 		parametros.put("modeloNetbook", this.getModelo());
-		parametros.put("marcaNetbook", "");
+		parametros.put("marcaNetbook", this.getModelo());
 		parametros.put("serieNetbook", this.getNumeroDeSerie());
 		parametros.put("establecimientoEducativo", establecimiento.getNombre());
 		parametros.put("ciudad", establecimiento.getLocalidad());
 		parametros.put("departamento", establecimiento.getLocalidad().getDepartamento());
-	
-			 
-		}else{
-			
-			parametros.put("nombreAlumno", "");
-			parametros.put("modeloNetbook", this.getModelo());
-			parametros.put("marcaNetbook", "");
-			parametros.put("serieNetbook", this.getNumeroDeSerie());
-			parametros.put("establecimientoEducativo", "");
-			parametros.put("ciudad", "");
-			parametros.put("departamento","");
-		
-		}
 		
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/reciboNetbook.jrxml", parametros, "Solicitud");
 		
