@@ -63,14 +63,15 @@ public class Entregada implements ISituacionDeNetbook{
 	}
 
 	@Override
-	public void imprimirActaMigracion() {
+	public Blob imprimirActaMigracion() {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void imprimirActaPrestamo() {
-		// TODO Auto-generated method stub
+	public Blob imprimirActaPrestamo() {
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
 

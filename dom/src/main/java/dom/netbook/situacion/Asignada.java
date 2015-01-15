@@ -68,12 +68,12 @@ public class Asignada implements ISituacionDeNetbook {
 	}
 
 	@Override
-	public void imprimirActaMigracion() {
+	public Blob imprimirActaMigracion() {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
 	@Override
-	public void imprimirActaPrestamo() {
+	public Blob imprimirActaPrestamo() {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}

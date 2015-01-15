@@ -77,13 +77,15 @@ public class EnStock implements ISituacionDeNetbook {
 	}
 
 	@Override
-	public void imprimirActaMigracion() {
+	public Blob imprimirActaMigracion() {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void imprimirActaPrestamo() {
+	public Blob imprimirActaPrestamo() {
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		// TODO Auto-generated method stub
 		
 	}

@@ -15,8 +15,8 @@ public interface ISituacionDeNetbook {
 	public boolean ocultarImprimirActaRecepcionDeNetbook();
 	public boolean ocultarReportarComoRobada();
 	public void reportarComoRobada(String numeroDeActa);
-	public void imprimirActaMigracion();
-	public void imprimirActaPrestamo();
+	public Blob imprimirActaMigracion();
+	public Blob imprimirActaPrestamo();
 	public Blob imprimirActaRecepcionDeNetbook();
 	public void desasignarNetbookDePersona();
 	public void establecerNetbookComoRobada();

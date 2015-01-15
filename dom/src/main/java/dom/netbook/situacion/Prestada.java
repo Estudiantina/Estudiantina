@@ -59,14 +59,15 @@ public class Prestada implements ISituacionDeNetbook {
 	}
 
 	@Override
-	public void imprimirActaMigracion() {
-		// TODO Auto-generated method stub
+	public Blob imprimirActaMigracion() {
+		return null;
 		
 	}
 
 	@Override
-	public void imprimirActaPrestamo() {
-		// TODO Auto-generated method stub
+	public Blob imprimirActaPrestamo() {
+		return null;
+		
 		
 	}
 

@@ -484,8 +484,6 @@ public class Netbook implements Comparable<Netbook> {
   public Blob imprimirActaRecepcionDeNetbook() throws JRException, FileNotFoundException
 	{
 		return this.getSituacionDeNetbook().imprimirActaRecepcionDeNetbook();
-		
-		
 	}
   
 
