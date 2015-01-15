@@ -517,7 +517,7 @@ public class Netbook implements Comparable<Netbook> {
     
     public boolean hideEntregarNetbookAlAlumno()
     {
-    	this.getSituacionDeNetbook().ocultarEntregarNetbookAlAlumno();
+    	return this.getSituacionDeNetbook().ocultarEntregarNetbookAlAlumno();
     }
     
     @Hidden
