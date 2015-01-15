@@ -61,6 +61,7 @@ import repo.netbook.RepositorioNetbook;
 import repo.solicitudserviciotecnico.RepoSolicitudServicioTecnico;
 
 import org.apache.isis.applib.annotation.Render.Type;
+import org.eclipse.jdt.core.dom.ThisExpression;
 
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
@@ -489,13 +490,12 @@ public class Netbook implements Comparable<Netbook> {
 		
 		parametros.put("nombreAlumno", persona.getNombre());
 		parametros.put("apellidoAlumno",persona.getApellido());
-		parametros.put("modeloNetbook", this.getMarca());
+		parametros.put("modeloNetbook", this.getModelo());
 		parametros.put("marcaNetbook", this.getMarca());
 		parametros.put("serieNetbook", this.getNumeroDeSerie());
-		parametros.put("establecimientoEducativo", establecimiento.getNombre());
+		parametros.put("establecimientoEducativo",this.getPersona().getEstablecimiento().getNombre());
 		parametros.put("ciudad", establecimiento.getLocalidad());
-		parametros.put("departamento", establecimiento.getLocalidad().getDepartamento());
-		
+		parametros.put("departamento", establecimiento.getLocalidad().getDepartamento().getNombreDepartamento());
 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/reciboNetbook.jrxml", parametros, "Solicitud");
 		
 	}
