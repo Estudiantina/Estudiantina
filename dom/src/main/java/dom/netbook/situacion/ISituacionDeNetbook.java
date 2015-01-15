@@ -1,5 +1,7 @@
 package dom.netbook.situacion;
 
+import org.apache.isis.applib.value.Blob;
+
 import dom.persona.personagestionable.PersonaGestionable;
 
 public interface ISituacionDeNetbook {
@@ -15,7 +17,7 @@ public interface ISituacionDeNetbook {
 	public void reportarComoRobada(String numeroDeActa);
 	public void imprimirActaMigracion();
 	public void imprimirActaPrestamo();
-	public void imprimirActaRecepcionDeNetbook();
+	public Blob imprimirActaRecepcionDeNetbook();
 	public void desasignarNetbookDePersona();
 	public void establecerNetbookComoRobada();
 	public void asignarPersona(PersonaGestionable persona);

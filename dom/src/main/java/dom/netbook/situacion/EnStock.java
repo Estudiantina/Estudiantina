@@ -10,6 +10,7 @@ import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.VersionStrategy;
 
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.value.Blob;
 
 import dom.netbook.Netbook;
 import dom.persona.personagestionable.PersonaGestionable;
@@ -88,7 +89,8 @@ public class EnStock implements ISituacionDeNetbook {
 	}
 
 	@Override
-	public void imprimirActaRecepcionDeNetbook() {
+	public Blob imprimirActaRecepcionDeNetbook() {
+		throw new UnsupportedOperationException("No impletandado todavía...");
 		// TODO Auto-generated method stub
 		
 	}

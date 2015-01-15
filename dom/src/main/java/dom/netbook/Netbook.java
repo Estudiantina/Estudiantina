@@ -483,20 +483,8 @@ public class Netbook implements Comparable<Netbook> {
   
   public Blob imprimirActaRecepcionDeNetbook() throws JRException, FileNotFoundException
 	{
+		return this.getSituacionDeNetbook().imprimirActaRecepcionDeNetbook();
 		
-		HashMap<String,Object> parametros = new HashMap<String, Object>();
-		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil", this.getPersona().getCuil() ));
-		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
-		
-		parametros.put("nombreAlumno", persona.getNombre());
-		parametros.put("apellidoAlumno",persona.getApellido());
-		parametros.put("modeloNetbook", this.getModelo());
-		parametros.put("marcaNetbook", this.getMarca());
-		parametros.put("serieNetbook", this.getNumeroDeSerie());
-		parametros.put("establecimientoEducativo",this.getPersona().getEstablecimiento().getNombre());
-		parametros.put("ciudad", establecimiento.getLocalidad());
-		parametros.put("departamento", establecimiento.getLocalidad().getDepartamento().getNombreDepartamento());
-		return servicio.reporte.GeneradorReporte.generarReporte("reportes/reciboNetbook.jrxml", parametros, "Solicitud");
 		
 	}
   
