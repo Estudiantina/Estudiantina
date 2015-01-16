@@ -163,8 +163,8 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public void migrarNetbook(Establecimiento establecimiento) {
-		// TODO Auto-generated method stub
-		
+		this.netbook.getEnProcesoDeMigracion().setEstablecimientoAmigrar(establecimiento);
+		this.netbook.setSituacionDeNetbook(this.netbook.getEnProcesoDeMigracion());		
 	}
 
 	@Override

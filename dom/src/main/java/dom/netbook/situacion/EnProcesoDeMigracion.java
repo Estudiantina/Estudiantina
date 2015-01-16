@@ -31,7 +31,13 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 
 	private Netbook netbook;
 	private Establecimiento establecimientoAmigrar;
-	
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Establecimiento getEstablecimientoAmigrar() {
+		return establecimientoAmigrar;
+	}
+	public void setEstablecimientoAmigrar(Establecimiento establecimientoAmigrar) {
+		this.establecimientoAmigrar = establecimientoAmigrar;
+	}
 	public EnProcesoDeMigracion(Netbook netbook)
 	{
 		this.netbook= netbook;
@@ -196,7 +202,7 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 
 	@Override
 	public void aceptarMigracion() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	@Override
