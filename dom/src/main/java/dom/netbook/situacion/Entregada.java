@@ -141,8 +141,7 @@ public class Entregada implements ISituacionDeNetbook{
 
 	@Override
 	public boolean ocultarMigrarNetbook() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -154,7 +153,7 @@ public class Entregada implements ISituacionDeNetbook{
 	@Override
 	public boolean ocultarAceptarMigracion() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
