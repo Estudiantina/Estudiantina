@@ -1,8 +1,6 @@
 package dom.netbook.situacion;
 
-import java.io.FileNotFoundException;
 import java.util.HashMap;
-
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -10,14 +8,10 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.VersionStrategy;
-
-import net.sf.jasperreports.engine.JRException;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
-
 import dom.establecimiento.Establecimiento;
 import dom.netbook.Netbook;
 import dom.persona.personagestionable.PersonaGestionable;
@@ -148,7 +142,6 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarEntregarNetbookAlAlumno() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

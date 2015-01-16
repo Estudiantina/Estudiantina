@@ -47,6 +47,7 @@ import javax.jdo.annotations.Column;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
 
+import dom.alumno.Alumno;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.situacion.Asignada;
 import dom.netbook.situacion.EnStock;
@@ -424,41 +425,9 @@ public class Netbook implements Comparable<Netbook> {
    public Blob imprimirActaPrestamo() throws JRException, FileNotFoundException
 	{
 		
-		HashMap<String,Object> parametros = new HashMap<String, Object>();
+
 		
-		if (this.getPersona() != null){
-		
-		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil", this.getPersona().getCuil(),"institucion",this.establecimiento ));
-		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
-		
-		parametros.put("nombreAlumno", persona.getNombre() +", "+persona.getApellido() );
-		parametros.put("cursoAlumno", "");
-		parametros.put("divisionAlumno", "");
-		parametros.put("marcaNetbook", this.getMarca());
-		parametros.put("serieNetbook", this.getNumeroDeSerie());
-		parametros.put("nombreTutor","");
-					
-		      if (establecimiento.getDirectivo() != null){
-		
-	          parametros.put("nombreDirector", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre() );
-		 
-		      }else{
-		    	  parametros.put("nombreDirector", "" );
-		      }
-		 
-			 
-		}else{
-			
-			parametros.put("nombreAlumno", "");
-			parametros.put("cursoAlumno", "");
-			parametros.put("divisionAlumno", "");
-			parametros.put("nombreTutor","");
-			parametros.put("nombreDirector", "" );
-			parametros.put("marcaNetbook", this.getMarca());
-			parametros.put("serieNetbook", this.getNumeroDeSerie());
-		}
-		
-		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaAutorizacionPrestamoNet.jrxml", parametros, "Solicitud");
+		return this.getSituacionDeNetbook().imprimirActaPrestamo();
 		}
    /**
     * oculta la accion de Imprimir Acta de Prestamo

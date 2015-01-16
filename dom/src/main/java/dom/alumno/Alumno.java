@@ -67,12 +67,11 @@ import dom.tutor.Tutor;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 //TODO hacer consulta traerPorcuil 
 //TODO generar pedido certificado alumno regular
-@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerAlumnoPorcuil", language = "JDOQL", value = "SELECT FROM dom.alumno.Alumno WHERE cuil== :cuil && estaBorrado== 'ACTIVO'"),
+@javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerAlumnoPorcuil", language = "JDOQL", value = "SELECT FROM dom.alumno.Alumno WHERE cuil== :cuil && establecimiento==:institucion && estaBorrado== 'ACTIVO'"),
 	@javax.jdo.annotations.Query(name = "traerTodoAlumno", language = "JDOQL", value = "SELECT FROM dom.alumno.Alumno WHERE estaBorrado== 'ACTIVO'"),
 	@javax.jdo.annotations.Query(name = "traerPorEstado", language = "JDOQL", value = "SELECT FROM dom.alumno.Alumno WHERE estadoDeAlumno== :estadoDeAlumno && estaBorrado== 'ACTIVO'")})
 @AutoComplete(repository = RepositorioPersona.class, action = "autoCompletarAlumno")
 @Audited
-
 @ObjectType("ALUMNO")
 public class Alumno extends PersonaGestionable implements Locatable,Comparable<Alumno>{
 

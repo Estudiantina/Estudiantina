@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaAutorizacionPrestamoNet" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f0cecf6-88cd-4c55-8a42-bbd7589afedd">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="158"/>
 	<parameter name="marcaNetbook" class="java.lang.String"/>
 	<parameter name="serieNetbook" class="java.lang.String"/>
 	<parameter name="nombreAlumno" class="java.lang.String"/>
@@ -21,14 +21,6 @@
 
 ]]></text>
 			</staticText>
-			<image>
-				<reportElement x="360" y="0" width="169" height="72" uuid="02dce787-4d24-4d8d-870c-677ad4a515ef"/>
-				<imageExpression><![CDATA["/home/santi/workspace/Estudiantina/webapp/reportes/conectar.jpg"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="11" y="3" width="299" height="50" uuid="b18fdf2a-d5c8-46a1-854e-3cdea2ef3274"/>
-				<imageExpression><![CDATA["/home/santi/workspace/Estudiantina/webapp/reportes/EscudoNqn.jpg"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<detail>
@@ -53,12 +45,12 @@ perfecto estado en su devolución en cuanto a Hardware y Software, así como tam
 ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="80" y="153" width="100" height="20" uuid="9d81ad45-3235-4a3f-93fd-32e8dd68978c"/>
+				<reportElement x="211" y="125" width="100" height="20" uuid="9d81ad45-3235-4a3f-93fd-32e8dd68978c"/>
 				<textElement textAlignment="Justified"/>
 				<textFieldExpression><![CDATA[$P{serieNetbook}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="80" y="141" width="100" height="20" uuid="81435409-d1e2-4b5a-a49a-ace5eaa69311"/>
+				<reportElement x="434" y="111" width="100" height="20" uuid="81435409-d1e2-4b5a-a49a-ace5eaa69311"/>
 				<textFieldExpression><![CDATA[$P{marcaNetbook}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -66,19 +58,19 @@ perfecto estado en su devolución en cuanto a Hardware y Software, así como tam
 				<textFieldExpression><![CDATA[$P{nombreAlumno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="282" y="26" width="100" height="20" uuid="623fd081-af5e-4ad6-ab34-02068837b2d0"/>
+				<reportElement x="290" y="27" width="100" height="20" uuid="623fd081-af5e-4ad6-ab34-02068837b2d0"/>
 				<textFieldExpression><![CDATA[$P{cursoAlumno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="361" y="28" width="103" height="20" uuid="cac3a854-e9f6-4301-8d26-0205cdca939e"/>
+				<reportElement x="362" y="27" width="103" height="20" uuid="cac3a854-e9f6-4301-8d26-0205cdca939e"/>
 				<textFieldExpression><![CDATA[$P{divisionAlumno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="128" y="11" width="146" height="20" uuid="2866d7e4-1184-4627-a3ec-6c82b261c734"/>
+				<reportElement x="50" y="11" width="146" height="20" uuid="2866d7e4-1184-4627-a3ec-6c82b261c734"/>
 				<textFieldExpression><![CDATA[$P{nombreDirector}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="333" y="11" width="120" height="16" uuid="3367ef40-695a-43e5-9d1c-1326f42c037a"/>
+				<reportElement x="230" y="15" width="120" height="16" uuid="3367ef40-695a-43e5-9d1c-1326f42c037a"/>
 				<textFieldExpression><![CDATA[$P{nombreTutor}]]></textFieldExpression>
 			</textField>
 		</band>

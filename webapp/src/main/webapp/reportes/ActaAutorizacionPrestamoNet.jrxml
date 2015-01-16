@@ -5,10 +5,15 @@
 	<property name="ireport.y" value="158"/>
 	<parameter name="marcaNetbook" class="java.lang.String"/>
 	<parameter name="serieNetbook" class="java.lang.String"/>
+	<parameter name="nombreAlumno" class="java.lang.String"/>
+	<parameter name="cursoAlumno" class="java.lang.String"/>
+	<parameter name="divisionAlumno" class="java.lang.String"/>
+	<parameter name="nombreDirector" class="java.lang.String"/>
+	<parameter name="nombreTutor" class="java.lang.String"/>
 	<title>
-		<band height="38" splitType="Stretch">
+		<band height="86" splitType="Stretch">
 			<staticText>
-				<reportElement x="231" y="0" width="153" height="20" uuid="870fd10f-617d-4357-bc78-5279b00887c6"/>
+				<reportElement x="180" y="33" width="153" height="20" uuid="870fd10f-617d-4357-bc78-5279b00887c6"/>
 				<textElement>
 					<font size="15" isBold="true" isItalic="true" isUnderline="true" pdfFontName="Helvetica-BoldOblique"/>
 				</textElement>
@@ -21,28 +26,52 @@
 	<detail>
 		<band height="565" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="0" width="545" height="478" uuid="8f4cecb2-0bb8-4734-87f9-480bb9657198"/>
-				<textElement textAlignment="Justified" verticalAlignment="Top" markup="none">
-					<font size="16" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				<reportElement x="32" y="0" width="485" height="478" uuid="8f4cecb2-0bb8-4734-87f9-480bb9657198"/>
+				<textElement verticalAlignment="Top" rotation="None" markup="none">
+					<font size="12" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false" pdfFontName="Courier"/>
+					<paragraph lineSpacing="Single" tabStopWidth="40"/>
 				</textElement>
-				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: ………………............……………..… y el Tutor/a:………………………...........................................….
-del Alumno/a: .......…………………………………..del Año:…..........……..Div:…….......…. de esta institución; se procede a celebrar el presente acta con motivo de  resolver la
+				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: …….........……… y el Tutor/a:……....................
+del Alumno/a: .......………………… del Año:….......… Div...…. de esta institución; se procede a celebrar el presente acta con motivo de  resolver la
 situación planteada por los interesados; debido a que el alumno no cuenta con  su netbook por rotura de la misma y en proceso de reparación; considerando que la utilización de este
-recurso es de mucha aplicación el ultimo año de estudio. La Regencia Técnica procede a realizar el préstamo  de la La Netbook Marca:…............................................
-Modelo:..........….............. Serie:…….………….................. hasta reparación de la netbook del alumno. Las condiciones del préstamo serán la de su
-perfecto estado en su devolución en cuanto a Hardware y Software, así como también en cuánto a su limpieza. Cabe aclarar que ante cualquier falta de la presente acta; el Tutor firmante se hará cargo de lo expuesto.
-                                                     FECHA:.............................................
-FIRMA TUTOR                                             FIRMA DIRECTIVO
+recurso es de mucha aplicación el ultimo año de estudio. La Regencia Técnica procede a realizar el préstamo  de la La Netbook Marca:…................. Modelo:..........…...... Serie:…….…………........, con la fuente (SI / NO), hasta reparación de la netbook del alumno. Las condiciones del préstamo serán la de su
+perfecto estado en su devolución en cuanto a Hardware y Software, así como también en cuánto a su estado el cual fuere entregada. Cabe aclarar que ante cualquier falta de la presente acta; el Tutor firmante se hará cargo de lo expuesto.
+
+
+             ..................de.................de...........
+
+ FIRMA TUTOR                     FIRMA DIRECTIVO
 
 ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="296" y="225" width="100" height="20" uuid="9d81ad45-3235-4a3f-93fd-32e8dd68978c"/>
+				<reportElement x="211" y="125" width="100" height="20" uuid="9d81ad45-3235-4a3f-93fd-32e8dd68978c"/>
+				<textElement textAlignment="Justified"/>
 				<textFieldExpression><![CDATA[$P{serieNetbook}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="98" y="205" width="100" height="20" uuid="81435409-d1e2-4b5a-a49a-ace5eaa69311"/>
+				<reportElement x="434" y="111" width="100" height="20" uuid="81435409-d1e2-4b5a-a49a-ace5eaa69311"/>
 				<textFieldExpression><![CDATA[$P{marcaNetbook}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="27" width="129" height="20" uuid="a48f656e-73d2-4ca1-9872-5b1d86c1baaa"/>
+				<textFieldExpression><![CDATA[$P{nombreAlumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="27" width="100" height="20" uuid="623fd081-af5e-4ad6-ab34-02068837b2d0"/>
+				<textFieldExpression><![CDATA[$P{cursoAlumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="362" y="27" width="103" height="20" uuid="cac3a854-e9f6-4301-8d26-0205cdca939e"/>
+				<textFieldExpression><![CDATA[$P{divisionAlumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="11" width="146" height="20" uuid="2866d7e4-1184-4627-a3ec-6c82b261c734"/>
+				<textFieldExpression><![CDATA[$P{nombreDirector}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="15" width="120" height="16" uuid="3367ef40-695a-43e5-9d1c-1326f42c037a"/>
+				<textFieldExpression><![CDATA[$P{nombreTutor}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -1,5 +1,8 @@
 package dom.netbook.situacion;
 
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -8,9 +11,16 @@ import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.VersionStrategy;
 
+import net.sf.jasperreports.engine.JRException;
+
+import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
 
+import repo.persona.RepositorioPersona;
+import dom.alumno.Alumno;
+import dom.establecimiento.Establecimiento;
 import dom.netbook.Netbook;
 import dom.persona.personagestionable.PersonaGestionable;
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
@@ -39,11 +49,36 @@ public class Prestada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarImprimirActaPrestamo() {
-		return false;
+		if (netbook.getPersona().getClass().getCanonicalName()=="dom.alumno.Alumno")
+		{
+			Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil", netbook.getPersona().getCuil(),"institucion",repoPersona.verMisDatos().getEstablecimiento()));
+			if(alumno.getTutor()==null)
+			{
+			return true;//si no tiene tutor lo oculta
+			}
+			else
+			{
+				if(alumno.getEstablecimiento().getDirectivo()==null)
+				{
+				return true;
+				}
+				else
+				{
+				return false;
+				}
+			
+			}
+			
+		}
+		else
+		{
+		return true;
+		}
 	}
 
 	@Override
 	public boolean ocultarNumeroActaDeRobo() {
+		
 		return true;
 	}
 
@@ -66,7 +101,28 @@ public class Prestada implements ISituacionDeNetbook {
 
 	@Override
 	public Blob imprimirActaPrestamo() {
-		return null;
+		
+		
+		HashMap<String,Object> parametros = new HashMap<String, Object>();		
+		Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil", netbook.getPersona().getCuil(),"institucion",netbook.getEstablecimiento()));
+		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
+		parametros.put("nombreAlumno", alumno.getNombre() +", "+alumno.getApellido() );
+		parametros.put("cursoAlumno", alumno.getCursos().first().getAnio().toString());
+		parametros.put("divisionAlumno", alumno.getCursos().first().getDivision());
+		parametros.put("marcaNetbook", netbook.getMarca().toString());
+		parametros.put("serieNetbook", netbook.getNumeroDeSerie());
+		parametros.put("nombreTutor",alumno.getTutor().getNombre());					
+	    parametros.put("nombreDirector", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre() );		
+		
+		try {
+			return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaAutorizacionPrestamoNet.jrxml", parametros, "Solicitud");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			return null;
+		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
 		
 		
 	}
@@ -130,4 +186,8 @@ public class Prestada implements ISituacionDeNetbook {
 		return true;
 	}
 
+	@javax.inject.Inject
+    private RepositorioPersona repoPersona;
+	@javax.inject.Inject
+    private DomainObjectContainer container;
 }
