@@ -466,8 +466,15 @@ public class Netbook implements Comparable<Netbook> {
     {
     	return this.getSituacionDeNetbook().ocultarReportarComoRobada();
     }
-    
-    
+    public void aceptarMigracion()
+    {
+    	this.getSituacionDeNetbook().aceptarMigracion();
+    }
+    @Hidden
+    public boolean hideAceptarMigracion()
+    {
+    	return this.getSituacionDeNetbook().ocultarAceptarMigracion();
+    }
     
     /**
      * lista una lista con el historial de reparaciones 

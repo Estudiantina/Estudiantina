@@ -78,46 +78,7 @@ public class Asignada implements ISituacionDeNetbook {
 	@Override
 	public Blob imprimirActaMigracion() {
 		
-		HashMap<String,Object> parametros = new HashMap<String, Object>();
- 		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",netbook.getPersona().getCuil()));
- 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
- 		parametros.put("distrito", establecimiento.getDistritoEscolar());
- 		parametros.put("cue", establecimiento.getCue());
- 		/*parametros.put("emailEstablecimiento", establecimiento.getEmail());
- 		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
- 		parametros.put("establecimiento", establecimiento.getNombre());
- 		parametros.put("localidad", establecimiento.getLocalidad());
- 		parametros.put("domicilio", establecimiento.getDireccion());
- 		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
-      	parametros.put("alumno", persona.getNombre()+", "+persona.getApellido());
-        parametros.put("cuilAlumno", persona.getCuil());
-        parametros.put("nombreDirectorCedente", establecimientoAmigrar.getDirectivo().getApellido()+" "+establecimientoAmigrar.getDirectivo().getNombre());
- 		parametros.put("netbookModelo", netbook.getMarca().toString()+" "+netbook.getModelo());
- 		parametros.put("numeroSerieNetbook", netbook.getNumeroDeSerie());
- 		parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
- 		parametros.put("nroDniDirector", establecimiento.getDirectivo().getCuil());
- 		parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getCuil());
- 		parametros.put("dniDirectorCedente", establecimientoAmigrar.getDirectivo().getCuil());
- 		parametros.put("nombreEstablecimientoCedente", establecimientoAmigrar.getNombre());
- 		parametros.put("cueEstablecimientoCedente", establecimientoAmigrar.getDirectivo().getCuil());
- 		parametros.put("distritoEscolarCedente", establecimientoAmigrar.getDistritoEscolar());
- 		parametros.put("ciudadEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
- 		parametros.put("provinciaEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
- 		parametros.put("domicilioEstablecimientoCedente", establecimientoAmigrar.getDireccion());
- 		parametros.put("nombreAlumno", netbook.getPersona().getNombre());
- 		parametros.put("modeloNetbook", netbook.getMarca()+" "+netbook.getModelo());
- 		parametros.put("nroSerieNetbook", netbook.getNumeroDeSerie());
- 		parametros.put("ciudadAlumno", netbook.getPersona().getLocalidad().getLocalidad());
- 		parametros.put("ciudadAlumno", "");*/
- 		try {
-			return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			return null;
-		} catch (JRException e) {
-			// TODO Auto-generated catch block
-			return null;
-		}
+		return null;
 	}
 
 	@Override
@@ -208,6 +169,18 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarMigrarNetbook() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void aceptarMigracion() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ocultarAceptarMigracion() {
 		// TODO Auto-generated method stub
 		return false;
 	}

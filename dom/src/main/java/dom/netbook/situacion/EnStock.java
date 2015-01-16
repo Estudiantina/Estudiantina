@@ -159,4 +159,16 @@ public class EnStock implements ISituacionDeNetbook {
 		return false;
 	}
 
+	@Override
+	public void aceptarMigracion() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ocultarAceptarMigracion() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
