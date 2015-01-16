@@ -80,31 +80,28 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 
 	@Override
 	public boolean ocultarAsignarPersona() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean ocultarDesasignarNetbookDePersona() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean ocultarImprimirActaRecepcionDeNetbook() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean ocultarReportarComoRobada() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public void reportarComoRobada(String numeroDeActa) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -123,19 +120,19 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
  		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
       	parametros.put("alumno", persona.getNombre()+", "+persona.getApellido());
         parametros.put("cuilAlumno", persona.getCuil());
-        parametros.put("nombreDirectorCedente", establecimientoAmigrar.getDirectivo().getApellido()+" "+establecimientoAmigrar.getDirectivo().getNombre());
+        //parametros.put("nombreDirectorCedente", establecimientoAmigrar.getDirectivo().getApellido()+" "+establecimientoAmigrar.getDirectivo().getNombre());
  		parametros.put("netbookModelo", netbook.getMarca().toString()+" "+netbook.getModelo());
  		parametros.put("numeroSerieNetbook", netbook.getNumeroDeSerie());
- 		parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
+ 		//parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
  		parametros.put("nroDniDirector", establecimiento.getDirectivo().getCuil());
- 		parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getCuil());
- 		parametros.put("dniDirectorCedente", establecimientoAmigrar.getDirectivo().getCuil());
- 		parametros.put("nombreEstablecimientoCedente", establecimientoAmigrar.getNombre());
- 		parametros.put("cueEstablecimientoCedente", establecimientoAmigrar.getDirectivo().getCuil());
- 		parametros.put("distritoEscolarCedente", establecimientoAmigrar.getDistritoEscolar());
- 		parametros.put("ciudadEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
- 		parametros.put("provinciaEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
- 		parametros.put("domicilioEstablecimientoCedente", establecimientoAmigrar.getDireccion());
+ 		//parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getCuil());
+ 		//parametros.put("dniDirectorCedente", establecimientoAmigrar.getDirectivo().getCuil());
+ 		//parametros.put("nombreEstablecimientoCedente", establecimientoAmigrar.getNombre());
+ 		//parametros.put("cueEstablecimientoCedente", establecimientoAmigrar.getDirectivo().getCuil());
+ 		//parametros.put("distritoEscolarCedente", establecimientoAmigrar.getDistritoEscolar());
+ 		//parametros.put("ciudadEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
+ 		//parametros.put("provinciaEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
+ 		//parametros.put("domicilioEstablecimientoCedente", establecimientoAmigrar.getDireccion());
  		parametros.put("nombreAlumno", netbook.getPersona().getNombre());
  		parametros.put("modeloNetbook", netbook.getMarca()+" "+netbook.getModelo());
  		parametros.put("nroSerieNetbook", netbook.getNumeroDeSerie());
@@ -144,23 +141,19 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
  		try {
 			return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			return null;
 		} catch (JRException e) {
-			// TODO Auto-generated catch block
 			return null;
 		}
 	}
 
 	@Override
 	public Blob imprimirActaPrestamo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Blob imprimirActaRecepcionDeNetbook() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -179,13 +172,11 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	@Override
 	public void entregarNetbookAlAlumno() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public boolean ocultarEntregarNetbookAlAlumno() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -201,8 +192,7 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	}
 	@Override
 	public boolean ocultarMigrarNetbook() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@javax.inject.Inject
@@ -210,12 +200,10 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 
 	@Override
 	public void aceptarMigracion() {
-		
-		
+		this.netbook.setSituacionDeNetbook(this.netbook.getAsignada());
 	}
 	@Override
 	public boolean ocultarAceptarMigracion() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	@javax.inject.Inject
