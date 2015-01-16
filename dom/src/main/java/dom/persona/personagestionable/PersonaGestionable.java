@@ -57,7 +57,7 @@ import dom.persona.Persona;
 	@javax.jdo.annotations.Query(name = "traerPorcuilEstablecimientoActual", language = "JDOQL", value = "SELECT FROM dom.persona.personagestionable.PersonaGestionable WHERE cuil== :cuil && estaBorrado== 'ACTIVO' && establecimiento== :establecimiento")
 })
 
-@AutoComplete(repository = RepositorioPersona.class, action = "autoCompletePersonaGestionable")
+@AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
 @Audited
 @Bookmarkable
 @ObjectType("PersonaGestionable")
