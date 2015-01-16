@@ -45,7 +45,8 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	}
 	@Override
 	public SituacionDeNetbook getNombreSituacion() {
-		return null;
+		return SituacionDeNetbook.EN_PROCESO_DE_MIGRACION;
+		
 	}
 
 	@Override
