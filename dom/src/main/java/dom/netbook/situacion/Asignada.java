@@ -1,6 +1,8 @@
 package dom.netbook.situacion;
 
+import java.io.FileNotFoundException;
 import java.util.HashMap;
+
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -8,10 +10,14 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.VersionStrategy;
+
+import net.sf.jasperreports.engine.JRException;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
+
 import dom.establecimiento.Establecimiento;
 import dom.netbook.Netbook;
 import dom.persona.personagestionable.PersonaGestionable;
@@ -37,7 +43,7 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarImprimirActaMigracion() {
-		return true;
+		return false;
 	}
 
 	@Override
@@ -63,7 +69,43 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public Blob imprimirActaMigracion() {
-		throw new UnsupportedOperationException("No impletandado todavía...");
+		HashMap<String,Object> parametros = new HashMap<String, Object>();
+ 		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",netbook.getPersona().getCuil()));
+ 				
+ 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
+ 		
+ 		parametros.put("distrito", establecimiento.getDistritoEscolar());
+ 		parametros.put("cue", establecimiento.getCue());
+ 		parametros.put("emailEstablecimiento", establecimiento.getEmail());
+ 		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
+ 		
+ 		parametros.put("establecimiento", establecimiento.getNombre());
+ 		parametros.put("localidad", establecimiento.getLocalidad());
+ 		parametros.put("domicilio", establecimiento.getDireccion());
+ 		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
+ 		
+      	parametros.put("alumno", persona.getNombre()+", "+persona.getApellido());
+        parametros.put("cuilAlumno", persona.getCuil());
+ 		parametros.put("netbookModelo", netbook.getMarca().toString()+" "+netbook.getModelo());
+ 		parametros.put("numeroSerieNetbook", netbook.getNumeroDeSerie());
+ 		
+ 		    if (establecimiento.getDirectivo() != null){
+ 		       parametros.put("dierectorCedente", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
+ 		       parametros.put("nroDniDirector", establecimiento.getDirectivo().getCuil());
+ 		       }
+ 		       else {
+ 			        parametros.put("DierctorCedente", "");
+ 	 		        parametros.put("nroDniDirector", "");
+ 		       }
+ 		try {
+			return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			return null;
+		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
 	}
 
 	@Override

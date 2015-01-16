@@ -2,8 +2,8 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaMigracion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eea62db-9b8e-4ef8-95d2-5ca98b500e5f">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<parameter name="DierctorCedente" class="java.lang.String"/>
+	<property name="ireport.y" value="65"/>
+	<parameter name="directorCedente" class="java.lang.String"/>
 	<parameter name="netbookModelo" class="java.lang.String"/>
 	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
 	<parameter name="nroDniDirector" class="java.lang.String"/>
@@ -13,7 +13,7 @@
 	<parameter name="localidad" class="java.lang.String"/>
 	<parameter name="domicilio" class="java.lang.String"/>
 	<parameter name="alumno" class="java.lang.String"/>
-	<parameter name="cuil_alumno" class="java.lang.String"/>
+	<parameter name="cuilAlumno" class="java.lang.String"/>
 	<parameter name="telefonoEstablecimiento" class="java.lang.String"/>
 	<parameter name="emailEstablecimiento" class="java.lang.String"/>
 	<title>
@@ -65,21 +65,13 @@
 				<reportElement x="222" y="72" width="157" height="20" uuid="bc5100ba-43f6-4236-a3c7-aeb5db96bb26"/>
 				<textFieldExpression><![CDATA[$P{emailEstablecimiento}]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="466" y="0" width="89" height="50" uuid="0bcfd052-5305-4a53-885d-5fd45866c505"/>
-				<imageExpression><![CDATA["/home/santi/workspace/Estudiantina/webapp/reportes/EscudoNqn.jpg"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="222" y="-3" width="208" height="72" uuid="31cc0413-83b4-43d6-a640-5df3b1c87498"/>
-				<imageExpression><![CDATA["/home/santi/workspace/Estudiantina/webapp/reportes/conectar.jpg"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<detail>
 		<band height="384" splitType="Stretch">
 			<textField>
 				<reportElement x="36" y="12" width="122" height="20" uuid="35aad0c2-23eb-499e-9aad-808367bc44ae"/>
-				<textFieldExpression><![CDATA[$P{DierctorCedente}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{directorCedente}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="10" y="0" width="545" height="379" uuid="6597a5c8-0fbf-4b13-a565-caba8813f96c"/>
@@ -137,7 +129,7 @@ En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un 
 			</textField>
 			<textField>
 				<reportElement x="259" y="133" width="100" height="20" uuid="867b50b2-8795-4628-b43f-cdacd1e2602b"/>
-				<textFieldExpression><![CDATA[$P{cuil_alumno}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{cuilAlumno}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

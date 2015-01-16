@@ -351,59 +351,7 @@ public class Netbook implements Comparable<Netbook> {
       */ 
     public Blob imprimirActaMigracion() throws JRException, FileNotFoundException
  	{
- 		
- 		HashMap<String,Object> parametros = new HashMap<String, Object>();
- 		 		
- 		if (this.getPersona() != null){
- 		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
- 				
- 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
- 		
- 		parametros.put("distrito", establecimiento.getDistritoEscolar());
- 		parametros.put("cue", establecimiento.getCue());
- 		parametros.put("emailEstablecimiento", establecimiento.getEmail());
- 		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
- 		
- 		parametros.put("establecimiento", establecimiento.getNombre());
- 		parametros.put("localidad", establecimiento.getLocalidad());
- 		parametros.put("domicilio", establecimiento.getDireccion());
- 		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
- 		
-      	parametros.put("alumno", persona.getNombre()+", "+persona.getApellido());
-        parametros.put("cuil_alumno", persona.getCuil());
- 		parametros.put("netbookModelo", this.getMarca());
- 		parametros.put("numeroSerieNetbook", this.getNumeroDeSerie());
- 		
- 		    if (establecimiento.getDirectivo() != null){
- 		       parametros.put("DierctorCedente", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
- 		       parametros.put("nroDniDirector", establecimiento.getDirectivo().getCuil());
- 		       }
- 		       else {
- 			        parametros.put("DierctorCedente", "");
- 	 		        parametros.put("nroDniDirector", "");
- 		             }
- 		
- 		} else {
- 			
- 			parametros.put("distrito", "");
- 			parametros.put("cue", "");
- 			parametros.put("emailEstablecimiento", "");
- 	 		parametros.put("telefonoEstablecimiento", "");
- 	 		parametros.put("establecimiento", "");
- 	 		parametros.put("localidad", "");
- 	 		parametros.put("domicilio", "");
- 	 		parametros.put("DierctorCedente", "");
- 	 		parametros.put("nroDniDirector", "");
- 	 		
- 	      	parametros.put("alumno", "");
- 	        parametros.put("cuil_alumno", "");
- 	 		parametros.put("nombreDirector", "");
- 			
- 			parametros.put("netbookModelo", this.getMarca());
- 	 		parametros.put("numeroSerieNetbook", this.getNumeroDeSerie());
- 		}
- 		return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
- 		
+ 		return this.getSituacionDeNetbook().imprimirActaMigracion();	
  	}
 
     
