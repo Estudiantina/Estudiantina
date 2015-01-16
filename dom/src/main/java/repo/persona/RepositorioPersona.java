@@ -404,11 +404,11 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return tutor;
 	
 	}
-	@Named("Buscar Persona")
+	@Named("Buscar Persona Gestionable")
 	@Hidden
-    public List<PersonaGestionable> autoComplete(@Named("Ingrese CUIL")String searchPhrase) {        
+    public List<PersonaGestionable> autoCompletePersonaGestionable(@Named("Ingrese CUIL")String searchPhrase) {        
     	Long temp = Long.parseLong(searchPhrase);
-		return allMatches(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",temp));
+		return allMatches(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",temp,"establecimiento",this.verMisDatos().getEstablecimiento()));
     }
     @Hidden
 	public List<Alumno> autoCompletarAlumno (@Named("Ingrese CUIL")String searchPhrase)
