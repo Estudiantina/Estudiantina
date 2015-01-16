@@ -110,9 +110,11 @@ public class Prestada implements ISituacionDeNetbook {
 		parametros.put("cursoAlumno", alumno.getCursos().first().getAnio().toString());
 		parametros.put("divisionAlumno", alumno.getCursos().first().getDivision());
 		parametros.put("marcaNetbook", netbook.getMarca().toString());
+		parametros.put("modelo", netbook.getModelo());
 		parametros.put("serieNetbook", netbook.getNumeroDeSerie());
 		parametros.put("nombreTutor",alumno.getTutor().getNombre());					
-	    parametros.put("nombreDirector", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre() );		
+	    parametros.put("nombreDirector", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre() );
+	    
 		
 		try {
 			return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaAutorizacionPrestamoNet.jrxml", parametros, "Solicitud");
