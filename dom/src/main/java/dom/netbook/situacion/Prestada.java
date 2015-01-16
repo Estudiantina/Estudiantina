@@ -112,7 +112,7 @@ public class Prestada implements ISituacionDeNetbook {
 		parametros.put("marcaNetbook", netbook.getMarca().toString());
 		parametros.put("modelo", netbook.getModelo());
 		parametros.put("serieNetbook", netbook.getNumeroDeSerie());
-		parametros.put("nombreTutor",alumno.getTutor().getNombre());					
+		parametros.put("nombreTutor",alumno.getTutor().getApellido()+" "+alumno.getTutor().getNombre());					
 	    parametros.put("nombreDirector", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre() );
 	    
 		
