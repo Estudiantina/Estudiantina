@@ -104,6 +104,7 @@ public class Asignada implements ISituacionDeNetbook {
 	@Override
 	public void desasignarNetbookDePersona() {
 		this.netbook.setSituacionDeNetbook(this.netbook.getEnStock());
+		this.netbook.getPersona().getNetbooks().remove(this.netbook);
 		this.netbook.setPersona(null);
 		
 	}
