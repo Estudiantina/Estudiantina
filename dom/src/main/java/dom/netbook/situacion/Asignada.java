@@ -173,8 +173,7 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarAceptarMigracion() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
