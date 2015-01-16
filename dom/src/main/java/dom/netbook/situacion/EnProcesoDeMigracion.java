@@ -63,13 +63,13 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	@Override
 	public boolean ocultarImprimirActaPrestamo() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean ocultarNumeroActaDeRobo() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
