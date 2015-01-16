@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaMigracion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eea62db-9b8e-4ef8-95d2-5ca98b500e5f">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="65"/>
+	<property name="ireport.y" value="137"/>
 	<parameter name="directorCedente" class="java.lang.String"/>
 	<parameter name="netbookModelo" class="java.lang.String"/>
 	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
@@ -16,6 +16,19 @@
 	<parameter name="cuilAlumno" class="java.lang.String"/>
 	<parameter name="telefonoEstablecimiento" class="java.lang.String"/>
 	<parameter name="emailEstablecimiento" class="java.lang.String"/>
+	<parameter name="nombreDirectorCedente" class="java.lang.String"/>
+	<parameter name="dniDirectorCedente" class="java.lang.String"/>
+	<parameter name="nombreEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="cueEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="distritoEscolarCedente" class="java.lang.String"/>
+	<parameter name="ciudadEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="provinciaEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="domicilioEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="nombreAlumno" class="java.lang.String"/>
+	<parameter name="modeloNetbook" class="java.lang.String"/>
+	<parameter name="nroSerieNetbook" class="java.lang.String"/>
+	<parameter name="ciudadAlumno" class="java.lang.String"/>
+	<parameter name="provinciaAlumno" class="java.lang.String"/>
 	<title>
 		<band height="134" splitType="Stretch">
 			<staticText>
@@ -70,66 +83,8 @@
 	<detail>
 		<band height="384" splitType="Stretch">
 			<textField>
-				<reportElement x="36" y="12" width="122" height="20" uuid="35aad0c2-23eb-499e-9aad-808367bc44ae"/>
-				<textFieldExpression><![CDATA[$P{directorCedente}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="10" y="0" width="545" height="379" uuid="6597a5c8-0fbf-4b13-a565-caba8813f96c"/>
-				<textElement>
-					<font fontName="Cantarell" size="11"/>
-				</textElement>
-				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a:................................................................., DNI Nro ……..........................., en su carácter de Director/a del
-Colegio ..................................., CUE: ......................................... Distrito Escolar: .......................  de la ......................................................., con domicilio Calle : ............................................................................
-en adelante “EL CEDENTE” y por la otra parte la/el Sr./a: .......................................................................
-DNI Nro ............................, en su carácter de Director/a del Colegio .........................................., Nro ...................., CUE: .................................... Distrito Escolar: ......................... de la Ciudad de .........................
-Provincia de ……………………….........., con domicilio en ……..........................................................................., en adelante “EL RECEPCIONISTA” , convienen por la presenta acta la migración  del alumno
-............................................................., CUIL Nro: ...................................., comodatario de la netbook modelo: .........................................., serie No: ..................................................,
-del establecimiento con director/a CEDENTE al establecimiento con director/a RECEPCIONISTA a fin de ser incorporado en la planta de alumnos comodatarios del establecimiento con
- director “RECEPCIONISTA” y la registración en el servidor del mismo establecimiento para otorgar los correspondientes certificados de seguridad, dejando de estar vinculada en el establecimiento con
-director “CEDENTE”.
-
-En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un solo efecto, por EL CEDENTE y por EL RECEPCIONISTA en la ciudad ............................................Provincia de  ..........................................., a los ............................. días del mes de  ................................... de .............
-]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="10" y="146" width="100" height="20" uuid="6990dacc-4a6d-458e-b2ed-e1c86e7b76ed"/>
-				<textFieldExpression><![CDATA[$P{netbookModelo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="192" y="146" width="143" height="20" uuid="5cf5d993-7f5b-4abe-b60d-30bcce9036f3"/>
-				<textFieldExpression><![CDATA[$P{numeroSerieNetbook}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="292" y="12" width="100" height="20" uuid="af9f6edf-c261-423a-90c0-8ddde01c4da6"/>
-				<textFieldExpression><![CDATA[$P{nroDniDirector}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="53" y="29" width="139" height="20" uuid="508a304a-e271-4879-9c19-8262849532cb"/>
-				<textFieldExpression><![CDATA[$P{establecimiento}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="203" y="30" width="100" height="20" uuid="ab865d74-8eef-40a3-985c-df55886e7b69"/>
-				<textFieldExpression><![CDATA[$P{cue}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="414" y="31" width="100" height="20" uuid="1b7d4ac5-80f7-4fcd-9a6e-17020e13d600"/>
-				<textFieldExpression><![CDATA[$P{distrito}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="53" y="42" width="100" height="20" uuid="d3988fbc-bacc-42b2-b495-c6794d859f87"/>
-				<textFieldExpression><![CDATA[$P{localidad}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="314" y="42" width="200" height="20" uuid="ca48d690-66e2-4fc5-827a-0db1dde28c78"/>
-				<textFieldExpression><![CDATA[$P{domicilio}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="10" y="130" width="100" height="20" uuid="24bb837d-2adf-4b95-bbc3-ec62c15bb61e"/>
-				<textFieldExpression><![CDATA[$P{alumno}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="259" y="133" width="100" height="20" uuid="867b50b2-8795-4628-b43f-cdacd1e2602b"/>
-				<textFieldExpression><![CDATA[$P{cuilAlumno}]]></textFieldExpression>
+				<reportElement x="12" y="11" width="524" height="344" uuid="b3ac45e4-534b-47b9-ba92-352d9f2628f8"/>
+				<textFieldExpression><![CDATA["	Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a:"+$P{directorCedente}+", DNI Nro "+$P{nroDniDirector}+", en su carácter de Director/a del Colegio "+$P{establecimiento}+", CUE: "+$P{cue}+" Distrito Escolar: "+$P{distrito}+"  de la ciudad de "+$P{localidad}+", con domicilio Calle : "+$P{domicilio}+"en adelante “EL CEDENTE” y por la otra parte la/el Sr./a: "+$P{nombreDirectorCedente}+" DNI Nro "+$P{dniDirectorCedente}+", en su carácter de Director/a del Colegio "+$P{nombreEstablecimientoCedente}+", CUE: "+$P{cueEstablecimientoCedente}+" Distrito Escolar: "+$P{distritoEscolarCedente}+" de la Ciudad de "+$P{ciudadEstablecimientoCedente}+" Provincia de "+$P{provinciaEstablecimientoCedente}+" , con domicilio en "+$P{domicilioEstablecimientoCedente}+" , en adelante “EL RECEPCIONISTA” , convienen por la presenta acta la migración  del alumno "+$P{nombreAlumno}+" , CUIL Nro: "+$P{cuilAlumno}+" , comodatario de la netbook modelo: "+$P{modeloNetbook}+" , serie No: "+$P{nroSerieNetbook}+", del establecimiento con director/a CEDENTE al establecimiento con director/a RECEPCIONISTA a fin de ser incorporado en la planta de alumnos comodatarios del establecimiento con director “RECEPCIONISTA” y la registración en el servidor del mismo establecimiento para otorgar los correspondientes certificados de seguridad, dejando de estar vinculada en el establecimiento con director “CEDENTE”. En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un solo efecto, por EL CEDENTE y por EL RECEPCIONISTA en la ciudad "+$P{ciudadAlumno}+" Provincia de  "+$P{provinciaAlumno}+" , a los ............................. días del mes de  ................................... de ............."]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

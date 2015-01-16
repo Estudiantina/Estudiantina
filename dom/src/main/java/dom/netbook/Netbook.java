@@ -50,6 +50,7 @@ import org.apache.isis.applib.value.Blob;
 import dom.alumno.Alumno;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.situacion.Asignada;
+import dom.netbook.situacion.EnProcesoDeMigracion;
 import dom.netbook.situacion.EnStock;
 import dom.netbook.situacion.Entregada;
 import dom.netbook.situacion.ISituacionDeNetbook;
@@ -98,16 +99,29 @@ public class Netbook implements Comparable<Netbook> {
 	private Entregada entregada;
 	private Prestada prestada;
 	private Robada robada;
+	private EnProcesoDeMigracion enProcesoDeMigracion;
 	
-	
-	
+	@Hidden
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public EnProcesoDeMigracion getEnProcesoDeMigracion() {
+		return enProcesoDeMigracion;
+	}
+
+
+	public void setEnProcesoDeMigracion(EnProcesoDeMigracion enProcesoDeMigracion) {
+		this.enProcesoDeMigracion = enProcesoDeMigracion;
+	}
+
+
 	public Netbook() {
 		this.enStock = new EnStock(this);
 		this.asignada = new Asignada(this);
 		this.entregada = new Entregada(this);
 		this.prestada = new Prestada(this);
 		this.robada = new Robada(this);
+		this.enProcesoDeMigracion = new EnProcesoDeMigracion(this);
 		this.situacionDeNetbook = this.getEnStock();
+		
 	}
 	
 	
@@ -119,6 +133,7 @@ public class Netbook implements Comparable<Netbook> {
 			"dom.netbook.situacion.EnStock"
 			+",dom.netbook.situacion.Asignada"
 			+",dom.netbook.situacion.Entregada"
+			+",dom.netbook.situacion.EnProcesoDeMigracion"
 			+",dom.netbook.situacion.Prestada"
 			+",dom.netbook.situacion.Robada"
 					)})
@@ -388,7 +403,16 @@ public class Netbook implements Comparable<Netbook> {
 	   return this.getSituacionDeNetbook().ocultarImprimirActaPrestamo();
    }
    
+   public Netbook migrarNetbook(Establecimiento establecimiento)
+   {
+	   this.getSituacionDeNetbook().migrarNetbook(establecimiento);
+	   return this;
+   }
    
+   public boolean ocultarMigrarNetbook()
+   {
+	   return this.getSituacionDeNetbook().ocultarMigrarNetbook();
+   }
     /**
     * TODO ImprimirReporte
     * TODO Generar acta de recepcion de equipo

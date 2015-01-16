@@ -2,6 +2,7 @@ package dom.netbook.situacion;
 
 import org.apache.isis.applib.value.Blob;
 
+import dom.establecimiento.Establecimiento;
 import dom.persona.personagestionable.PersonaGestionable;
 
 public interface ISituacionDeNetbook {
@@ -17,10 +18,13 @@ public interface ISituacionDeNetbook {
 	public void reportarComoRobada(String numeroDeActa);
 	public Blob imprimirActaMigracion();
 	public Blob imprimirActaPrestamo();
+	public void migrarNetbook(Establecimiento establecimiento);
+	public boolean ocultarMigrarNetbook();
 	public Blob imprimirActaRecepcionDeNetbook();
 	public void desasignarNetbookDePersona();
 	public void establecerNetbookComoRobada();
 	public void entregarNetbookAlAlumno();
 	public boolean ocultarEntregarNetbookAlAlumno();
 	public void asignarPersona(PersonaGestionable persona);
+
 }

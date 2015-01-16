@@ -18,6 +18,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
 
+import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.Netbook;
 import dom.persona.personagestionable.PersonaGestionable;
@@ -40,10 +41,17 @@ public class Asignada implements ISituacionDeNetbook {
 		return SituacionDeNetbook.ASIGNADA;
 	}
 	
-
+    
 	@Override
 	public boolean ocultarImprimirActaMigracion() {
-		return false;
+		if (repoPersona.verMisDatos().getEstablecimiento().getDirectivo()==null)
+		{
+		return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	@Override
@@ -69,34 +77,38 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public Blob imprimirActaMigracion() {
+		
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
  		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",netbook.getPersona().getCuil()));
- 				
  		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
- 		
  		parametros.put("distrito", establecimiento.getDistritoEscolar());
  		parametros.put("cue", establecimiento.getCue());
- 		parametros.put("emailEstablecimiento", establecimiento.getEmail());
+ 		/*parametros.put("emailEstablecimiento", establecimiento.getEmail());
  		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
- 		
  		parametros.put("establecimiento", establecimiento.getNombre());
  		parametros.put("localidad", establecimiento.getLocalidad());
  		parametros.put("domicilio", establecimiento.getDireccion());
  		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
- 		
       	parametros.put("alumno", persona.getNombre()+", "+persona.getApellido());
         parametros.put("cuilAlumno", persona.getCuil());
+        parametros.put("nombreDirectorCedente", establecimientoAmigrar.getDirectivo().getApellido()+" "+establecimientoAmigrar.getDirectivo().getNombre());
  		parametros.put("netbookModelo", netbook.getMarca().toString()+" "+netbook.getModelo());
  		parametros.put("numeroSerieNetbook", netbook.getNumeroDeSerie());
- 		
- 		    if (establecimiento.getDirectivo() != null){
- 		       parametros.put("dierectorCedente", establecimiento.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
- 		       parametros.put("nroDniDirector", establecimiento.getDirectivo().getCuil());
- 		       }
- 		       else {
- 			        parametros.put("DierctorCedente", "");
- 	 		        parametros.put("nroDniDirector", "");
- 		       }
+ 		parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
+ 		parametros.put("nroDniDirector", establecimiento.getDirectivo().getCuil());
+ 		parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getCuil());
+ 		parametros.put("dniDirectorCedente", establecimientoAmigrar.getDirectivo().getCuil());
+ 		parametros.put("nombreEstablecimientoCedente", establecimientoAmigrar.getNombre());
+ 		parametros.put("cueEstablecimientoCedente", establecimientoAmigrar.getDirectivo().getCuil());
+ 		parametros.put("distritoEscolarCedente", establecimientoAmigrar.getDistritoEscolar());
+ 		parametros.put("ciudadEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
+ 		parametros.put("provinciaEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
+ 		parametros.put("domicilioEstablecimientoCedente", establecimientoAmigrar.getDireccion());
+ 		parametros.put("nombreAlumno", netbook.getPersona().getNombre());
+ 		parametros.put("modeloNetbook", netbook.getMarca()+" "+netbook.getModelo());
+ 		parametros.put("nroSerieNetbook", netbook.getNumeroDeSerie());
+ 		parametros.put("ciudadAlumno", netbook.getPersona().getLocalidad().getLocalidad());
+ 		parametros.put("ciudadAlumno", "");*/
  		try {
 			return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
 		} catch (FileNotFoundException e) {
@@ -119,7 +131,6 @@ public class Asignada implements ISituacionDeNetbook {
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
 		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil", netbook.getPersona().getCuil() ));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
-		
 		parametros.put("nombreAlumno", persona.getNombre());
 		parametros.put("apellidoAlumno",persona.getApellido());
 		parametros.put("modeloNetbook", netbook.getModelo());
@@ -174,6 +185,8 @@ public class Asignada implements ISituacionDeNetbook {
 		this.netbook.setSituacionDeNetbook(this.netbook.getRobada());
 	}
 	@javax.inject.Inject
+    private RepositorioPersona repoPersona;
+	@javax.inject.Inject
     private DomainObjectContainer container;
 
 	@Override
@@ -184,6 +197,18 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarEntregarNetbookAlAlumno() {
+		return false;
+	}
+
+	@Override
+	public void migrarNetbook(Establecimiento establecimiento) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ocultarMigrarNetbook() {
+		// TODO Auto-generated method stub
 		return false;
 	}
 

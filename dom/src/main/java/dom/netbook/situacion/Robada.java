@@ -11,6 +11,7 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.value.Blob;
 
+import dom.establecimiento.Establecimiento;
 import dom.netbook.Netbook;
 import dom.persona.personagestionable.PersonaGestionable;
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
@@ -126,6 +127,18 @@ public class Robada implements ISituacionDeNetbook{
 	@Override
 	public boolean ocultarEntregarNetbookAlAlumno() {
 		return true;
+	}
+
+	@Override
+	public void migrarNetbook(Establecimiento establecimiento) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ocultarMigrarNetbook() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 
