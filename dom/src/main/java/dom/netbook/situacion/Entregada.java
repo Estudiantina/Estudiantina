@@ -31,7 +31,7 @@ public class Entregada implements ISituacionDeNetbook{
 
 	@Override
 	public SituacionDeNetbook getNombreSituacion() {
-		return SituacionDeNetbook.ASIGNADA;
+		return SituacionDeNetbook.ENTREGADA;
 	}
 	
 	@Override
