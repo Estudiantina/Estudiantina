@@ -100,7 +100,17 @@ public class Netbook implements Comparable<Netbook> {
 	private Prestada prestada;
 	private Robada robada;
 	private EnProcesoDeMigracion enProcesoDeMigracion;
-	
+	private Establecimiento establecimientoAmigrar;
+	@Hidden
+	@javax.jdo.annotations.Column(allowsNull="true")
+	public Establecimiento getEstablecimientoAmigrar() {
+		return establecimientoAmigrar;
+	}
+	public void setEstablecimientoAmigrar(Establecimiento establecimientoAmigrar) {
+		this.establecimientoAmigrar = establecimientoAmigrar;
+	}
+
+
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public EnProcesoDeMigracion getEnProcesoDeMigracion() {

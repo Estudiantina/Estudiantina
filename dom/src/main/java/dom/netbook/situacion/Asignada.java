@@ -155,8 +155,9 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public void migrarNetbook(Establecimiento establecimiento) {
-		this.netbook.getEnProcesoDeMigracion().setEstablecimientoAmigrar(establecimiento);
-		this.netbook.setSituacionDeNetbook(this.netbook.getEnProcesoDeMigracion());		
+		this.netbook.setEstablecimientoAmigrar(establecimiento);
+		this.netbook.setSituacionDeNetbook(this.netbook.getEnProcesoDeMigracion());
+		
 	}
 
 	@Override

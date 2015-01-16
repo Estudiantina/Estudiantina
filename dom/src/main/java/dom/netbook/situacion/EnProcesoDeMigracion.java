@@ -17,6 +17,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
+import org.eclipse.jdt.core.dom.ThisExpression;
 
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
@@ -31,14 +32,7 @@ import dom.persona.personagestionable.PersonaGestionable;
 public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 
 	private Netbook netbook;
-	private Establecimiento establecimientoAmigrar;
-	@javax.jdo.annotations.Column(allowsNull="true")
-	public Establecimiento getEstablecimientoAmigrar() {
-		return establecimientoAmigrar;
-	}
-	public void setEstablecimientoAmigrar(Establecimiento establecimientoAmigrar) {
-		this.establecimientoAmigrar = establecimientoAmigrar;
-	}
+	
 	public EnProcesoDeMigracion(Netbook netbook)
 	{
 		this.netbook= netbook;
@@ -111,6 +105,8 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
  		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",netbook.getPersona().getCuil()));
  		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
+ 		Establecimiento establecimientoAmigrar =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",netbook.getEstablecimiento().getNombre()));
+ 		parametros.put("nombreDirectorEstablecimiento", establecimientoAmigrar.getDirectivo().getNombre());
  		parametros.put("distrito", establecimiento.getDistritoEscolar());
  		parametros.put("cue", establecimiento.getCue());
  		parametros.put("emailEstablecimiento", establecimiento.getEmail());
@@ -121,19 +117,18 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
  		parametros.put("telefonoEstablecimiento", establecimiento.getTelefono());
       	parametros.put("alumno", persona.getNombre()+", "+persona.getApellido());
         parametros.put("cuilAlumno", persona.getCuil());
-        //parametros.put("nombreDirectorCedente", establecimientoAmigrar.getDirectivo().getApellido()+" "+establecimientoAmigrar.getDirectivo().getNombre());
+        parametros.put("nombreDirectorCedente", establecimientoAmigrar.getDirectivo().getApellido()+" "+establecimientoAmigrar.getDirectivo().getNombre());
  		parametros.put("netbookModelo", netbook.getMarca().toString()+" "+netbook.getModelo());
  		parametros.put("numeroSerieNetbook", netbook.getNumeroDeSerie());
- 		//parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
+ 		parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getApellido()+ ",  "+establecimiento.getDirectivo().getNombre());
  		parametros.put("nroDniDirector", establecimiento.getDirectivo().getCuil());
- 		//parametros.put("directorCedente", establecimientoAmigrar.getDirectivo().getCuil());
- 		//parametros.put("dniDirectorCedente", establecimientoAmigrar.getDirectivo().getCuil());
- 		//parametros.put("nombreEstablecimientoCedente", establecimientoAmigrar.getNombre());
- 		//parametros.put("cueEstablecimientoCedente", establecimientoAmigrar.getDirectivo().getCuil());
- 		//parametros.put("distritoEscolarCedente", establecimientoAmigrar.getDistritoEscolar());
- 		//parametros.put("ciudadEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
- 		//parametros.put("provinciaEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
- 		//parametros.put("domicilioEstablecimientoCedente", establecimientoAmigrar.getDireccion());
+ 		parametros.put("dniDirectorCedente", establecimientoAmigrar.getDirectivo().getCuil());
+ 		parametros.put("nombreEstablecimientoCedente", establecimientoAmigrar.getNombre());
+ 		parametros.put("cueEstablecimientoCedente", establecimientoAmigrar.getDirectivo().getCuil());
+ 		parametros.put("distritoEscolarCedente", establecimientoAmigrar.getDistritoEscolar());
+ 		parametros.put("ciudadEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
+ 		parametros.put("provinciaEstablecimientoCedente", establecimientoAmigrar.getLocalidad().getLocalidad());
+ 		parametros.put("domicilioEstablecimientoCedente", establecimientoAmigrar.getDireccion());
  		parametros.put("nombreAlumno", netbook.getPersona().getNombre());
  		parametros.put("modeloNetbook", netbook.getMarca()+" "+netbook.getModelo());
  		parametros.put("nroSerieNetbook", netbook.getNumeroDeSerie());
@@ -188,8 +183,7 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 
 	@Override
 	public void migrarNetbook(Establecimiento establecimiento) {
-		// TODO Auto-generated method stub
-		
+		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 	@Override
 	public boolean ocultarMigrarNetbook() {

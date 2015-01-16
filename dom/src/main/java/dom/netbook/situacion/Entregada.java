@@ -94,7 +94,6 @@ public class Entregada implements ISituacionDeNetbook{
 
 	@Override
 	public void asignarPersona(PersonaGestionable persona) {
-		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
