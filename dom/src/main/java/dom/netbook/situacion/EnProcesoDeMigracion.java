@@ -197,6 +197,7 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	public void aceptarMigracion() {
 		this.netbook.setSituacionDeNetbook(this.netbook.getAsignada());
 		this.netbook.setEstablecimiento(this.netbook.getEstablecimientoAmigrar());
+		this.netbook.getPersona().setEstablecimiento(this.netbook.getEstablecimientoAmigrar());
 		this.netbook.setEstablecimientoAmigrar(null);
 	}
 	@Override
