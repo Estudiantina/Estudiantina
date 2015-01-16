@@ -408,7 +408,7 @@ public class Netbook implements Comparable<Netbook> {
 	   this.getSituacionDeNetbook().migrarNetbook(establecimiento);
 	   return this;
    }
-   
+   @Hidden
    public boolean ocultarMigrarNetbook()
    {
 	   return this.getSituacionDeNetbook().ocultarMigrarNetbook();
