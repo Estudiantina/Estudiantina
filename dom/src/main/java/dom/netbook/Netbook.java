@@ -409,7 +409,7 @@ public class Netbook implements Comparable<Netbook> {
 	   return this;
    }
    @Hidden
-   public boolean ocultarMigrarNetbook()
+   public boolean hideMigrarNetbook()
    {
 	   return this.getSituacionDeNetbook().ocultarMigrarNetbook();
    }
