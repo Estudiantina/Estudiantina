@@ -44,14 +44,7 @@ public class Asignada implements ISituacionDeNetbook {
     
 	@Override
 	public boolean ocultarImprimirActaMigracion() {
-		if (repoPersona.verMisDatos().getEstablecimiento().getDirectivo()==null)
-		{
 		return true;
-		}
-		else
-		{
-			return false;
-		}
 	}
 
 	@Override
@@ -78,7 +71,7 @@ public class Asignada implements ISituacionDeNetbook {
 	@Override
 	public Blob imprimirActaMigracion() {
 		
-		return null;
+		throw new UnsupportedOperationException("No impletandado todavía...");
 	}
 
 	@Override
@@ -145,8 +138,7 @@ public class Asignada implements ISituacionDeNetbook {
 		this.netbook.setNumeroDeActaDeRobo(numeroDeActa);
 		this.netbook.setSituacionDeNetbook(this.netbook.getRobada());
 	}
-	@javax.inject.Inject
-    private RepositorioPersona repoPersona;
+
 	@javax.inject.Inject
     private DomainObjectContainer container;
 

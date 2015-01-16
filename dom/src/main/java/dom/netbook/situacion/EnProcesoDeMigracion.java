@@ -18,6 +18,7 @@ import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
 
+import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.Netbook;
 import dom.persona.personagestionable.PersonaGestionable;
@@ -49,7 +50,14 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 
 	@Override
 	public boolean ocultarImprimirActaMigracion() {
-		return false;
+		if (repoPersona.verMisDatos().getEstablecimiento().getDirectivo()==null)
+		{
+		return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	@Override
@@ -210,4 +218,6 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	@javax.inject.Inject
+    private RepositorioPersona repoPersona;
 }
