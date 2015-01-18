@@ -154,6 +154,26 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tecnico:Tecnico:localizacion:*",executionContext);
 		//PERMISOS EN TUTOR 
 		//PARA USUARIO TECNICO
+		create("usuario_tecnico","dom.directivo:Directivo:alturaDomicilio:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:apellido:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:cuil:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:domicilio:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:email:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:establecimiento:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:fechaNacimiento:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:Netbooks:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:nombre:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:piso:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:localidad:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:sexo:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:telefonoCelular:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:telefonoFijo:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:alumnos:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:localizacion:r",executionContext);
+		
+		
+		//PERMISOS EN TUTOR 
+		//PARA USUARIO TECNICO
 		create("usuario_tecnico","dom.tutor:Tutor:alturaDomicilio:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:apellido:r",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:cuil:r",executionContext);
