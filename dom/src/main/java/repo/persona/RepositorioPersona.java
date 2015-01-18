@@ -415,9 +415,18 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	public List<Alumno> autoCompletarAlumno (@Named("Ingrese CUIL")String searchPhrase)
 	{
 		Long temp = Long.parseLong(searchPhrase);
-		return allMatches(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",temp));
+		return allMatches(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",temp,"institucion",this.verMisDatos().getEstablecimiento()));
 		
 	}
+    
+    
+    @Hidden
+  	public List<Docente> autoCompletarDocente (@Named("Ingrese CUIL")String searchPhrase)
+  	{
+  		Long temp = Long.parseLong(searchPhrase);
+  		return allMatches(QueryDefault.create(Docente.class, "traerPorcuil","cuil",temp,"institucion",this.verMisDatos().getEstablecimiento()));
+  		
+  	}
     
     @Hidden
 	public List<Tutor> autoCompletarTutor (@Named("Ingrese CUIL")String searchPhrase)
