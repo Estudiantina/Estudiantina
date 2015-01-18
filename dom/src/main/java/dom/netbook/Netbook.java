@@ -14,16 +14,12 @@ package dom.netbook;
 
 import java.io.FileNotFoundException;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-
 import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
-
 import net.sf.jasperreports.engine.JRException;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
@@ -40,14 +36,9 @@ import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.annotation.Where;
-import org.apache.isis.applib.query.QueryDefault;
-
 import javax.jdo.annotations.Column;
-
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
-
-import dom.alumno.Alumno;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.situacion.Asignada;
 import dom.netbook.situacion.EnProcesoDeMigracion;
@@ -61,9 +52,7 @@ import dom.persona.personagestionable.PersonaGestionable;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 import repo.netbook.RepositorioNetbook;
 import repo.solicitudserviciotecnico.RepoSolicitudServicioTecnico;
-
 import org.apache.isis.applib.annotation.Render.Type;
-import org.eclipse.jdt.core.dom.ThisExpression;
 
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
