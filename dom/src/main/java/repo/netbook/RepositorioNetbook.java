@@ -197,6 +197,10 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 		}
 	}
 		
+    public List<Netbook> listarNetbooksSinAsignar() {        
+    	return allMatches(QueryDefault.create(Netbook.class, "traerNetbooksSinAsignar","institucion",repositorioPersona.verMisDatos().getEstablecimiento()));
+    }
+	
 	/**
 	 * Busqueda de Netbook por Id 
 	 * 
