@@ -190,7 +190,7 @@ public class Asignada implements ISituacionDeNetbook {
 
 			HashMap<String,Object> parametros = new HashMap<String, Object>();
 
-			Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.netbook.getPersona().getCuil()));
+			Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.netbook.getPersona().getCuil(),"institucion",this.netbook.getEstablecimiento()));
 			Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
 			parametros.put("distritoEscolar", establecimiento.getDistritoEscolar());
 			parametros.put("ciudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());	    	
@@ -228,8 +228,8 @@ public class Asignada implements ISituacionDeNetbook {
 			return servicio.reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
 		}
 		catch(Exception ex)
-		{	
-			Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
+		{	String respuesta = "no se pudo generar el reporte verifique que esten todos los datos"+ex.toString();
+			Blob archivonulo = new Blob("archivo.txt", "text/plain",respuesta.getBytes());
 			return archivonulo;
 		}
 }
