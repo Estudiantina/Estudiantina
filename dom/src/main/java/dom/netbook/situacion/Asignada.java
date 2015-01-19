@@ -233,6 +233,12 @@ public class Asignada implements ISituacionDeNetbook {
 			return archivonulo;
 		}
 }
+
+	@Override
+	public boolean ocultarContratoDeComodato() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }

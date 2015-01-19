@@ -482,6 +482,10 @@ public class Netbook implements Comparable<Netbook> {
     	return this.getSituacionDeNetbook().imprimirContratoDeComodato();
     }
     
+    public boolean hideimprimirContratoDeComodato()
+    {
+    	return this.getSituacionDeNetbook().ocultarContratoDeComodato();
+    }
     
     /**
      * lista una lista con el historial de reparaciones 

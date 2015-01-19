@@ -222,4 +222,10 @@ public class Prestada implements ISituacionDeNetbook {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public boolean ocultarContratoDeComodato() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

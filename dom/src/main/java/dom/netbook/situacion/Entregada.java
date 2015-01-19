@@ -163,4 +163,10 @@ public class Entregada implements ISituacionDeNetbook{
 		return null;
 	}
 
+	@Override
+	public boolean ocultarContratoDeComodato() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

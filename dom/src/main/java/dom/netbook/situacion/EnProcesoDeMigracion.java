@@ -101,7 +101,7 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	@Override
 	public Blob imprimirActaMigracion() {
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
- 		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",netbook.getPersona().getCuil()));
+ 		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",netbook.getPersona().getCuil(),"establecimiento",netbook.getEstablecimiento()));
  		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
  		Establecimiento establecimientoAmigrar =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",netbook.getEstablecimiento().getNombre()));
  		parametros.put("nombreDirectorEstablecimiento", establecimientoAmigrar.getDirectivo().getNombre());
@@ -209,5 +209,10 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	public Blob imprimirContratoDeComodato() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public boolean ocultarContratoDeComodato() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

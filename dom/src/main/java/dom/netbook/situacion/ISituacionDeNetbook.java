@@ -27,6 +27,7 @@ public interface ISituacionDeNetbook {
 	public void establecerNetbookComoRobada();
 	public void entregarNetbookAlAlumno();
 	public Blob imprimirContratoDeComodato();
+	public boolean ocultarContratoDeComodato();
 	public boolean ocultarEntregarNetbookAlAlumno();
 	public void asignarPersona(PersonaGestionable persona);
 
