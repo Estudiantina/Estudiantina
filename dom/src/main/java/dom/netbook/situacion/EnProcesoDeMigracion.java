@@ -211,7 +211,6 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	}
 	@Override
 	public boolean ocultarContratoDeComodato() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 }
