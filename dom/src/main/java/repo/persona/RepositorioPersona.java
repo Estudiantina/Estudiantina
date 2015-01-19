@@ -468,7 +468,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     @Hidden
 	public PersonaGestionable buscarPorCuil(Long cuil){
 		final PersonaGestionable mipersona = this.container.firstMatch(new QueryDefault<PersonaGestionable>(PersonaGestionable.class,
-				"traerPorcuil","cuil",cuil));
+				"traerPorcuilEnTodosLosEstablecimientos","cuil",cuil));
 				return mipersona;
 	}
     @Named("buscar persona por cuil en este Establecimiento")
