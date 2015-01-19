@@ -178,8 +178,7 @@ public class Entregada implements ISituacionDeNetbook{
 		return true;
 	}
 	
-	public Blob imprimirContratoDeCesion()
-	{
+	public Blob imprimirContratoDeCesion() {
 	 	try{
 	    HashMap<String, Object> parametros = new HashMap<String, Object>();
 	    Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.netbook.getPersona().getCuil(),"institucion",this.netbook.getEstablecimiento()));
@@ -188,7 +187,13 @@ public class Entregada implements ISituacionDeNetbook{
 	    parametros.put("marcaNetbook",netbook.getMarca());
 	    parametros.put("alturaDomicilioTutor", alumno.getTutor().getAlturaDomicilio());
 	    //TODO parametros.put("domicilioProvinciaTutor","")
+	    /*if (alumno.getTutor().getPiso().isEmpty()==false)
+	    {
 	    parametros.put("domicilioPisoTutor", alumno.getTutor().getPiso().toString());
+	    }else
+	    {*/
+	    parametros.put("domicilioPisoTutor", "");
+	    //}
 	    parametros.put("domicilioDepartamentoTutor",alumno.getTutor().getLocalidad().getDepartamento().toString());
 	    parametros.put("numeroSerieNetbook",alumno.getNetbooks().first().getNumeroDeSerie());
 	    parametros.put("Instituto",alumno.getEstablecimiento().getNombre());
