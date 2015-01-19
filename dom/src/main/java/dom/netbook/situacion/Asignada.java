@@ -85,7 +85,7 @@ public class Asignada implements ISituacionDeNetbook {
 	@Override
 	public Blob imprimirActaRecepcionDeNetbook() {
 		HashMap<String,Object> parametros = new HashMap<String, Object>();
-		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil", netbook.getPersona().getCuil() ));
+		PersonaGestionable persona = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil", netbook.getPersona().getCuil(),"establecimiento",netbook.getEstablecimiento() ));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",persona.getEstablecimiento().getNombre()));
 		parametros.put("nombreAlumno", persona.getNombre());
 		parametros.put("apellidoAlumno",persona.getApellido());
