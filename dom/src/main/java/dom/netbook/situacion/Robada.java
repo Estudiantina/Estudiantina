@@ -172,8 +172,7 @@ public class Robada implements ISituacionDeNetbook{
 
 	@Override
 	public boolean ocultarImprimirContratoDeCesion() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 
