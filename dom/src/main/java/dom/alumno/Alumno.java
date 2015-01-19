@@ -268,7 +268,7 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
     	{
     	HashMap<String,Object> parametros = new HashMap<String, Object>();
     	
-    	 	Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.getCuil()));
+    	 	Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.getCuil(),"establecimiento",this.getEstablecimiento()));
 	    	Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
 	    	parametros.put("establecimiento", establecimiento.getNombre());
 	    	  	
