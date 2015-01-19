@@ -256,69 +256,7 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 		}
 	}
 	
-    ///////////////////////////////////////
-    //imprimir reporte para contrato de comodato
-    //////////////////////////////////////
-	@Named("Imprimir Contrato Comodato")
-	public Blob imprimirContratoDeComodato() throws JRException, FileNotFoundException 
-    {
-	  try {
-		  
-    	HashMap<String,Object> parametros = new HashMap<String, Object>();
-    	
-    	 	Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.getCuil()));
-	    	Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
-	    	parametros.put("distritoEscolar", establecimiento.getDistritoEscolar());
-	    	parametros.put("ciudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());	    	
-	    	parametros.put("nombreEstablecimiento", establecimiento.getNombre());
-	    	parametros.put("domicilioEstablecimiento", establecimiento.getDireccion());
-	    	parametros.put("Establecimiento", establecimiento.getNombre());
-	    	parametros.put("cudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());
-		    parametros.put("nombreTutor", this.getTutor().getApellido()+" "+this.getTutor().getNombre());
-		    //PARAMETROS DEL TUTOR	    	
-	    	parametros.put("dniTutor",this.getTutor().getCuil().toString());
-	    	parametros.put("domicilio",this.getTutor().getDomicilio());
-	    	parametros.put("piso",this.getTutor().getPiso());
-	    	parametros.put("ciudadTutor",this.getTutor().getLocalidad().toString());
-	    
-	    	
-	    	Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",this.getEstablecimiento().getLocalidad().getCodigoPostal()));
-		    Departamento departamentoEstablecimiento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidadEstablecimiento.getDepartamento().getNombreDepartamento()));
-		  
-		    parametros.put("provinciaEstablecimiento", departamentoEstablecimiento.getProvincia().getNombreProvincia());
-	    		    		
-	    	Localidad localidad = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal","codigo",establecimiento.getLocalidad().getCodigoPostal()));
-	    	Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre",localidad.getDepartamento().getNombreDepartamento()));
-	    	
-		      if (establecimiento.getDirectivo() != null){
-		    	 parametros.put("dniDirector",  establecimiento.getDirectivo().getCuil().toString());
-		    	 parametros.put("nombreDirector", super.getEstablecimiento().getDirectivo().toString());
-	 		           }
-	 		       else {
-	 			         parametros.put("dniDirector", "..........................");
-	 			         parametros.put("nombreDirector", "................................");
-	 		             }
-		   
-		    parametros.put("direccionEstablecimiento", establecimiento.getDireccion());
-	    	parametros.put("provincia", departamento.getProvincia().getNombreProvincia());
-	    	parametros.put("DniAlumno", super.getCuil().toString());
-	    	parametros.put("caracterTutor", super.getApellido()+" "+super.getNombre());
-	    	parametros.put("nombreEstablecimiento",establecimiento.getNombre());
-	    	parametros.put("numeroEstablecimiento","");
-	    	parametros.put("Curso", this.getCursos().first().getAnio().toString());
-	    	parametros.put("Turno", this.cursos.first().getTurno().toString());
-	    	parametros.put("division", this.cursos.first().getDivision().toString());
-		    parametros.put("modeloNetbook",super.getNetbooks().first().getMarca().toString());
-		    parametros.put("numeroSerieNetbook",this.getNetbooks().first().getNumeroDeSerie());
-    		  
-    	return servicio.reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
-    	}
-    	catch(Exception ex)
-    	{	
-    		Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
-    		return archivonulo;
-    	}
-    }
+    
 	
 	///////////////////////////////////////
 	//imprimir reporte para certificado de alumno regular

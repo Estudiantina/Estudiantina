@@ -1,5 +1,7 @@
 package dom.netbook.situacion;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
+
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -7,11 +9,19 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.VersionStrategy;
+
+import net.sf.jasperreports.engine.JRException;
+
 import org.apache.isis.applib.DomainObjectContainer;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
+
+import dom.alumno.Alumno;
 import dom.establecimiento.Establecimiento;
+import dom.localidad.Departamento;
+import dom.localidad.Localidad;
 import dom.netbook.Netbook;
 import dom.persona.personagestionable.PersonaGestionable;
 @PersistenceCapable(identityType = IdentityType.DATASTORE)
@@ -170,4 +180,59 @@ public class Asignada implements ISituacionDeNetbook {
 		return true;
 	}
 
+///////////////////////////////////////
+//imprimir reporte para contrato de comodato
+//////////////////////////////////////
+	@Named("Imprimir Contrato Comodato")
+	public Blob imprimirContratoDeComodato()
+	{
+		try {
+
+			HashMap<String,Object> parametros = new HashMap<String, Object>();
+
+			Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.netbook.getPersona().getCuil()));
+			Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
+			parametros.put("distritoEscolar", establecimiento.getDistritoEscolar());
+			parametros.put("ciudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());	    	
+			parametros.put("nombreEstablecimiento", establecimiento.getNombre());
+			parametros.put("domicilioEstablecimiento", establecimiento.getDireccion());
+			parametros.put("Establecimiento", establecimiento.getNombre());
+			parametros.put("cudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());
+			parametros.put("nombreTutor", alumno.getTutor().getApellido()+" "+alumno.getTutor().getNombre());
+			//PARAMETROS DEL TUTOR	    	
+			parametros.put("dniTutor",alumno.getTutor().getCuil().toString());
+			parametros.put("domicilio",alumno.getTutor().getDomicilio());
+			parametros.put("piso",alumno.getTutor().getPiso());
+			parametros.put("ciudadTutor",alumno.getTutor().getLocalidad().toString());
+
+
+			Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",alumno.getEstablecimiento().getLocalidad().getCodigoPostal()));
+			Departamento departamentoEstablecimiento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidadEstablecimiento.getDepartamento().getNombreDepartamento()));
+
+			parametros.put("provinciaEstablecimiento", departamentoEstablecimiento.getProvincia().getNombreProvincia());
+
+			Localidad localidad = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal","codigo",establecimiento.getLocalidad().getCodigoPostal()));
+			Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre",localidad.getDepartamento().getNombreDepartamento()));
+			parametros.put("direccionEstablecimiento", establecimiento.getDireccion());
+			parametros.put("provincia", departamento.getProvincia().getNombreProvincia());
+			parametros.put("DniAlumno", alumno.getCuil().toString());
+			parametros.put("caracterTutor", alumno.getTutor().getApellido()+" "+alumno.getTutor().getNombre());
+			parametros.put("nombreEstablecimiento",establecimiento.getNombre());
+			parametros.put("numeroEstablecimiento","");
+			parametros.put("Curso", alumno.getCursos().first().getAnio().toString());
+			parametros.put("Turno", alumno.getCursos().first().getTurno().toString());
+			parametros.put("division", alumno.getCursos().first().getDivision().toString());
+			parametros.put("modeloNetbook",netbook.getMarca().toString());
+			parametros.put("numeroSerieNetbook",netbook.getNumeroDeSerie());
+
+			return servicio.reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
+		}
+		catch(Exception ex)
+		{	
+			Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
+			return archivonulo;
+		}
+}
+	
+	
 }

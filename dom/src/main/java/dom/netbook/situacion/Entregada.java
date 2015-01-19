@@ -157,4 +157,10 @@ public class Entregada implements ISituacionDeNetbook{
 		return true;
 	}
 
+	@Override
+	public Blob imprimirContratoDeComodato() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

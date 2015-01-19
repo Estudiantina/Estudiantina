@@ -204,4 +204,10 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	}
 	@javax.inject.Inject
     private RepositorioPersona repoPersona;
+
+	@Override
+	public Blob imprimirContratoDeComodato() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

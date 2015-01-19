@@ -153,6 +153,12 @@ public class Robada implements ISituacionDeNetbook{
 		return false;
 	}
 
+	@Override
+	public Blob imprimirContratoDeComodato() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }
