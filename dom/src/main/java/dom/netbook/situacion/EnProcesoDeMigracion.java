@@ -213,4 +213,14 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 	public boolean ocultarContratoDeComodato() {
 		return true;
 	}
+	@Override
+	public Blob imprimirContratoDeCesion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean ocultarImprimirContratoDeCesion() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -228,4 +228,16 @@ public class Prestada implements ISituacionDeNetbook {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
+	@Override
+	public Blob imprimirContratoDeCesion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean ocultarImprimirContratoDeCesion() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

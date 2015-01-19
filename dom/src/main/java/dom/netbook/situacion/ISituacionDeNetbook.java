@@ -18,6 +18,8 @@ public interface ISituacionDeNetbook {
 	public void reportarComoRobada(String numeroDeActa);
 	public Blob imprimirActaMigracion();
 	public Blob imprimirActaPrestamo();
+	public Blob imprimirContratoDeCesion();
+	public boolean ocultarImprimirContratoDeCesion();
 	public void aceptarMigracion();
 	public boolean ocultarAceptarMigracion();
 	public void migrarNetbook(Establecimiento establecimiento);

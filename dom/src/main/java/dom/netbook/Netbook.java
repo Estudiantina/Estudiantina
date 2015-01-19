@@ -487,6 +487,17 @@ public class Netbook implements Comparable<Netbook> {
     	return this.getSituacionDeNetbook().ocultarContratoDeComodato();
     }
     
+    public Blob imprimirContratoDeCesion()
+    {
+    	return this.getSituacionDeNetbook().imprimirContratoDeCesion();
+    }
+    
+    public boolean hideImprimirContratoDeCesion()
+    {
+    	return this.getSituacionDeNetbook().ocultarImprimirContratoDeCesion();
+    }
+    
+    
     /**
      * lista una lista con el historial de reparaciones 
      * en el viewer
