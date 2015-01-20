@@ -89,7 +89,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "[A-Za-z ]+")  @Named("NOMBRE")String nombre,
 			@RegEx(validation = "[A-Za-z]+")   @Named("APELLIDO")String apellido,
 			@RegEx(validation = "[0-9]+")   @org.apache.isis.applib.annotation.Optional @Named("TELEFONO CELULAR")String telefonoCelular,
-		    @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional @Named("TELEFONO FIJO")String telefinoFijo,
+		    @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional @Named("TELEFONO FIJO")String telefonoFijo,
 			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")String email,
 			@Named("DOMICILIO") String domicilio,
 			@Named("Altura") int alturaDomicilio,
@@ -112,7 +112,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	alumno.setNombre(nombre);
 	alumno.setApellido(apellido);
 	alumno.setTelefonoCelular(telefonoCelular);
-	alumno.setTelefonoFijo(telefinoFijo);
+	alumno.setTelefonoFijo(telefonoFijo);
 	alumno.setEmail(email);
 	alumno.setDomicilio(domicilio);
 	alumno.setFechaNacimiento(fechaNacimiento);
@@ -150,7 +150,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				final String nombre,
 				final String apellido,
 				final String telefonoCelular,
-				final String telefinoFijo,
+				final String telefonoFijo,
 				final String email,
 				final String domicilio,
 				final int alturaDomicilio,
@@ -164,38 +164,27 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				final Tutor tutor
 				
 			) {
-        return validarDatosDeAlumno(cuil,fechaNacimiento,fechaIngreso);
+		
+		
+		if(fechaNacimiento.compareTo(fechaIngreso) >0)
+		{
+			return "FECHA NACIMIENTO: debe ser menor a la fecha de ingreso";
+		}
+		else if (nombre.substring(0, 1).toUpperCase().equals(nombre.substring(0, 1)))
+		{
+			return "El Nombre debe empezar con mayuscula";
+		}else 
+		if (apellido.substring(0, 1).toUpperCase().equals(apellido.substring(0, 1)))
+		{
+			return "El Apellido debe empezar con mayuscula";
+		}
+		
+		else
+		{
+        return null;
+		}
     }
-	/**
-	 * @param cuil
-	 * @param fechaNacimiento
-	 * @param fechaIngreso
-	 * 
-	 * @return mensajes de validacion al usuario en caso de ser nulo es porque la validacion es correcta 
-	 */
 	
-	public static String validarDatosDeAlumno(Long cuil,Date fechaNacimiento,Date fechaIngreso)
-	{
-		
-			if(fechaNacimiento.compareTo(fechaIngreso) >0)
-			{
-				return "FECHA NACIMIENTO: debe ser menor a la fecha de ingreso";
-			}
-			else
-			{
-			//	if (cuil.shortValue()!=11 || cuil.shortValue()!=8 )
-			//	{
-			//		return "CUIL: debe ingresar 11 caracteres\n"
-			//				+ "DNI: debe ingresar 8 caracteres";
-			//	}
-			//	else
-				{
-					return null;
-				}
-				
-			}
-		
-	}
     //*****************************************************+************//	
 	
 	/**
@@ -248,6 +237,43 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	}
 
+	
+	public String validateIngresarTecnico (
+			@Named("Establecimiento") final Establecimiento establecimiento,
+			@Named("CUIL") final Long cuil,
+			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
+			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")  @Named("CORREO ELECTRONICO")final String email,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomicilio,
+			@Optional @Named("Piso") String piso,
+			@Named("Cod Postal Ciudad")Localidad localidad,
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,
+			@Named("SEXO") Sexo sexo
+			)
+	{
+	
+	final Date fecha = new Date();
+	if(fechaNacimiento.compareTo(fecha) >0)
+	{
+		return "FECHA NACIMIENTO: debe ser menor a la fecha de ingreso";
+	}
+	else if (nombre.substring(0, 1).toUpperCase().equals(nombre.substring(0, 1)))
+	{
+		return "El Nombre debe empezar con mayuscula";
+	}else 
+	if (apellido.substring(0, 1).toUpperCase().equals(apellido.substring(0, 1)))
+	{
+		return "El Apellido debe empezar con mayuscula";
+	}
+	
+	else
+	{
+    return null;
+	}
+}
 	/**
 	 * muestra un formulario para ingresar un
 	 * nuevo Tecnico dentro del establecimiento
