@@ -63,6 +63,32 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 		return establecimiento;
 		
 	}
+	
+	
+	
+	
+	public String validateIngresarEstablecimiento (
+			@Named("nombre")final String nombre,
+			@Named("direccion") final String direccion,
+			@RegEx(validation = "[0-9]+") @Named("Telefono")final String telefono,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")
+			@Named("email")final String email,
+			@Named("Distrito Escolar") final String distritoEscolar,
+			@RegEx(validation = "[0-9]+")
+			@Named("CUE") final String cue,
+			@Named("Cod Postal Ciudad")Localidad localidad
+			)
+	{
+		if (Character.isUpperCase(nombre.charAt(0))==false)
+		{
+			return "el nombre Debe empezar con mayusculas";
+		}
+		else
+		{
+			return null;
+		}
+	
+	}
 	/**
 	 * retorna una consulta que devuelve la 
 	 * lista completa de los establecimentos
