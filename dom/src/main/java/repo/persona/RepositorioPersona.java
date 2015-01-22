@@ -170,15 +170,14 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		{
 			return "FECHA NACIMIENTO: debe ser menor a la fecha de ingreso";
 		}
-		else if (nombre.substring(0, 1).toUpperCase().equals(nombre.substring(0, 1)))
+		else if (Character.isUpperCase(nombre.charAt(0)))
 		{
 			return "El Nombre debe empezar con mayuscula";
 		}else 
-		if (apellido.substring(0, 1).toUpperCase().equals(apellido.substring(0, 1)))
+		if (Character.isUpperCase(apellido.charAt(0)))
 		{
 			return "El Apellido debe empezar con mayuscula";
 		}
-		
 		else
 		{
         return null;
@@ -260,11 +259,11 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	{
 		return "FECHA NACIMIENTO: debe ser menor a la fecha de ingreso";
 	}
-	else if (nombre.substring(0, 1).toUpperCase().equals(nombre.substring(0, 1)))
+	else if (Character.isUpperCase(nombre.charAt(0)))
 	{
 		return "El Nombre debe empezar con mayuscula";
 	}else 
-	if (apellido.substring(0, 1).toUpperCase().equals(apellido.substring(0, 1)))
+	if (Character.isUpperCase(apellido.charAt(0)))
 	{
 		return "El Apellido debe empezar con mayuscula";
 	}
