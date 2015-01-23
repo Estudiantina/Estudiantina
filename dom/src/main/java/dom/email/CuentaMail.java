@@ -52,7 +52,6 @@ public class CuentaMail {
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
-	private boolean cuentaPorDefecto;
 	private ServidorDeEmail servidorDeMail;
 	@Column(allowsNull="false")
 	public ServidorDeEmail getServidorDeMail() {
@@ -79,13 +78,5 @@ public class CuentaMail {
 	}
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
-	}
-	
-	@Column(allowsNull="false")
-	public boolean isCuentaPorDefecto() {
-		return cuentaPorDefecto;
-	}
-	public void setCuentaPorDefecto(boolean cuentaPorDefecto) {
-		this.cuentaPorDefecto = cuentaPorDefecto;
 	}
 }

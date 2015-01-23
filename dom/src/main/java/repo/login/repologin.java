@@ -133,13 +133,11 @@ public class repologin extends AbstractFactoryAndRepository {
     @Named("Nombre De Cuenta") String nombreCuenta,
     @Named("Usuario") String usuario,
     @Named("Contraseña") Password password,
-    @Named("Cuenta Por Defecto") boolean cuentaPorDefecto,
     @Named("Seleccione servidor")ServidorDeEmail servMail
     )
     {
     	final CuentaMail miCuenta = container.newTransientInstance(CuentaMail.class);
 		miCuenta.setClave(password.getPassword());
-		miCuenta.setCuentaPorDefecto(cuentaPorDefecto);
 		miCuenta.setUsuario(usuario);
 	    miCuenta.setNombreCuenta(nombreCuenta);
 	    miCuenta.setServidorDeMail(servMail);
