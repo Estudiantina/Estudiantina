@@ -128,6 +128,42 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return alumno;
 	}
 	
+    public String validateIngresarDocente (
+			@Named("CUIL") final Long cuil,
+			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
+			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional	@Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+") @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")final String email,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomicilio,
+			@Optional @Named("Piso") String piso,
+			@Named("Cod Postal Ciudad")Localidad localidad,
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,	
+			@Named("Cargo") final String cargo,
+			@Named("SEXO") Sexo sexo
+			
+			)
+	{
+    	Date fechaIngreso = new Date();
+		if(fechaNacimiento.compareTo(fechaIngreso) >0)
+		{
+			return "FECHA NACIMIENTO: debe ser menor a la fecha de ingreso";
+		}
+		else if (Character.isUpperCase(nombre.charAt(0))==false)
+		{
+			return "El Nombre debe empezar con mayuscula";
+		}else 
+		if (Character.isUpperCase(apellido.charAt(0))==false)
+		{
+			return "El Apellido debe empezar con mayuscula";
+		}
+		else
+		{
+        return null;
+		}
+	}
+	
     
     public String validateIngresarDirectivo (
 			@Named("CUIL") final Long cuil,
@@ -162,6 +198,11 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
         return null;
 		}
 	}
+    
+    
+    
+    
+    
 	//*********************** VALIDACION ******************************************//
 	/**
 	 * metodo que valida los parametros cuando se ingresa un nueva alumno
