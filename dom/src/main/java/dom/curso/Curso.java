@@ -15,22 +15,23 @@ package dom.curso;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import javax.inject.Named;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Persistent;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.Bulk;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.PublishedAction;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.util.ObjectContracts;
+
 import dom.alumno.Alumno;
 import dom.docente.Docente;
 import dom.establecimiento.Establecimiento;
-
 import repo.curso.RepositorioCurso;
 
 @javax.jdo.annotations.PersistenceCapable(identityType = IdentityType.DATASTORE)
