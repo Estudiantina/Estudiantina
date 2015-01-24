@@ -147,7 +147,7 @@ public class PersonaGestionable extends Persona implements Locatable,Serializabl
 		return this;
 	}
 	
-	public String crearCuenta(String usuario,Password password)
+	public String crearCuenta(@Named("usuario")String usuario,@Named("password")Password password)
 	{
 
 		if (this.getClass().getCanonicalName()=="dom.alumno.Alumno")
