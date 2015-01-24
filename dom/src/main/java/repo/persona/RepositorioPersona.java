@@ -297,6 +297,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tecnico.setApellido(apellido);
 		tecnico.setCuil(cuil);
 		tecnico.setDomicilio(domicilio);
+		tecnico.setAlturaDomicilio(alturaDomicilio);
 		tecnico.setEmail(email);
 		tecnico.setFechaNacimiento(fechaNacimiento);
 		tecnico.setEstablecimiento(establecimiento);
@@ -382,6 +383,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		tecnico.setApellido(apellido);
 		tecnico.setCuil(cuil);
 		tecnico.setDomicilio(domicilio);
+		tecnico.setAlturaDomicilio(alturaDomicilio);
 		tecnico.setEmail(email);
 		tecnico.setFechaNacimiento(fechaNacimiento);
 		tecnico.setEstablecimiento(this.verMisDatos().getEstablecimiento());
