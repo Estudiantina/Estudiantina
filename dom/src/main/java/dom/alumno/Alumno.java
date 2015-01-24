@@ -223,6 +223,23 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
     		return archivonulo;
     	}
     }
+	
+	
+	public boolean hideImprimirCertificadoAlumnoRegular()
+	{
+		if (estadoDeAlumno==EstadoDeAlumno.REGULAR)
+		{
+		return false;
+		}
+		else
+		{
+		return true;
+		}
+	}
+	
+	
+	
+	
 
 	@javax.inject.Inject 
     DomainObjectContainer container;
