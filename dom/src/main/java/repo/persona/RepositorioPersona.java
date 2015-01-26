@@ -50,12 +50,23 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     
     /**
 	 * muestra una lista de todas las Personas que existen
-	 * @return lista de Alumnos
+	 * @return lista de Personas de todos los establecimientos
 	 */
 	
     public List<Persona> listarPersonas() {
         return allMatches(QueryDefault.create(Persona.class, "traerPersonas"));
     }
+    /**
+     * muestra una lista de todos los alumnos que se encuentran
+     * registrados en el establecimiento actual
+     * @return lista de Alumnos
+     */
+    public List<Alumno> listarAlumnosDelEstablecimientoActual()
+    {
+    	return allMatches(QueryDefault.create(Alumno.class, "traerTodosLosAlumnoDelEstablecimientoActual","establecimiento",this.verMisDatos().getEstablecimiento()));
+    	
+    }
+    
     /**
      * el metodo retorna los datos del usuario actual
      * @return datos del usuario actual

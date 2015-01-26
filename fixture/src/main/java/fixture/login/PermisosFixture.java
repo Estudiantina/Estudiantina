@@ -97,6 +97,7 @@ public class PermisosFixture extends FixtureScript{
 		//PERMISOS DE TECNICOS PARA REPOSITORIONETBOOKS
 		create("usuario_tecnico","dom.persona.presonagestionable:PersonaGestionable:aniadirNetbook:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:aniadirNetbook:*",executionContext);
+		
 		//PERMISOS EN CURSOS PARA TECNICOS
 		create("usuario_tecnico","repo.curso:RepositorioCurso:buscarCursoEnEsteEstablecimiento:*",executionContext);
 		create("usuario_tecnico","repo.curso:RepositorioCurso:verCursosDentroDelEstablecimiento:*",executionContext);
@@ -234,6 +235,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tutor:Tutor:alumnos:*",executionContext);
 		//PERMISOS DE REPOSITORIO PERSONA 
 		//PARA USUARIOS CON ROL DE TECNICO
+		
 		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarAlumno:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarDirectivo:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarTutor:*",executionContext);
@@ -246,6 +248,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTutor:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:buscarPersonaPorCuilEnEstablecimientoActual:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:verMisDatos:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersonalistarAlumnosDelEstablecimientoActual:*",executionContext);
 		//PERMISOS DE ESTADISTICAS 
 		//PARA USUARIOS CON ROL DE TECNICO
 		create("usuario_tecnico","servicio.estadisticas:GraficosEstadisticos:graficosDeNetbooksAsignadas:*",executionContext);
