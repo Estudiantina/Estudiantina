@@ -1,8 +1,6 @@
 package dom.netbook.situacion;
 
-import java.io.FileNotFoundException;
 import java.util.HashMap;
-
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -10,14 +8,10 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Uniques;
 import javax.jdo.annotations.VersionStrategy;
-
-import net.sf.jasperreports.engine.JRException;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
-
 import servicio.reporte.GeneradorReporte;
 import dom.alumno.Alumno;
 import dom.establecimiento.Establecimiento;
@@ -33,7 +27,6 @@ import dom.persona.personagestionable.PersonaGestionable;
 @ObjectType("ENTREGADA")
 public class Entregada implements ISituacionDeNetbook{
 
-	@SuppressWarnings("unused")
 	private Netbook netbook;
 	
 	public Entregada(Netbook netbook) {
@@ -140,7 +133,7 @@ public class Entregada implements ISituacionDeNetbook{
 		return true;
 	}
 	
-	@SuppressWarnings("unused")
+
 	@javax.inject.Inject
     private DomainObjectContainer container;
 
