@@ -39,7 +39,6 @@ import org.apache.isis.applib.value.Blob;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import repo.persona.RepositorioPersona;
-import servicio.reporte.GeneradorReporte;
 import dom.curso.Curso;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Departamento;
@@ -208,7 +207,6 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	    	
 		    parametros.put("dniAlumno", super.getCuil());
 		    parametros.put("alumno", super.getApellido()+" "+super.getNombre());
-		    
 	    	parametros.put("anoydivision", this.getCursos().first().getAnio()+ "  "+this.cursos.first().getDivision()) ;
 	    	//parametros.put("division", this.cursos.first().getDivision());
 	    	SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MMM/yyyy/");
@@ -224,7 +222,12 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
     	}
     }
 	
-	
+	/**
+	 * oculta el boton de imprimir
+	 * Certificado de Alumno Regular
+	 * 
+	 * @return devuelve true y oculta si no esta regular el alumno
+	 */
 	public boolean hideImprimirCertificadoAlumnoRegular()
 	{
 		if (estadoDeAlumno==EstadoDeAlumno.REGULAR)

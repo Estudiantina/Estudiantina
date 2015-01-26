@@ -31,7 +31,6 @@ import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.Marca;
 import dom.netbook.Netbook;
-import dom.netbook.situacion.SituacionDeNetbook;
 import dom.notificaciones.SolicitudNetbookPrestada;
 
 @Named("Netbook")

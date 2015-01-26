@@ -26,7 +26,6 @@ import org.apache.isis.applib.annotation.ObjectType;
 import repo.persona.RepositorioPersona;
 import dom.alumno.Alumno;
 import dom.persona.Persona;
-import dom.persona.personagestionable.PersonaGestionable;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerTutorPorcuil", language = "JDOQL", value = "SELECT FROM dom.tutor.Tutor WHERE cuil== :cuil"),
