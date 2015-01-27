@@ -283,6 +283,9 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.alumno:Alumno:netbooks:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:cursos:r",executionContext);
 		
+		// PERMISOS ALUMNO para cambiar la contraseña
+		create("usuario_alumno","repo.login:Repologin:modificarClave:*",executionContext);
+		
 		//PERMISOS ALUMNO parte de dominio de Persona
 		create("usuario_alumno","dom.alumno:Alumno:alturaDomicilio:*",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:apellido:r",executionContext);
@@ -348,6 +351,9 @@ public class PermisosFixture extends FixtureScript{
 		//--------------------PERMISOS DOCENTE-------------------
 		//		
 
+		// PERMISOS DOCENTE para cambiar la contraseña
+		create("usuario_alumno","repo.login:Repologin:modificarClave:*",executionContext);
+			
 		//PERMISOS DOCENTE parte de dominio de Persona
 		create("usuario_docente","dom.docente:Docente:alturaDomicilio:*",executionContext);
 		create("usuario_docente","dom.docente:Docente:apellido:r",executionContext);
@@ -410,9 +416,15 @@ public class PermisosFixture extends FixtureScript{
 		
 		
 		
+		
 		//
 		//PERMISOS PARA DIRECTIVOS
-		//TODO establecer permisos de directivos
+		//
+		
+		
+		// PERMISOS DOCENTE para cambiar la contraseña
+		create("usuario_directivo","repo.login:Repologin:modificarClave:*",executionContext);
+		
 		// PERMISOS DE DIRECTIVOS SOBRE ALUMNOS
 		create("usuario_directivo","dom.alumno:Alumno:cursos:*",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:estadoDeAlumno:*",executionContext);
