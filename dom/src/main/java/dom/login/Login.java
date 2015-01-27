@@ -19,6 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.IdentityType;
 
+import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MaxLength;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Optional;
@@ -42,6 +43,10 @@ private String usuario;
 private String password;
 private PersonaGestionable persona;
 
+@Hidden
+public String obtenerPasswordEncriptado() {
+	return password;
+}
 
 public String iconName() {
 	   return "rol";

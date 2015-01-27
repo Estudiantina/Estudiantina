@@ -12,6 +12,9 @@
  */
 package repo.login;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import org.apache.isis.applib.AbstractFactoryAndRepository;
@@ -20,7 +23,9 @@ import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Password;
+import org.bouncycastle.util.encoders.Hex;
 
+import repo.persona.RepositorioPersona;
 import dom.email.CuentaMail;
 import dom.email.ServidorDeEmail;
 import dom.login.Login;
@@ -81,6 +86,35 @@ public class repologin extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Login.class, "todasLasCuentas"));
 	}
 	
+	public String modificarClave(@Named("contraseña Actual") Password passwordActual,@Named("contraseña Nueva")Password passwordNuevo)
+	{
+	Login login = container.firstMatch(QueryDefault.create(Login.class,"buscarPorPersona","persona",repoPersona.verMisDatos()));
+	String passwordEncriptadoActual = passwordActual.getPassword();
+	MessageDigest md = null;
+	try {
+		md = MessageDigest.getInstance("SHA-256");
+	} catch (NoSuchAlgorithmException e) {
+		e.printStackTrace();
+	}
+	try {
+		md.update(passwordEncriptadoActual.getBytes("UTF-8"));
+	} catch (UnsupportedEncodingException e) {
+		e.printStackTrace();
+	}
+	byte[] digest = md.digest();
+	
+	passwordEncriptadoActual = new String(Hex.encode(digest));	
+	if (passwordEncriptadoActual.equals(login.obtenerPasswordEncriptado()))
+	{
+	login.setPassword(passwordNuevo.getPassword());
+	return "se ha cambiado la clave correctamente del usuario "+login.getUsuario();	
+	}
+	else
+	{
+	return "no se ha podido cambiar la clave anterior no coincide";
+	}
+	
+	}
 	
 	/**
 	 * metodo que busca un usuario
@@ -178,6 +212,8 @@ public class repologin extends AbstractFactoryAndRepository {
 		container.persistIfNotAlready(miPermiso);
 		return miPermiso;
 	}
+    @javax.inject.Inject 
+    RepositorioPersona repoPersona;
 	@javax.inject.Inject 
     DomainObjectContainer container;
 }
