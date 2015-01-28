@@ -12,6 +12,7 @@
  */
 package repo.solicitudserviciotecnico;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -23,9 +24,12 @@ import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
+import org.apache.isis.applib.services.memento.MementoService;
+import org.apache.isis.applib.services.memento.MementoService.Memento;
 import org.joda.time.LocalDate;
 
 import repo.persona.RepositorioPersona;
+import servicio.vistas.serviciotecnico.VistaDeBusquedaDeSoluciones;
 import dom.netbook.Netbook;
 import dom.solicituddeserviciotecnico.Prioridad;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
@@ -83,9 +87,24 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	 * @return devuelve como titulo la solucion 
 	 */
 	@Named("Buscar Soluciones")
-		public List<SolicitudServicioTecnico> listaDeSoluciones (@Named ("tema")final String traerPorTema){
+		public List<VistaDeBusquedaDeSoluciones> listaDeSoluciones (@Named ("tema")final String traerPorTema){
 			
-			return allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "taerTipoDeSoluciones", "motivoDeSolicitud", traerPorTema));
+			List<SolicitudServicioTecnico> listaSolicitudes = allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerTipoDeSoluciones", "motivoDeSolicitud", traerPorTema));
+			List<VistaDeBusquedaDeSoluciones> busqueda = new ArrayList<VistaDeBusquedaDeSoluciones>();
+			for (SolicitudServicioTecnico solicitud : listaSolicitudes)
+			{
+				Memento m = mementoService.create();
+
+				m.set("solucion", solicitud.getSolucion());
+				m.set("motivo", solicitud.getMotivoDeSolicitud());
+				m.set("comentario", solicitud.getComentario());
+				m.set("modelo", solicitud.getNetbook().getModelo());
+				m.set("marca", solicitud.getNetbook().getMarca());
+
+				busqueda.add(container.newViewModelInstance(VistaDeBusquedaDeSoluciones.class,
+						m.asString()));
+			}
+			return busqueda;
 		}
 	
 	public SolicitudServicioTecnico verUltimaSolicitud()
@@ -109,9 +128,11 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 		}
 		
 	}
-	
+	@javax.inject.Inject
+	MementoService mementoService;
 	@Inject
 	RepositorioPersona repoPersona;
 	@javax.inject.Inject 
     DomainObjectContainer container;
+	private List<VistaDeBusquedaDeSoluciones> busqueda;
 }

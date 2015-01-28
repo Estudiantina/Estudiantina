@@ -80,6 +80,14 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 		this.marca = marca;
 	}
 
+	public String iconName() {
+        return "asistenciatecnica";
+    }
+	
+	public String title()
+	{
+		return "Busqueda de Soluciones";
+	}
 	@javax.inject.Inject
     private MementoService mementoService;
 }
