@@ -270,6 +270,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tecnico:Tecnico:telefonoFijo:*",executionContext);
 		create("usuario_tecnico","dom.tecnico:Tecnico:crearCuenta:*",executionContext);
 		create("usuario_tecnico","dom.tecnico:Tecnico:Localizacion:*",executionContext);
+		
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
 		create("usuario_alumno","dom.alumno:Alumno:cursos:r",executionContext);
@@ -425,6 +426,24 @@ public class PermisosFixture extends FixtureScript{
 		// PERMISOS DOCENTE para cambiar la contraseña
 		create("usuario_directivo","repo.login:Repologin:modificarClave:*",executionContext);
 		
+		
+		//PERMISOS DIRECTIVOS SOBRE PERSONAS
+		create("usuario_directivo","repo.persona:RepositorioPersona:verMisDatos:*",executionContext);
+		//PERMISOS DIRECTIVOS SOBRE DIRECTIVOS
+		create("usuario_directivo","dom.directivo:Directivo:alturaDomicilio:r",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:apellido:r",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:alturaDomicilio:*",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:cuil:r",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:domicilio:*",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:email:*",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:fechaNacimiento:r",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:localidad:*",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:location:r",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:nombre:*",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:piso:*",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:sexo:r",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:telefonoCelular:*",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:telefonoFijo:r",executionContext);
 		// PERMISOS DE DIRECTIVOS SOBRE ALUMNOS
 		create("usuario_directivo","dom.alumno:Alumno:cursos:*",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:estadoDeAlumno:*",executionContext);

@@ -17,7 +17,6 @@ import org.apache.wicket.request.IRequestParameters;
 import org.apache.wicket.request.Request;
 import org.apache.wicket.request.Response;
 import org.apache.wicket.request.http.WebRequest;
-
 import org.apache.isis.viewer.wicket.viewer.IsisWicketApplication;
 import org.apache.isis.viewer.wicket.viewer.integration.wicket.AuthenticatedWebSessionForIsis;
 
@@ -100,6 +99,7 @@ public class SimpleApplication extends IsisWicketApplication {
                 bind(String.class).annotatedWith(Names.named("welcomeMessage")).toInstance(readLines(getClass(), "welcome.html"));
                 bind(String.class).annotatedWith(Names.named("aboutMessage")).toInstance("Simple App");
                 bind(InputStream.class).annotatedWith(Names.named("metaInfManifest")).toProvider(Providers.of(getServletContext().getResourceAsStream("/META-INF/MANIFEST.MF")));
+                
             }
         };
 
