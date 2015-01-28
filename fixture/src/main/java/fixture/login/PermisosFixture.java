@@ -444,6 +444,8 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.directivo:Directivo:sexo:r",executionContext);
 		create("usuario_directivo","dom.directivo:Directivo:telefonoCelular:*",executionContext);
 		create("usuario_directivo","dom.directivo:Directivo:telefonoFijo:r",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:localizacion:*",executionContext);
+	
 		// PERMISOS DE DIRECTIVOS SOBRE ALUMNOS
 		create("usuario_directivo","dom.alumno:Alumno:cursos:*",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:estadoDeAlumno:*",executionContext);
