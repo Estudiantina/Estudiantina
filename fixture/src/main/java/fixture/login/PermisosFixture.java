@@ -429,6 +429,7 @@ public class PermisosFixture extends FixtureScript{
 		
 		//PERMISOS DIRECTIVOS SOBRE PERSONAS
 		create("usuario_directivo","repo.persona:RepositorioPersona:verMisDatos:*",executionContext);
+		
 		//PERMISOS DIRECTIVOS SOBRE DIRECTIVOS
 		create("usuario_directivo","dom.directivo:Directivo:alturaDomicilio:r",executionContext);
 		create("usuario_directivo","dom.directivo:Directivo:apellido:r",executionContext);
@@ -445,7 +446,8 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.directivo:Directivo:telefonoCelular:*",executionContext);
 		create("usuario_directivo","dom.directivo:Directivo:telefonoFijo:r",executionContext);
 		create("usuario_directivo","dom.directivo:Directivo:localizacion:*",executionContext);
-	
+		create("usuario_directivo","dom.directivo:Directivo:establecimiento:r",executionContext);
+		create("usuario_directivo","dom.directivo:Directivo:netbooks:*",executionContext);
 		// PERMISOS DE DIRECTIVOS SOBRE ALUMNOS
 		create("usuario_directivo","dom.alumno:Alumno:cursos:*",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:estadoDeAlumno:*",executionContext);
