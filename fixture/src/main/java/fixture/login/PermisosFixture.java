@@ -27,6 +27,7 @@ public class PermisosFixture extends FixtureScript{
 		/PERMISOS PARA USUARIOS ADMINISTRADORES
 		*/
 		create("usuario_administrador","*",executionContext);
+		
 		///
 		///
 		///PERMISO PARA USUARIOS TECNICOS 
@@ -156,6 +157,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.docente:Docente:telefonoFijo:*",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:crearCuenta:*",executionContext);
 		create("usuario_tecnico","dom.tecnico:Tecnico:localizacion:*",executionContext);
+		
 		//PERMISOS EN TUTOR 
 		//PARA USUARIO TECNICO
 		create("usuario_tecnico","dom.directivo:Directivo:alturaDomicilio:r",executionContext);
@@ -194,6 +196,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoFijo:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:alumnos:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:localizacion:*",executionContext);
+		
 		//PERMISOS EN ALUMNO 
 		//PARA USUARIO TECNICO
 		//
@@ -216,6 +219,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.alumno:Alumno:crearCuenta:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:localizacion:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:tutor:r",executionContext);
+		
 		//PERMISOS EN TUTOR
 		//PARA USUARIO TECNICO		
 		create("usuario_tecnico","dom.tutor:Tutor:alturaDomicilio:*",executionContext);
@@ -233,9 +237,9 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tutor:Tutor:telefonoFijo:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:localizacion:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:alumnos:*",executionContext);
+		
 		//PERMISOS DE REPOSITORIO PERSONA 
 		//PARA USUARIOS CON ROL DE TECNICO
-		
 		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarAlumno:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarDirectivo:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:autoCompletarTutor:*",executionContext);
@@ -473,6 +477,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.alumno:Alumno:sexo:r",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:telefonoCelular:r",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:telefonoFijo:r",executionContext);
+		
 		// Permisos de Docente sobre Curso
 		create("usuario_directivo","dom.curso:Anio:*:*",executionContext);
 		create("usuario_directivo","dom.curso:Division:*:*",executionContext);
@@ -495,6 +500,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.notificaciones:Notificaciones:fechaNotificacion:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:Notificaciones:persona:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:Notificaciones:marcarComoNotificacionAtendida:*",executionContext);
+		
 		//PERMISOS DE USUARIO DIRECTIVO EN NOTIFICACIONES DE CERTIFICADO DE ALUMNO REGULAR 
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:detallesYobservaciones:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:establecimiento:r",executionContext);
@@ -502,6 +508,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:persona:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:marcarComoNotificacionAtendida:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:CertificadoAlumnoRegular:imprimirCertificadoAlumnoRegular:*",executionContext);
+		
 		//PERMISOS DE USUARIO DIRECTIVO EN NOTIFICACIONES DE SOLICITUD DE TRAMITE DE MIGRACION
 		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:detallesYobservaciones:r",executionContext);
@@ -510,6 +517,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:persona:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:asignarNetbook:*",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:marcarComoNotificacionAtendida:*",executionContext);
+		
 		//PERMISOS DE USUARIO DIRECTIVO SOBRE NETBOOKS
 		create("usuario_directivo","repo.netbook:RepositorioNetbook:listaNetbookPorId:*",executionContext);
 		create("usuario_directivo","dom.netbook:ModeloNetbook:*:*",executionContext);
@@ -523,9 +531,9 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.netbook:Netbook:situacionDeNetbook:*",executionContext);
 		
 		//PERMISOS DE DIRECTIVO SOBRE SOLICITUD DE SERVICIO TECNICO
-			create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
-			create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
-			create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
+		create("usuario_directivo","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
+		create("usuario_directivo","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
+		create("usuario_directivo","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
 
 		
 		

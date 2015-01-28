@@ -116,10 +116,15 @@ font-size: 0.85em;
 .actionPanel .myBlockContainer {
 	
     background-image: linear-gradient(rgb(255, 255, 255), rgb(47, 79, 79));
+    -webkit-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
 }
 .entityPropertiesPanel fieldset {
 	background-image: linear-gradient(rgb(255, 255, 255), rgb(47, 79, 79));
-    
+    	-webkit-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
 }
 
 .bookmarkedPagesPanel #bookmarkedPagesSlidingDiv
