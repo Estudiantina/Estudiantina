@@ -13,5 +13,5 @@
 package dom.curso;
 
 public enum Turno {
-Mañana,Tarde
+Mañana,Tarde, Vespertino
 }
