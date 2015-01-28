@@ -82,7 +82,6 @@ public class Netbook implements Comparable<Netbook> {
 	private String numeroDeActaDeRobo;
 	private PersonaGestionable persona ;
 	private Establecimiento establecimiento;
-	
 	//propiedades de situación de Netbook
 	private Asignada asignada;
 	private EnStock enStock;

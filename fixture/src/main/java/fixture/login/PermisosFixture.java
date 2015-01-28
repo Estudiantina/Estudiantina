@@ -329,7 +329,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:netbook:r",executionContext);
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:persona:r",executionContext);
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:NombreEstado:r",executionContext);
-		
+		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:tecnicoAsignado:r",executionContext);
 		//PERMISOS ALUMNO repositorio SolicitudServicioTecnico
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
@@ -448,6 +448,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.directivo:Directivo:localizacion:*",executionContext);
 		create("usuario_directivo","dom.directivo:Directivo:establecimiento:r",executionContext);
 		create("usuario_directivo","dom.directivo:Directivo:netbooks:*",executionContext);
+		
 		// PERMISOS DE DIRECTIVOS SOBRE ALUMNOS
 		create("usuario_directivo","dom.alumno:Alumno:cursos:*",executionContext);
 		create("usuario_directivo","dom.alumno:Alumno:estadoDeAlumno:*",executionContext);
