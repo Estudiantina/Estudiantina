@@ -12,19 +12,30 @@
  */
 package servicio.estadisticas;
 
+import java.awt.Container;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ActionSemantics;
 import org.apache.isis.applib.annotation.ActionSemantics.Of;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.services.memento.MementoService;
+import org.apache.isis.applib.services.memento.MementoService.Memento;
 import org.isisaddons.wicket.wickedcharts.cpt.applib.WickedChart;
 
 import repo.netbook.RepositorioNetbook;
 import repo.persona.RepositorioPersona;
 //import servicio.estadisticas.GenerarEstadistica.PieWithGradientOptions;
+
+
+
+
+
+
 
 
 
@@ -47,6 +58,7 @@ import com.googlecode.wickedcharts.highcharts.options.functions.PercentageFormat
 import com.googlecode.wickedcharts.highcharts.options.series.Point;
 import com.googlecode.wickedcharts.highcharts.options.series.PointSeries;
 import com.googlecode.wickedcharts.highcharts.options.series.Series;
+
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.netbook.Marca;
@@ -260,7 +272,33 @@ public OpcionesDeGradienteDeGraficoSituacionNetbook(
 	addSeries(series);
 }
 }
+	
+	public List<NetbookReparadasAnualmente> verNetbooksReparadasAnualmente(){
+		List<NetbookReparadasAnualmente> reparadas = new ArrayList<NetbookReparadasAnualmente>();
+		
+		Memento m = mementoService.create();
+		
+		m.set("mes", Mes.Enero);
+		m.set("cantidadNetbookReparadas", 3);
+		
+		reparadas.add(container.newViewModelInstance(NetbookReparadasAnualmente.class,  m.asString()));
+		
+		Memento m1 = mementoService.create();
+		
+		m1.set("mes", Mes.Febrero);
+		m1.set("cantidadNetbookReparadas", 2);
+		
+		reparadas.add(container.newViewModelInstance(NetbookReparadasAnualmente.class,  m1.asString()));
 
+		return reparadas;
+		
+	}
+	@javax.inject.Inject 
+    DomainObjectContainer container; 
+	
+	@javax.inject.Inject
+    private MementoService mementoService;
+	
 	@javax.inject.Inject
 	private RepositorioNetbook repositorioNetbook;
 
