@@ -522,6 +522,13 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","dom.netbook:Netbook:persona:r",executionContext);
 		create("usuario_directivo","dom.netbook:Netbook:situacionDeNetbook:*",executionContext);
 		
+		//PERMISOS DE DIRECTIVO SOBRE SOLICITUD DE SERVICIO TECNICO
+			create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
+			create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
+			create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
+
+		
+		
 		}
 		
 		
