@@ -257,6 +257,9 @@ public class PermisosFixture extends FixtureScript{
 		//PERMISOS DE ESTADISTICAS 
 		//PARA USUARIOS CON ROL DE TECNICO
 		create("usuario_tecnico","servicio.estadisticas:GraficosEstadisticos:graficosDeNetbooksAsignadas:*",executionContext);
+		create("usuario_tecnico","servicio.estadisticas:GraficosEstadisticos:verNetbooksReparadasAnualmente:*",executionContext);
+		create("usuario_tecnico","servicio.estadisticas:NetbookReparadasAnualmente:*:r",executionContext);
+		
 		//PERMISOS EN TECNICO
 		//PARA USUARIOS TECNICO
 		create("usuario_tecnico","dom.tecnico:Tecnico:alturaDomicilio:*",executionContext);

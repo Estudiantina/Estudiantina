@@ -134,5 +134,4 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 	RepositorioPersona repoPersona;
 	@javax.inject.Inject 
     DomainObjectContainer container;
-	private List<VistaDeBusquedaDeSoluciones> busqueda;
 }
