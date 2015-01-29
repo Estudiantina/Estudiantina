@@ -344,7 +344,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
-
+		create("usuario_alumno","servicio.vistas.serviciotecnico:VistaDeBusquedaDeSoluciones:*:r",executionContext);
 		//parte de repositorio Persona
 		create("usuario_alumno","repo.persona:RepositorioPersona:VerMisDatos:*",executionContext);
 
