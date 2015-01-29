@@ -254,6 +254,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","repo.persona:RepositorioPersona:verMisDatos:*",executionContext);
 		create("usuario_tecnico","repo.login:Repologin:modificarClave:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:listarAlumnosDelEstablecimientoActual:*",executionContext);
+		
 		//PERMISOS DE ESTADISTICAS 
 		//PARA USUARIOS CON ROL DE TECNICO
 		create("usuario_tecnico","servicio.estadisticas:GraficosEstadisticos:graficosDeNetbooksAsignadas:*",executionContext);
@@ -309,6 +310,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.alumno:Alumno:sexo:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:telefonoCelular:*",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:telefonoFijo:*",executionContext);
+		
 		//PERMISOS ALUMNO permisos para ver la netbook
 		create("usuario_alumno","dom.netbook:ModeloNetbook:*:r",executionContext);
 		create("usuario_alumno","dom.netbook:Netbook:direccionMac:r",executionContext);
@@ -337,6 +339,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:persona:r",executionContext);
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:NombreEstado:r",executionContext);
 		create("usuario_alumno","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:tecnicoAsignado:r",executionContext);
+		
 		//PERMISOS ALUMNO repositorio SolicitudServicioTecnico
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
