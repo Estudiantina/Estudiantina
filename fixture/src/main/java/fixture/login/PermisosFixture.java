@@ -423,8 +423,15 @@ public class PermisosFixture extends FixtureScript{
 
 		//PERMISOS DOCENTE solicitud de tramite de migracion 
 		create("usuario_docente","repo.notificaciones:RepoNotificaciones:solicitarTramiteDeMigracion:*",executionContext);
-		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:r",executionContext);
+		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:*",executionContext);
 		
+		//PERMISOS DOCENTES solicitud de tramite de migracion
+		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:escuelaAMigrar:r",executionContext);
+		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:detallesYobservaciones::r",executionContext);
+		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:establecimiento:r",executionContext);
+		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:fechaNotificacion:r",executionContext);
+		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:persona:r",executionContext);
+		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:marcarComoNotificacionAtendida:*",executionContext);
 		
 		
 		

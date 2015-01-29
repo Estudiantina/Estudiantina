@@ -12,12 +12,10 @@
  */
 package servicio.estadisticas;
 
-import java.awt.Container;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ActionSemantics;
 import org.apache.isis.applib.annotation.ActionSemantics.Of;
@@ -26,20 +24,8 @@ import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.services.memento.MementoService;
 import org.apache.isis.applib.services.memento.MementoService.Memento;
 import org.isisaddons.wicket.wickedcharts.cpt.applib.WickedChart;
-
 import repo.netbook.RepositorioNetbook;
 import repo.persona.RepositorioPersona;
-//import servicio.estadisticas.GenerarEstadistica.PieWithGradientOptions;
-
-
-
-
-
-
-
-
-
-
 import com.google.common.collect.Maps;
 import com.googlecode.wickedcharts.highcharts.options.ChartOptions;
 import com.googlecode.wickedcharts.highcharts.options.Cursor;
@@ -58,7 +44,6 @@ import com.googlecode.wickedcharts.highcharts.options.functions.PercentageFormat
 import com.googlecode.wickedcharts.highcharts.options.series.Point;
 import com.googlecode.wickedcharts.highcharts.options.series.PointSeries;
 import com.googlecode.wickedcharts.highcharts.options.series.Series;
-
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.netbook.Marca;

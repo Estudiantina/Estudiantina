@@ -17,10 +17,8 @@ public class NetbookReparadasAnualmente  extends AbstractViewModel{
 	public void viewModelInit(String memento) {
 		this.memento=memento;
 		Memento m =  mementoService.parse(memento);
-		
 		setMes(m.get("mes", Mes.class));
 		setCantidadDeNetbookReparadas(m.get("cantidadNetbookReparadas", BigDecimal.class));
-		
 	}
 
 	@Override
