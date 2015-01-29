@@ -21,6 +21,7 @@ import javax.jdo.annotations.Query;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.Render;
 import org.apache.isis.applib.annotation.Title;
@@ -52,6 +53,7 @@ public void setRol(String rol) {
 	public List<Permisos> getListaPermiso() {
 		return listaPermiso;
 	}
+    
 	public void setListaPermiso(List<Permisos> listaPermiso) {
 		this.listaPermiso = listaPermiso;
 	}
@@ -60,7 +62,7 @@ public void setRol(String rol) {
 	    	   return "rol";
 	   }
  
-	public Rol aniadirPermiso(String permiso)
+	public Rol aniadirPermiso(@Named("Permiso")String permiso)
 	{
 		
 		final Permisos mipermiso = container.newTransientInstance(Permisos.class);
