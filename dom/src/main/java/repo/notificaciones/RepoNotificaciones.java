@@ -23,7 +23,9 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.annotation.Named;
 import org.joda.time.LocalDate;
+
 import repo.persona.RepositorioPersona;
+import dom.establecimiento.Establecimiento;
 import dom.login.Login;
 import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
@@ -69,7 +71,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		return "Se Ha solicitado una Nueva Netbook de Forma Correcta";
 	}
 	
-	public String solicitarTramiteDeMigracion(@Named("Motivo de Migracion") @MultiLine @Optional String detalles)
+	public String solicitarTramiteDeMigracion(@Named("escuela a migrar")Establecimiento escuelaAMigrar,@Named("Motivo de Migracion") @MultiLine @Optional String detalles)
 	{
 		final SolicitudTramiteDeMigracion solicitudTramiteDeMigracion = container.newTransientInstance(SolicitudTramiteDeMigracion.class);
 		solicitudTramiteDeMigracion.setDetallesYobservaciones(detalles);	
@@ -79,6 +81,7 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		solicitudTramiteDeMigracion.setFechaNotificacion(fecha);
 		solicitudTramiteDeMigracion.setPersona(login.getPersona());
 		solicitudTramiteDeMigracion.setEstablecimiento(login.getPersona().getEstablecimiento());
+		solicitudTramiteDeMigracion.setEscuelaAMigrar(escuelaAMigrar);
 		solicitudTramiteDeMigracion.setVista(false);//la notificacion todavia no esta vista
 		container.persistIfNotAlready(solicitudTramiteDeMigracion);
 		container.informUser("Se Ha solicitado el Tramite de Migracion Correctamente");
