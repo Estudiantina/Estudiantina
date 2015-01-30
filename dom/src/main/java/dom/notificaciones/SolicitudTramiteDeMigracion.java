@@ -22,6 +22,7 @@ import javax.jdo.annotations.InheritanceStrategy;
 import net.sf.jasperreports.engine.JRException;
 
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
 
 import dom.establecimiento.Establecimiento;
@@ -88,7 +89,14 @@ public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
 		}
 		
 	}
-	
+
+	public SolicitudTramiteDeMigracion migrarNetbook()
+	{
+		Netbook netbook =container.firstMatch(new QueryDefault<Netbook>(Netbook.class,"traerNetbookAsignadaAPersona","persona",this.getPersona()));
+		netbook.migrarNetbook(this.getEscuelaAMigrar());
+		container.informUser("se solicito el tramite correctamente");
+		return this;
+	}
 	
 	
 	public boolean hideImprimir()

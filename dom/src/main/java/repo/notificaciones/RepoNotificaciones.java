@@ -27,6 +27,7 @@ import org.joda.time.LocalDate;
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.login.Login;
+import dom.netbook.Netbook;
 import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
 import dom.notificaciones.SolicitudNetbookPrestada;

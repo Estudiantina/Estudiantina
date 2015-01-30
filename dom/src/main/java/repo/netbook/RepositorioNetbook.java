@@ -26,7 +26,6 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 import org.joda.time.LocalDate;
-
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.Marca;
