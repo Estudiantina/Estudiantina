@@ -111,6 +111,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 	@Hidden
 	@Override
 	public void avisarNetbookReparada(String solucion,LocalDate fechaDeSolucion){
+		this.getSolicitud().setReparada(true);
 		this.getSolicitud().setSolucion(solucion);
 		this.getSolicitud().setFechaDeSolucion(fechaDeSolucion);
 		this.getSolicitud().setEstado(this.getSolicitud().getEstadoReparado());

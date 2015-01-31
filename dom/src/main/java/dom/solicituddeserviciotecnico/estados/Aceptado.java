@@ -113,6 +113,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 	@Hidden
 	@Override
 	public void avisarNetbookReparada(String solucion,LocalDate fechaDeSolucion) {
+		this.getSolicitud().setReparada(true);
 		this.getSolicitud().setSolucion(solucion);
 		this.getSolicitud().setFechaDeSolucion(fechaDeSolucion);
 		container.informUser("la netbook ha pasado a estar reparada");
