@@ -84,7 +84,10 @@ import dom.tecnico.Tecnico;
 	@Query(name="traerUltimaSolicitud", language="JDOQL",
 	value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE netbook == :netbookBusqueda && estaBorrado== 'ACTIVO' order by fechaDeSolicitud desc "),      
 	@Query(name="traerTipoDeSoluciones", language="JDOQL", 
-	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 && estaBorrado== 'ACTIVO' range 0, 5")})
+	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 && estaBorrado== 'ACTIVO' range 0, 5"),
+	      @Query(name="traerSolicitudesReparadas", language="JDOQL", 
+	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE reparada == true")
+})
 
 @javax.jdo.annotations.Version(
         strategy=VersionStrategy.VERSION_NUMBER, 
@@ -112,7 +115,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	private Solicitado estadoSolicitado;
     private Tecnico tecnicoAsignado;
     private Reparado estadoReparado;
-
+    private boolean reparada;
     @Hidden
     @javax.jdo.annotations.Column(allowsNull="false")
 	public EstaBorrado getEstaBorrado() {
@@ -266,6 +269,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		this.estadoEnviado = new EnviadoAlServicioTecnico(this);
 		this.estadoRecibido = new RecibidoDelServicioTecnico(this);
 		this.estado = this.estadoSolicitado;
+		this.reparada = false;
 	}
 
 	@Hidden
@@ -575,6 +579,16 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	public CalendarEvent toCalendarEvent() {
 		// TODO Auto-generated method stub
 		 return new CalendarEvent(getFechaDeSolicitud().toDateTimeAtStartOfDay(), getCalendarName(), container.titleOf(this));
+	}
+
+	@Hidden
+    @Column(allowsNull="true")
+	public boolean isReparada() {
+		return reparada;
+	}
+
+	public void setReparada(boolean reparada) {
+		this.reparada = reparada;
 	}
 	
 }

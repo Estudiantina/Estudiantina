@@ -12,20 +12,27 @@
  */
 package servicio.estadisticas;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ActionSemantics;
 import org.apache.isis.applib.annotation.ActionSemantics.Of;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.services.memento.MementoService;
 import org.apache.isis.applib.services.memento.MementoService.Memento;
 import org.isisaddons.wicket.wickedcharts.cpt.applib.WickedChart;
+
 import repo.netbook.RepositorioNetbook;
 import repo.persona.RepositorioPersona;
+import servicio.vistas.serviciotecnico.VistaDeBusquedaDeSoluciones;
+
 import com.google.common.collect.Maps;
 import com.googlecode.wickedcharts.highcharts.options.ChartOptions;
 import com.googlecode.wickedcharts.highcharts.options.Cursor;
@@ -44,11 +51,13 @@ import com.googlecode.wickedcharts.highcharts.options.functions.PercentageFormat
 import com.googlecode.wickedcharts.highcharts.options.series.Point;
 import com.googlecode.wickedcharts.highcharts.options.series.PointSeries;
 import com.googlecode.wickedcharts.highcharts.options.series.Series;
+
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.netbook.Marca;
 import dom.netbook.Netbook;
 import dom.netbook.situacion.SituacionDeNetbook;
+import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 
 
 @DomainService
@@ -105,6 +114,7 @@ public class GraficosEstadisticos {
 		return new WickedChart(new OpcionesDeGradienteDeGraficoEstadoAlumno(
 				porEstadoDeAlumno));
 	}
+	
 	/**
 	 * muestra un gráfico de torta en el viewer de tipo WickedChart mostrando
 	 * 
@@ -261,19 +271,38 @@ public OpcionesDeGradienteDeGraficoSituacionNetbook(
 	public List<NetbookReparadasAnualmente> verNetbooksReparadasAnualmente(){
 		List<NetbookReparadasAnualmente> reparadas = new ArrayList<NetbookReparadasAnualmente>();
 		
-		Memento m = mementoService.create();
+		List<SolicitudServicioTecnico> listaNetbooksReparadas = container.allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerSolicitudesReparadas"));
+
+		int[] cantidadDeNetbooksReparadas = new int[13];
 		
-		m.set("mes", Mes.Enero);
-		m.set("cantidadNetbookReparadas", 3);
+		//todas las pociciones del array en 0
+		for(int i=0;i<cantidadDeNetbooksReparadas.length;i++)
+		{
+			cantidadDeNetbooksReparadas[i]=0;
+		}
 		
-		reparadas.add(container.newViewModelInstance(NetbookReparadasAnualmente.class,  m.asString()));
+		//contamos cuantas netbooks se repararon en cada mes
+		for (SolicitudServicioTecnico solicitud:listaNetbooksReparadas)
+		{
+			if(solicitud.isReparada())
+			{
+			cantidadDeNetbooksReparadas[solicitud.getFechaDeSolicitud().getMonthOfYear()]++;
+			}
+		}
 		
-		Memento m1 = mementoService.create();
+		for (Mes mes:Mes.values())
+		{
+			Memento m = mementoService.create();
+			BigDecimal variableTemporal = new BigDecimal(cantidadDeNetbooksReparadas[mes.ordinal()]);
+			m.set("mes", mes);
+			m.set("cantidadNetbookReparadas", variableTemporal);
+			
+			reparadas.add(container.newViewModelInstance(NetbookReparadasAnualmente.class,
+					m.asString()));
+		}	
 		
-		m1.set("mes", Mes.Febrero);
-		m1.set("cantidadNetbookReparadas", 2);
 		
-		reparadas.add(container.newViewModelInstance(NetbookReparadasAnualmente.class,  m1.asString()));
+		
 
 		return reparadas;
 		
