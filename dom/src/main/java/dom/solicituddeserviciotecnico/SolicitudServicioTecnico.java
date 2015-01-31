@@ -86,7 +86,7 @@ import dom.tecnico.Tecnico;
 	@Query(name="traerTipoDeSoluciones", language="JDOQL", 
 	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE motivoDeSolicitud.indexOf(:motivoDeSolicitud) >=0 && estaBorrado== 'ACTIVO' range 0, 5"),
 	      @Query(name="traerSolicitudesReparadas", language="JDOQL", 
-	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE reparada == true")
+	      value = "SELECT FROM dom.solicituddeserviciotecnico.SolicitudServicioTecnico WHERE reparada == true && this.persona.establecimiento == :institucion")
 })
 
 @javax.jdo.annotations.Version(

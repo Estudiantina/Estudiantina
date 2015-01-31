@@ -11,14 +11,11 @@
  * published by the Free Software Foundation.
  */
 package servicio.estadisticas;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ActionSemantics;
 import org.apache.isis.applib.annotation.ActionSemantics.Of;
@@ -28,11 +25,8 @@ import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.services.memento.MementoService;
 import org.apache.isis.applib.services.memento.MementoService.Memento;
 import org.isisaddons.wicket.wickedcharts.cpt.applib.WickedChart;
-
 import repo.netbook.RepositorioNetbook;
 import repo.persona.RepositorioPersona;
-import servicio.vistas.serviciotecnico.VistaDeBusquedaDeSoluciones;
-
 import com.google.common.collect.Maps;
 import com.googlecode.wickedcharts.highcharts.options.ChartOptions;
 import com.googlecode.wickedcharts.highcharts.options.Cursor;
@@ -268,45 +262,36 @@ public OpcionesDeGradienteDeGraficoSituacionNetbook(
 }
 }
 	
-	public List<NetbookReparadasAnualmente> verNetbooksReparadasAnualmente(){
+	public List<NetbookReparadasAnualmente> verNetbooksReparadasAnualmente(@Named("Año a Mostrar")int anio){
 		List<NetbookReparadasAnualmente> reparadas = new ArrayList<NetbookReparadasAnualmente>();
-		
-		List<SolicitudServicioTecnico> listaNetbooksReparadas = container.allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerSolicitudesReparadas"));
-
+		List<SolicitudServicioTecnico> listaNetbooksReparadas = container.allMatches(QueryDefault.create(SolicitudServicioTecnico.class, "traerSolicitudesReparadas","institucion",repositorioPersona.verMisDatos().getEstablecimiento()));
 		int[] cantidadDeNetbooksReparadas = new int[13];
-		
 		//todas las pociciones del array en 0
 		for(int i=0;i<cantidadDeNetbooksReparadas.length;i++)
 		{
 			cantidadDeNetbooksReparadas[i]=0;
 		}
-		
 		//contamos cuantas netbooks se repararon en cada mes
 		for (SolicitudServicioTecnico solicitud:listaNetbooksReparadas)
 		{
-			if(solicitud.isReparada())
+			if(solicitud.isReparada()&& solicitud.getFechaDeSolucion().getYear() == anio)
 			{
 			cantidadDeNetbooksReparadas[solicitud.getFechaDeSolicitud().getMonthOfYear()]++;
 			}
 		}
-		
+		//Recorremos todos los meses y asignamos cuantas netbooks se repararon al web view
 		for (Mes mes:Mes.values())
 		{
 			Memento m = mementoService.create();
 			BigDecimal variableTemporal = new BigDecimal(cantidadDeNetbooksReparadas[mes.ordinal()]);
 			m.set("mes", mes);
 			m.set("cantidadNetbookReparadas", variableTemporal);
-			
-			reparadas.add(container.newViewModelInstance(NetbookReparadasAnualmente.class,
-					m.asString()));
+			reparadas.add(container.newViewModelInstance(NetbookReparadasAnualmente.class,m.asString()));
 		}	
 		
-		
-		
-
 		return reparadas;
-		
 	}
+	
 	@javax.inject.Inject 
     DomainObjectContainer container; 
 	
