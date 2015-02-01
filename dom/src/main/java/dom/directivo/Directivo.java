@@ -47,6 +47,7 @@ public class Directivo extends PersonaGestionable {
 	public String title()
 	{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
+	
 	}
 	
 	public void modifyEstablecimiento(Establecimiento e) {
