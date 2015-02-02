@@ -380,6 +380,9 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_docente","dom.docente:Docente:sexo:r",executionContext);
 		create("usuario_docente","dom.docente:Docente:telefonoCelular:*",executionContext);
 		create("usuario_docente","dom.docente:Docente:telefonoFijo:*",executionContext);
+		create("usuario_docente","dom.docente:Docente:cargo:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:cursos:r",executionContext);
+		
 		//PERMISOS DOCENTE permisos para ver la netbook
 		create("usuario_docente","dom.netbook:ModeloNetbook:*:r",executionContext);
 		create("usuario_docente","dom.netbook:Netbook:direccionMac:r",executionContext);
