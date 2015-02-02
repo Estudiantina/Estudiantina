@@ -177,6 +177,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.directivo:Directivo:localizacion:r",executionContext);
 		create("usuario_tecnico","dom.directivo:Directivo:crearCuenta:*",executionContext);
 		
+		
 		//PERMISOS EN TUTOR 
 		//PARA USUARIO TECNICO
 		create("usuario_tecnico","dom.tutor:Tutor:alturaDomicilio:*",executionContext);

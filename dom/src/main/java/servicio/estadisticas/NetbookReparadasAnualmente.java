@@ -59,7 +59,11 @@ public class NetbookReparadasAnualmente  extends AbstractViewModel{
 		return mes.toString();
 	}
 	
-	
+	public String iconName()
+	{
+		
+		return "meses";
+	}
 	
 	@javax.inject.Inject
     private MementoService mementoService;

@@ -292,6 +292,11 @@ public OpcionesDeGradienteDeGraficoSituacionNetbook(
 		return reparadas;
 	}
 	
+	public String iconName()
+	{
+		
+		return "estadisticas";
+	}
 	@javax.inject.Inject 
     DomainObjectContainer container; 
 	
