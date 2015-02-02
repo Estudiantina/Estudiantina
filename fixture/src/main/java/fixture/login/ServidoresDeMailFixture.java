@@ -1,11 +1,15 @@
 package fixture.login;
 
+import java.awt.Container;
+
 import javax.inject.Inject;
 
 import org.apache.isis.applib.fixturescripts.FixtureScript;
 import org.apache.isis.applib.fixturescripts.FixtureScript.ExecutionContext;
+import org.apache.isis.applib.query.QueryDefault;
 
 import dom.email.ServidorDeEmail;
+import dom.netbook.Netbook;
 import repo.login.repologin;
 
 
@@ -30,8 +34,9 @@ public class ServidoresDeMailFixture extends FixtureScript{
 	
 	private boolean estaVacio(ExecutionContext executionContext) {
 		return executionContext.add(this,
-				repoLogin.verUsuarios().size()==0);
+				repoLogin.listarServidores().size()==0);
 	}
+
 	
 	@Inject
 	private repologin repoLogin;

@@ -203,6 +203,13 @@ public class repologin extends AbstractFactoryAndRepository {
     public Rol buscarRol(@Named("rol")String searchPhrase) {        
 		return firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre",searchPhrase));
     }
+	
+	
+	@Hidden
+	public List<ServidorDeEmail> listarServidores()
+	{
+		return allMatches(QueryDefault.create(ServidorDeEmail.class, "traerTodo"));
+	}
     @Hidden
 	public Permisos aniadirPermiso(Rol rol,@Named("Permiso")String permiso)
 	{
