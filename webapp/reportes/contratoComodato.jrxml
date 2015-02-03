@@ -169,7 +169,7 @@ FORMACION DOCENTE]]></text>
 				<textFieldExpression><![CDATA[$P{provinciaEstablecimiento}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="46" y="21" width="516" height="504" uuid="f244aa78-189a-45b6-8eb6-42a461546f07"/>
+				<reportElement x="46" y="21" width="519" height="504" uuid="f244aa78-189a-45b6-8eb6-42a461546f07"/>
 				<textElement textAlignment="Justified" verticalAlignment="Top" rotation="None">
 					<font size="13"/>
 					<paragraph lineSpacing="1_1_2"/>

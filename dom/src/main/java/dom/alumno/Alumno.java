@@ -133,6 +133,10 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	}
 
 	private Tutor tutor;
+	private Date fechaIngreso;
+	private EstadoDeAlumno estadoDeAlumno;
+	private Nacionalidad nacionalidad;
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Tutor getTutor() {
 		return tutor;
@@ -153,11 +157,6 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
         tutor.removeFromAlumnos(this);
     }
 
-	private Date fechaIngreso;
-	
-	private EstadoDeAlumno estadoDeAlumno;
-	private Nacionalidad nacionalidad;
-	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Date getFechaIngreso() {
 		return fechaIngreso;
@@ -182,10 +181,6 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	public void setEstadoDeAlumno(EstadoDeAlumno estadoDeAlumno) {
 		this.estadoDeAlumno = estadoDeAlumno;
 	}
-
-	
-	
-    
 	
 	///////////////////////////////////////
 	//imprimir reporte para certificado de alumno regular
@@ -242,10 +237,6 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 		}
 	}
 	
-	
-	
-	
-
 	@javax.inject.Inject 
     DomainObjectContainer container;
 

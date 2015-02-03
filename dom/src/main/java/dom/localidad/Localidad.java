@@ -33,6 +33,7 @@ import javax.jdo.annotations.Query;
 @AutoComplete(repository = RepositorioLocalidad.class, action = "autoCompletarLocalidad")
 @ObjectType("Localidades")
 public class Localidad  implements Comparable<Localidad>{
+	
 	private String codigoPostal;
 	private String localidad;
 	private Departamento departamento;
