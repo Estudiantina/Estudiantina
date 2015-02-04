@@ -40,9 +40,11 @@ import repo.login.repologin;
 
 @Named("E-Mail")
 public class CuentaMail {
+	
 	private String nombreCuenta;
 	private String usuario;
 	private String clave;
+	
 	@Column(allowsNull="false")
 	@Persistent
 	@Hidden

@@ -92,6 +92,7 @@ public class Netbook implements Comparable<Netbook> {
 	private Robada robada;
 	private EnProcesoDeMigracion enProcesoDeMigracion;
 	private Establecimiento establecimientoAmigrar;
+	
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Establecimiento getEstablecimientoAmigrar() {
@@ -101,18 +102,15 @@ public class Netbook implements Comparable<Netbook> {
 		this.establecimientoAmigrar = establecimientoAmigrar;
 	}
 
-
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public EnProcesoDeMigracion getEnProcesoDeMigracion() {
 		return enProcesoDeMigracion;
 	}
 
-
 	public void setEnProcesoDeMigracion(EnProcesoDeMigracion enProcesoDeMigracion) {
 		this.enProcesoDeMigracion = enProcesoDeMigracion;
 	}
-
 
 	public Netbook() {
 		this.enStock = new EnStock(this);
@@ -124,7 +122,6 @@ public class Netbook implements Comparable<Netbook> {
 		this.situacionDeNetbook = this.getEnStock();
 		
 	}
-	
 	
 	private ISituacionDeNetbook situacionDeNetbook;
 	@Persistent(extensions= {
@@ -144,11 +141,9 @@ public class Netbook implements Comparable<Netbook> {
 		return situacionDeNetbook;
 	}
 	
-	
 	public void setSituacionDeNetbook(ISituacionDeNetbook situacionDeNetbook) {
 		this.situacionDeNetbook = situacionDeNetbook;
 	}
-
 
 	public Netbook desasignarNetbook()
 	{
@@ -160,7 +155,6 @@ public class Netbook implements Comparable<Netbook> {
 		return this.getSituacionDeNetbook().ocultarDesasignarNetbookDePersona();
 	}
 
-	
 	public SituacionDeNetbook getSituacion()
 	{
 		return this.getSituacionDeNetbook().getNombreSituacion();
@@ -206,7 +200,6 @@ public class Netbook implements Comparable<Netbook> {
 		this.robada = robada;
 	}
 	
-	
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Establecimiento getEstablecimiento() {
 		return establecimiento;
@@ -223,7 +216,6 @@ public class Netbook implements Comparable<Netbook> {
 	public void setPersona(PersonaGestionable persona) {
 		this.persona = persona;
 	}
-
 	
 	public Netbook asignarPersona(PersonaGestionable persona) {
 		this.situacionDeNetbook.asignarPersona(persona);
@@ -285,7 +277,6 @@ public class Netbook implements Comparable<Netbook> {
 		return modelo;
 	}
 
-
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
@@ -298,7 +289,6 @@ public class Netbook implements Comparable<Netbook> {
 	public void setNumeroDeSerie(String numeroDeSerie) {
 		this.numeroDeSerie = numeroDeSerie;
 	}
-	
 	
 	@Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software",sequence="2")
@@ -320,9 +310,6 @@ public class Netbook implements Comparable<Netbook> {
 	public void setFechaDeExpiracion(Date fechaDeExpiracion) {
 		this.fechaDeExpiracion = fechaDeExpiracion;
 	}
-	
-
-	
 	
 	@Unique
 	@Column(allowsNull="false",length=10)
@@ -353,9 +340,6 @@ public class Netbook implements Comparable<Netbook> {
 		return this.getSituacionDeNetbook().ocultarNumeroActaDeRobo();
 		
 	}
-
-
-
 	
       /**
       * TODO ImprimirReporte
@@ -376,7 +360,6 @@ public class Netbook implements Comparable<Netbook> {
     	return this.getSituacionDeNetbook().ocultarImprimirActaMigracion();
     }
     
-
     /**
      * TODO ImprimirReporte
      * TODO Generar acta de prestamo de netbook
@@ -388,11 +371,8 @@ public class Netbook implements Comparable<Netbook> {
     
    public Blob imprimirActaPrestamo() throws JRException, FileNotFoundException
 	{
-		
-
-		
 		return this.getSituacionDeNetbook().imprimirActaPrestamo();
-		}
+	}
    /**
     * oculta la accion de Imprimir Acta de Prestamo
     * dependiendo de la situacion en que
@@ -427,7 +407,6 @@ public class Netbook implements Comparable<Netbook> {
 	{
 		return this.getSituacionDeNetbook().imprimirActaRecepcionDeNetbook();
 	}
-  
 
   /**
    * oculta la accion de Acta de Recepcion
@@ -498,8 +477,7 @@ public class Netbook implements Comparable<Netbook> {
     	return this.getSituacionDeNetbook().ocultarImprimirContratoDeCesion();
     }
     
-    
-    /**
+   /**
      * lista una lista con el historial de reparaciones 
      * en el viewer
      * @return historial de reparaciones
@@ -520,7 +498,5 @@ public class Netbook implements Comparable<Netbook> {
 	public int compareTo(Netbook o) {
 		return ObjectContracts.compare(this, o, "idNetbook");
 	}
-
-
 	
 }

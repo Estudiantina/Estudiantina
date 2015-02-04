@@ -36,6 +36,7 @@ import javax.jdo.annotations.PersistenceCapable;
 public class Provincia {
 	
 	private Blob escudo;
+	
 	@Column(allowsNull="true")
 	@Persistent
 	public Blob getEscudo() {
