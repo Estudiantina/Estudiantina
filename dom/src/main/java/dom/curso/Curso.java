@@ -48,6 +48,15 @@ import repo.curso.RepositorioCurso;
 @Audited
 public class Curso implements Comparable<Curso> {
 	
+	public String iconName() {
+        return "curso";
+    }
+	
+	public String title()
+	{
+		return this.anio+" "+this.division+" "+cicloLectivo;
+	}
+		
 	private Anio  anio;
 	private Division division;
 	//TODO separar año y division
@@ -146,10 +155,6 @@ public class Curso implements Comparable<Curso> {
 		this.establecimiento = establecimiento;
 	}
 
-	public String iconName() {
-        return "curso";
-    }
-	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public int getCicloLectivo() {
 		return cicloLectivo;
@@ -159,13 +164,7 @@ public class Curso implements Comparable<Curso> {
 		this.cicloLectivo = cicloLectivo;
 	}
 
-	public String title()
-	{
-		return this.anio+" "+this.division+" "+cicloLectivo;
-	}
-		
 	@javax.jdo.annotations.Column(allowsNull="false")
-	
 	public Turno getTurno() {
 		return turno;
 	}
@@ -173,24 +172,26 @@ public class Curso implements Comparable<Curso> {
 		this.turno = turno;
 	}
 	
-  private DomainObjectContainer container;
-
- /**
-  * 
-  */
-	protected DomainObjectContainer getContainer()	{
-		return container;
-	}
-	
-	/**
-	 * 
-	 */
-	public void setDomainObjectContainer(final DomainObjectContainer container){
-		this.container = container;
-	}
-
 	@Override
 	public int compareTo(Curso curso) {		
 		return ObjectContracts.compare(this, curso, "anio");
 	}
+	
+	
+	private DomainObjectContainer container;
+
+	  /**
+	   * 
+	   */
+	 	protected DomainObjectContainer getContainer()	{
+	 		return container;
+	 	}
+	 	
+	 	/**
+	 	 * 
+	 	 */
+	 	public void setDomainObjectContainer(final DomainObjectContainer container){
+	 		this.container = container;
+	 	}
+
 }
