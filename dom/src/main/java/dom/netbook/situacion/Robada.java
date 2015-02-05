@@ -137,8 +137,7 @@ public class Robada implements ISituacionDeNetbook{
 
 	@Override
 	public boolean ocultarMigrarNetbook() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -150,7 +149,7 @@ public class Robada implements ISituacionDeNetbook{
 	@Override
 	public boolean ocultarAceptarMigracion() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
