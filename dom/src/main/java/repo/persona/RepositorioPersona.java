@@ -401,7 +401,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return tecnico;
 	
 	}
-
+	@Named("ingresar Tecnico en este establecimiento")
 	public String validateIngresarTecnicoDentroDelEstablecimiento (
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
@@ -587,6 +587,17 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * Listar los alumnos por estados.
 	 * @return List<Alumno>
 	 */
+	
+	@Named("Listar Alumnos")
+	public List<Alumno> listarAlumnos(){
+		final List<Alumno> listaAlumno = this.container.allMatches(new QueryDefault<Alumno>(Alumno.class,
+				"traerTodoAlumno"));
+		if (listaAlumno.isEmpty()){
+			this.container.warnUser("No hay alumnos cargados en el sistema");
+		}
+				return listaAlumno;
+	}
+	
 	@Named("Listar Alumnos por Estados")
 	public List<Alumno> listaEstadoAlumno(@Named("Seleccione Estado") EstadoDeAlumno estado) {
 		
@@ -597,15 +608,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * Listar los alumnos para los reportes de estadistica.
 	 * @return List<Alumno>
 	 */
-	@Named("Listar Alumnos")
-	public List<Alumno> listarAlumnos(){
-		final List<Alumno> listaAlumno = this.container.allMatches(new QueryDefault<Alumno>(Alumno.class,
-				"traerTodoAlumno"));
-		if (listaAlumno.isEmpty()){
-			this.container.warnUser("No hay alumnos cargados en el sistema");
-		}
-				return listaAlumno;
-	}
+	
     @Hidden
 	public PersonaGestionable buscarPorCuil(Long cuil){
 		final PersonaGestionable mipersona = this.container.firstMatch(new QueryDefault<PersonaGestionable>(PersonaGestionable.class,

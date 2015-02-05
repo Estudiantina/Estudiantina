@@ -197,8 +197,6 @@ public class Persona implements Locatable,Serializable{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 	}
 	
-
-	
 	@MaxLength(12)
 	@javax.jdo.annotations.Column(allowsNull="false")
     @MemberOrder(sequence="1")
