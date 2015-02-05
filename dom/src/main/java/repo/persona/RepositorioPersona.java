@@ -174,7 +174,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
         return null;
 		}
 	}
-	
     
     public String validateIngresarDirectivo (
 			@Named("CUIL") final Long cuil,
@@ -209,11 +208,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
         return null;
 		}
 	}
-    
-    
-    
-    
-    
+        
 	//*********************** VALIDACION ******************************************//
 	/**
 	 * metodo que valida los parametros cuando se ingresa un nueva alumno
@@ -250,8 +245,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				final Tutor tutor
 				
 			) {
-		
-		
+			
 		if(fechaNacimiento.compareTo(fechaIngreso) >0)
 		{
 			return "FECHA NACIMIENTO: debe ser menor a la fecha de ingreso";
@@ -323,7 +317,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	
 	}
 
-	
 	public String validateIngresarTecnico (
 			@Named("Establecimiento") final Establecimiento establecimiento,
 			@Named("CUIL") final Long cuil,
@@ -442,9 +435,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		else
 		{
 	    return null;
-		}
-		
-	
+		}	
 	}
 	
 	@Named("ingresar Directivo en este establecimiento")
@@ -569,7 +560,6 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",temp,"institucion",this.verMisDatos().getEstablecimiento()));
 		
 	}
-    
     
     @Hidden
   	public List<Docente> autoCompletarDocente (@Named("Ingrese CUIL")String searchPhrase)

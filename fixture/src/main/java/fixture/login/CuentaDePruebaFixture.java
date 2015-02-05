@@ -36,7 +36,6 @@ public class CuentaDePruebaFixture extends FixtureScript {
 		return executionContext.add(this,
 				repoLogin.verUsuarios().size()==0);
 	}
-	
 
 	@Inject
 	private RepositorioPersona repositorioPersona;

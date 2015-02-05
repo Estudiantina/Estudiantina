@@ -6,15 +6,12 @@ import org.apache.isis.applib.fixturescripts.FixtureScript;
 import repo.localidad.RepositorioLocalidad;
 import dom.localidad.Departamento;
 
-
 public class DepartamentosFixture extends FixtureScript {
 
 	public DepartamentosFixture()
 	{
 		withDiscoverability(Discoverability.DISCOVERABLE);
 	}
-	
-	
 
 	@Override
 	protected void execute(ExecutionContext executionContext) {

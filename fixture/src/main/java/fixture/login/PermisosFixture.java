@@ -357,7 +357,6 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","repo.notificaciones:RepoNotificaciones:solicitarTramiteDeMigracion:*",executionContext);
 		create("usuario_alumno","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:r",executionContext);
 		
-		
 		//
 		//--------------------PERMISOS DOCENTE-------------------
 		//		
@@ -395,7 +394,6 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_docente","dom.netbook:Netbook:HistorialDeReparaciones:*",executionContext);
 		create("usuario_docente","dom.netbook:Netbook:repoServicioTecnico:*",executionContext);
 
-
 		//PERMISOS DOCENTE permisos dominio solicitud servicio tecnico
 		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:codigoSolicitud:r",executionContext);
 		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:comentario:r",executionContext);
@@ -410,9 +408,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:netbook:r",executionContext);
 		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:persona:r",executionContext);
 		create("usuario_docente","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:NombreEstado:r",executionContext);
-		
-		
-
+				
 		//PERMISOS DOCENTE repositorio SolicitudServicioTecnico
 		create("usuario_docente","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
 		create("usuario_docente","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
@@ -436,16 +432,12 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:persona:r",executionContext);
 		create("usuario_docente","dom.notificaciones:SolicitudTramiteDeMigracion:marcarComoNotificacionAtendida:*",executionContext);
 		
-		
-		
 		//
 		//PERMISOS PARA DIRECTIVOS
 		//
 		
-		
 		// PERMISOS DOCENTE para cambiar la contraseña
 		create("usuario_directivo","repo.login:Repologin:modificarClave:*",executionContext);
-		
 		
 		//PERMISOS DIRECTIVOS SOBRE PERSONAS
 		create("usuario_directivo","repo.persona:RepositorioPersona:verMisDatos:*",executionContext);
@@ -550,15 +542,10 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_directivo","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
 		create("usuario_directivo","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
 		create("usuario_directivo","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
-
 		
-		
-		}
-		
-		
+		}		
 	}
 
-	
 	private Permisos create(final String rol,String permiso,
 			ExecutionContext executionContext) {
 		

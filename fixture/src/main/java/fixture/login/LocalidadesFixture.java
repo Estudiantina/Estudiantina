@@ -21,7 +21,6 @@ public class LocalidadesFixture extends FixtureScript{
 				
 	}
 
-	
 	private Localidad create(String codigoPostal, String localidad, String departamento,
 			ExecutionContext executionContext) {
 		

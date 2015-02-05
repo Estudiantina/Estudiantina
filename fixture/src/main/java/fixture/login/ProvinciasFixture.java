@@ -1,6 +1,5 @@
 package fixture.login;
 
-
 import javax.inject.Inject;
 import org.apache.isis.applib.fixturescripts.FixtureScript;
 import repo.localidad.RepositorioLocalidad;

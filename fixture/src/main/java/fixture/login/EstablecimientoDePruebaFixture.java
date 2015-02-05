@@ -23,7 +23,6 @@ public class EstablecimientoDePruebaFixture extends FixtureScript {
 		}
 	}
 
-	
 	private Establecimiento create(String nombre, String direccion,String telefono,String email,String distritoEscolar,String cue, String localidad,
 			ExecutionContext executionContext) {
 		return executionContext.add(this,
