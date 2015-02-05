@@ -93,6 +93,11 @@ public class Netbook implements Comparable<Netbook> {
 	private EnProcesoDeMigracion enProcesoDeMigracion;
 	private Establecimiento establecimientoAmigrar;
 	
+	
+	public String iconName() {
+        return "netbook";
+    }
+	
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Establecimiento getEstablecimientoAmigrar() {
@@ -107,7 +112,6 @@ public class Netbook implements Comparable<Netbook> {
 	public EnProcesoDeMigracion getEnProcesoDeMigracion() {
 		return enProcesoDeMigracion;
 	}
-
 	public void setEnProcesoDeMigracion(EnProcesoDeMigracion enProcesoDeMigracion) {
 		this.enProcesoDeMigracion = enProcesoDeMigracion;
 	}
@@ -140,7 +144,6 @@ public class Netbook implements Comparable<Netbook> {
 	private ISituacionDeNetbook getSituacionDeNetbook() {
 		return situacionDeNetbook;
 	}
-	
 	public void setSituacionDeNetbook(ISituacionDeNetbook situacionDeNetbook) {
 		this.situacionDeNetbook = situacionDeNetbook;
 	}
@@ -167,6 +170,7 @@ public class Netbook implements Comparable<Netbook> {
 	public void setAsignada(Asignada asignada) {
 		this.asignada = asignada;
 	}
+	
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public EnStock getEnStock() {
@@ -175,6 +179,7 @@ public class Netbook implements Comparable<Netbook> {
 	public void setEnStock(EnStock enStock) {
 		this.enStock = enStock;
 	}
+	
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Entregada getEntregada() {
@@ -183,6 +188,7 @@ public class Netbook implements Comparable<Netbook> {
 	public void setEntregada(Entregada entregada) {
 		this.entregada = entregada;
 	}
+	
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Prestada getPrestada() {
@@ -191,6 +197,7 @@ public class Netbook implements Comparable<Netbook> {
 	public void setPrestada(Prestada prestada) {
 		this.prestada = prestada;
 	}
+	
 	@Hidden
 	@javax.jdo.annotations.Column(allowsNull="true")
 	public Robada getRobada() {
@@ -248,10 +255,7 @@ public class Netbook implements Comparable<Netbook> {
         persona.removeFromNetbooks(this);
     }
 		
-	public String iconName() {
-        return "netbook";
-    }
-    
+	
     @Column(allowsNull="false",length=17)
 	@MemberOrder(name="Informacion De Hardware", sequence="1")
     @RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]")
@@ -259,27 +263,27 @@ public class Netbook implements Comparable<Netbook> {
     public String getDireccionMac() {
 		return direccionMac;
 	}
-    
-	public void setDireccionMac(String direccionMac) {
+    public void setDireccionMac(String direccionMac) {
 		this.direccionMac = direccionMac;
 	}
+    
 	@Column(allowsNull="false")
 	@MemberOrder(name="Informacion De Hardware", sequence="2")
 	public Marca getMarca() {
 		return marca;
 	}
-	
 	public void setMarca(Marca marca) {
 		this.marca = marca;
 	}
+	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getModelo() {
 		return modelo;
 	}
-
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
+	
 	@Column(allowsNull="false",length=30)
 	@MemberOrder(name="Datos De Software", sequence="1")
 	@Hidden(where = Where.ALL_TABLES)
@@ -330,7 +334,6 @@ public class Netbook implements Comparable<Netbook> {
 	public String getNumeroDeActaDeRobo() {
 		return numeroDeActaDeRobo;
 	}
-	
 	public void setNumeroDeActaDeRobo(String numeroDeActaDeRobo) {
 		this.numeroDeActaDeRobo = numeroDeActaDeRobo;
 	}

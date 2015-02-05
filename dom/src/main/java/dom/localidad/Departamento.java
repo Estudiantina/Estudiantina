@@ -42,11 +42,15 @@ public class Departamento {
 		return "Localidad";
 	   }
 	
+	public String title()
+	{
+		return nombreDepartamento;
+	}
+		
 	@Column(allowsNull="false")
 	public Provincia getProvincia() {
 		return provincia;
 	}
-
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
 	}
@@ -56,17 +60,10 @@ public class Departamento {
 	public String getNombreDepartamento() {
 		return nombreDepartamento;
 	}
-
 	public void setNombreDepartamento(String nombreDepartamento) {
 		this.nombreDepartamento = nombreDepartamento;
 	}
 	
-	public String title()
-	{
-		return nombreDepartamento;
-		
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
