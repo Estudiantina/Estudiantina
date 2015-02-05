@@ -42,15 +42,6 @@ public class Localidad  implements Comparable<Localidad>{
 		return "Localidad";
 	   }
 	
-	@Column(allowsNull="false")
-	public Departamento getDepartamento() {
-		return departamento;
-	}
-
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
-	}
-
 	public String toString()
 	{
 		return this.codigoPostal+" "+this.localidad;
@@ -58,14 +49,21 @@ public class Localidad  implements Comparable<Localidad>{
 	public String title()
 	{
 		return this.codigoPostal+" "+this.localidad;
+	}	
+	
+	@Column(allowsNull="false")
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
 	}
 
-    @Unique
+	@Unique
     @Column(allowsNull="false")    
 	public String getCodigoPostal() {
 		return codigoPostal;
 	}
-
 	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
@@ -74,7 +72,6 @@ public class Localidad  implements Comparable<Localidad>{
 	public String getLocalidad() {
 		return localidad;
 	}
-
 	public void setLocalidad(String localidad) {
 		this.localidad = localidad;
 	}

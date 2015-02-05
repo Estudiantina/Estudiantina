@@ -36,36 +36,33 @@ import javax.jdo.annotations.PersistenceCapable;
 public class Provincia {
 	
 	private Blob escudo;
+	private String nombreProvincia;
+	
+	public String iconName() {
+		return "Localidad";
+	   }
+	
+	public String title()
+	{
+		return this.nombreProvincia;
+	}
 	
 	@Column(allowsNull="true")
 	@Persistent
 	public Blob getEscudo() {
 		return escudo;
 	}
-
 	public void setEscudo(Blob escudo) {
 		this.escudo = escudo;
 	}
-	
-	public String iconName() {
-		return "Localidad";
-	   }
-	
-	private String nombreProvincia;
 	
 	@Unique
 	@Column(allowsNull="false")
 	public String getNombreProvincia() {
 		return nombreProvincia;
 	}
-	
 	public void setNombreProvincia(String nombreProvincia) {
 		this.nombreProvincia = nombreProvincia;
-	}
-
-	public String title()
-	{
-		return this.nombreProvincia;
 	}
 
 	@Override

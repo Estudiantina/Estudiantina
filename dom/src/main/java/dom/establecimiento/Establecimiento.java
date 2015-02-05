@@ -45,6 +45,20 @@ import repo.establecimiento.RepositorioEstablecimiento;
 
 @ObjectType("Establecimiento")
 public class Establecimiento {
+		
+	public String title()
+	{
+		return this.nombre;
+	}
+	
+	public String toString()
+	{
+		return nombre;		
+	}
+	
+	public String iconName() {
+        return "edificio";
+    }
 	
 	private String nombre;
 	private String direccion;
@@ -56,6 +70,7 @@ public class Establecimiento {
 	private Directivo directivo;
 	@javax.jdo.annotations.Persistent(mappedBy="establecimiento")
 	private SortedSet<Curso> cursos =  new TreeSet<Curso>();
+	
 	@Render(Type.EAGERLY)
 	public SortedSet<Curso> getCursos() {
 		return cursos;
@@ -63,6 +78,7 @@ public class Establecimiento {
 	public void setCursos(SortedSet<Curso> cursos) {
 		this.cursos = cursos;
 	}
+	
 	@Column(allowsNull="true")
 	public Directivo getDirectivo() {
 		return directivo;
@@ -85,29 +101,15 @@ public class Establecimiento {
 	public void setLocalidad(Localidad localidad) {
 		this.localidad = localidad;
 	}
-	public String title()
-	{
-		return this.nombre;
 		
-	}
-	public String iconName() {
-        return "edificio";
-    }
-	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getEmail() {
 		return email;
 	}
-	
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public String toString()
-	{
-		return nombre;		
-	}
-	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public String getNombre() {
 		return nombre;
@@ -128,7 +130,6 @@ public class Establecimiento {
 	public String getTelefono() {
 		return telefono;
 	}
-	
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}

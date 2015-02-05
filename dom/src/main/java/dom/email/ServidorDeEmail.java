@@ -41,35 +41,13 @@ public class ServidorDeEmail {
 	private int port;
 	private boolean auth;
 	private boolean starttlsenable;
+	private boolean fallback;
 	
 	public String title()
 	{
 		return nombreServer;
 	}
 	
-	@Column(allowsNull="false")
-	public boolean isAuth() {
-		return auth;
-	}
-	public void setAuth(boolean auth) {
-		this.auth = auth;
-	}
-
-	private boolean fallback;
-	@Column(allowsNull="false")
-	public boolean isFallback() {
-		return fallback;
-	}
-	public void setFallback(boolean fallback) {
-		this.fallback = fallback;
-	}
-	@Column(allowsNull="false")
-	public int getPort() {
-		return port;
-	}
-	public void setPort(int port) {
-		this.port = port;
-	}
 	@Column(allowsNull="false")
 	public String getNombreServer() {
 		return nombreServer;
@@ -87,10 +65,36 @@ public class ServidorDeEmail {
 	}
 	
 	@Column(allowsNull="false")
+	public int getPort() {
+		return port;
+	}
+	public void setPort(int port) {
+		this.port = port;
+	}
+	
+	
+	@Column(allowsNull="false")
+	public boolean isAuth() {
+		return auth;
+	}
+	public void setAuth(boolean auth) {
+		this.auth = auth;
+	}
+
+	@Column(allowsNull="false")
 	public boolean isStarttlsenable() {
 		return starttlsenable;
 	}
 	public void setStarttlsenable(boolean starttlsenable) {
 		this.starttlsenable = starttlsenable;
 	}
+	
+	@Column(allowsNull="false")
+	public boolean isFallback() {
+		return fallback;
+	}
+	public void setFallback(boolean fallback) {
+		this.fallback = fallback;
+	}
+	
 }

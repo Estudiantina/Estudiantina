@@ -41,31 +41,16 @@ import repo.login.repologin;
 @Named("E-Mail")
 public class CuentaMail {
 	
-	private String nombreCuenta;
-	private String usuario;
-	private String clave;
-	
-	@Column(allowsNull="false")
-	@Persistent
-	@Hidden
-	public String getClave() {
-		return clave;
-	}
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
-	private ServidorDeEmail servidorDeMail;
-	@Column(allowsNull="false")
-	public ServidorDeEmail getServidorDeMail() {
-		return servidorDeMail;
-	}
-	public void setServidorDeMail(ServidorDeEmail servidorDeMail) {
-		this.servidorDeMail = servidorDeMail;
-	}
 	public String title()
 	{
 		return ""+nombreCuenta;
 	}
+	
+	private String nombreCuenta;
+	private String usuario;
+	private String clave;
+	private ServidorDeEmail servidorDeMail;
+		
 	@Column(allowsNull="false")
 	public String getNombreCuenta() {
 		return nombreCuenta;
@@ -78,7 +63,29 @@ public class CuentaMail {
 	public String getUsuario() {
 		return usuario;
 	}
+	
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+	
+	@Column(allowsNull="false")
+	@Persistent
+	@Hidden
+	public String getClave() {
+		return clave;
+	}
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+		
+	@Column(allowsNull="false")
+	public ServidorDeEmail getServidorDeMail() {
+		return servidorDeMail;
+	}
+	public void setServidorDeMail(ServidorDeEmail servidorDeMail) {
+		this.servidorDeMail = servidorDeMail;
+	}
+	
+	
+	
 }
