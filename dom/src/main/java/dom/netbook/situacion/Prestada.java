@@ -161,13 +161,11 @@ public class Prestada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarImprimirActaRecepcionDeNetbook() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean ocultarReportarComoRobada() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
