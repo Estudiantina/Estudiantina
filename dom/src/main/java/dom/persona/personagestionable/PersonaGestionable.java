@@ -41,6 +41,7 @@ import dom.establecimiento.Establecimiento;
 import dom.login.Login;
 import dom.login.Rol;
 import dom.netbook.Netbook;
+import dom.netbook.situacion.SituacionDeNetbook;
 import dom.persona.Persona;
 
 /**
@@ -145,6 +146,19 @@ public class PersonaGestionable extends Persona implements Locatable,Serializabl
 				
 		net.asignarPersona(this);
 		return this;
+	}
+	
+	public boolean hideAniadirNetbook()
+	{
+		boolean desactivado=false;
+		for( Netbook netbook :this.netbooks)
+		{
+			if (netbook.getSituacion().equals(SituacionDeNetbook.ENTREGADA))
+			{
+				desactivado= true;
+			}
+		}
+		return desactivado;
 	}
 	
 	public String crearCuenta(@Named("usuario")String usuario,@Named("password")Password password)
