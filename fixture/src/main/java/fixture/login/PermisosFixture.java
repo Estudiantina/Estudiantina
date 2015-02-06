@@ -62,7 +62,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:solucion:r",executionContext);
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:nombreEstado:r",executionContext);
 		create("usuario_tecnico","dom.solicituddeserviciotecnico:SolicitudServicioTecnico:tecnicoAsignado:r",executionContext);
-		
+		create("usuario_tecnico","servicio.vistas.serviciotecnico:VistaDeBusquedaDeSoluciones:*:r",executionContext);
 		//PERMISOS DE TECNICOS PARA NETBOOKS
 		create("usuario_tecnico","repo.netbook:RepositorioNetbook:ingresarNuevaNetbookAlEstablecimiento:*",executionContext);
 		create("usuario_tecnico","repo.netbook:RepositorioNetbook:listarNetbooksSinAsignar:*",executionContext);
@@ -344,7 +344,8 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:solicitarServicioTecnico:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verHistorialReparaciones:*",executionContext);
 		create("usuario_alumno","repo.solicitudserviciotecnico:RepoSolicitudServicioTecnico:verUltimaSolicitud:*",executionContext);
-		create("usuario_alumno","servicio.vistas.serviciotecnico:VistaDeBusquedaDeSoluciones:*:r",executionContext);
+		
+		
 		//parte de repositorio Persona
 		create("usuario_alumno","repo.persona:RepositorioPersona:VerMisDatos:*",executionContext);
 
