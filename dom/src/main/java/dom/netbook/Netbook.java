@@ -68,8 +68,15 @@ import org.apache.isis.applib.annotation.Render.Type;
 @Bookmarkable
 @javax.jdo.annotations.Uniques({
     @javax.jdo.annotations.Unique(
-            name="Netbook_Campos_unicos", 
-            members={"numeroDeSerie","idNetbook","numeroLicenciaWindows"})
+            name="Netbook_numeroDeSerie_unico", 
+            members={"numeroDeSerie"}),
+@javax.jdo.annotations.Unique(
+        name="Netbook_numeroDeId_Netbook", 
+        members={"idNetbook"}),
+@javax.jdo.annotations.Unique(
+                name="Netbook_numeroDeLicencia_Windows", 
+                members={"numeroLicenciaWindows"}),        
+        
 })
 
 public class Netbook implements Comparable<Netbook> {
