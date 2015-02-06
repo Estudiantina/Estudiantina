@@ -283,6 +283,7 @@ public class Persona implements Locatable,Serializable{
 	@PublishedAction // para que muestre la accion en la lista de objetos
 	@Named("eliminar netbook")
 	@CssClass("icono-eliminar")
+	@Hidden
 	public List<Persona> eliminar() {
 		this.setEstaBorrado(EstaBorrado.BORRADO);
         container.informUser("las personas selecionadas fueron eliminadas");
