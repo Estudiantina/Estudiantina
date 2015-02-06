@@ -188,9 +188,11 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	@Named("Imprimir Certificado Alumno Regular")
 	public Blob imprimirCertificadoAlumnoRegular() throws JRException, FileNotFoundException  
     {
-		try
-    	{
-    	HashMap<String,Object> parametros = new HashMap<String, Object>();
+
+			
+			try
+			{
+				HashMap<String,Object> parametros = new HashMap<String, Object>();
     	
     	 	Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.getCuil(),"institucion",this.getEstablecimiento()));
 	    	Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
@@ -210,13 +212,14 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	    	Date fechahoy = new Date();
 			parametros.put("fechahoy", formatofecha.format(fechahoy));	
 		     	    	
-    	return servicio.reporte.GeneradorReporte.generarReporte("reportes/CertAlumnoRegular.jrxml", parametros, "CertAlumnoRegular");
-    	}
-    	catch(Exception ex)
-    	{	
-    		Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
-    		return archivonulo;
-    	}
+			return servicio.reporte.GeneradorReporte.generarReporte("reportes/CertAlumnoRegular.jrxml", parametros, "CertAlumnoRegular");
+			}
+			catch(Exception ex)
+			{	
+				Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
+				return archivonulo;
+			}
+		
     }
 	
 	/**
@@ -227,7 +230,11 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	 */
 	public boolean hideImprimirCertificadoAlumnoRegular()
 	{
-		if (estadoDeAlumno==EstadoDeAlumno.REGULAR)
+		if (this.getCursos().isEmpty()) // oculta la accion imprimir en caso de que no existan cursos
+		{
+		return true;
+		}
+		else if (estadoDeAlumno==EstadoDeAlumno.REGULAR)
 		{
 		return false;
 		}
