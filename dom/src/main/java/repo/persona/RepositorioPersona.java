@@ -26,6 +26,7 @@ import org.apache.isis.applib.query.QueryDefault;
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.alumno.Nacionalidad;
+import dom.curso.Curso;
 import dom.directivo.Directivo;
 import dom.docente.Docente;
 import dom.establecimiento.Establecimiento;
@@ -111,8 +112,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@RegEx(validation = "[A-Za-z ]+") @Named("NACIONALIDAD")Nacionalidad nacionalidad,
 			@Named("SEXO") Sexo sexo,
 			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno,
-			@Named("Tutor del Alumno") Tutor tutor
-			
+			@Named("Tutor del Alumno") Tutor tutor,
+			@Named("Curso Actual") Curso curso
 			)
 	{
 	
@@ -134,6 +135,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     alumno.setSexo(sexo);
     alumno.setAlturaDomicilio(alturaDomicilio);
     alumno.setTutor(tutor);
+    alumno.getCursos().add(curso);
 	container.persistIfNotAlready(alumno);
 	
 	return alumno;
@@ -223,7 +225,9 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	 * @param fechaIngreso
 	 * @param nacionalidad
 	 * @param sexo
+	 * @param curso
 	 * @return Alumno
+	 * 
 	 */
 	
 	public String validateIngresarAlumno(
@@ -242,7 +246,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				final Nacionalidad nacionalidad,
 				final Sexo sexo,
 				final EstadoDeAlumno estadoDeAlumno,
-				final Tutor tutor
+				final Tutor tutor,
+				final Curso curso
 				
 			) {
 			

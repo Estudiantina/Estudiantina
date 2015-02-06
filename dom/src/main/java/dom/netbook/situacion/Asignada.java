@@ -224,7 +224,7 @@ public class Asignada implements ISituacionDeNetbook {
 			return servicio.reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
 		}
 		catch(Exception ex)
-		{	String respuesta = "no se pudo generar el reporte verifique que esten todos los datos"+ex.toString();
+		{	String respuesta = "no se pudo generar el reporte verifique que esten todos los datos, inclusive el curso"+ex.toString();
 			Blob archivonulo = new Blob("archivo.txt", "text/plain",respuesta.getBytes());
 			return archivonulo;
 		}
@@ -232,19 +232,16 @@ public class Asignada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarContratoDeComodato() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public Blob imprimirContratoDeCesion() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean ocultarImprimirContratoDeCesion() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 	
