@@ -42,7 +42,8 @@ public class CertificadoAlumnoRegular extends Notificaciones{
 	}
 	public boolean hideImprimirCertificadoAlumnoRegular()
 	{
-		return this.isVista();
+		final Alumno miAlumno = (Alumno) this.getPersona();
+		return miAlumno.hideImprimirCertificadoAlumnoRegular() || this.isVista();
 	}
 	
 }
