@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoComodato" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5c773cb5-3261-4506-b1f7-bf1e4b7413e0">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="312"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Heading 3" fontSize="14" isBold="true"/>
 	<style name="Default"/>
 	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
@@ -39,9 +39,9 @@
 	<parameter name="modeloNetbook" class="java.lang.String"/>
 	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="64" splitType="Stretch">
 			<staticText>
-				<reportElement style="titulo" x="33" y="27" width="532" height="37" uuid="9e3e4e9a-f00c-474c-9c27-e333f34cc404"/>
+				<reportElement style="titulo" x="46" y="20" width="521" height="37" uuid="9e3e4e9a-f00c-474c-9c27-e333f34cc404"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -51,32 +51,32 @@ FORMACION DOCENTE]]></text>
 		</band>
 	</title>
 	<detail>
-		<band height="740">
+		<band height="774">
 			<textField>
-				<reportElement x="34" y="8" width="533" height="729" uuid="b08d6fc7-a343-407d-ab81-1cc996e36e3e"/>
+				<reportElement x="46" y="5" width="521" height="761" uuid="b08d6fc7-a343-407d-ab81-1cc996e36e3e"/>
 				<textElement>
 					<font size="13"/>
 					<paragraph lineSpacing="1_1_2"/>
 				</textElement>
-				<textFieldExpression><![CDATA["  Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: "+$P{nombreDirector}+",DNI Nº "+$P{dniDirector}+", en su carácter de Director/a/Rector/a de la Escuela/Instituto "+$P{nombreEstablecimiento}+", Nº "+$P{numeroEstablecimiento}+",Distrito Escolar: "+$P{distritoEscolar}+"de la Ciudad de "+$P{ciudadEstablecimiento}+", Provincia de "+$P{provincia}+", con domicilio en "+$P{domicilioEstablecimiento}+", en adelante EL COMODANTE y por la otra la/el Señora/Señor "+$P{nombreTutor}+", DNI "+$P{dniTutor} +",con domicilio en la calle "+$P{domicilio}+", piso "+$P{piso}+", dpto "+$P{domicilioDpto}+", de la ciudad "+$P{ciudadTutor}+", Provincia de "+$P{ProvinciaTutor}+"; por sí, como mayor de edad o menor emancipado, o en su carácter de madre/padre/tutora/tutor/representante legal de "+ $P{caracterTutor}+", DNI: "+$P{DniAlumno}+", alumna/o del curso "+$P{Curso}+", división "+$P{division}+", turno "+$P{Turno}+",del establecimiento educativo "+$P{Establecimiento}+", sito en la calle "+$P{direccionEstablecimiento}+", de la ciudad de "+$P{cudadEstablecimiento} +
-",provincia de "+$P{provinciaEstablecimiento}+", en adelante EL COMODATARIO, ambos mayores de edad y hábiles para este acto, convienen en celebrar el presente CONTRATO DE COMODATO, sujeto a las siguientes cláusulas y condiciones:"+
+				<textFieldExpression><![CDATA["Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: "+$P{nombreDirector}+",DNI Nº "+$P{dniDirector}+", en su carácter de Director/a/Rector/a de la Escuela/Instituto "+$P{nombreEstablecimiento}+", Nº "+$P{numeroEstablecimiento}+",Distrito Escolar: "+$P{distritoEscolar}+"de la Ciudad de "+$P{ciudadEstablecimiento}+", Provincia de "+$P{provincia}+", con domicilio en "+$P{domicilioEstablecimiento}+", en adelante EL COMODANTE y por la otra la/el Señora/Señor "+$P{nombreTutor}+", DNI "+$P{dniTutor} +",con domicilio en la calle "+$P{domicilio}+", piso "+$P{piso}+", dpto "+$P{domicilioDpto}+", de la ciudad "+$P{ciudadTutor}+", Provincia de "+$P{ProvinciaTutor}+"; por sí, como mayor de edad o menor emancipado, o en su carácter de madre/padre/tutora/tutor/representante legal de "+ $P{caracterTutor}+", DNI: "+$P{DniAlumno}+", alumna/o del curso "+$P{Curso}+", división "+$P{division}+", turno "+$P{Turno}+",del establecimiento educativo "+$P{Establecimiento}+", sito en la calle "+$P{direccionEstablecimiento}+", de la ciudad de "+$P{cudadEstablecimiento} +
+", provincia de "+$P{provinciaEstablecimiento}+", en adelante EL COMODATARIO, ambos mayores de edad y hábiles para este acto, convienen en celebrar el presente CONTRATO DE COMODATO, sujeto a las siguientes cláusulas y condiciones:"+
 
 "\n\n     PRIMERA: EL COMODANTE da en COMODATO al COMODATARIO, y éste acepta, una laptop educativa Marca "+$P{marcaNetbook}+", Modelo "+$P{modeloNetbook}+" Numero de Serie "+$P{numeroSerieNetbook}+""+
 
 "\n\n     SEGUNDA: EL COMODATARIO destinará la laptop que recibe en COMODATO a fines educativos en su carácter de estudiante y para el uso de su grupo familiar, en el marco del PROGRAMA CONECTAR IGUALDAD.COM.AR, procurando familiarizar a todo integrante de su hogar con las nuevas tecnologías. La entrega del equipamiento implica única y exclusivamente la facultad de uso sobre el mismo, el que deberá realizarse conforme a su destino."]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="256" y="720" width="100" height="20" uuid="dfedacd7-8922-42da-9564-970f60f35de1"/>
+				<reportElement x="253" y="747" width="100" height="20" uuid="dfedacd7-8922-42da-9564-970f60f35de1"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[1]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="842">
 			<break>
-				<reportElement x="0" y="0" width="100" height="1" uuid="8f9d2688-5e09-43f1-9904-db7326abdbee"/>
+				<reportElement x="0" y="0" width="595" height="1" uuid="8f9d2688-5e09-43f1-9904-db7326abdbee"/>
 			</break>
 			<staticText>
-				<reportElement style="detalle" x="61" y="36" width="503" height="806" uuid="34578b65-1fc8-4a5e-b5c9-fa920afb71d4"/>
+				<reportElement style="detalle" x="46" y="26" width="521" height="769" uuid="34578b65-1fc8-4a5e-b5c9-fa920afb71d4"/>
 				<textElement verticalAlignment="Top" rotation="None">
 					<font size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 					<paragraph lineSpacing="Proportional"/>
@@ -93,22 +93,22 @@ FORMACION DOCENTE]]></text>
 
     OCTAVA: EL COMODATARIO se compromete a mantener en buen estado de conservación y a utilizar el equipamiento recibido conforme su destino; así como a resguardar el equipamiento entregado y no comercializarlo. En  caso de robo/hurto o extravío del mismo, EL COMODATARIO deberá  efectuar ante dependencia policial o autoridad competente la pertinente denuncia, dentro de las 72 horas de acontecido el hecho. Además, deberá  comunicar dicha denuncia en www.conectarigualdad.gob.ar (Portal de Conectar Igualdad). EL COMODANTE podrá, ante la falsa u ausencia de denuncia en tiempo y forma por parte del COMODATARIO, iniciar las acciones judiciales que pudieren corresponder.]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="60" y="15" width="507" height="20" uuid="e63ccbfa-3f35-4f83-8519-6c17a26f1eac"/>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="287" y="822" width="100" height="20" uuid="21747ca5-9aee-45a1-8cba-101326c49014"/>
+				<reportElement x="256" y="811" width="100" height="20" uuid="21747ca5-9aee-45a1-8cba-101326c49014"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[2]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="46" y="6" width="521" height="20" uuid="5abd0201-fd62-4510-a86e-4824cec968d0"/>
+				<text><![CDATA[]]></text>
+			</staticText>
 		</band>
-		<band height="625">
+		<band height="817">
 			<break>
 				<reportElement x="0" y="6" width="100" height="1" uuid="e98c880c-07e8-4657-9a62-67011fb3d781"/>
 			</break>
 			<staticText>
-				<reportElement style="detalle" x="60" y="40" width="507" height="436" uuid="f712c098-ddd9-4758-8ac1-1ad4295b2d65"/>
+				<reportElement style="detalle" x="46" y="42" width="521" height="436" uuid="f712c098-ddd9-4758-8ac1-1ad4295b2d65"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -124,15 +124,15 @@ FORMACION DOCENTE]]></text>
 
 En prueba de conformidad se firman DOS (2) ejemplares de un mismo tenor y a un solo efecto, por EL COMODANTE y por “EL COMODATARIO” en la  ciudad …………………………………………… Provincia de………………………, a los ……………………… días del mes de …………………………………… de 20……... ]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="60" y="19" width="507" height="20" uuid="6689a6c6-d646-454f-aef7-d5a04d5e3afd"/>
-				<text><![CDATA[]]></text>
-			</staticText>
 			<textField>
-				<reportElement x="302" y="602" width="100" height="20" uuid="0f580909-6d8b-43aa-bc99-ba30947400dc"/>
+				<reportElement x="256" y="782" width="100" height="20" uuid="0f580909-6d8b-43aa-bc99-ba30947400dc"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[3]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="46" y="7" width="521" height="35" uuid="908908a0-81eb-4d1e-963b-c035a9de7dc8"/>
+				<text><![CDATA[]]></text>
+			</staticText>
 		</band>
 	</detail>
 </jasperReport>
