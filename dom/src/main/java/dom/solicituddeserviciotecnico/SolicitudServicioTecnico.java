@@ -453,7 +453,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		parametros.put("numeroSerieNetbook", this.getNetbook().getNumeroDeSerie());
 		parametros.put("apellidoYnombre", this.getPersona().getApellido()+" "+this.getPersona().getNombre());
 		parametros.put("cuilDni", this.getPersona().getCuil());
-		PersonaGestionable per = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",this.getPersona().getCuil()));
+		PersonaGestionable per = container.firstMatch(QueryDefault.create(PersonaGestionable.class, "traerPorcuil","cuil",this.getPersona().getCuil(),"establecimiento",this.getPersona().getEstablecimiento()));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",per.getEstablecimiento().getNombre()));
 		//TODO establecer parametro de curso y division
 		parametros.put("nombreInstitucion", establecimiento.getNombre());

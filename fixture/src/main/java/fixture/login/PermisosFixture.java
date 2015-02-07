@@ -67,6 +67,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","repo.netbook:RepositorioNetbook:ingresarNuevaNetbookAlEstablecimiento:*",executionContext);
 		create("usuario_tecnico","repo.netbook:RepositorioNetbook:listarNetbooksSinAsignar:*",executionContext);
 		create("usuario_tecnico","repo.netbook:RepositorioNetbook:listaNetbookPorId:*",executionContext);
+		create("usuario_tecnico","repo.netbook:RepositorioNetbook:listaNetbooks:*",executionContext);
 		create("usuario_tecnico","dom.netbook:ModeloNetbook:*:*",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:direccionMac:r",executionContext);
 		create("usuario_tecnico","dom.netbook:Netbook:establecimento:r",executionContext);
