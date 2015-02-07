@@ -47,6 +47,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	 * muestra una lista de todas las Netbooks que existen
 	 * @return lista de Netbooks
 	 */
+    @Named("Listar Netbooks del establecimiento actual")
     public List<Netbook> listaNetbooks() {
         return allMatches(QueryDefault.create(Netbook.class, "traerTodo","institucion",this.repositorioPersona.verMisDatos().getEstablecimiento()));
     }
