@@ -15,6 +15,3 @@ package dom.netbook;
 public enum Marca {
 	BANGHO, CDR, CX_EDU, DEPOT, EDUNEC, EXO, LENOVO, MAGHALLAES, NOBLEX, POSITIVO, SAMSUNG	
 }
-
-
-

@@ -100,7 +100,6 @@ public class Netbook implements Comparable<Netbook> {
 	private EnProcesoDeMigracion enProcesoDeMigracion;
 	private Establecimiento establecimientoAmigrar;
 	
-	
 	public String iconName() {
         return "netbook";
     }
@@ -130,8 +129,7 @@ public class Netbook implements Comparable<Netbook> {
 		this.prestada = new Prestada(this);
 		this.robada = new Robada(this);
 		this.enProcesoDeMigracion = new EnProcesoDeMigracion(this);
-		this.situacionDeNetbook = this.getEnStock();
-		
+		this.situacionDeNetbook = this.getEnStock();	
 	}
 	
 	private ISituacionDeNetbook situacionDeNetbook;
@@ -261,8 +259,7 @@ public class Netbook implements Comparable<Netbook> {
         if(persona==null) return;
         persona.removeFromNetbooks(this);
     }
-		
-	
+
     @Column(allowsNull="false",length=17)
 	@MemberOrder(name="Informacion De Hardware", sequence="1")
     @RegEx(validation = "[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]+:+[A-Fa-f0-9]+[A-Fa-f0-9]")
@@ -347,10 +344,8 @@ public class Netbook implements Comparable<Netbook> {
 	
 	public boolean hideNumeroDeActaDeRobo()
 	{
-		return this.getSituacionDeNetbook().ocultarNumeroActaDeRobo();
-		
-	}
-	
+		return this.getSituacionDeNetbook().ocultarNumeroActaDeRobo();	
+	}	
       /**
       * TODO ImprimirReporte
       * TODO Generar acta de migracion de la netbook 
@@ -363,13 +358,11 @@ public class Netbook implements Comparable<Netbook> {
  	{
  		return this.getSituacionDeNetbook().imprimirActaMigracion();	
  	}
-
     
     public boolean hideImprimirActaMigracion()
     {
     	return this.getSituacionDeNetbook().ocultarImprimirActaMigracion();
     }
-    
     /**
      * TODO ImprimirReporte
      * TODO Generar acta de prestamo de netbook
@@ -507,6 +500,5 @@ public class Netbook implements Comparable<Netbook> {
 	@Override
 	public int compareTo(Netbook o) {
 		return ObjectContracts.compare(this, o, "idNetbook");
-	}
-	
+	}	
 }

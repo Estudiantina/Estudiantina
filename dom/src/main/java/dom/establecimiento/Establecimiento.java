@@ -12,7 +12,6 @@
  */
 package dom.establecimiento;
 
-
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -144,7 +143,6 @@ public class Establecimiento {
 	public void setCue(String cue) {
 		this.cue = cue;
 	}
-
 
 	@Override
 	public int hashCode() {

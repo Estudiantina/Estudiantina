@@ -95,6 +95,5 @@ public class ServidorDeEmail {
 	}
 	public void setFallback(boolean fallback) {
 		this.fallback = fallback;
-	}
-	
+	}	
 }

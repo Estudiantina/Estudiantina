@@ -69,7 +69,6 @@ public void setUsuario(String usuario) {
 	this.usuario = usuario;
 }
 
-
 @MaxLength(300)
 public void setPassword(String password){
 	MessageDigest md = null;
@@ -87,8 +86,6 @@ public void setPassword(String password){
 	
 	this.password = new String(Hex.encode(digest));	
 }
-
-
 
 	private Rol rol;
 

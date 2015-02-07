@@ -97,6 +97,5 @@ public class Departamento {
 		} else if (!provincia.equals(other.provincia))
 			return false;
 		return true;
-	}
-	
+	}	
 }

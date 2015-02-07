@@ -84,8 +84,5 @@ public class CuentaMail {
 	}
 	public void setServidorDeMail(ServidorDeEmail servidorDeMail) {
 		this.servidorDeMail = servidorDeMail;
-	}
-	
-	
-	
+	}	
 }

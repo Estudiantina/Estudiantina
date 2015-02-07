@@ -81,7 +81,6 @@ public class Curso implements Comparable<Curso> {
 		this.listaAlumnos = listaAlumnos;
 	}
 
-	
 	private SortedSet<Docente> listaDocente = new TreeSet<Docente>();
 	
 	@Persistent(mappedBy="cursos")
@@ -116,8 +115,6 @@ public class Curso implements Comparable<Curso> {
 	    docente.getCursos().remove(this);
 	    return this;
 	}
-	
-	
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	@Named("Año")
@@ -177,7 +174,6 @@ public class Curso implements Comparable<Curso> {
 		return ObjectContracts.compare(this, curso, "anio");
 	}
 	
-	
 	private DomainObjectContainer container;
 
 	  /**
@@ -193,5 +189,4 @@ public class Curso implements Comparable<Curso> {
 	 	public void setDomainObjectContainer(final DomainObjectContainer container){
 	 		this.container = container;
 	 	}
-
 }
