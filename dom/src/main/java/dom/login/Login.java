@@ -38,6 +38,7 @@ import dom.persona.personagestionable.PersonaGestionable;
 })
 @ObjectType("Login")
 public class Login {
+	
 private String usuario;
 @javax.jdo.annotations.Column(allowsNull="False",length=300)
 private String password;

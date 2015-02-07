@@ -34,10 +34,12 @@ import dom.login.Rol;
 import dom.persona.personagestionable.PersonaGestionable;
 @Named("Cuentas")
 public class repologin extends AbstractFactoryAndRepository {	
+	
 	public String iconName()
 	{
 		return "seguridad";	
 	}
+	
 	@Named("dar de alta a un usuario")
 	public Login altaUsuario (@Named("usuario")String usuario,@Named("contraseña")Password password,@Named("Persona (Ingrese CUIL)")PersonaGestionable persona,@Named("rol")Rol rol)
 	{
