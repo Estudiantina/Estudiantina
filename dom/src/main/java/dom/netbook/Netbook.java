@@ -59,7 +59,8 @@ import org.apache.isis.applib.annotation.Render.Type;
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorId", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE idNetbook== :idNetbook && establecimiento == :institucion ||  establecimientoAmigrar == :institucion"),
 	@javax.jdo.annotations.Query(name = "traerNetbooksSinAsignar", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion && situacionDeNetbook==this.enStock"),
 @Query(name="traerlikePorId", language="JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion || establecimientoAmigrar == :institucion && idNetbook.indexOf(:idNetbook) >=0 range 0, 4"),	
-@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion"),
+@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion ||  establecimientoAmigrar == :institucion "),
+@javax.jdo.annotations.Query(name = "traerTodasLasNetbooksCargadas", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook"),
 @javax.jdo.annotations.Query(name = "traerNetbookAsignadaAPersona", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE persona == :persona && situacionDeNetbook == asignada")
 })
 @AutoComplete(repository = RepositorioNetbook.class, action = "autoComplete")
