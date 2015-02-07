@@ -44,7 +44,6 @@ public class Dashboard extends AbstractViewModel {
 		this.memento = memento;
 	}
 
-
 	@Inject
 	private RepoNotificaciones repositorioNotificaciones;
 	// //////////////////////////////////////
@@ -59,9 +58,7 @@ public class Dashboard extends AbstractViewModel {
 		return repositorioNotificaciones.verNotificacionesNoLeidas();
 	
 	}
-
 	
-
 	@Inject
 	DomainObjectContainer container;
 	@Inject
