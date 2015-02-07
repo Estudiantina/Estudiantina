@@ -591,5 +591,4 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	public void setReparada(boolean reparada) {
 		this.reparada = reparada;
 	}
-	
 }

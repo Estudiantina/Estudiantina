@@ -40,6 +40,5 @@ public class Tecnico extends PersonaGestionable {
 	{
 		return this.getNombre().toString()+" "+this.getApellido().toString();
 		
-	}
-	
+	}	
 }

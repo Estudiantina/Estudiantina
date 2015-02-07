@@ -53,7 +53,6 @@ import dom.netbook.Netbook;
 import dom.netbook.situacion.SituacionDeNetbook;
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
 
-
 @DomainService
 @Named("Graficos Estadisticos")
 public class GraficosEstadisticos {
@@ -134,7 +133,6 @@ public class GraficosEstadisticos {
 		return new WickedChart(new OpcionesDeGradienteDeGraficoSituacionNetbook(
 				porSituacionDeNetbook));
 	}
-
 	
 	public static class OpcionesDeGradienteDeGraficoDeModeloDeNetbook extends
 			Options {
@@ -218,27 +216,24 @@ public class GraficosEstadisticos {
 		}
 	}
 	
-	
-	
-	
 	public static class OpcionesDeGradienteDeGraficoSituacionNetbook extends
-	Options {
-private static final long serialVersionUID = 1L;
+		Options {
+	private static final long serialVersionUID = 1L;
 
-public OpcionesDeGradienteDeGraficoSituacionNetbook(
+	public OpcionesDeGradienteDeGraficoSituacionNetbook(
 		Map<SituacionDeNetbook, AtomicInteger> byCategory) {
 
-	setChartOptions(new ChartOptions()
+		setChartOptions(new ChartOptions()
 			.setPlotBackgroundColor(new NullColor())
 			.setPlotBorderWidth(null).setPlotShadow(Boolean.FALSE));
 
-	setTitle(new Title("Estadistica de Situacion De Netbooks."));
+		setTitle(new Title("Estadistica de Situacion De Netbooks."));
 
-	PercentageFormatter formatter = new PercentageFormatter();
-	setTooltip(new Tooltip().setFormatter(formatter)
+		PercentageFormatter formatter = new PercentageFormatter();
+		setTooltip(new Tooltip().setFormatter(formatter)
 			.setPercentageDecimals(1));
 
-	setPlotOptions(new PlotOptionsChoice().setPie(new PlotOptions()
+		setPlotOptions(new PlotOptionsChoice().setPie(new PlotOptions()
 			.setAllowPointSelect(Boolean.TRUE)
 			.setCursor(Cursor.POINTER)
 			.setDataLabels(
@@ -247,9 +242,9 @@ public OpcionesDeGradienteDeGraficoSituacionNetbook(
 							.setConnectorColor(new HexColor("#000000"))
 							.setFormatter(formatter))));
 
-	Series<Point> series = new PointSeries().setType(SeriesType.PIE);
-	int i = 0;
-	for (Map.Entry<SituacionDeNetbook, AtomicInteger> entry : byCategory
+		Series<Point> series = new PointSeries().setType(SeriesType.PIE);
+		int i = 0;
+		for (Map.Entry<SituacionDeNetbook, AtomicInteger> entry : byCategory
 			.entrySet()) {
 		series.addPoint(new Point(entry.getKey().name(), entry
 				.getValue().get()).setColor(new RadialGradient()
@@ -294,7 +289,6 @@ public OpcionesDeGradienteDeGraficoSituacionNetbook(
 	
 	public String iconName()
 	{
-		
 		return "estadisticas";
 	}
 	@javax.inject.Inject 

@@ -12,8 +12,6 @@
  */
 package dom.solicituddeserviciotecnico.estados;
 
-
-
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
@@ -51,8 +49,7 @@ public class Cerrado implements IEstadoSolicitudDeServicioTecnico{
     public Cerrado(SolicitudServicioTecnico solicitud) {
 		this.solicitud = solicitud;
 	}
-	
-	
+		
     public SolicitudServicioTecnico getSolicitud() {
 		return solicitud;
 	}

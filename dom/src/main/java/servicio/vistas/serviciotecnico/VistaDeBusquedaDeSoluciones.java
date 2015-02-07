@@ -9,7 +9,6 @@ import org.apache.isis.applib.services.memento.MementoService.Memento;
 
 public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 
-	
 	private String memento;
 	@Override
 	public void viewModelInit(String memento) {

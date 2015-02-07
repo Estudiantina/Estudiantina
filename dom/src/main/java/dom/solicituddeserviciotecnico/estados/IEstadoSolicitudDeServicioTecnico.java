@@ -12,8 +12,6 @@
  */
 package dom.solicituddeserviciotecnico.estados;
 
-
-
 import org.joda.time.LocalDate;
 
 import dom.tecnico.Tecnico;

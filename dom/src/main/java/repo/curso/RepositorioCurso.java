@@ -58,11 +58,9 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		curso.setEstablecimiento(establecimiento);
 		container.persistIfNotAlready(curso);
 		
-		return curso;
-		
+		return curso;		
 	}
-	
-	
+
 	/**
 	 * ingresa un curso en el establecimiento actual
 	 * @return curso Ingresado
@@ -84,7 +82,6 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		container.persistIfNotAlready(curso);
 		return curso;	
 	}
-	
 	
 	/**
 	 * busca el curso por todas propiedades
@@ -114,7 +111,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		return allMatches(QueryDefault.create(Curso.class, "traerCursoPorlikeAnio","anio",anio,"division",division));
 		
 	}
-	
+
 	/**
 	 * muestra una lista de todos las Cursos que existen
 	 * @return lista de Netbooks
@@ -127,9 +124,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
     {
     	return firstMatch(QueryDefault.create(Establecimiento.class, "traerPorEstablecimiento", "establecimiento",repoPersona.verMisDatos().getEstablecimiento()));
     }
-    
-    
-    
+        
     @javax.inject.Inject
     RepositorioPersona repoPersona;
     

@@ -31,7 +31,6 @@ public class NetbookReparadasAnualmente  extends AbstractViewModel{
 	private Mes mes;
 	private BigDecimal cantidadDeNetbookReparadas;
 
-	
 	@MemberOrder(sequence = "1")
 	@Column(allowsNull = "true")
 	public Mes getMes() {
@@ -42,14 +41,11 @@ public class NetbookReparadasAnualmente  extends AbstractViewModel{
 		this.mes = mes;
 	}
 
-	
-
 	@MemberOrder(sequence = "2")
 	@Column(allowsNull = "true")
 	public BigDecimal getCantidadDeNetbookReparadas() {
 		return cantidadDeNetbookReparadas;
 	}
-
 	
 	public void setCantidadDeNetbookReparadas(BigDecimal cantidadDeNetbookReparadas) {
 		this.cantidadDeNetbookReparadas = cantidadDeNetbookReparadas;
@@ -67,5 +63,4 @@ public class NetbookReparadasAnualmente  extends AbstractViewModel{
 	
 	@javax.inject.Inject
     private MementoService mementoService;
-	
 }

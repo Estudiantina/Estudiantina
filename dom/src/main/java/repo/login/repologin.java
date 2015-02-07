@@ -56,8 +56,7 @@ public class repologin extends AbstractFactoryAndRepository {
 		container.persistIfNotAlready(login);
 		return login;
 	}
-	
-	
+		
 	@Named("dar de alta a un rol")
 	public Rol altaRol (@Named("usuario")String rol)
 	{
@@ -203,7 +202,6 @@ public class repologin extends AbstractFactoryAndRepository {
     public Rol buscarRol(@Named("rol")String searchPhrase) {        
 		return firstMatch(QueryDefault.create(Rol.class, "traerporNombre","nombre",searchPhrase));
     }
-	
 	
 	@Hidden
 	public List<ServidorDeEmail> listarServidores()

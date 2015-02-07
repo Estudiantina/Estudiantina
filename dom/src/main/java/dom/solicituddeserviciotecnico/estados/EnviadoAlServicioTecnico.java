@@ -12,8 +12,6 @@
  */
 package dom.solicituddeserviciotecnico.estados;
 
-
-
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;

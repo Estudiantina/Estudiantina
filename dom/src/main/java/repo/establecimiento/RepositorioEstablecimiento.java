@@ -63,10 +63,7 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
 		return establecimiento;
 		
 	}
-	
-	
-	
-	
+
 	public String validateIngresarEstablecimiento (
 			@Named("nombre")final String nombre,
 			@Named("direccion") final String direccion,
@@ -100,20 +97,15 @@ public class RepositorioEstablecimiento extends AbstractFactoryAndRepository{
         return allMatches(QueryDefault.create(Establecimiento.class, "traerTodos"));
     }
 	
-	
-
-	
 	@Hidden
     public List<Establecimiento> autoComplete(String searchPhrase) {        
     	return allMatches(QueryDefault.create(Establecimiento.class, "traerlikePorNombre","nombre",searchPhrase));
     }
-	
-	
+		
 	@Hidden
     public Establecimiento traerPorCue(String cue) {        
     	return firstMatch(QueryDefault.create(Establecimiento.class, "traerPorcue","cue",cue));
     }
-	
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;

@@ -12,8 +12,6 @@
  */
 package dom.solicituddeserviciotecnico.estados;
 
-
-
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -159,7 +157,6 @@ public class Solicitado implements IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarRecibirDelServicioTecnico() {
 		return true;
 	}
-
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;
