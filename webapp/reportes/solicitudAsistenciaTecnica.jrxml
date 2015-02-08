@@ -69,8 +69,8 @@
 				<textFieldExpression><![CDATA[$P{nombreInstitucion}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="2" y="52" width="291" height="20" uuid="48735c45-e8fe-4b1b-8f23-efc044106464"/>
-				<textFieldExpression><![CDATA[$P{direccionDeLaInstitucion}]]></textFieldExpression>
+				<reportElement x="1" y="52" width="292" height="20" uuid="48735c45-e8fe-4b1b-8f23-efc044106464"/>
+				<textFieldExpression><![CDATA["direccion: "+$P{direccionDeLaInstitucion}]]></textFieldExpression>
 			</textField>
 			<image>
 				<reportElement x="407" y="2" width="100" height="50" uuid="3fbf1702-54a5-4c29-afd1-ed0d9416501e"/>

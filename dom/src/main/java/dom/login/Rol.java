@@ -37,6 +37,7 @@ import repo.login.repologin;
 @ObjectType("Rol")
 
 public class Rol {
+	
 private String rol;
 
 @javax.jdo.annotations.Column(allowsNull="False")
