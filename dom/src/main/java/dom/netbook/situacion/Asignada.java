@@ -38,8 +38,7 @@ public class Asignada implements ISituacionDeNetbook {
 	public SituacionDeNetbook getNombreSituacion() {
 		return SituacionDeNetbook.ASIGNADA;
 	}
-	
-    
+	    
 	@Override
 	public boolean ocultarImprimirActaMigracion() {
 		return true;
@@ -243,7 +242,5 @@ public class Asignada implements ISituacionDeNetbook {
 	@Override
 	public boolean ocultarImprimirContratoDeCesion() {
 		return true;
-	}
-	
-	
+	}	
 }

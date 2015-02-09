@@ -229,5 +229,4 @@ public class Entregada implements ISituacionDeNetbook{
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }

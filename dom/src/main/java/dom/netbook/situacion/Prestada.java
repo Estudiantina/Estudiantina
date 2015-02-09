@@ -96,12 +96,10 @@ public class Prestada implements ISituacionDeNetbook {
 	@Override
 	public Blob imprimirActaMigracion() {
 		return null;
-		
 	}
 
 	@Override
 	public Blob imprimirActaPrestamo() {
-		
 		
 		HashMap<String,Object> parametros = new HashMap<String, Object>();		
 		Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil", netbook.getPersona().getCuil(),"institucion",netbook.getEstablecimiento()));
@@ -125,15 +123,12 @@ public class Prestada implements ISituacionDeNetbook {
 			// TODO Auto-generated catch block
 			return null;
 		}
-		
-		
 	}
 
 	@Override
 	public Blob imprimirActaRecepcionDeNetbook() {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -194,7 +189,6 @@ public class Prestada implements ISituacionDeNetbook {
 	@Override
 	public void migrarNetbook(Establecimiento establecimiento) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
