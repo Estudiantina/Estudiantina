@@ -15,5 +15,4 @@ package dom.alumno;
 public enum EstadoDeAlumno {
 	
 	EGRESADO, LIBRE, PASE, RECURSANTE, REGULAR
-
 }

@@ -154,7 +154,6 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 				return netbook;
 			}
 	
-	
 	/**
 	 * metodo que valida los parametros cuando una nueva netbook es creada
 	 * @param idNetbook

@@ -189,7 +189,6 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	public Blob imprimirCertificadoAlumnoRegular() throws JRException, FileNotFoundException  
     {
 
-			
 			try
 			{
 				HashMap<String,Object> parametros = new HashMap<String, Object>();
