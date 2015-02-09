@@ -5,7 +5,7 @@
  *  Autors:
  *  Matias Nahuel Heredia
  *  Jose Luis Troche
- *  Andres Robobich
+ *  Andres Rabovich
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
@@ -54,8 +54,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     public List<Netbook> listaNetbooks() {
         return allMatches(QueryDefault.create(Netbook.class, "traerTodo","institucion",this.repositorioPersona.verMisDatos().getEstablecimiento()));
     }
-    
-    
+        
     /**
 	 * muestra una lista de todas las Netbooks que existen en el sistema
 	 * actual
@@ -164,8 +163,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 			    container.persistIfNotAlready(netbook);
 				return netbook;
 			}
-	
-	
+
 	/**
 	 * metodo que valida los parametros cuando una nueva netbook es creada
 	 * @param idNetbook
