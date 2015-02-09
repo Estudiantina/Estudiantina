@@ -12,6 +12,7 @@
  */
 package repo.netbook;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +27,7 @@ import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
 import org.joda.time.LocalDate;
+
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.Marca;
@@ -74,6 +76,15 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
     	if (searchPhrase.equals(""))
     	{
     	return null;//para optimizar el rendimiento y que no busque lista completa	
+    	}
+    	else if (repositorioPersona.verMisDatos().getClass().toString().contains("alumno"))
+    	{
+    		List<Netbook> listaNetbook = new ArrayList<Netbook>();
+    		for (Netbook netbook:repositorioPersona.verMisDatos().getNetbooks())
+    		{
+    			listaNetbook.add(netbook);
+    		}
+    		return listaNetbook;
     	}
     	else
     	{
