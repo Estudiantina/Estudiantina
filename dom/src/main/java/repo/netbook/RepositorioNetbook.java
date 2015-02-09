@@ -71,7 +71,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
      */
     @Hidden
     public List<Netbook> autoComplete(String searchPhrase) { 
-    	if (searchPhrase==null)
+    	if (searchPhrase.equals(""))
     	{
     	return null;//para optimizar el rendimiento y que no busque lista completa	
     	}
