@@ -271,7 +271,7 @@ public class GraficosEstadisticos {
 		{
 			if(solicitud.isReparada()&& solicitud.getFechaDeSolucion().getYear() == anio)
 			{
-			cantidadDeNetbooksReparadas[solicitud.getFechaDeSolicitud().getMonthOfYear()]++;
+			cantidadDeNetbooksReparadas[solicitud.getFechaDeSolicitud().getMonthOfYear()-1]++;
 			}
 		}
 		//Recorremos todos los meses y asignamos cuantas netbooks se repararon al web view
