@@ -173,7 +173,4 @@ public class Robada implements ISituacionDeNetbook{
 	public boolean ocultarImprimirContratoDeCesion() {
 		return true;
 	}
-
-
-
 }

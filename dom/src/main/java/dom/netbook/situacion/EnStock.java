@@ -1,6 +1,5 @@
 package dom.netbook.situacion;
 
-
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -81,33 +80,28 @@ public class EnStock implements ISituacionDeNetbook {
 	public Blob imprimirActaMigracion() {
 		return null;
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public Blob imprimirActaPrestamo() {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public Blob imprimirActaRecepcionDeNetbook() {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void desasignarNetbookDePersona() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void establecerNetbookComoRobada() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -133,12 +127,10 @@ public class EnStock implements ISituacionDeNetbook {
 	@Override
 	public void reportarComoRobada(String numeroDeActa) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void entregarNetbookAlAlumno() {
-		
 		
 	}
 
@@ -150,7 +142,6 @@ public class EnStock implements ISituacionDeNetbook {
 	@Override
 	public void migrarNetbook(Establecimiento establecimiento) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -162,7 +153,6 @@ public class EnStock implements ISituacionDeNetbook {
 	@Override
 	public void aceptarMigracion() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

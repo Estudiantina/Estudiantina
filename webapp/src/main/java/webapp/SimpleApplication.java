@@ -115,5 +115,4 @@ public class SimpleApplication extends IsisWicketApplication {
             return "This is a simple app";
         }
     }
-
 }

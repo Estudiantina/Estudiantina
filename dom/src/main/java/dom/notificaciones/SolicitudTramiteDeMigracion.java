@@ -5,7 +5,7 @@
  *  Autors:
  *  Matias Nahuel Heredia
  *  Jose Luis Troche
- *  Andres Robobich
+ *  Andres Rabovich
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
@@ -87,7 +87,6 @@ public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
 			Blob archivonulo = new Blob("archivo.txt", "text/plain", "no se pudo generar el reporte verifique que esten todos los datos".getBytes());
 			return archivonulo;
 		}
-		
 	}
 
 	public SolicitudTramiteDeMigracion migrarNetbook()
@@ -97,7 +96,6 @@ public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
 		container.informUser("se solicito el tramite correctamente");
 		return this;
 	}
-	
 	
 	public boolean hideImprimir()
 	{
