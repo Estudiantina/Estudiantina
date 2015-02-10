@@ -221,27 +221,7 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 		
     }
 	
-	/**
-	 * oculta el boton de imprimir
-	 * Certificado de Alumno Regular
-	 * 
-	 * @return devuelve true y oculta si no esta regular el alumno
-	 */
-	public boolean hideImprimirCertificadoAlumnoRegular()
-	{
-		if (this.getCursos().isEmpty()) // oculta la accion imprimir en caso de que no existan cursos
-		{
-		return true;
-		}
-		else if (estadoDeAlumno==EstadoDeAlumno.REGULAR)
-		{
-		return false;
-		}
-		else
-		{
-		return true;
-		}
-	}
+
 	
 	@javax.inject.Inject 
     DomainObjectContainer container;

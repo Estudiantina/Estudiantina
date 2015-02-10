@@ -563,6 +563,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 	public int compareTo(final SolicitudServicioTecnico solicitud) {
 		return ObjectContracts.compare(this, solicitud, "codigoSolicitud");
 	}
+	
 	/**
 	 * indica el nombre del calendario
 	 */

@@ -35,12 +35,7 @@ public class CertificadoAlumnoRegular extends Notificaciones{
 	public Blob imprimirCertificadoAlumnoRegular() throws FileNotFoundException, JRException
 	{
 		Alumno miAlumno = (Alumno) this.getPersona();
-	
 		return miAlumno.imprimirCertificadoAlumnoRegular();
 	}
-	public boolean hideImprimirCertificadoAlumnoRegular()
-	{
-		final Alumno miAlumno = (Alumno) this.getPersona();
-		return miAlumno.hideImprimirCertificadoAlumnoRegular() || this.isVista();
-	}
+
 }
