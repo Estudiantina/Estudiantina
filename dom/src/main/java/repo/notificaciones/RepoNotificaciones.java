@@ -25,6 +25,8 @@ import org.apache.isis.applib.annotation.Named;
 import org.joda.time.LocalDate;
 
 import repo.persona.RepositorioPersona;
+import dom.alumno.Alumno;
+import dom.alumno.EstadoDeAlumno;
 import dom.establecimiento.Establecimiento;
 import dom.login.Login;
 import dom.netbook.Netbook;
@@ -40,8 +42,13 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
         return "Notificaciones";
     }
 
+
+	
 	public String pedirCertificadoAlumnoRegular(@Named("detalles") @Optional String detalles)
 	{
+		Alumno alumno = (Alumno) this.repoPersona.verMisDatos(); 
+		if (alumno.getEstadoDeAlumno().equals(EstadoDeAlumno.REGULAR))
+		{
 		final CertificadoAlumnoRegular certificadoAlumnoRegular = container.newTransientInstance(CertificadoAlumnoRegular.class);
 		certificadoAlumnoRegular.setDetallesYobservaciones(detalles);	
 		String usuarioActual = container.getUser().getName();
@@ -53,7 +60,13 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		certificadoAlumnoRegular.setVista(false);//la notificacion todavia no esta vista
 		container.persistIfNotAlready(certificadoAlumnoRegular);
 		container.informUser("Se Ha solicitado un nuevo certificado De Alumno Regular");
+		
 		return "Se Ha solicitado un nuevo certificado";
+		}
+		else
+		{
+			return "No es un alumno Regular";	
+		}
 	}
 
 	public String pedirNetbookPrestada(@Named("Motivo de Prestamo") @MultiLine @Optional String detalles)
