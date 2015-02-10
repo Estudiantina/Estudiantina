@@ -29,7 +29,6 @@ import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.establecimiento.Establecimiento;
 import dom.login.Login;
-import dom.netbook.Netbook;
 import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
 import dom.notificaciones.SolicitudNetbookPrestada;
@@ -60,7 +59,6 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		certificadoAlumnoRegular.setVista(false);//la notificacion todavia no esta vista
 		container.persistIfNotAlready(certificadoAlumnoRegular);
 		container.informUser("Se Ha solicitado un nuevo certificado De Alumno Regular");
-		
 		return "Se Ha solicitado un nuevo certificado";
 		}
 		else
