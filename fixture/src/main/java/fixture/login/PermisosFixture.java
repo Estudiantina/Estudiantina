@@ -248,6 +248,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","repo.persona:RepositorioPersona:buscarDirectivoPorCuil:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:buscarPorCuil:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarAlumno:*",executionContext);
+		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarDocente:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarDirectivo:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTecnicoDentroDelEstablecimiento:*",executionContext);
 		create("usuario_tecnico","repo.persona:RepositorioPersona:ingresarTutor:*",executionContext);
