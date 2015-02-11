@@ -39,6 +39,7 @@ import dom.persona.personagestionable.PersonaGestionable;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.docente.Docente WHERE cuil== :cuil && establecimiento == :institucion"),
+	@javax.jdo.annotations.Query(name = "buscarDocentePorcuilYNombre", language = "JDOQL", value = "SELECT FROM dom.docente.Docente WHERE (cuil== :cuil || nombre.indexOf(:nombre) >= 0 || apellido.indexOf(:apellido) >= 0 ) && establecimiento==:institucion && estaBorrado== 'ACTIVO' range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerTodoDocente", language = "JDOQL", value = "SELECT FROM dom.docente.Docente")})
 @AutoComplete(repository = RepositorioPersona.class, action = "autoCompletarDocente")
 @Audited
@@ -57,7 +58,7 @@ public class Docente extends PersonaGestionable implements Comparable<Docente>{
 	 */
 	public String title()
 	{
-		return this.getNombre().toString()+" "+this.getApellido().toString();
+		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString();
 		
 	}
 
