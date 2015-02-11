@@ -26,6 +26,7 @@ import dom.persona.personagestionable.PersonaGestionable;
 
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE cuil== :cuil && estaBorrado== 'ACTIVO'"),
+	@javax.jdo.annotations.Query(name = "buscarDirectivoPorcuilYNombre", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE (cuil== :cuil || nombre.indexOf(:nombre) >= 0 || apellido.indexOf(:apellido) >= 0 ) && establecimiento==:institucion && estaBorrado== 'ACTIVO' range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerTodoDirectivo", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE estaBorrado== 'ACTIVO'"),
 	@javax.jdo.annotations.Query(name = "traerDirectivoPorEstablecimiento", language = "JDOQL", value = "SELECT FROM dom.directivo.Directivo WHERE establecimiento == :institucion && estaBorrado== 'ACTIVO'")
 })
@@ -46,8 +47,7 @@ public class Directivo extends PersonaGestionable {
 	 */
 	public String title()
 	{
-		return this.getNombre().toString()+" "+this.getApellido().toString();
-	
+		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString();
 	}
 	
 	public void modifyEstablecimiento(Establecimiento e) {

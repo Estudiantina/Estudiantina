@@ -630,9 +630,30 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     @Hidden
 	public List<Directivo> autoCompletarDirectivo (@Named("Ingrese CUIL")String searchPhrase)
 	{
-		Long temp = Long.parseLong(searchPhrase);
-		return allMatches(QueryDefault.create(Directivo.class, "traerPorcuil","cuil",temp));
-		
+    	String[] split = searchPhrase.split(" ");
+    	String nombre = "";
+    	String apellido = "";
+    	Long cuil = Long.MIN_VALUE;
+    	try
+    	{
+    	cuil= Long.parseLong(searchPhrase);
+    	}catch (NumberFormatException ex)
+    	{
+    		cuil = Long.MIN_VALUE;
+    	}
+    	
+    	for (int i=0;i<split.length;i++)
+    	{
+    		if (i==0)
+    		{
+    		nombre=split[0];
+    		}
+    		else
+    		{
+    		apellido = apellido+" "+split[i];
+    		}
+    	}
+		return allMatches(QueryDefault.create(Directivo.class, "buscarDirectivoPorcuilYNombre","cuil",cuil,"nombre",nombre,"apellido",apellido,"institucion",this.verMisDatos().getEstablecimiento()));
 	}
     /**
 	 * Listar los alumnos por estados.
