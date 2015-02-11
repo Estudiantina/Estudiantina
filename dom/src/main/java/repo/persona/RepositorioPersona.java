@@ -564,6 +564,16 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     	String[] split = searchPhrase.split(" ");
     	String nombre = "";
     	String apellido = "";
+    	
+    	Long cuil = Long.MIN_VALUE;
+    	try
+    	{
+    	cuil= Long.parseLong(searchPhrase);
+    	}catch (NumberFormatException ex)
+    	{
+    		cuil = Long.MIN_VALUE;
+    	}
+    	
     	for (int i=0;i<split.length;i++)
     	{
     		if (i==0)
@@ -575,7 +585,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     		apellido = apellido+" "+split[i];
     		}
     	}
-		return allMatches(QueryDefault.create(Alumno.class, "buscarAlumnoPorcuilYNombre","nombre",nombre,"apellido",apellido,"institucion",this.verMisDatos().getEstablecimiento()));
+		return allMatches(QueryDefault.create(Alumno.class, "buscarAlumnoPorcuilYNombre","cuil",cuil,"nombre",nombre,"apellido",apellido,"institucion",this.verMisDatos().getEstablecimiento()));
     	
 	}
     
