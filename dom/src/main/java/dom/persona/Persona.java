@@ -71,7 +71,7 @@ import dom.localidad.Localidad;
 @Audited
 @Bookmarkable
 @ObjectType("PersonaGestionable")
-public class Persona implements Locatable,Serializable{
+public abstract class Persona implements Locatable,Serializable{
 	
 	/**
 	 * 

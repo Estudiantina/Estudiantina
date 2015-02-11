@@ -79,6 +79,7 @@ public class RepositorioCurso extends AbstractFactoryAndRepository{
 		curso.setCicloLectivo(cicloLectivo);
 		curso.setTurno(turno);
 		curso.setEstablecimiento(repoPersona.verMisDatos().getEstablecimiento());
+		repoPersona.verMisDatos().getEstablecimiento().getCursos().add(curso);
 		container.persistIfNotAlready(curso);
 		return curso;	
 	}

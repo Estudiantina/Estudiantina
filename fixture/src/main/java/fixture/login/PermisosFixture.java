@@ -1,10 +1,5 @@
 package fixture.login;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-
 import org.apache.isis.applib.fixturescripts.FixtureScript;
 
 import repo.login.repologin;
