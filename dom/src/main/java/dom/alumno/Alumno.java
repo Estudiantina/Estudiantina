@@ -51,6 +51,7 @@ import dom.tutor.Tutor;
 //TODO hacer consulta traerPorcuil 
 //TODO generar pedido certificado alumno regular
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerAlumnoPorcuil", language = "JDOQL", value = "SELECT FROM dom.alumno.Alumno WHERE cuil== :cuil && establecimiento==:institucion && estaBorrado== 'ACTIVO'"),
+	@javax.jdo.annotations.Query(name = "buscarAlumnoPorcuilYNombre", language = "JDOQL", value = "SELECT FROM dom.alumno.Alumno WHERE nombre.indexOf(:nombre) >= 0 || apellido.indexOf(:apellido) >= 0  && establecimiento==:institucion && estaBorrado== 'ACTIVO' range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerTodoAlumno", language = "JDOQL", value = "SELECT FROM dom.alumno.Alumno WHERE estaBorrado== 'ACTIVO'"),
 	@javax.jdo.annotations.Query(name = "traerPorEstado", language = "JDOQL", value = "SELECT FROM dom.alumno.Alumno WHERE estadoDeAlumno== :estadoDeAlumno && estaBorrado== 'ACTIVO'"),
 	@javax.jdo.annotations.Query(name = "traerTodosLosAlumnoDelEstablecimientoActual", language = "JDOQL", value = "SELECT FROM dom.alumno.Alumno WHERE estaBorrado== 'ACTIVO' && establecimiento== :establecimiento")
@@ -73,7 +74,7 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	 */
 	public String title()
 	{
-		return this.getNombre().toString()+" "+this.getApellido().toString();
+		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString();
 		
 	}	
 	/**

@@ -62,7 +62,7 @@ import dom.persona.Persona;
 @Audited
 @Bookmarkable
 @ObjectType("PersonaGestionable")
-public class PersonaGestionable extends Persona implements Locatable,Serializable{
+public abstract class PersonaGestionable extends Persona implements Locatable,Serializable{
 	
 
 	/**
