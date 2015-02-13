@@ -623,8 +623,31 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
     @Hidden
 	public List<Tutor> autoCompletarTutor (@Named("Ingrese CUIL")String searchPhrase)
 	{
-		Long temp = Long.parseLong(searchPhrase);
-		return allMatches(QueryDefault.create(Tutor.class, "traerTutorPorcuil","cuil",temp));
+    	String[] split = searchPhrase.split(" ");
+    	String nombre = "";
+    	String apellido = "";
+    	
+    	Long cuil = Long.MIN_VALUE;
+    	try
+    	{
+    	cuil= Long.parseLong(searchPhrase);
+    	}catch (NumberFormatException ex)
+    	{
+    		cuil = Long.MIN_VALUE;
+    	}
+    	
+    	for (int i=0;i<split.length;i++)
+    	{
+    		if (i==0)
+    		{
+    		nombre=split[0];
+    		}
+    		else
+    		{
+    		apellido = apellido+" "+split[i];
+    		}
+    	}
+		return allMatches(QueryDefault.create(Tutor.class, "buscarTutorPorcuilYNombre","cuil",cuil,"nombre",nombre,"apellido",apellido));
 	}
 
     @Hidden
