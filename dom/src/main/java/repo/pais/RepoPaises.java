@@ -20,7 +20,6 @@ public class RepoPaises extends AbstractFactoryAndRepository{
 		return allMatches(QueryDefault.create(Pais.class, "traerPorNombre","nombre",pais));
 	}
 	
-	@Hidden
 	public List<Pais> mostrarTodosLosPaises()
 	{
 		return allMatches(QueryDefault.create(Pais.class, "traerTodosLosPaises"));

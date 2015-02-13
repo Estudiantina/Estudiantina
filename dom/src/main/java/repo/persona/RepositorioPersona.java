@@ -32,6 +32,7 @@ import dom.docente.Docente;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Localidad;
 import dom.login.Login;
+import dom.pais.Pais;
 import dom.persona.Persona;
 import dom.persona.Sexo;
 import dom.persona.personagestionable.PersonaGestionable;
@@ -109,7 +110,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
 			@Named("FECHA INGRESO")Date fechaIngreso,
-			@RegEx(validation = "[A-Za-z ]+") @Named("NACIONALIDAD")Nacionalidad nacionalidad,
+			@RegEx(validation = "[A-Za-z ]+") @Named("NACIONALIDAD")Pais nacionalidad,
 			@Named("SEXO") Sexo sexo,
 			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno,
 			@Named("Tutor del Alumno") Tutor tutor,

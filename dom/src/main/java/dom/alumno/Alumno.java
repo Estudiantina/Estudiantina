@@ -18,12 +18,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
 import javax.jdo.annotations.Element;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.Persistent;
+
 import com.danhaywood.isis.wicket.gmap3.applib.Locatable;
+
 import net.sf.jasperreports.engine.JRException;
+
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Audited;
 import org.apache.isis.applib.annotation.AutoComplete;
@@ -36,13 +40,16 @@ import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.ObjectContracts;
 import org.apache.isis.applib.value.Blob;
+
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
+
 import repo.persona.RepositorioPersona;
 import dom.curso.Curso;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Departamento;
 import dom.localidad.Localidad;
+import dom.pais.Pais;
 import dom.persona.personagestionable.PersonaGestionable;
 import dom.tutor.Tutor;
 
@@ -136,7 +143,7 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	private Tutor tutor;
 	private Date fechaIngreso;
 	private EstadoDeAlumno estadoDeAlumno;
-	private Nacionalidad nacionalidad;
+	private Pais nacionalidad;
 	
 	@javax.jdo.annotations.Column(allowsNull="false")
 	public Tutor getTutor() {
@@ -167,10 +174,10 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	}
 		
 	@javax.jdo.annotations.Column(allowsNull="false")	
-	public Nacionalidad getNacionalidad() {
+	public Pais getNacionalidad() {
 		return nacionalidad;
 	}
-	public void setNacionalidad(Nacionalidad nacionalidad) {
+	public void setNacionalidad(Pais nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
 		
