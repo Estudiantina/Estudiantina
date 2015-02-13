@@ -20,6 +20,12 @@ public class RepoPaises extends AbstractFactoryAndRepository{
 		return allMatches(QueryDefault.create(Pais.class, "traerPorNombre","nombre",pais));
 	}
 	
+	@Hidden
+	public List<Pais> mostrarTodosLosPaises()
+	{
+		return allMatches(QueryDefault.create(Pais.class, "traerTodosLosPaises"));
+	}
+	
 	public Pais nuevoPais(@Named("nombre del pais")String nombre)
 	{
 		final Pais pais = container.newTransientInstance(Pais.class);

@@ -10,7 +10,8 @@ import org.apache.isis.applib.annotation.ObjectType;
 import repo.localidad.RepositorioLocalidad;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Queries({
-	@Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.pais.Pais WHERE nombreDelPais.indexOf(:pais) >= 0 range 0,4 ")
+	@Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.pais.Pais WHERE nombreDelPais.indexOf(:pais) >= 0 range 0,4 "),
+	@Query(name = "traerTodosLosPaises", language = "JDOQL", value = "SELECT FROM dom.pais.Pais ")
 	})
 @ObjectType("Pais")
 @AutoComplete(repository = RepositorioLocalidad.class, action = "autoCompletarPais")
