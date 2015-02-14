@@ -6,6 +6,7 @@ import javax.jdo.annotations.Query;
 
 import org.apache.isis.applib.annotation.AutoComplete;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.annotation.RegEx;
 
 import repo.pais.RepoPaises;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
@@ -14,6 +15,10 @@ import repo.pais.RepoPaises;
 	@Query(name = "traerTodosLosPaises", language = "JDOQL", value = "SELECT FROM dom.pais.Pais ")
 	})
 @ObjectType("Pais")
+@javax.jdo.annotations.Unique(
+            name="nombrePais", 
+            members={"nombrePais"})
+
 @AutoComplete(repository = RepoPaises.class, action = "autoCompletarPais")
 
 public class Pais {
@@ -24,10 +29,14 @@ public class Pais {
 		return nombrePais;
 	}
 
-	public void setNombrePais(String nombrePais) {
+	public void setNombrePais(@RegEx(validation = "[A-Za-z ]+")String nombrePais) {
 		this.nombrePais = nombrePais;
 	}
 	
+	public String iconName()
+	{
+		return "images/banderas/"+nombrePais+".png";
+	}
 	public String title()
 	{
 		return this.nombrePais;

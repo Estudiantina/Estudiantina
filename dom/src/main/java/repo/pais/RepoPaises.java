@@ -8,7 +8,9 @@ import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.RegEx;
 import org.apache.isis.applib.query.QueryDefault;
+
 import dom.pais.Pais;
 
 @Named("Paises")
@@ -25,7 +27,7 @@ public class RepoPaises extends AbstractFactoryAndRepository{
 		return allMatches(QueryDefault.create(Pais.class, "traerTodosLosPaises"));
 	}
 	
-	public Pais nuevoPais(@Named("nombre del pais")String nombre)
+	public Pais nuevoPais(@Named("nombre del pais")@RegEx(validation = "[A-Za-z ]+")String nombre)
 	{
 		final Pais pais = container.newTransientInstance(Pais.class);
 		pais.setNombrePais(nombre);

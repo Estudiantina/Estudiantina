@@ -93,7 +93,12 @@ public class FixturesService extends FixtureScripts {
         final List<FixtureResult> run = findFixtureScriptFor(ServidoresDeMailFixture.class).run(null);
         return run.get(0).getObject();
     }
-    
+    @Programmatic
+    @MemberOrder(sequence="110")
+    public Object instalarPaises() {
+        final List<FixtureResult> run = findFixtureScriptFor(PaisesFixture.class).run(null);
+        return run.get(0).getObject();
+    }
     @PostConstruct //Hace que se ejecute al inicio
     @Override //se sobre escribe el metodo por eso hay que llamarlo otra vez para que no pinche
     public void init()
@@ -108,5 +113,6 @@ public class FixturesService extends FixtureScripts {
         this.instalarPersonaDePrueba();
         this.instalarCuentaDePrueba();
         this.instalarServidoresDeMail();
+        this.instalarPaises();
     }
 }
