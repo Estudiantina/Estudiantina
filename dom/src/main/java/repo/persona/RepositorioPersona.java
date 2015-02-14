@@ -25,7 +25,6 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
-import dom.alumno.Nacionalidad;
 import dom.curso.Curso;
 import dom.directivo.Directivo;
 import dom.docente.Docente;
@@ -244,7 +243,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 				final Localidad localidad,
 				final Date fechaNacimiento,
 				final Date fechaIngreso,
-				final Nacionalidad nacionalidad,
+				final Pais nacionalidad,
 				final Sexo sexo,
 				final EstadoDeAlumno estadoDeAlumno,
 				final Tutor tutor,
