@@ -17,7 +17,7 @@ public class RepoPaises extends AbstractFactoryAndRepository{
 	@Hidden
 	public List<Pais> autoCompletarPais(String pais)
 	{
-		return allMatches(QueryDefault.create(Pais.class, "traerPorNombre","nombre",pais));
+		return allMatches(QueryDefault.create(Pais.class, "traerPorNombre","pais",pais));
 	}
 	
 	public List<Pais> mostrarTodosLosPaises()
