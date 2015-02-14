@@ -35,7 +35,7 @@ public class Pais {
 	
 	public String iconName()
 	{
-		return "images/banderas/"+nombrePais+".png";
+		return "banderas/"+nombrePais;
 	}
 	public String title()
 	{
