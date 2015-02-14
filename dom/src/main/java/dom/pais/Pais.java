@@ -5,6 +5,7 @@ import javax.jdo.annotations.Queries;
 import javax.jdo.annotations.Query;
 
 import org.apache.isis.applib.annotation.AutoComplete;
+import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.annotation.RegEx;
 
@@ -25,6 +26,7 @@ public class Pais {
 
 	private String nombrePais;
 	@javax.jdo.annotations.Column(allowsNull="false")
+	@Named("Nombre Del Pais")
 	public String getNombrePais() {
 		return nombrePais;
 	}
