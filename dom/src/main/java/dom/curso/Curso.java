@@ -43,6 +43,13 @@ import repo.curso.RepositorioCurso;
 	@javax.jdo.annotations.Query(name = "buscarPorTodo", language = "JDOQL", value = "SELECT FROM dom.curso.Curso WHERE anio== :anio && division== :division && cicloLectivo== :cicloLectivo && turno==:turno && establecimiento==:establecimiento"),
 	
 	})
+
+@javax.jdo.annotations.Uniques({
+    @javax.jdo.annotations.Unique(
+            name="Cursos_unicos", 
+            members={"anio","cicloLectivo","division","establecimiento","turno"})
+})
+
 @ObjectType("CURSO")
 @AutoComplete(repository =  RepositorioCurso.class, action = "autoComplete")
 @Audited
