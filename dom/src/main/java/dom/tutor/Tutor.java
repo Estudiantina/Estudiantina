@@ -29,6 +29,7 @@ import dom.persona.Persona;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerTutorPorcuil", language = "JDOQL", value = "SELECT FROM dom.tutor.Tutor WHERE cuil== :cuil"),
+	@javax.jdo.annotations.Query(name = "buscarTutorPorcuilYNombre", language = "JDOQL", value = "SELECT FROM dom.tutor.Tutor WHERE (cuil== :cuil || nombre.indexOf(:nombre) >= 0 || apellido.indexOf(:apellido) >= 0 ) range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.tutor.Tutor")})
 @AutoComplete(repository = RepositorioPersona.class, action = "autoCompletarTutor")
 
