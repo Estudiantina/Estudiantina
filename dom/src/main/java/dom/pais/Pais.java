@@ -20,7 +20,6 @@ import repo.pais.RepoPaises;
 @javax.jdo.annotations.Unique(
             name="nombrePais", 
             members={"nombrePais"})
-
 @AutoComplete(repository = RepoPaises.class, action = "autoCompletarPais")
 
 public class Pais {
@@ -45,6 +44,4 @@ public class Pais {
 		return this.nombrePais;
 	}
 
-	
-	
 }
