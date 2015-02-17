@@ -116,8 +116,24 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
     private Tecnico tecnicoAsignado;
     private Reparado estadoReparado;
     private boolean reparada;
+    private Blob documentoDeSolucion;
     
-    @Hidden
+    @javax.jdo.annotations.Column(allowsNull="false")
+	public Blob getDocumentoDeSolucion() {
+		return documentoDeSolucion;
+	}
+
+	public void setDocumentoDeSolucion(Blob documentoDeSolucion) {
+		this.documentoDeSolucion = documentoDeSolucion;
+	}
+	
+	public boolean hideDocumentoDeSolucion()
+	{
+		return this.getEstado().ocultarDocumentoDeSolucion();
+	}
+	
+
+	@Hidden
     @javax.jdo.annotations.Column(allowsNull="false")
 	public EstaBorrado getEstaBorrado() {
 		return estaBorrado;
@@ -479,7 +495,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		}
 	}
 	@Named("Avisar Netbook Reparada")
-	public SolicitudServicioTecnico avisarPorMailQueEstaLista(@MultiLine@Named("Solucion") String solucion,@Named("Fecha Solucion") LocalDate fechaDeSolucion)
+	public SolicitudServicioTecnico avisarPorMailQueEstaLista(@MultiLine@Named("Solucion") String solucion,@Named("Fecha Solucion") LocalDate fechaDeSolucion,@Named("documento de solucion")@Optional Blob documento)
 	{
 		try
 		{
@@ -499,7 +515,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
 		{
 		container.informUser("Se Ha enviado un email avisando que la Netbook fue Reparada");
 		}
-		this.getEstado().avisarNetbookReparada(solucion, fechaDeSolucion);
+		this.getEstado().avisarNetbookReparada(solucion, fechaDeSolucion,documento);
 		return this;
 	}
 	/**

@@ -23,6 +23,7 @@ import javax.jdo.annotations.VersionStrategy;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.ObjectType;
+import org.apache.isis.applib.value.Blob;
 import org.joda.time.LocalDate;
 
 import dom.solicituddeserviciotecnico.SolicitudServicioTecnico;
@@ -97,7 +98,7 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 	}
 	@Hidden
 	@Override
-	public void avisarNetbookReparada(String solucion,LocalDate fechaDeSolucion) {
+	public void avisarNetbookReparada(String solucion,LocalDate fechaDeSolucion,final Blob documentoSolucion) {
 		throw new UnsupportedOperationException("No impletandado todavía...");
 		
 	}
@@ -134,4 +135,8 @@ public class EnviadoAlServicioTecnico implements IEstadoSolicitudDeServicioTecni
 
 	@javax.inject.Inject 
     DomainObjectContainer container;
+	@Override
+	public boolean ocultarDocumentoDeSolucion() {
+		return true;
+	}
 }

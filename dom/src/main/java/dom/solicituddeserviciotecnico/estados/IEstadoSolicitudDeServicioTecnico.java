@@ -12,6 +12,7 @@
  */
 package dom.solicituddeserviciotecnico.estados;
 
+import org.apache.isis.applib.value.Blob;
 import org.joda.time.LocalDate;
 
 import dom.tecnico.Tecnico;
@@ -27,9 +28,10 @@ public interface IEstadoSolicitudDeServicioTecnico {
 	public boolean ocultarFinalizarSolicitud();
 	public boolean ocultarEnviarAServicioTecnico();
 	public boolean ocultarRecibirDelServicioTecnico();
+	public boolean ocultarDocumentoDeSolucion();
 	public void recibirDeServicioTecnico();
 	public void enviarAServicioTecnico();
-	public void avisarNetbookReparada(final String solucion,final LocalDate fechaDeSolucion);
+	public void avisarNetbookReparada(final String solucion,final LocalDate fechaDeSolucion,final Blob documentoSolucion);
 	public void finalizarSolicitud();
 	public void asignarTecnico(final Tecnico tecnico,final String codigoSolicitud);
 }
