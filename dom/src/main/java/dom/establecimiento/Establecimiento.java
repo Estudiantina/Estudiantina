@@ -12,9 +12,8 @@
  */
 package dom.establecimiento;
 
-import java.util.SortedSet;
-import java.util.TreeSet;
-
+import java.util.ArrayList;
+import java.util.List;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Query;
 import javax.jdo.annotations.Unique;
@@ -68,13 +67,13 @@ public class Establecimiento {
 	private String distritoEscolar;
 	private Directivo directivo;
 	@javax.jdo.annotations.Persistent(mappedBy="establecimiento")
-	private SortedSet<Curso> cursos =  new TreeSet<Curso>();
+	private List<Curso> cursos =  new ArrayList<Curso>();
 	
 	@Render(Type.EAGERLY)
-	public SortedSet<Curso> getCursos() {
+	public List<Curso> getCursos() {
 		return cursos;
 	}
-	public void setCursos(SortedSet<Curso> cursos) {
+	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
 	}
 	
