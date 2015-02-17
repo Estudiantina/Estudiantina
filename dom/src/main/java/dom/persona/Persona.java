@@ -233,7 +233,7 @@ public abstract class Persona implements Locatable,Serializable{
 		this.telefonoCelular = telefonoCelular;
 	}
 	@Hidden(where = Where.ALL_TABLES)//no la muestra el telefono fijo cuando esta en las tablas
-	@javax.jdo.annotations.Column(allowsNull="false")
+	@javax.jdo.annotations.Column(allowsNull="true")
 	public String getTelefonoFijo() {
 		return telefonoFijo;
 	}
