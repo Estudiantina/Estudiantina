@@ -140,7 +140,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.docente:Docente:alturaDomicilio:*",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:apellido:r",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:cuil:r",executionContext);
-		create("usuario_tecnico","dom.docente:Docente:domicilio:r",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:domicilio:*",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:email:*",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:establecimiento:r",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:fechaNacimiento:r",executionContext);
@@ -159,7 +159,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.directivo:Directivo:alturaDomicilio:r",executionContext);
 		create("usuario_tecnico","dom.directivo:Directivo:apellido:r",executionContext);
 		create("usuario_tecnico","dom.directivo:Directivo:cuil:r",executionContext);
-		create("usuario_tecnico","dom.directivo:Directivo:domicilio:r",executionContext);
+		create("usuario_tecnico","dom.directivo:Directivo:domicilio:*",executionContext);
 		create("usuario_tecnico","dom.directivo:Directivo:email:r",executionContext);
 		create("usuario_tecnico","dom.directivo:Directivo:establecimiento:r",executionContext);
 		create("usuario_tecnico","dom.directivo:Directivo:fechaNacimiento:r",executionContext);
@@ -180,7 +180,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tutor:Tutor:alturaDomicilio:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:apellido:r",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:cuil:r",executionContext);
-		create("usuario_tecnico","dom.tutor:Tutor:domicilio:r",executionContext);
+		create("usuario_tecnico","dom.tutor:Tutor:domicilio:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:email:*",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:establecimiento:r",executionContext);
 		create("usuario_tecnico","dom.tutor:Tutor:fechaNacimiento:r",executionContext);
@@ -200,7 +200,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.alumno:Alumno:alturaDomicilio:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:apellido:r",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:cuil:r",executionContext);
-		create("usuario_tecnico","dom.alumno:Alumno:domicilio:r",executionContext);
+		create("usuario_tecnico","dom.alumno:Alumno:domicilio:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:email:*",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:establecimiento:r",executionContext);
 		create("usuario_tecnico","dom.alumno:Alumno:fechaNacimiento:r",executionContext);
@@ -298,7 +298,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_alumno","dom.alumno:Alumno:alturaDomicilio:*",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:apellido:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:cuil:r",executionContext);
-		create("usuario_alumno","dom.alumno:Alumno:domicilio:r",executionContext);
+		create("usuario_alumno","dom.alumno:Alumno:domicilio:*",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:email:*",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:establecimiento:r",executionContext);
 		create("usuario_alumno","dom.alumno:Alumno:fechaNacimiento:r",executionContext);
@@ -368,7 +368,7 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_docente","dom.docente:Docente:alturaDomicilio:*",executionContext);
 		create("usuario_docente","dom.docente:Docente:apellido:r",executionContext);
 		create("usuario_docente","dom.docente:Docente:cuil:r",executionContext);
-		create("usuario_docente","dom.docente:Docente:domicilio:r",executionContext);
+		create("usuario_docente","dom.docente:Docente:domicilio:*",executionContext);
 		create("usuario_docente","dom.docente:Docente:email:*",executionContext);
 		create("usuario_docente","dom.docente:Docente:establecimiento:r",executionContext);
 		create("usuario_docente","dom.docente:Docente:fechaNacimiento:r",executionContext);
