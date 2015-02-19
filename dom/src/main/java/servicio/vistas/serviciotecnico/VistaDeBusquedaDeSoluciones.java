@@ -6,6 +6,7 @@ import org.apache.isis.applib.AbstractViewModel;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.services.memento.MementoService;
 import org.apache.isis.applib.services.memento.MementoService.Memento;
+import org.apache.isis.applib.value.Blob;
 
 public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 
@@ -20,6 +21,7 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 		setMarca(m.get("marca", String.class));
 		setModelo(m.get("modelo", String.class));
 		setMotivo(m.get("motivo", String.class));
+		
 	}
 
 	@Override
@@ -32,6 +34,7 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 	private String comentario;
 	private String modelo;
 	private String marca;
+
 
 	@MemberOrder(sequence = "5")
 	@Column(allowsNull = "true")
