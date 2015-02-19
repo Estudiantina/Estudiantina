@@ -214,9 +214,9 @@ public class Asignada implements ISituacionDeNetbook {
 			parametros.put("caracterTutor", alumno.getTutor().getApellido()+" "+alumno.getTutor().getNombre());
 			parametros.put("nombreEstablecimiento",establecimiento.getNombre());
 			parametros.put("numeroEstablecimiento","");
-			parametros.put("Curso", alumno.getCursos().first().getAnio().toString());
-			parametros.put("Turno", alumno.getCursos().first().getTurno().toString());
-			parametros.put("division", alumno.getCursos().first().getDivision().toString());
+			parametros.put("Curso", alumno.getCursos().get(0).getAnio().toString());
+			parametros.put("Turno", alumno.getCursos().get(0).getTurno().toString());
+			parametros.put("division", alumno.getCursos().get(0).getDivision().toString());
 			parametros.put("modeloNetbook",netbook.getMarca().toString());
 			parametros.put("numeroSerieNetbook",netbook.getNumeroDeSerie());
 

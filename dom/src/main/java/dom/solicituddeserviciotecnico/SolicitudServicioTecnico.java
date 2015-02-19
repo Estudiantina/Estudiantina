@@ -118,6 +118,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
     private boolean reparada;
     private Blob documentoDeSolucion;
     
+    @Persistent
     @javax.jdo.annotations.Column(allowsNull="false")
 	public Blob getDocumentoDeSolucion() {
 		return documentoDeSolucion;

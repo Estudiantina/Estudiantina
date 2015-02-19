@@ -105,8 +105,8 @@ public class Prestada implements ISituacionDeNetbook {
 		Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil", netbook.getPersona().getCuil(),"institucion",netbook.getEstablecimiento()));
 		Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
 		parametros.put("nombreAlumno", alumno.getNombre() +", "+alumno.getApellido() );
-		parametros.put("cursoAlumno", alumno.getCursos().first().getAnio().toString());
-		parametros.put("divisionAlumno", alumno.getCursos().first().getDivision());
+		parametros.put("cursoAlumno", alumno.getCursos().get(0).getAnio().toString());
+		parametros.put("divisionAlumno", alumno.getCursos().get(0).getDivision());
 		parametros.put("marcaNetbook", netbook.getMarca().toString());
 		parametros.put("modelo", netbook.getModelo());
 		parametros.put("serieNetbook", netbook.getNumeroDeSerie());

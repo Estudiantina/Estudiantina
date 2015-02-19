@@ -25,8 +25,9 @@ import dom.persona.personagestionable.PersonaGestionable;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorcuil", language = "JDOQL", value = "SELECT FROM dom.tecnico.Tecnico WHERE cuil== :cuil && estaBorrado== 'ACTIVO'"),
+	@javax.jdo.annotations.Query(name = "buscarTecnicoPorcuilYNombre", language = "JDOQL", value = "SELECT FROM dom.tecnico.Tecnico WHERE (cuil== :cuil || nombre.indexOf(:nombre) >= 0 || apellido.indexOf(:apellido) >= 0 ) && establecimiento==:institucion range 0, 4"),
 	@javax.jdo.annotations.Query(name = "traerTodoDocente", language = "JDOQL", value = "SELECT FROM dom.tecnico.Tecnico WHERE estaBorrado== 'ACTIVO'")})
-@AutoComplete(repository = RepositorioPersona.class, action = "autoComplete")
+@AutoComplete(repository = RepositorioPersona.class, action = "autoCompletarTecnico")
 @Audited
 @ObjectType("TECNICO")
 public class Tecnico extends PersonaGestionable {

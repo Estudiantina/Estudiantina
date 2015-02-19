@@ -86,6 +86,7 @@ public abstract class PersonaGestionable extends Persona implements Locatable,Se
       if(e == null || netbooks.contains(e)) return;
         e.asignarPersona(this);
         netbooks.add(e);
+        
     }
 	public void removeFromNetbooks(Netbook e) {
         if(e == null || !netbooks.contains(e)) return;

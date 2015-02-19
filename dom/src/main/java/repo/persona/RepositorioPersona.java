@@ -109,7 +109,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
 			@Named("FECHA INGRESO")Date fechaIngreso,
-			@RegEx(validation = "[A-Za-z ]+") @Named("NACIONALIDAD")Pais nacionalidad,
+			@Named("NACIONALIDAD")Pais nacionalidad,
 			@Named("SEXO") Sexo sexo,
 			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno,
 			@Named("Tutor del Alumno") Tutor tutor,
@@ -619,6 +619,38 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 		return allMatches(QueryDefault.create(Alumno.class, "buscarAlumnoPorcuilYNombre","cuil",cuil,"nombre",nombre,"apellido",apellido,"institucion",this.verMisDatos().getEstablecimiento()));
     	
 	}
+    
+    @Hidden
+	public List<Tecnico> autoCompletarTecnico (@Named("Ingrese CUIL")String searchPhrase)
+	{
+    	String[] split = searchPhrase.split(" ");
+    	String nombre = "";
+    	String apellido = "";
+    	
+    	Long cuil = Long.MIN_VALUE;
+    	try
+    	{
+    	cuil= Long.parseLong(searchPhrase);
+    	}catch (NumberFormatException ex)
+    	{
+    		cuil = Long.MIN_VALUE;
+    	}
+    	
+    	for (int i=0;i<split.length;i++)
+    	{
+    		if (i==0)
+    		{
+    		nombre=split[0];
+    		}
+    		else
+    		{
+    		apellido = apellido+" "+split[i];
+    		}
+    	}
+		return allMatches(QueryDefault.create(Tecnico.class, "buscarTecnicoPorcuilYNombre","cuil",cuil,"nombre",nombre,"apellido",apellido,"institucion",this.verMisDatos().getEstablecimiento()));
+    	
+	}
+    
     
     @Hidden
   	public List<Docente> autoCompletarDocente (@Named("Ingrese CUIL")String searchPhrase)

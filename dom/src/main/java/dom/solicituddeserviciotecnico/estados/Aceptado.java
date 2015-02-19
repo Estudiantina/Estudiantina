@@ -117,6 +117,7 @@ public class Aceptado implements IEstadoSolicitudDeServicioTecnico{
 		this.getSolicitud().setReparada(true);
 		this.getSolicitud().setSolucion(solucion);
 		this.getSolicitud().setFechaDeSolucion(fechaDeSolucion);
+		this.getSolicitud().setDocumentoDeSolucion(documentoSolucion);
 		container.informUser("la netbook ha pasado a estar reparada");
 		this.getSolicitud().setEstado(this.getSolicitud().getEstadoReparado());
 		

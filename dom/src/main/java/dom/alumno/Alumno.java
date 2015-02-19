@@ -14,8 +14,10 @@ package dom.alumno;
 
 import java.io.FileNotFoundException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -110,16 +112,16 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 		return "alumno";
 	   }
 	    	
-	private SortedSet<Curso> cursos = new TreeSet<Curso>();;
+	private List<Curso> cursos = new ArrayList<Curso>();;
 	
     @Persistent(table="ALUMNO_CURSOS")
     @Join(column="ALUMNO_ID")
     @Element(column ="CURSO_ID")
     @Render(Type.EAGERLY)
-    public SortedSet<Curso> getCursos() {
+    public List<Curso> getCursos() {
         	 		return cursos;
     	 	}
-    public void setCursos(SortedSet<Curso> cursos) {
+    public void setCursos(List<Curso> cursos) {
     		    	 		this.cursos = cursos;
     	 	}
 
@@ -213,7 +215,7 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	    	
 		    parametros.put("dniAlumno", super.getCuil());
 		    parametros.put("alumno", super.getApellido()+" "+super.getNombre());
-	    	parametros.put("anoydivision", this.getCursos().first().getAnio()+ "  "+this.cursos.first().getDivision()) ;
+	    	parametros.put("anoydivision", this.getCursos().get(0).getAnio()+ "  "+this.cursos.get(0).getDivision()) ;
 	    	//parametros.put("division", this.cursos.first().getDivision());
 	    	SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MMM/yyyy/");
 	    	Date fechahoy = new Date();

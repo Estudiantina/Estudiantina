@@ -114,6 +114,7 @@ public class RecibidoDelServicioTecnico implements IEstadoSolicitudDeServicioTec
 		this.getSolicitud().setSolucion(solucion);
 		this.getSolicitud().setFechaDeSolucion(fechaDeSolucion);
 		this.getSolicitud().setEstado(this.getSolicitud().getEstadoReparado());
+		this.getSolicitud().setDocumentoDeSolucion(documentoSolucion);
 	}
 
 	@Hidden

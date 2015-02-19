@@ -202,7 +202,7 @@ public class Entregada implements ISituacionDeNetbook{
 	    parametros.put("nombreTutor", alumno.getTutor().getApellido()+" "+alumno.getTutor().getNombre());
 	    parametros.put("dniTutor", alumno.getTutor().getCuil());	    
 	    parametros.put("domicilioTutor", alumno.getTutor().getDomicilio());
-	    parametros.put("cursoAlumno", alumno.getCursos().first().getAnio());
+	    parametros.put("cursoAlumno", alumno.getCursos().get(0).getAnio());
 	    
 	    Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",alumno.getEstablecimiento().getLocalidad().getCodigoPostal()));
 	    Departamento departamentoEstablecimiento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidadEstablecimiento.getDepartamento().getNombreDepartamento()));
@@ -212,8 +212,8 @@ public class Entregada implements ISituacionDeNetbook{
 	    Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre", localidad.getDepartamento().getNombreDepartamento()));
 	    
 	    parametros.put("domicilioDepartamentoTutor", departamento.getNombreDepartamento());
-	    parametros.put("turnoCursoAlumno", alumno.getCursos().first().getTurno().toString());
-	    parametros.put("divisionCursoAlumno",alumno.getCursos().first().getDivision());
+	    parametros.put("turnoCursoAlumno", alumno.getCursos().get(0).getTurno().toString());
+	    parametros.put("divisionCursoAlumno",alumno.getCursos().get(0).getDivision());
 	    
 	    return GeneradorReporte.generarReporte("reportes/contratoCesion.jrxml",parametros , "contratoCesion");
 		}
