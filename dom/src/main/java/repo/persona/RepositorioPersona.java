@@ -25,6 +25,7 @@ import org.apache.isis.applib.query.QueryDefault;
 
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
+import dom.cargo.Cargo;
 import dom.curso.Curso;
 import dom.directivo.Directivo;
 import dom.docente.Docente;
@@ -153,7 +154,7 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,	
-			@Named("Cargo") final String cargo,
+			@Named("Cargo") final Cargo cargo,
 			@Named("SEXO") Sexo sexo
 			
 			)
@@ -491,9 +492,8 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 			@Optional @Named("Piso") String piso,
 			@Named("Cod Postal Ciudad")Localidad localidad,
 			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,	
-			@Named("Cargo") final String cargo,
-			@Named("SEXO") Sexo sexo
-			
+			@Named("Cargo") final Cargo cargo,
+			@Named("SEXO") Sexo sexo			
 			)
 	{
 		final Docente docente = container.newTransientInstance(Docente.class);

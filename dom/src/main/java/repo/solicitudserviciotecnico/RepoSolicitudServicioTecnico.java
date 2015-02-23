@@ -100,7 +100,7 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 				m.set("comentario", solicitud.getComentario());
 				m.set("modelo", solicitud.getNetbook().getModelo());
 				m.set("marca", solicitud.getNetbook().getMarca());
-				
+				m.set("documento", solicitud.getDocumentoDeSolucion());
 
 				busqueda.add(container.newViewModelInstance(VistaDeBusquedaDeSoluciones.class,
 						m.asString()));

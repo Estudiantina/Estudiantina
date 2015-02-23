@@ -152,7 +152,8 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.docente:Docente:telefonoCelular:*",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:telefonoFijo:*",executionContext);
 		create("usuario_tecnico","dom.docente:Docente:crearCuenta:*",executionContext);
-		create("usuario_tecnico","dom.tecnico:Tecnico:localizacion:*",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:cargo:*",executionContext);
+		create("usuario_tecnico","dom.docente:Docente:localizacion:*",executionContext);
 		
 		//PERMISOS EN DIRECTIVO 
 		//PARA USUARIO TECNICO

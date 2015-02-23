@@ -33,6 +33,7 @@ import org.apache.isis.applib.annotation.Render.Type;
 import org.apache.isis.applib.util.ObjectContracts;
 
 import repo.persona.RepositorioPersona;
+import dom.cargo.Cargo;
 import dom.curso.Curso;
 import dom.establecimiento.Establecimiento;
 import dom.persona.personagestionable.PersonaGestionable;
@@ -61,15 +62,15 @@ public class Docente extends PersonaGestionable implements Comparable<Docente>{
 		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString();
 	}
 
-	public String cargo;
+	public Cargo cargo;
 	public List<Establecimiento> establecimientos = new ArrayList<Establecimiento>();
 		
 	@javax.jdo.annotations.Column(allowsNull="false")
-	public String getCargo() {
+	public Cargo getCargo() {
 		return cargo;
 	}
 
-	public void setCargo(String cargo) {
+	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
 

@@ -21,7 +21,7 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 		setMarca(m.get("marca", String.class));
 		setModelo(m.get("modelo", String.class));
 		setMotivo(m.get("motivo", String.class));
-		
+		setDocumento(m.get("documento", Blob.class));
 	}
 
 	@Override
@@ -34,6 +34,7 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 	private String comentario;
 	private String modelo;
 	private String marca;
+	private Blob documento;
 
 
 	@MemberOrder(sequence = "5")
@@ -82,14 +83,27 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 		this.marca = marca;
 	}
 
-	public String iconName() {
-        return "asistenciatecnica";
-    }
+	@MemberOrder(sequence = "5")
+	@Column(allowsNull = "true")
+	public Blob getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(Blob documento) {
+		this.documento = documento;
+	}
+
 	
+
 	public String title()
 	{
 		return "Busqueda de Soluciones";
 	}
+	
+	public String iconName() {
+        return "asistenciatecnica";
+    }
+	
 	@javax.inject.Inject
     private MementoService mementoService;
 }
