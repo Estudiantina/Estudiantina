@@ -18,7 +18,7 @@ public class DepartamentosFixture extends FixtureScript {
         if(estaVacio(executionContext))
         {
 		//DEPARTAMENTOS DE RIO NEGRO
-		
+        	
 		//DEPARTAMENTOS DE NEUQUEN
 		create("Confluencia", "Neuquen", executionContext);
 		

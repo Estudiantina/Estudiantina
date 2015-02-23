@@ -39,7 +39,7 @@ public class Tecnico extends PersonaGestionable {
 
 	public String title()
 	{
-		return this.getNombre().toString()+" "+this.getApellido().toString();
+		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString();
 		
 	}	
 }
