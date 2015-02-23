@@ -4,6 +4,7 @@ import javax.jdo.annotations.Column;
 
 import org.apache.isis.applib.AbstractViewModel;
 import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.services.memento.MementoService;
 import org.apache.isis.applib.services.memento.MementoService.Memento;
 import org.apache.isis.applib.value.Blob;
@@ -21,7 +22,7 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 		setMarca(m.get("marca", String.class));
 		setModelo(m.get("modelo", String.class));
 		setMotivo(m.get("motivo", String.class));
-		setDocumento(m.get("documento", Blob.class));
+		
 	}
 
 	@Override
@@ -34,7 +35,6 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 	private String comentario;
 	private String modelo;
 	private String marca;
-	private Blob documento;
 
 
 	@MemberOrder(sequence = "5")
@@ -57,6 +57,7 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 	}
 	@MemberOrder(sequence = "4")
 	@Column(allowsNull = "true")
+	@MultiLine
 	public String getComentario() {
 		return comentario;
 	}
@@ -83,15 +84,7 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 		this.marca = marca;
 	}
 
-	@MemberOrder(sequence = "5")
-	@Column(allowsNull = "true")
-	public Blob getDocumento() {
-		return documento;
-	}
 
-	public void setDocumento(Blob documento) {
-		this.documento = documento;
-	}
 
 	
 

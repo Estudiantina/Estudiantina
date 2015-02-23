@@ -94,13 +94,13 @@ public class RepoSolicitudServicioTecnico extends AbstractFactoryAndRepository {
 			for (SolicitudServicioTecnico solicitud : listaSolicitudes)
 			{
 				Memento m = mementoService.create();
-
+				m.set("solucion", solicitud.getSolucion());
 				m.set("solucion", solicitud.getSolucion());
 				m.set("motivo", solicitud.getMotivoDeSolicitud());
 				m.set("comentario", solicitud.getComentario());
 				m.set("modelo", solicitud.getNetbook().getModelo());
 				m.set("marca", solicitud.getNetbook().getMarca());
-				m.set("documento", solicitud.getDocumentoDeSolucion());
+				
 
 				busqueda.add(container.newViewModelInstance(VistaDeBusquedaDeSoluciones.class,
 						m.asString()));
