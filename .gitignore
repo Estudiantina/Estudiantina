@@ -9,6 +9,7 @@ webapp/target-ide/*
 fixture/bin/*
 integtests/bin/*
 dom/bin/*
+*~
 *.class
 webapp/bin/*
 /webapp/reportes/*.pdf
