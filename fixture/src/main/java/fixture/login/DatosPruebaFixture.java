@@ -16,13 +16,18 @@ import org.apache.isis.applib.fixturescripts.FixtureScript.Discoverability;
 import org.apache.isis.applib.fixturescripts.FixtureScript.ExecutionContext;
 import org.apache.isis.applib.query.QueryDefault;
 
+import repo.curso.RepositorioCurso;
 import repo.establecimiento.RepositorioEstablecimiento;
 import repo.localidad.RepositorioLocalidad;
 import repo.login.repologin;
+import repo.pais.RepoPaises;
 import repo.persona.RepositorioPersona;
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
+import dom.curso.Anio;
 import dom.curso.Curso;
+import dom.curso.Division;
+import dom.curso.Turno;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Departamento;
 import dom.localidad.Localidad;
@@ -59,9 +64,12 @@ public class DatosPruebaFixture extends FixtureScript {
 			e.printStackTrace();
 		}
 		Long cuil = new Long(203568);
-		this.crearTutor(establecimiento, cuil, "Jorge", "perez", "1555555", "4444444", "matias@informaticos.com", "peru", 81, null, localidad, fecha, Sexo.MASCULINO, executionContext);
+		Tutor tutor = this.crearTutor(establecimiento, cuil, "Jorge", "perez", "1555555", "4444444", "matias@informaticos.com", "peru", 81, null, localidad, fecha, Sexo.MASCULINO, executionContext);
+		Curso curso = this.repoCurso.ingresarCurso(establecimiento, Anio.PRIMERO, Division.PRIMERA, 2015, Turno.Mañana);
+		Long cuil2 = new Long(33658);
+		this.crearAlumno(cuil2, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
 		
-		//this.crearAlumno(34954866, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, null, container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",8324)), new Date("22-11-1989"), new Date(),container.firstMatch(QueryDefault.create(Pais.class, "traerPorNombre", "nombre","Argentina")) , Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
+		
 		}
 	}
 	
@@ -116,10 +124,14 @@ public class DatosPruebaFixture extends FixtureScript {
 	private repologin repoLogin;
 	@javax.inject.Inject
 	private RepositorioPersona repoPersona;
+	@javax.inject.Inject
+	private RepositorioCurso repoCurso;
 	
 	private DomainObjectContainer container;
 	@javax.inject.Inject
 	private RepositorioLocalidad repoLocalidad;
+	@Inject
+	private RepoPaises repoPaises;
 	@Inject
 	private RepositorioEstablecimiento repositorioEstablecimiento;
 }
