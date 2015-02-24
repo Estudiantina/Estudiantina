@@ -7,7 +7,9 @@ import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.MultiLine;
 import org.apache.isis.applib.services.memento.MementoService;
 import org.apache.isis.applib.services.memento.MementoService.Memento;
-import org.apache.isis.applib.value.Blob;
+
+import repo.solicitudserviciotecnico.RepoSolicitudServicioTecnico;
+
 
 public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 
@@ -16,13 +18,11 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 	public void viewModelInit(String memento) {
 		this.memento = memento;
 		Memento m =  mementoService.parse(memento);
-		
 		setSolucion(m.get("solucion", String.class));
 		setComentario(m.get("comentario", String.class));
 		setMarca(m.get("marca", String.class));
 		setModelo(m.get("modelo", String.class));
 		setMotivo(m.get("motivo", String.class));
-		
 	}
 
 	@Override
@@ -96,7 +96,8 @@ public class VistaDeBusquedaDeSoluciones extends AbstractViewModel {
 	public String iconName() {
         return "asistenciatecnica";
     }
-	
+	@javax.inject.Inject
+	private RepoSolicitudServicioTecnico repoSolicitud;
 	@javax.inject.Inject
     private MementoService mementoService;
 }
