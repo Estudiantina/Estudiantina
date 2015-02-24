@@ -32,6 +32,10 @@ public class RepositorioLocalidad extends AbstractFactoryAndRepository{
 	public String getId() {
         return "Localidad";
          }
+	
+	public String iconName() {
+		return "Localidad";
+	   }
 
 	/**
 	 * Alta de Nueva Localidad En el sistema 

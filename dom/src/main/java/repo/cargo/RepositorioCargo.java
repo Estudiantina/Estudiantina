@@ -17,6 +17,10 @@ import dom.cargo.Cargo;
 @Named("Cargo")
 public class RepositorioCargo extends AbstractFactoryAndRepository{
 	
+	public String iconName() {
+        return "cargo";
+    }
+	
 	@Hidden
 	public List<Cargo> autoCompletarCargo(String cargo)
 	{
