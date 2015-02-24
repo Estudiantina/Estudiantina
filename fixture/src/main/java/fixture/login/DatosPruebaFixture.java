@@ -68,6 +68,17 @@ public class DatosPruebaFixture extends FixtureScript {
 		Long cuil = new Long(203568);
 		Tutor tutor = this.crearTutor(establecimiento, cuil, "Jorge", "perez", "1555555", "4444444", "matias@informaticos.com", "peru", 81, null, localidad, fecha, Sexo.MASCULINO, executionContext);
 		Curso curso = this.repoCurso.ingresarCurso(establecimiento, Anio.PRIMERO, Division.PRIMERA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.PRIMERO, Division.SEGUNDA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.PRIMERO, Division.TERCERA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.PRIMERO, Division.CUARTA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.SEGUNDO, Division.PRIMERA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.SEGUNDO, Division.SEGUNDA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.TERCERO, Division.PRIMERA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.TERCERO, Division.SEGUNDA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.CUARTO, Division.PRIMERA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.CUARTO, Division.SEGUNDA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.QUINTO, Division.PRIMERA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimiento, Anio.QUINTO, Division.SEGUNDA, 2015, Turno.Mañana);
 		Long cuil2 = new Long(33658);
 		this.crearAlumno(cuil2, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
 		Long cuil3 = new Long(336585);

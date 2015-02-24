@@ -128,6 +128,7 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	    netbook.setEstablecimiento(establecimiento);	    
 	    container.persistIfNotAlready(netbook);
 	    
+	    
 		return netbook;
 	}
 	/**
@@ -255,8 +256,8 @@ public class RepositorioNetbook extends AbstractFactoryAndRepository {
 	}
 	
 	@Inject
-	RepositorioPersona repositorioPersona;
+	private RepositorioPersona repositorioPersona;
 	
 	@javax.inject.Inject 
-    DomainObjectContainer container;
+    private DomainObjectContainer container;
 }
