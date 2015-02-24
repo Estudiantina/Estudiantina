@@ -17,6 +17,7 @@ import org.apache.isis.applib.fixturescripts.SimpleFixtureScript;
 @DomainService(menuOrder = "200")
 public class FixturesService extends FixtureScripts {
 
+	
     public FixturesService() {
         super("fixture");
     }
@@ -30,75 +31,85 @@ public class FixturesService extends FixtureScripts {
         return super.choices0RunFixtureScript();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="20")
+    @Programmatic
     public Object instalarRoles() {
         final List<FixtureResult> run = findFixtureScriptFor(RolesFixture.class).run(null);
         return run.get(0).getObject();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="30")
+    @Programmatic
     public Object instalarPermisos() {
         final List<FixtureResult> run = findFixtureScriptFor(PermisosFixture.class).run(null);
         return run.get(0).getObject();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="40")
+    @Programmatic
     public Object instalarProvincias() {
         final List<FixtureResult> run = findFixtureScriptFor(ProvinciasFixture.class).run(null);
         return run.get(0).getObject();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="50")
+    @Programmatic
     public Object instalarDepartamentos() {
         final List<FixtureResult> run = findFixtureScriptFor(DepartamentosFixture.class).run(null);
         return run.get(0).getObject();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="60")
+    @Programmatic
     public Object instalarLocalidades() {
         final List<FixtureResult> run = findFixtureScriptFor(LocalidadesFixture.class).run(null);
         return run.get(0).getObject();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="70")
+    @Programmatic
     public Object instalarEstablecimientoDePrueba() {
         final List<FixtureResult> run = findFixtureScriptFor(EstablecimientoDePruebaFixture.class).run(null);
         return run.get(0).getObject();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="80")
+    @Programmatic
     public Object instalarPersonaDePrueba() {
         final List<FixtureResult> run = findFixtureScriptFor(PersonaDePruebaFixture.class).run(null);
         return run.get(0).getObject();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="90")
+    @Programmatic
     public Object instalarCuentaDePrueba() {
         final List<FixtureResult> run = findFixtureScriptFor(CuentaDePruebaFixture.class).run(null);
         return run.get(0).getObject();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="100")
+    @Programmatic
     public Object instalarServidoresDeMail() {
         final List<FixtureResult> run = findFixtureScriptFor(ServidoresDeMailFixture.class).run(null);
         return run.get(0).getObject();
     }
     @Hidden
-    @Programmatic
     @MemberOrder(sequence="110")
+    @Programmatic
     public Object instalarPaises() {
         final List<FixtureResult> run = findFixtureScriptFor(PaisesFixture.class).run(null);
         return run.get(0).getObject();
     }
+    
+    
+    @MemberOrder(sequence="120")
+    @Programmatic
+    public Object instalarDatosDePrueba() {
+        final List<FixtureResult> run = findFixtureScriptFor(DatosPruebaFixture.class).run(null);
+        return run.get(0).getObject();
+    }
+    
+    @Hidden
     @PostConstruct //Hace que se ejecute al inicio
     @Override //se sobre escribe el metodo por eso hay que llamarlo otra vez para que no pinche
     public void init()
