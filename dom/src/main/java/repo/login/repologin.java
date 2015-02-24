@@ -139,6 +139,9 @@ public class repologin extends AbstractFactoryAndRepository {
     	
 		return allMatches(QueryDefault.create(Rol.class, "TraerRoles"));
     }
+	
+	
+	
 	/**
 	 * autocompleta el campo de Cuenta de Email
 	 * Haciendo una busqueda mediante

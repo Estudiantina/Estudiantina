@@ -28,6 +28,7 @@ import dom.curso.Anio;
 import dom.curso.Curso;
 import dom.curso.Division;
 import dom.curso.Turno;
+import dom.directivo.Directivo;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Departamento;
 import dom.localidad.Localidad;
@@ -37,6 +38,7 @@ import dom.pais.Pais;
 import dom.persona.Persona;
 import dom.persona.Sexo;
 import dom.persona.personagestionable.PersonaGestionable;
+import dom.tecnico.Tecnico;
 import dom.tutor.Tutor;
 
 public class DatosPruebaFixture extends FixtureScript {
@@ -68,7 +70,12 @@ public class DatosPruebaFixture extends FixtureScript {
 		Curso curso = this.repoCurso.ingresarCurso(establecimiento, Anio.PRIMERO, Division.PRIMERA, 2015, Turno.Mañana);
 		Long cuil2 = new Long(33658);
 		this.crearAlumno(cuil2, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
+		Long cuil3 = new Long(336585);
+		this.crearDirectivo(cuil3, "Norma", "Directora", "155555", "444444", "matias@informaticos.com", "Menguelle",1865 , null, localidad, fecha, Sexo.FEMENINO, executionContext);
+		Long cuil4 = new Long(1111);
+		final Tecnico tecnico =this.crearTecnico(establecimiento, cuil4, "Jose Luis", "Troche", "155555", "444444", "matias@informaticos.com", "Menguelle", 856, null, localidad, fecha, Sexo.MASCULINO, executionContext);
 		
+		this.crearLogin("tecnico", "tecnico",tecnico,repoLogin.buscarRol("usuario_tecnico"), executionContext);
 		
 		}
 	}
@@ -81,12 +88,27 @@ public class DatosPruebaFixture extends FixtureScript {
 	}
 	
 	
+	
 	private Alumno crearAlumno(final Long cuil,final String nombre,final String apellido,final String telefonoCelular,final String telefonoFijo,final String email,final String domicilio,final int alturaDomicilio,final String piso,final	Localidad localidad,final Date fechaNacimiento,final Date fechaIngreso,final Pais nacionalidad,final Sexo sexo,final EstadoDeAlumno estadoDeAlumno,final Tutor tutor,final Curso curso,
 			ExecutionContext executionContext) {		
 		
 		return executionContext.add(this,
 				repoPersona.ingresarAlumno(cuil, nombre, apellido, telefonoCelular, telefonoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, fechaIngreso, nacionalidad, sexo, estadoDeAlumno, tutor, curso));
 	}
+	
+	
+	private Tecnico crearTecnico(final Establecimiento establecimiento,final Long cuil,final String nombre,final String apellido,final String telefonoCelular,final String telefinoFijo,final String email,final String domicilio,final int alturaDomicilio,final String piso,Localidad localidad,final Date fechaNacimiento,final Sexo sexo,ExecutionContext executionContext) {		
+		
+		return executionContext.add(this,
+				repoPersona.ingresarTecnico(establecimiento, cuil, nombre, apellido, telefonoCelular, telefinoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, sexo));
+	}
+	
+	private Directivo crearDirectivo(final Long cuil,final String nombre,final String apellido,final String telefonoCelular,final String telefonoFijo,final String email,final String domicilio,final int alturaDomicilio,final String piso,final Localidad localidad,final Date fechaNacimiento,final Sexo sexo,ExecutionContext executionContext) {		
+		
+		return executionContext.add(this,
+				repoPersona.ingresarDirectivo(cuil, nombre, apellido, telefonoCelular, telefonoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, sexo));
+	}
+	
 	
 	private Tutor crearTutor(final Establecimiento establecimiento,
 			final Long cuil,
@@ -132,6 +154,8 @@ public class DatosPruebaFixture extends FixtureScript {
 	private RepositorioLocalidad repoLocalidad;
 	@Inject
 	private RepoPaises repoPaises;
+	
+
 	@Inject
 	private RepositorioEstablecimiento repositorioEstablecimiento;
 }
