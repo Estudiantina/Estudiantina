@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import org.apache.isis.applib.AbstractFactoryAndRepository;
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Named;
 import org.apache.isis.applib.annotation.Optional;
@@ -47,7 +48,7 @@ public class DatosPruebaFixture extends FixtureScript {
 		if (estaVacio(executionContext)==true)
 		{
 		Establecimiento establecimiento =this.crearEstablecimiento("C.E.M 17", "Miguel Muñoz 1056", "02994777769 ", "cem17@mailtelefonica.com.ar", "Patagonia", "33569", "8300", executionContext);
-		/*Localidad localidad =container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",8324));
+		Localidad localidad = repoLocalidad.obtenerLocalidadPorCodigo("8324");
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Date fecha = new Date();
 		try {
@@ -57,8 +58,10 @@ public class DatosPruebaFixture extends FixtureScript {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		crearTutor(establecimiento, (long) 2035685555, "Jorge", "perez", "1555555", "4444444", "matias@informaticos.com", "peru", 81, "",localidad, fecha, Sexo.MASCULINO, executionContext);
-		//this.crearAlumno(34954866, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, null, container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",8324)), new Date("22-11-1989"), new Date(),container.firstMatch(QueryDefault.create(Pais.class, "traerPorNombre", "nombre","Argentina")) , Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);*/
+		Long cuil = new Long(203568);
+		this.crearTutor(establecimiento, cuil, "Jorge", "perez", "1555555", "4444444", "matias@informaticos.com", "peru", 81, null, localidad, fecha, Sexo.MASCULINO, executionContext);
+		
+		//this.crearAlumno(34954866, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, null, container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",8324)), new Date("22-11-1989"), new Date(),container.firstMatch(QueryDefault.create(Pais.class, "traerPorNombre", "nombre","Argentina")) , Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
 		}
 	}
 	
@@ -77,24 +80,25 @@ public class DatosPruebaFixture extends FixtureScript {
 				repoPersona.ingresarAlumno(cuil, nombre, apellido, telefonoCelular, telefonoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, fechaIngreso, nacionalidad, sexo, estadoDeAlumno, tutor, curso));
 	}
 	
-	private Tutor crearTutor(@Named("Establecimiento") final Establecimiento establecimiento,
-			@Named("CUIL") final Long cuil,
-			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
-			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
-			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional@Named("TELEFONO CELULAR")final String telefonoCelular,
-			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
-			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+")  @Named("CORREO ELECTRONICO")final String email,
-			@Named("DOMICILIO") String domicilio,
-			@Named("Altura") int alturaDomicilio,
-			@Optional @Named("Piso") String piso,
-			@Named("Cod Postal Ciudad")Localidad localidad,
-			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,
-			Sexo sexo,
+	private Tutor crearTutor(final Establecimiento establecimiento,
+			final Long cuil,
+			final String nombre,
+			final String apellido,
+			final String telefonoCelular,
+			final String telefinoFijo,
+			final String email,
+			final String domicilio,
+			int alturaDomicilio,
+			final String piso,
+			final Localidad localidad,
+			final Date fechaNacimiento,
+			final Sexo sexo,
 			ExecutionContext executionContext) {		
 		
 		return executionContext.add(this,
 				repoPersona.ingresarTutor(cuil, nombre, apellido, fechaNacimiento, telefonoCelular, telefinoFijo, email, domicilio, alturaDomicilio, piso, localidad, sexo));
 	}
+	
 	private Establecimiento crearEstablecimiento(String nombre, String direccion,String telefono,String email,String distritoEscolar,String cue, String localidad,
 			ExecutionContext executionContext) {
 		return executionContext.add(this,

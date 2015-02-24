@@ -93,6 +93,11 @@ public class RepositorioLocalidad extends AbstractFactoryAndRepository{
 	{
 		return allMatches(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",busquedaLocalidad));
 	}
+	@Hidden
+	public Localidad obtenerLocalidadPorCodigo(String busquedaDepartamento)
+	{
+		return firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",busquedaDepartamento));
+	}
 	
 	@Hidden
 	public List<Departamento> autoCompletarDepartamento(String busquedaDepartamento)
