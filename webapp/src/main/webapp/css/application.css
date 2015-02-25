@@ -52,6 +52,7 @@ example: uncomment to hide the sliding bookmark panel
 
 .headerContainer {
         background-image: linear-gradient(rgb(105, 105, 105), rgb(47, 79, 79));
+	height: 130px;
 }
 
 body{
