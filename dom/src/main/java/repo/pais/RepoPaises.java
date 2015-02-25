@@ -15,6 +15,10 @@ import dom.pais.Pais;
 
 @Named("Paises")
 public class RepoPaises extends AbstractFactoryAndRepository{
+	
+	public String iconName() {
+		return "pais";
+	   }
 
 	@Hidden
 	public List<Pais> autoCompletarPais(String pais)
