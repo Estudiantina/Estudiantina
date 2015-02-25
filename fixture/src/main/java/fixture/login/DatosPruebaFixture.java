@@ -58,6 +58,7 @@ public class DatosPruebaFixture extends FixtureScript {
 		if (estaVacio(executionContext)==true)
 		{
 		Establecimiento establecimiento =this.crearEstablecimiento("C.E.M 17", "Miguel Muñoz 1056", "02994777769 ", "cem17@mailtelefonica.com.ar", "Patagonia", "33569", "8300", executionContext);
+		this.crearEstablecimiento("C.E.M 15", "San Rafael 180", "02994791728", "cem15rn@yahoo.com.ar", "Patagonia", "33579", "8300", executionContext);
 		Localidad localidad = repoLocalidad.obtenerLocalidadPorCodigo("8324");
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Date fecha = new Date();
@@ -92,6 +93,8 @@ public class DatosPruebaFixture extends FixtureScript {
 		this.crearLogin("tecnico", "tecnico",tecnico,repoLogin.buscarRol("usuario_tecnico"), executionContext);
 		final Docente docente = this.crearDocente(cuil5, "Amanda", "Ivancich", "155555", "444444", "matias@informaticos.com", "Santa Fe", 338, null, localidad, fecha,repoCargo.traerPorCargo("Profesor de Matematica") , Sexo.FEMENINO, executionContext);
 		this.crearLogin("docente", "docente",docente,repoLogin.buscarRol("usuario_docente"), executionContext);
+		
+		
 		}
 	}
 	
