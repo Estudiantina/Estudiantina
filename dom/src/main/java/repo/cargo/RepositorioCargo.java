@@ -27,9 +27,14 @@ public class RepositorioCargo extends AbstractFactoryAndRepository{
 		return allMatches(QueryDefault.create(Cargo.class, "traerPorNombre","nombre",cargo));
 	}
 	
-	public List<Cargo> VerTodosLosCargos()
+	public List<Cargo> verTodosLosCargos()
 	{
 		return allMatches(QueryDefault.create(Cargo.class, "traerTodasLosCargos"));
+	}
+	@Hidden
+	public Cargo traerPorCargo(String cargo)
+	{
+		return firstMatch(QueryDefault.create(Cargo.class, "traerPorCargo","nombre",cargo));
 	}
 	
 	public Cargo nuevoCargo(@Named("nombre del cargo")@RegEx(validation = "[A-Za-z ]+")String nombre)
@@ -39,6 +44,9 @@ public class RepositorioCargo extends AbstractFactoryAndRepository{
 		container.persistIfNotAlready(cargo);
 		return cargo;
 	}
+	
+	
+	
 	
 	@Inject
     DomainObjectContainer container;

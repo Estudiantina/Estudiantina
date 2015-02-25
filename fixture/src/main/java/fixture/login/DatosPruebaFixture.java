@@ -16,6 +16,7 @@ import org.apache.isis.applib.fixturescripts.FixtureScript.Discoverability;
 import org.apache.isis.applib.fixturescripts.FixtureScript.ExecutionContext;
 import org.apache.isis.applib.query.QueryDefault;
 
+import repo.cargo.RepositorioCargo;
 import repo.curso.RepositorioCurso;
 import repo.establecimiento.RepositorioEstablecimiento;
 import repo.localidad.RepositorioLocalidad;
@@ -24,11 +25,13 @@ import repo.pais.RepoPaises;
 import repo.persona.RepositorioPersona;
 import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
+import dom.cargo.Cargo;
 import dom.curso.Anio;
 import dom.curso.Curso;
 import dom.curso.Division;
 import dom.curso.Turno;
 import dom.directivo.Directivo;
+import dom.docente.Docente;
 import dom.establecimiento.Establecimiento;
 import dom.localidad.Departamento;
 import dom.localidad.Localidad;
@@ -85,9 +88,10 @@ public class DatosPruebaFixture extends FixtureScript {
 		this.crearDirectivo(cuil3, "Norma", "Directora", "155555", "444444", "matias@informaticos.com", "Menguelle",1865 , null, localidad, fecha, Sexo.FEMENINO, executionContext);
 		Long cuil4 = new Long(1111);
 		final Tecnico tecnico =this.crearTecnico(establecimiento, cuil4, "Jose Luis", "Troche", "155555", "444444", "matias@informaticos.com", "Menguelle", 856, null, localidad, fecha, Sexo.MASCULINO, executionContext);
-		
+		Long cuil5 = new Long(1112);
 		this.crearLogin("tecnico", "tecnico",tecnico,repoLogin.buscarRol("usuario_tecnico"), executionContext);
-		
+		final Docente docente = this.crearDocente(cuil5, "Amanda", "Ivancich", "155555", "444444", "matias@informaticos.com", "Santa Fe", 338, null, localidad, fecha,repoCargo.traerPorCargo("Profesor de Matematica") , Sexo.FEMENINO, executionContext);
+		this.crearLogin("docente", "docente",docente,repoLogin.buscarRol("usuario_docente"), executionContext);
 		}
 	}
 	
@@ -105,6 +109,25 @@ public class DatosPruebaFixture extends FixtureScript {
 		
 		return executionContext.add(this,
 				repoPersona.ingresarAlumno(cuil, nombre, apellido, telefonoCelular, telefonoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, fechaIngreso, nacionalidad, sexo, estadoDeAlumno, tutor, curso));
+	}
+	
+	private Docente crearDocente(final Long cuil,
+			final String nombre,
+			final String apellido,
+			final String telefonoCelular,
+			final String telefinoFijo,
+			final String email,
+			final String domicilio,
+			final int alturaDomicilio,
+			final String piso,
+			final Localidad localidad,
+			final Date fechaNacimiento,	
+			final Cargo cargo,
+			final Sexo sexo,
+			ExecutionContext executionContext) {		
+		
+		return executionContext.add(this,
+				repoPersona.ingresarDocente(cuil, nombre, apellido, telefonoCelular, telefinoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, cargo, sexo));
 	}
 	
 	
@@ -152,14 +175,16 @@ public class DatosPruebaFixture extends FixtureScript {
 		return executionContext.add(this,
 				repoLogin.verUsuarios().size()==1);
 	}
-	
+	@javax.inject.Inject
+	private RepositorioCargo repoCargo;
 	@javax.inject.Inject
 	private repologin repoLogin;
+	
 	@javax.inject.Inject
 	private RepositorioPersona repoPersona;
 	@javax.inject.Inject
 	private RepositorioCurso repoCurso;
-	
+	@javax.inject.Inject
 	private DomainObjectContainer container;
 	@javax.inject.Inject
 	private RepositorioLocalidad repoLocalidad;

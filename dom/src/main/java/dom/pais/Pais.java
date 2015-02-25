@@ -13,6 +13,7 @@ import repo.pais.RepoPaises;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Queries({
 	@Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.pais.Pais WHERE nombrePais.indexOf(:pais) >= 0 range 0,4 "),
+	@Query(name = "traerPais", language = "JDOQL", value = "SELECT FROM dom.pais.Pais WHERE nombrePais == :pais"),
 	@Query(name = "traerTodosLosPaises", language = "JDOQL", value = "SELECT FROM dom.pais.Pais ")
 	})
 @ObjectType("Pais")

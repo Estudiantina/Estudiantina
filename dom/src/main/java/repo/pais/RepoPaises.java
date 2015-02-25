@@ -19,7 +19,7 @@ public class RepoPaises extends AbstractFactoryAndRepository{
 	@Hidden
 	public List<Pais> autoCompletarPais(String pais)
 	{
-		return allMatches(QueryDefault.create(Pais.class, "traerPorNombre","pais",pais));
+		return allMatches(QueryDefault.create(Pais.class, "traerPais","pais",pais));
 	}
 	
 	public List<Pais> mostrarTodosLosPaises()
@@ -33,6 +33,11 @@ public class RepoPaises extends AbstractFactoryAndRepository{
 		pais.setNombrePais(nombre);
 		container.persistIfNotAlready(pais);
 		return pais;
+	}
+	
+	public Pais obtenerPais (String nombre)
+	{
+		return firstMatch(QueryDefault.create(Pais.class, "traerTodosLosPaises","pais",nombre));
 	}
 	
 	@Inject

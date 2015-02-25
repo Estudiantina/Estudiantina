@@ -11,6 +11,7 @@ import repo.cargo.RepositorioCargo;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @Queries({
 	@Query(name = "traerPorNombre", language = "JDOQL", value = "SELECT FROM dom.cargo.Cargo WHERE nombreDeCargo.indexOf(:nombre) >= 0 range 0,4 "),
+	@Query(name = "traerPorCargo", language = "JDOQL", value = "SELECT FROM dom.cargo.Cargo WHERE nombreDeCargo==:nombre"),
 	@Query(name = "traerTodasLosCargos", language = "JDOQL", value = "SELECT FROM dom.cargo.Cargo ")
 	})
 @ObjectType("Cargo")

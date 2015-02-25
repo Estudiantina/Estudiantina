@@ -100,9 +100,14 @@ public class FixturesService extends FixtureScripts {
         final List<FixtureResult> run = findFixtureScriptFor(PaisesFixture.class).run(null);
         return run.get(0).getObject();
     }
-    
-    
+    @Hidden
     @MemberOrder(sequence="120")
+    @Programmatic
+    public Object instalarCargos() {
+        final List<FixtureResult> run = findFixtureScriptFor(CargosFixture.class).run(null);
+        return run.get(0).getObject();
+    }
+    @MemberOrder(sequence="130")
     @Programmatic
     public Object instalarDatosDePrueba() {
         final List<FixtureResult> run = findFixtureScriptFor(DatosPruebaFixture.class).run(null);
@@ -124,6 +129,7 @@ public class FixturesService extends FixtureScripts {
         this.instalarPersonaDePrueba();
         this.instalarCuentaDePrueba();
         this.instalarServidoresDeMail();
+        this.instalarCargos();
         this.instalarPaises();
     }
 }

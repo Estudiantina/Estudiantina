@@ -3,11 +3,7 @@ package fixture.login;
 import javax.inject.Inject;
 
 import org.apache.isis.applib.fixturescripts.FixtureScript;
-import org.apache.isis.applib.fixturescripts.FixtureScript.Discoverability;
-import org.apache.isis.applib.fixturescripts.FixtureScript.ExecutionContext;
-
 import repo.pais.RepoPaises;
-import dom.login.Permisos;
 import dom.pais.Pais;
 
 public class PaisesFixture extends FixtureScript {
