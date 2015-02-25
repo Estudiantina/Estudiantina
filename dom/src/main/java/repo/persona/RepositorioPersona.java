@@ -142,6 +142,72 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return alumno;
 	}
 	
+    
+    /**
+	 * Se realiza la carga de los alumnos, con todos sus atributos.
+	 * 
+	 * @param cuil
+	 * @param nombre
+	 * @param apellido
+	 * @param telefonoCelular
+	 * @param telefonoFijo
+	 * @param email
+	 * @param domicilio
+	 * @param fechaNacimiento
+	 * @param fechaIngreso
+	 * @param nacionalidad
+	 * @param sexo
+	 * 
+	 * @return Alumno
+	 */
+	public Alumno ingresarAlumnoEnCualquierEstablecimiento (
+			@Named("Establecimiento")Establecimiento establecimiento,
+			@Named("CUIL")Long cuil,
+			@RegEx(validation = "[A-Za-z ]+")  @Named("NOMBRE")String nombre,
+			@RegEx(validation = "[A-Za-z]+")   @Named("APELLIDO")String apellido,
+			@RegEx(validation = "[0-9]+")   @org.apache.isis.applib.annotation.Optional @Named("TELEFONO CELULAR")String telefonoCelular,
+		    @RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional @Named("TELEFONO FIJO")String telefonoFijo,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")String email,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomicilio,
+			@Optional @Named("Piso") String piso,
+			@Named("Cod Postal Ciudad")Localidad localidad,
+			@Named("FECHA NACIMIENTO")Date fechaNacimiento,
+			@Named("FECHA INGRESO")Date fechaIngreso,
+			@Named("NACIONALIDAD")Pais nacionalidad,
+			@Named("SEXO") Sexo sexo,
+			@Named("ESTADO DEL ALUMNO") EstadoDeAlumno estadoDeAlumno,
+			@Named("Tutor del Alumno") Tutor tutor,
+			@Named("Curso Actual") Curso curso
+			)
+	{
+	
+		final Alumno alumno = container.newTransientInstance(Alumno.class);
+	alumno.setLocalidad(localidad);
+	alumno.setEstablecimiento(establecimiento);
+	alumno.setCuil(cuil);
+	alumno.setNombre(nombre);
+	alumno.setApellido(apellido);
+	alumno.setTelefonoCelular(telefonoCelular);
+	alumno.setTelefonoFijo(telefonoFijo);
+	alumno.setEmail(email);
+	alumno.setDomicilio(domicilio);
+	alumno.setFechaNacimiento(fechaNacimiento);
+	alumno.setFechaIngreso(fechaIngreso);
+	alumno.setNacionalidad(nacionalidad);    
+    alumno.setEstadoDeAlumno(estadoDeAlumno);
+    alumno.setPiso(piso);
+    alumno.setSexo(sexo);
+    alumno.setAlturaDomicilio(alturaDomicilio);
+    alumno.setTutor(tutor);
+    alumno.getCursos().add(curso);
+	container.persistIfNotAlready(alumno);
+	
+	return alumno;
+	}
+    
+    
+    
     public String validateIngresarDocente (
 			@Named("CUIL") final Long cuil,
 			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
@@ -479,6 +545,45 @@ public class RepositorioPersona extends AbstractFactoryAndRepository {
 	return directivo;
 	
 	}
+	
+	@Hidden
+	public Directivo ingresarDirectivoACualquierEstablecimiento (
+			@Named("Establecimiento") final Establecimiento establecimiento,
+			@Named("CUIL") final Long cuil,
+			@RegEx(validation = "[A-Za-z ]+") @Named("NOMBRE")final String nombre,
+			@RegEx(validation = "[A-Za-z]+") @Named("APELLIDO")final String apellido,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional @Named("TELEFONO CELULAR")final String telefonoCelular,
+			@RegEx(validation = "[0-9]+")  @org.apache.isis.applib.annotation.Optional  @Named("TELEFONO FIJO")final String telefinoFijo,
+			@RegEx(validation = "(\\w+\\-)*(\\w+\\.)*\\w+@(\\w+\\.)+[A-Za-z]+") @Named("CORREO ELECTRONICO")final String email,
+			@Named("DOMICILIO") String domicilio,
+			@Named("Altura") int alturaDomicilio,
+			@Optional @Named("Piso") String piso,
+			@Named("Cod Postal Ciudad")Localidad localidad,
+			@Named("FECHA NACIMIENTO")final Date fechaNacimiento,
+			@Named("SEXO") Sexo sexo
+			)
+	{
+		final Directivo directivo = container.newTransientInstance(Directivo.class);
+		directivo.setLocalidad(localidad);
+		directivo.setApellido(apellido);
+		directivo.setCuil(cuil);
+		directivo.setDomicilio(domicilio);
+		directivo.setEmail(email);
+		directivo.setEstablecimiento(establecimiento);
+		this.verMisDatos().getEstablecimiento().setDirectivo(directivo);
+		directivo.setNombre(nombre);
+		directivo.setTelefonoFijo(telefinoFijo);
+		directivo.setTelefonoCelular(telefonoCelular);
+		directivo.setFechaNacimiento(fechaNacimiento);
+		directivo.setSexo(sexo);
+		directivo.setAlturaDomicilio(alturaDomicilio);
+		container.persistIfNotAlready(directivo);
+
+	return directivo;
+	
+	}
+	
+	
 	@Named("ingresar Docente en este establecimiento")
 	public Docente ingresarDocente (
 			@Named("CUIL") final Long cuil,

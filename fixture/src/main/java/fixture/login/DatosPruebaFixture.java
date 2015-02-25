@@ -83,9 +83,9 @@ public class DatosPruebaFixture extends FixtureScript {
 		this.repoCurso.ingresarCurso(establecimiento, Anio.QUINTO, Division.PRIMERA, 2015, Turno.Mañana);
 		this.repoCurso.ingresarCurso(establecimiento, Anio.QUINTO, Division.SEGUNDA, 2015, Turno.Mañana);
 		Long cuil2 = new Long(33658);
-		this.crearAlumno(cuil2, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
+		this.crearAlumno(establecimiento,cuil2, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
 		Long cuil3 = new Long(336585);
-		this.crearDirectivo(cuil3, "Norma", "Directora", "155555", "444444", "matias@informaticos.com", "Menguelle",1865 , null, localidad, fecha, Sexo.FEMENINO, executionContext);
+		this.crearDirectivo(establecimiento,cuil3, "Norma", "Directora", "155555", "444444", "matias@informaticos.com", "Menguelle",1865 , null, localidad, fecha, Sexo.FEMENINO, executionContext);
 		Long cuil4 = new Long(1111);
 		final Tecnico tecnico =this.crearTecnico(establecimiento, cuil4, "Jose Luis", "Troche", "155555", "444444", "matias@informaticos.com", "Menguelle", 856, null, localidad, fecha, Sexo.MASCULINO, executionContext);
 		Long cuil5 = new Long(1112);
@@ -104,11 +104,11 @@ public class DatosPruebaFixture extends FixtureScript {
 	
 	
 	
-	private Alumno crearAlumno(final Long cuil,final String nombre,final String apellido,final String telefonoCelular,final String telefonoFijo,final String email,final String domicilio,final int alturaDomicilio,final String piso,final	Localidad localidad,final Date fechaNacimiento,final Date fechaIngreso,final Pais nacionalidad,final Sexo sexo,final EstadoDeAlumno estadoDeAlumno,final Tutor tutor,final Curso curso,
+	private Alumno crearAlumno(final Establecimiento establecimiento,final Long cuil,final String nombre,final String apellido,final String telefonoCelular,final String telefonoFijo,final String email,final String domicilio,final int alturaDomicilio,final String piso,final	Localidad localidad,final Date fechaNacimiento,final Date fechaIngreso,final Pais nacionalidad,final Sexo sexo,final EstadoDeAlumno estadoDeAlumno,final Tutor tutor,final Curso curso,
 			ExecutionContext executionContext) {		
 		
 		return executionContext.add(this,
-				repoPersona.ingresarAlumno(cuil, nombre, apellido, telefonoCelular, telefonoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, fechaIngreso, nacionalidad, sexo, estadoDeAlumno, tutor, curso));
+				repoPersona.ingresarAlumnoEnCualquierEstablecimiento(establecimiento,cuil, nombre, apellido, telefonoCelular, telefonoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, fechaIngreso, nacionalidad, sexo, estadoDeAlumno, tutor, curso));
 	}
 	
 	private Docente crearDocente(final Long cuil,
@@ -137,10 +137,10 @@ public class DatosPruebaFixture extends FixtureScript {
 				repoPersona.ingresarTecnico(establecimiento, cuil, nombre, apellido, telefonoCelular, telefinoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, sexo));
 	}
 	
-	private Directivo crearDirectivo(final Long cuil,final String nombre,final String apellido,final String telefonoCelular,final String telefonoFijo,final String email,final String domicilio,final int alturaDomicilio,final String piso,final Localidad localidad,final Date fechaNacimiento,final Sexo sexo,ExecutionContext executionContext) {		
+	private Directivo crearDirectivo(final Establecimiento establecimiento,final Long cuil,final String nombre,final String apellido,final String telefonoCelular,final String telefonoFijo,final String email,final String domicilio,final int alturaDomicilio,final String piso,final Localidad localidad,final Date fechaNacimiento,final Sexo sexo,ExecutionContext executionContext) {		
 		
 		return executionContext.add(this,
-				repoPersona.ingresarDirectivo(cuil, nombre, apellido, telefonoCelular, telefonoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, sexo));
+				repoPersona.ingresarDirectivoACualquierEstablecimiento(establecimiento,cuil, nombre, apellido, telefonoCelular, telefonoFijo, email, domicilio, alturaDomicilio, piso, localidad, fechaNacimiento, sexo));
 	}
 	
 	
