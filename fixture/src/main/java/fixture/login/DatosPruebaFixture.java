@@ -86,7 +86,8 @@ public class DatosPruebaFixture extends FixtureScript {
 		Long cuil2 = new Long(33658);
 		this.crearAlumno(establecimiento,cuil2, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
 		Long cuil3 = new Long(336585);
-		this.crearDirectivo(establecimiento,cuil3, "Norma", "Directora", "155555", "444444", "matias@informaticos.com", "Menguelle",1865 , null, localidad, fecha, Sexo.FEMENINO, executionContext);
+		final Directivo directivo =this.crearDirectivo(establecimiento,cuil3, "Norma", "Directora", "155555", "444444", "matias@informaticos.com", "Menguelle",1865 , null, localidad, fecha, Sexo.FEMENINO, executionContext);
+		this.crearLogin("directivo", "directivo",directivo,repoLogin.buscarRol("usuario_directivo"), executionContext);
 		Long cuil4 = new Long(1111);
 		final Tecnico tecnico =this.crearTecnico(establecimiento, cuil4, "Jose Luis", "Troche", "155555", "444444", "matias@informaticos.com", "Menguelle", 856, null, localidad, fecha, Sexo.MASCULINO, executionContext);
 		Long cuil5 = new Long(1112);
@@ -187,8 +188,6 @@ public class DatosPruebaFixture extends FixtureScript {
 	private RepositorioPersona repoPersona;
 	@javax.inject.Inject
 	private RepositorioCurso repoCurso;
-	@javax.inject.Inject
-	private DomainObjectContainer container;
 	@javax.inject.Inject
 	private RepositorioLocalidad repoLocalidad;
 	@Inject
