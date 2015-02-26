@@ -155,7 +155,7 @@ public abstract class PersonaGestionable extends Persona implements Locatable,Se
 		boolean desactivado=false;
 		for( Netbook netbook :this.netbooks)
 		{
-			if (netbook.getSituacion().equals(SituacionDeNetbook.ENTREGADA)||netbook.getSituacion().equals(SituacionDeNetbook.PRESTADA))
+			if (netbook.getSituacion().equals(SituacionDeNetbook.ENTREGADA))
 			{
 				desactivado= true;
 			}

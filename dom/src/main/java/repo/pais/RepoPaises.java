@@ -38,7 +38,7 @@ public class RepoPaises extends AbstractFactoryAndRepository{
 		container.persistIfNotAlready(pais);
 		return pais;
 	}
-	
+	@Hidden
 	public Pais obtenerPais (String nombre)
 	{
 		return firstMatch(QueryDefault.create(Pais.class, "traerTodosLosPaises","pais",nombre));

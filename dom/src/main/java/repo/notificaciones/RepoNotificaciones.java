@@ -29,8 +29,6 @@ import dom.alumno.Alumno;
 import dom.alumno.EstadoDeAlumno;
 import dom.establecimiento.Establecimiento;
 import dom.login.Login;
-import dom.netbook.Netbook;
-import dom.netbook.situacion.SituacionDeNetbook;
 import dom.notificaciones.CertificadoAlumnoRegular;
 import dom.notificaciones.Notificaciones;
 import dom.notificaciones.SolicitudNetbookPrestada;
@@ -84,37 +82,6 @@ public class RepoNotificaciones extends AbstractFactoryAndRepository {
 		container.informUser("Se Ha solicitado el prestamo de una Netbook a su nombre");
 		return "Se Ha solicitado una Nueva Netbook de Forma Correcta";
 	}
-	/**
-	 * oculta la peticion de netbook prestada 
-	 * cuando hay mas de una netbook no se puede prestar
-	 * y cuando hay una netbook entregada no se puede prestar
-	 * y cuando hay una netbook en proceso de migracion no se puede prestar
-	 * @return
-	 */
-	public boolean hidePedirNetbookPrestada()
-	{
-		boolean ocultar= false;
-		for (Netbook netbook:repoPersona.verMisDatos().getNetbooks())
-		{
-			SituacionDeNetbook situacion= netbook.getSituacion();
-				if (situacion.equals(SituacionDeNetbook.ENTREGADA)||situacion.equals(SituacionDeNetbook.PRESTADA)||situacion.equals(SituacionDeNetbook.EN_PROCESO_DE_MIGRACION))
-				{
-					ocultar=true;
-				}
-		}
-		if(repoPersona.verMisDatos().getNetbooks().size()>1)
-		{
-			return ocultar||true;
-		}
-		else
-		{
-			return ocultar||false;
-		}
-		
-		
-	}
-	
-	
 	
 	public String solicitarTramiteDeMigracion(@Named("escuela a migrar")Establecimiento escuelaAMigrar,@Named("Motivo de Migracion") @MultiLine @Optional String detalles)
 	{
