@@ -140,8 +140,7 @@ public class Prestada implements ISituacionDeNetbook {
 
 	@Override
 	public void establecerNetbookComoRobada() {
-		// TODO Auto-generated method stub
-		
+		this.netbook.setSituacionDeNetbook(this.netbook.getRobada());
 	}
 
 	@Override
@@ -151,7 +150,6 @@ public class Prestada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarDesasignarNetbookDePersona() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -194,8 +192,7 @@ public class Prestada implements ISituacionDeNetbook {
 
 	@Override
 	public boolean ocultarMigrarNetbook() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -211,19 +208,17 @@ public class Prestada implements ISituacionDeNetbook {
 
 	@Override
 	public Blob imprimirContratoDeComodato() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean ocultarContratoDeComodato() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public Blob imprimirContratoDeCesion() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
