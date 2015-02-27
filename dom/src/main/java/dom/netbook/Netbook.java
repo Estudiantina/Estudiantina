@@ -57,7 +57,7 @@ import org.apache.isis.applib.annotation.Render.Type;
 @javax.jdo.annotations.PersistenceCapable()
 @ObjectType("NETBOOK")
 @javax.jdo.annotations.Queries({@javax.jdo.annotations.Query(name = "traerPorId", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE idNetbook== :idNetbook && establecimiento == :institucion ||  establecimientoAmigrar == :institucion"),
-	@javax.jdo.annotations.Query(name = "traerNetbooksSinAsignar", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion && situacionDeNetbook==this.enStock"),
+	@javax.jdo.annotations.Query(name = "traerNetbooksSinAsignar", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE (establecimiento == :institucion ||  establecimientoAmigrar == :institucion)&& (situacionDeNetbook==this.enStock || situacionDeNetbook==this.enProcesoDeMigracion)"),
 @Query(name="traerlikePorId", language="JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE (establecimiento == :institucion || establecimientoAmigrar == :institucion) && idNetbook.indexOf(:idNetbook) >=0 range 0, 4"),	
 @javax.jdo.annotations.Query(name = "traerTodo", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook WHERE establecimiento == :institucion ||  establecimientoAmigrar == :institucion "),
 @javax.jdo.annotations.Query(name = "traerTodasLasNetbooksCargadas", language = "JDOQL", value = "SELECT FROM dom.netbook.Netbook"),

@@ -3,6 +3,7 @@ package dom.netbook.situacion;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 
+import javax.inject.Inject;
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -17,6 +18,7 @@ import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.ObjectType;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.value.Blob;
+
 import repo.persona.RepositorioPersona;
 import dom.establecimiento.Establecimiento;
 import dom.netbook.Netbook;
@@ -197,9 +199,21 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
 		this.netbook.getPersona().setEstablecimiento(this.netbook.getEstablecimientoAmigrar());
 		this.netbook.setEstablecimientoAmigrar(null);
 	}
+	
+	
 	@Override
 	public boolean ocultarAceptarMigracion() {
+		if(repoPersona.verMisDatos().getEstablecimiento().equals(this.netbook.getEstablecimiento()))
+		{
+			//si la netbook esta en mismo establecimiento
+			//y esta en el proceso de migracion
+			//el mismo establecimiento no puede aceptar la migracion
+			return true;
+		}
+		else
+		{
 		return false;
+		}
 	}
 	@javax.inject.Inject
     private RepositorioPersona repoPersona;
