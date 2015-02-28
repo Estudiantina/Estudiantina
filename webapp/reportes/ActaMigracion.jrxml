@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaMigracion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eea62db-9b8e-4ef8-95d2-5ca98b500e5f">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="535"/>
+	<property name="ireport.y" value="295"/>
 	<parameter name="nombreDirectorEstablecimiento" class="java.lang.String"/>
 	<parameter name="netbookModelo" class="java.lang.String"/>
 	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
@@ -84,7 +84,7 @@
 	<detail>
 		<band height="298" splitType="Stretch">
 			<textField>
-				<reportElement x="31" y="11" width="505" height="220" uuid="b3ac45e4-534b-47b9-ba92-352d9f2628f8"/>
+				<reportElement x="31" y="11" width="524" height="259" uuid="b3ac45e4-534b-47b9-ba92-352d9f2628f8"/>
 				<textElement textAlignment="Justified"/>
 				<textFieldExpression><![CDATA["	Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: "+$P{nombreDirectorEstablecimiento}+", DNI Nro "+$P{nroDniDirector}+", en su carácter de Director/a del Colegio "+$P{establecimiento}+", CUE: "+$P{cue}+" Distrito Escolar: "+$P{distrito}+"  de la ciudad de "+$P{localidad}+", con domicilio Calle: "+$P{domicilio}+"en adelante “EL CEDENTE” y por la otra parte la/el Sr./a: "+$P{nombreDirectorCedente}+" DNI Nro "+$P{dniDirectorCedente}+", en su carácter de Director/a del Colegio "+$P{nombreEstablecimientoCedente}+", CUE: "+$P{cueEstablecimientoCedente}+" Distrito Escolar: "+$P{distritoEscolarCedente}+" de la Ciudad de "+$P{ciudadEstablecimientoCedente}+" Provincia de "+$P{provinciaEstablecimientoCedente}+", con domicilio en "+$P{domicilioEstablecimientoCedente}+", en adelante “EL RECEPCIONISTA”, convienen por la presenta acta la migración  del alumno "+$P{nombreAlumno}+", CUIL Nro: "+$P{cuilAlumno}+", comodatario de la netbook modelo: "+$P{modeloNetbook}+", serie No: "+$P{nroSerieNetbook}+", del establecimiento con director/a CEDENTE al establecimiento con director/a RECEPCIONISTA a fin de ser incorporado en la planta de alumnos comodatarios del establecimiento con director “RECEPCIONISTA” y la registración en el servidor del mismo establecimiento para otorgar los correspondientes certificados de seguridad, dejando de estar vinculada en el establecimiento con director “CEDENTE”. En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un solo efecto, por EL CEDENTE y por EL RECEPCIONISTA en la ciudad "+$P{ciudadAlumno}+" Provincia de  "+$P{provinciaAlumno}+", a los ............................. días del mes de  ................................... de ............."]]></textFieldExpression>
 			</textField>
