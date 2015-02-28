@@ -175,6 +175,7 @@ public class Entregada implements ISituacionDeNetbook{
 	 	try{
 	    HashMap<String, Object> parametros = new HashMap<String, Object>();
 	    Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.netbook.getPersona().getCuil(),"institucion",this.netbook.getEstablecimiento()));
+	    
 	    parametros.put("domicilioCiudadTutor", alumno.getTutor().getLocalidad().toString());
 	    parametros.put("modeloNetbook",netbook.getMarca().toString());
 	    parametros.put("marcaNetbook",netbook.getMarca());

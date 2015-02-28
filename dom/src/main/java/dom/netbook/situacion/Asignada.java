@@ -186,13 +186,16 @@ public class Asignada implements ISituacionDeNetbook {
 			HashMap<String,Object> parametros = new HashMap<String, Object>();
 
 			Alumno alumno = container.firstMatch(QueryDefault.create(Alumno.class, "traerAlumnoPorcuil","cuil",this.netbook.getPersona().getCuil(),"institucion",this.netbook.getEstablecimiento()));
+						
 			Establecimiento establecimiento =container.firstMatch(QueryDefault.create(Establecimiento.class, "traerPorNombre","nombre",alumno.getEstablecimiento().getNombre()));
+			
 			parametros.put("distritoEscolar", establecimiento.getDistritoEscolar());
 			parametros.put("ciudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());	    	
 			parametros.put("nombreEstablecimiento", establecimiento.getNombre());
 			parametros.put("domicilioEstablecimiento", establecimiento.getDireccion());
 			parametros.put("Establecimiento", establecimiento.getNombre());
 			parametros.put("cudadEstablecimiento", establecimiento.getLocalidad().getLocalidad());
+			
 			parametros.put("nombreTutor", alumno.getTutor().getApellido()+" "+alumno.getTutor().getNombre());
 			//PARAMETROS DEL TUTOR	    	
 			parametros.put("dniTutor",alumno.getTutor().getCuil().toString());
@@ -208,6 +211,13 @@ public class Asignada implements ISituacionDeNetbook {
 
 			Localidad localidad = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal","codigo",establecimiento.getLocalidad().getCodigoPostal()));
 			Departamento departamento = container.firstMatch(QueryDefault.create(Departamento.class, "traerPorNombre","nombre",localidad.getDepartamento().getNombreDepartamento()));
+			
+			
+		
+			parametros.put("nombreDirector", establecimiento.getDirectivo().toString());
+			parametros.put("dniDirector", establecimiento.getDirectivo().getCuil().toString());
+			
+			
 			parametros.put("direccionEstablecimiento", establecimiento.getDireccion());
 			parametros.put("provincia", departamento.getProvincia().getNombreProvincia());
 			parametros.put("DniAlumno", alumno.getCuil().toString());
@@ -219,7 +229,7 @@ public class Asignada implements ISituacionDeNetbook {
 			parametros.put("division", alumno.getCursos().get(0).getDivision().toString());
 			parametros.put("modeloNetbook",netbook.getMarca().toString());
 			parametros.put("numeroSerieNetbook",netbook.getNumeroDeSerie());
-
+			
 			return servicio.reporte.GeneradorReporte.generarReporte("reportes/contratoComodato.jrxml", parametros, "ContratoComodato");
 		}
 		catch(Exception ex)
