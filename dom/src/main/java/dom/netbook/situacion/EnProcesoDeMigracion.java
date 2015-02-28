@@ -133,6 +133,8 @@ public class EnProcesoDeMigracion implements ISituacionDeNetbook{
  		parametros.put("modeloNetbook", netbook.getMarca()+" "+netbook.getModelo());
  		parametros.put("nroSerieNetbook", netbook.getNumeroDeSerie());
  		parametros.put("ciudadAlumno", netbook.getPersona().getLocalidad().getLocalidad());
+ 		parametros.put("provinciaAlumno", netbook.getPersona().getLocalidad().getLocalidad());
+ 		
  		try {
 			return servicio.reporte.GeneradorReporte.generarReporte("reportes/ActaMigracion.jrxml", parametros, "Solicitud");
 		} catch (FileNotFoundException e) {
