@@ -11,11 +11,13 @@
  * published by the Free Software Foundation.
  */
 package dom.notificaciones;
+import javax.inject.Inject;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.Persistent;
 
+import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.Bookmarkable;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.Named;
@@ -114,4 +116,6 @@ public class Notificaciones {
 	{
 	     return vista;
 	}
+	@Inject
+	DomainObjectContainer container;
 }

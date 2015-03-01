@@ -34,7 +34,7 @@ import repo.persona.RepositorioPersona;
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE)
 @ObjectType("SolicitudTramiteDeMigracion")
-public class SolicitudTramiteDeMigracion extends SolicitudNetbookPrestada{
+public class SolicitudTramiteDeMigracion extends Notificaciones{
 
 	public String title()
 	{
