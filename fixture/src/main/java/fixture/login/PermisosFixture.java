@@ -278,7 +278,8 @@ public class PermisosFixture extends FixtureScript{
 		create("usuario_tecnico","dom.tecnico:Tecnico:telefonoFijo:*",executionContext);
 		create("usuario_tecnico","dom.tecnico:Tecnico:crearCuenta:*",executionContext);
 		create("usuario_tecnico","dom.tecnico:Tecnico:Localizacion:*",executionContext);
-		
+		create("usuario_tecnico","dom.tecnico:Tecnico:netbooks:*",executionContext);
+		create("usuario_tecnico","dom.tecnico:Tecnico:establecimiento:r",executionContext);
 		//PERMISOS PARA ALUMNOS
 		//PERMISOS ALUMNO
 		create("usuario_alumno","dom.alumno:Alumno:cursos:r",executionContext);

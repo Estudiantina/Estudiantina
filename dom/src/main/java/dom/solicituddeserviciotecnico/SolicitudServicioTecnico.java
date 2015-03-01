@@ -120,6 +120,7 @@ public class SolicitudServicioTecnico implements Comparable<SolicitudServicioTec
     
     @Persistent
     @javax.jdo.annotations.Column(allowsNull="true")
+    @Hidden(where = Where.ALL_TABLES)
 	public Blob getDocumentoDeSolucion() {
 		return documentoDeSolucion;
 	}
