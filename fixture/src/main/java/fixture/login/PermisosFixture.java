@@ -1,9 +1,12 @@
 package fixture.login;
 
 import org.apache.isis.applib.fixturescripts.FixtureScript;
+import org.joda.time.LocalDate;
 
 import repo.login.repologin;
+import dom.establecimiento.Establecimiento;
 import dom.login.Permisos;
+import dom.persona.personagestionable.PersonaGestionable;
 
 public class PermisosFixture extends FixtureScript{
 
@@ -521,6 +524,14 @@ public class PermisosFixture extends FixtureScript{
 		
 		//PERMISOS DE USUARIO DIRECTIVO EN NOTIFICACIONES DE SOLICITUD DE TRAMITE DE MIGRACION
 		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:imprimir:*",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:escuelaAMigrar:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:migrarNetbook:*",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:marcarComoNotificacionAtendida:*",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:fechaNotificacion:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:persona:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:detallesYobservaciones:r",executionContext);
+		create("usuario_directivo","dom.notificaciones:SolicitudTramiteDeMigracion:establecimiento:r",executionContext);
+		
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:detallesYobservaciones:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:establecimiento:r",executionContext);
 		create("usuario_directivo","dom.notificaciones:SolicitudNetbookPrestada:fechaNotificacion:r",executionContext);
