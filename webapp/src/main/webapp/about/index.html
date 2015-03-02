@@ -1,122 +1,152 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <!--
-  Licensed to the Apache Software Foundation (ASF) under one
-  or more contributor license agreements.  See the NOTICE file
-  distributed with this work for additional information
-  regarding copyright ownership.  The ASF licenses this file
-  to you under the Apache License, Version 2.0 (the
-  "License"); you may not use this file except in compliance
-  with the License.  You may obtain a copy of the License at
-  
-         http://www.apache.org/licenses/LICENSE-2.0
-         
-  Unless required by applicable law or agreed to in writing,
-  software distributed under the License is distributed on an
-  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-  KIND, either express or implied.  See the License for the
-  specific language governing permissions and limitations
-  under the License.
+	Alpha by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Apache Isis&trade; Simple (Wicket/Restful/JDO/Shiro) App</title>
-        
-        <style type="text/css">
-body {
-    background-color: #1A467B;
-    font-family: Verdana, Helvetica, Arial;
-    font-size: 90%;
-}
+	<head>
+		<title>Estudiantina - Inicio</title>
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="about/js/jquery.min.js"></script>
+		<script src="about/js/jquery.dropotron.min.js"></script>
+		<script src="about/js/jquery.scrollgress.min.js"></script>
+		<script src="about/js/skel.min.js"></script>
+		<script src="about/js/skel-layers.min.js"></script>
+		<script src="about/js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="about/css/skel.css" />
+			<link rel="stylesheet" href="about/css/style.css" />
+			<link rel="stylesheet" href="about/css/style-wide.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body class="landing">
 
-li {
-    margin-top: 6px;
-    margin-bottom: 6px;
-}
-table {
-    border-collapse: collapse;
-}
-table, th, td {
-    border: 1px;
-    border-style: solid;
-    border-color: lightgray;
-}
-th, td {
-    padding: 10px;
-}
-#wrapper {
-    background-color: #ffffff;
-    width: 900px;
-    margin: 8px auto;
-    padding: 12px;
-}
-        </style>
-    </head>
-    <body>
-        <div id="wrapper">
-            <img alt="Isis Logo" src="about/images/isis-logo.png" />
-             
-            <p>
-            <a href="http://isis.apache.org">Apache Isis</a>&trade; is a framework to let you rapidly develop 
-            domain-driven apps in Java.  This app has been generated using Isis' 
-            <a href="http://isis.apache.org/getting-started/simple-archetype.html">simple</a> archetype, 
-            which configures Isis' most commonly used components as part of a very simple and purposefully minimal 
-            application.
-            
-            <p>
-            The app itself consists of a single domain class, 
-            <a href="https://github.com/apache/isis/blob/master/example/application/simple%5Fwicket_restful_jdo/dom/src/main/java/dom/simple/SimpleObject.java"  target="_blank"><tt>SimpleObject</tt></a>, 
-            along with an equally simple (factory/repository) domain service, <a href="https://github.com/apache/isis/blob/master/example/application/simple%5Fwicket_restful_jdo/dom/src/main/java/dom/simple/SimpleObjects.java"  target="_blank"><tt>SimpleObjects</tt></a>.
-            </p>
-            
-            <p>
-            Alternatively, if you'd like to start from a richer starting point, you might want to use the
-            <a href="http://isis.apache.org/getting-started/quickstart-archetype.html">quickstart</a> archetype, which
-            generates a straightforward &quot;todo&quot; app.
-            </p>
-            
-            <p>
-            The Isis components that are configured in this app are:
-            </p>
-            
-            <table>
-                <tr>
-                    <th>Component</th>
-                    <th>Access URL</th>
-                    <th>Description</th>
-                    <th>Further info on the Isis website</th>
-                </tr>
-                <tr>
-                    <td>Wicket Viewer</td>
-                    <td><a href="wicket/">wicket/</a></td>
-                    <td>Provides a generic UI for end-users, built with <a href="http://wicket.apache.org">Apache Wicket</a>&trade;</td>
-                    <td><a href="http://isis.apache.org/components/viewers/wicket/about.html">wicket viewer</a></td>
-                </tr>
-                <tr>
-                    <td>RestfulObjects Viewer</td>
-                    <td><a href="restful/">restful/</a></td>
-                    <td>Provides a RESTful API conformant with the <a href="http://restfulobjects.org">Restful Objects</a> spec</td>
-                    <td><a href="http://isis.apache.org/components/viewers/restfulobjects/about.html">restfulobjects viewer</a></td>
-                </tr>
-                <tr>
-                    <td>JDO Object&nbsp;Store</td>
-                    <td>n/a</td>
-                    <td>Persists objects using JDO/DataNucleus; configured to use HSQLDB in-memory database</td>
-                    <td><a href="http://isis.apache.org/components/objectstores/jdo/about.html">jdo&nbsp;objectstore</a></td>
-                </tr>
-                <tr>
-                    <td>Shiro Security</td>
-                    <td>n/a</td>
-                    <td>Provides authentication and authorization, using <a href="http://shiro.apache.org">Apache Shiro</a>&trade;</td>
-                    <td><a href="http://isis.apache.org/components/security/shiro/about.html">shiro security</a></td>
-                </tr>
-            </table>
-            
-            <p>
-            The default user/password is <i>sven/pass</i> (as configured in the 
-            <a href="https://github.com/apache/isis/blob/master/example/application/simple%5Fwicket_restful_jdo/webapp/src/main/webapp/WEB-INF/shiro.ini">shiro.ini</a> file).
-            </p>
-            
-        </div>
-    </body>
+		<!-- Header -->
+			<header id="header" class="alt">
+				<h1><a href="index.html">Estudiantina</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Inicio</a></li>			
+						<li><a href="wicket/" class="button">Entrar</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<h2>Estudiantina</h2>
+				<p>Sistema de Gestion de Netbooks</p>
+				<ul class="actions">
+					<li><a href="wicket/" class="button special">Entrar</a></li>
+				</ul>
+			</section>
+
+		<!-- Main -->
+			<section id="main" class="container">
+		
+				<section class="box special">
+					<header class="major">
+						<h2>Sistema de Gestión y Soporte Técnico de Netbooks</h2>
+						<p>El proyecto está basado en el modelo Domain-Driven Design (DDD) y su implementación fue desarrollada bajo el lenguaje de programacioó Java, utilizando el framework Apache ISIS.</p>
+					</header>
+					<span class="image featured"><img src="about/images/pic01.png" alt="" /></span>
+				</section>
+						
+				<section class="box special features">
+					<div class="features-row">
+						<section>
+							<span class="icon major fa-bolt accent2"></span>
+							<h3>Shiro</h3>
+							<p>Seguridad de acceso a la aplicacion.</p>
+						</section>
+						<section>
+							<span class="icon major fa-area-chart accent3"></span>
+							<h3>State</h3>
+							<p>Implementación del Patrón de Diseño State, que permite los cambios de estado a los cuales se somete las Reparaciones de las Netbooks.</p>
+						</section>
+					</div>
+					<div class="features-row">
+						<section>
+							<span class="icon major fa-cloud accent4"></span>
+							<h3>Fixture</h3>
+							<p>Automatización de tareas mediante el paquete Fixture.</p>
+						</section>
+						<section>
+							<span class="icon major fa-lock accent5"></span>
+							<h3>Docx</h3>
+							<p>Permite descargar las colecciones como archivos de texto y la solicitud de insumos como hojas de cálculo.</p>
+						</section>
+					</div>
+				</section>
+					
+				<div class="row">
+					<div class="6u">
+
+						<section class="box special">
+							<span class="image featured"><img src="about/images/pic02.jpg" alt="" /></span>
+							<h3>Misión</h3>
+							<p>Ser la empresa líder en el desarrollo de soluciones software, servicios asociados y outsourcing de medianas y grandes empresas.</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</section>
+						
+					</div>
+					<div class="6u">
+
+						<section class="box special">
+							<span class="image featured"><img src="about/images/pic03.jpg" alt="" /></span>
+							<h3>Visión</h3>
+							<p>Brindar soluciones tecnológicas de alta calidad, en consultoría y software, satisfaciendo y superando las expectativas de nuestros clientes.</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Learn More</a></li>
+							</ul>
+						</section>
+
+					</div>
+				</div>
+
+			</section>
+			
+		<!-- CTA -->
+			<section id="cta">
+				
+				<h2>Suscribite para recibir noticias.</h2>
+				<p>Espacio para escribir algo mas.</p>
+				
+				<form>
+					<div class="row uniform half collapse-at-2">
+						<div class="8u">
+							<input type="email" name="email" id="email" placeholder="Email" />
+						</div>
+						<div class="4u">
+							<input type="submit" value="Suscribir" class="fit" />
+						</div>
+					</div>
+				</form>
+				
+			</section>
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+					<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Estudiantina. Todos los derechos reservados.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+	</body>
 </html>

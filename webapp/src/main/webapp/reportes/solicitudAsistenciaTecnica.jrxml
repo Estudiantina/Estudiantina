@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="solicitudAsistenciaTecnica" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51708c1d-32fe-4e02-8bab-9299629fe672">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Heading 1" fontSize="16" isBold="true"/>
+	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
+	<style name="Heading 3" fontSize="14" isBold="true"/>
+	<style name="Heading 4" fontSize="12" isBold="true" isItalic="true"/>
+	<style name="Default"/>
+	<parameter name="provincia" class="java.lang.String"/>
+	<parameter name="Email" class="java.lang.String"/>
+	<parameter name="telefono" class="java.lang.String"/>
+	<parameter name="nombreInstitucion" class="java.lang.String"/>
+	<parameter name="direccionDeLaInstitucion" class="java.lang.String"/>
+	<parameter name="apellidoYnombre" class="java.lang.String"/>
+	<parameter name="cuilDni" class="java.lang.String"/>
+	<parameter name="fechaDeNacimiento" class="java.lang.String"/>
+	<parameter name="cursoYdivision" class="java.lang.String"/>
+	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
+	<parameter name="motivoSolicitud" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="105" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="103" width="555" height="2" uuid="70239316-c4cb-413a-8ac4-b2259d73e99b"/>
+			</line>
+			<staticText>
+				<reportElement x="339" y="54" width="215" height="20" uuid="7db1fd76-d500-4dd3-a2da-d7e663b33f47"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSEJO PROVINCIAL DE EDUCACIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="74" width="100" height="20" uuid="7c50e4b4-6a5e-4e67-b37f-2068284c5c5f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVINCIA DE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="83" width="222" height="20" uuid="cc88b8f4-518e-43ca-b9e9-af38855fdfe0"/>
+				<text><![CDATA[Tel. :                      - Email :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="464" y="74" width="87" height="20" uuid="611e76ef-7ff5-452c-8abb-d5ca0b6172bc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{provincia}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="139" y="83" width="199" height="20" uuid="b3e6dd5b-24e8-448a-a67b-e27fb646cc85"/>
+				<textFieldExpression><![CDATA[$P{Email}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="83" width="100" height="20" uuid="134235ef-0bb2-40b6-a4de-66df9f46b076"/>
+				<textFieldExpression><![CDATA[$P{telefono}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Heading 1" x="18" y="11" width="275" height="31" uuid="867dafb3-1a37-41dc-b6c6-0f94eed263ff"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombreInstitucion}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="52" width="291" height="20" uuid="48735c45-e8fe-4b1b-8f23-efc044106464"/>
+				<textFieldExpression><![CDATA[$P{direccionDeLaInstitucion}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="454" y="4" width="50" height="50" uuid="f3269e7b-0c0f-4801-aff2-21e052552d98"/>
+				<imageExpression><![CDATA["../../../reportes/escudoNqn.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="18" y="10" width="446" height="20" uuid="981c13b3-c86e-4871-8365-df712b6edc67"/>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SOLICITUD ASISTENCIA TECNICA NETBOOK CONECTAR IGUALDAD-ANSES-Año:]]></text>
+			</staticText>
+			<textField pattern="yyyy" isBlankWhenNull="false">
+				<reportElement style="Default" x="451" y="10" width="82" height="20" uuid="55365410-1814-4f64-8325-96bf492e64e8"/>
+				<textElement>
+					<font isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="15" y="23" width="520" height="1" uuid="f881563c-0357-4448-8012-89559968f56b"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="261" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="36" width="554" height="25" uuid="aa7f1e11-9ba5-4c4d-8bc2-036efcf223b6"/>
+				<text><![CDATA[CUIL/DNI: ............................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="61" width="554" height="25" uuid="9f83fee7-88c6-4d99-8ccf-0171d7e4b49d"/>
+				<text><![CDATA[Fecha de nacimiento: ...........................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="86" width="554" height="25" uuid="ffde922f-05db-4c37-b291-8b9706e09a39"/>
+				<text><![CDATA[Curso y división: ....................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="111" width="554" height="24" uuid="71c44bdd-1be9-4eaf-b04a-4619cb11bd7b"/>
+				<text><![CDATA[Numero de serie de netbook: .................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="136" width="554" height="60" uuid="5ef071e9-4bd1-4d60-ac93-90b4c26248e8"/>
+				<text><![CDATA[Motivo de
+solicitud: .................................................................................................................................................................
+................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="196" width="554" height="52" uuid="d1c32984-720a-4512-af55-7678dd9787c5"/>
+				<text><![CDATA[Firma y Aclaracion:
+
+...............................................................................................................................................................................]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="54" y="34" width="479" height="20" uuid="2e6e6095-4b2c-4d31-a1f8-099828f5f711"/>
+				<textFieldExpression><![CDATA[$P{cuilDni}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="113" y="58" width="420" height="20" uuid="4eb9aeab-672a-4504-83c7-0c203629f13e"/>
+				<textFieldExpression><![CDATA[$P{fechaDeNacimiento}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="83" width="444" height="20" uuid="e6a1fe22-733d-4eed-a4a6-399cd6c38587"/>
+				<textFieldExpression><![CDATA[$P{cursoYdivision}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="150" y="108" width="401" height="20" uuid="664824a8-30cc-4434-b056-0cd41a642e6d"/>
+				<textFieldExpression><![CDATA[$P{numeroSerieNetbook}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="54" y="145" width="479" height="20" uuid="5d07bf68-dd0b-4578-a3c4-a1b2d868d32d"/>
+				<textFieldExpression><![CDATA[$P{motivoSolicitud}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="9" width="531" height="20" uuid="0ea54d57-4b23-4aca-8270-f1b8b9a567b5"/>
+				<text><![CDATA[Apellido y Nombre:...................................................................................................................................]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="9" width="136" height="20" uuid="de338a24-d426-4221-91e1-eb2eee9a7159"/>
+				<textFieldExpression><![CDATA[$P{apellidoYnombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="277" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="11" width="552" height="65" uuid="d6850f91-a112-4f02-a36f-2378c3e57f1c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="23" width="525" height="33" uuid="3d2a7274-cf69-48e6-9de4-1cb1dc19ae00"/>
+				<text><![CDATA[Recepciono:
+...........................................................................................................................................................................]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="0" y="102" width="554" height="141" uuid="cdac4e9e-2fb1-4d42-aedf-aa244c93c599"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="116" width="520" height="28" uuid="4977fea3-7c1c-459b-9bb9-456f1c9a18e4"/>
+				<text><![CDATA[Fecha ingreso web ANSES:..........................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="144" width="520" height="27" uuid="34132bc2-321f-44a0-bbbf-4352ba968ba5"/>
+				<text><![CDATA[Responsable ingreso web ANSES:..............................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="171" width="520" height="27" uuid="58ed21c8-80bc-4ec6-94f3-fb58219a7ea7"/>
+				<text><![CDATA[Fecha de Reparación:....................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="198" width="520" height="27" uuid="defd7d16-b050-4629-b23b-3c7122b3c0e3"/>
+				<text><![CDATA[Fecha,firma y aclaracion entrega netbook reparada:....................................................................................................................................................................................]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

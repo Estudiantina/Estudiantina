@@ -1,43 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ActaMigracion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3eea62db-9b8e-4ef8-95d2-5ca98b500e5f">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="9"/>
-	<parameter name="DierctorCedente" class="java.lang.String"/>
+	<property name="ireport.y" value="295"/>
+	<parameter name="nombreDirectorEstablecimiento" class="java.lang.String"/>
+	<parameter name="netbookModelo" class="java.lang.String"/>
+	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
+	<parameter name="nroDniDirector" class="java.lang.String"/>
+	<parameter name="establecimiento" class="java.lang.String"/>
+	<parameter name="cue" class="java.lang.String"/>
+	<parameter name="distrito" class="java.lang.String"/>
+	<parameter name="localidad" class="java.lang.String"/>
+	<parameter name="domicilio" class="java.lang.String"/>
+	<parameter name="alumno" class="java.lang.String"/>
+	<parameter name="cuilAlumno" class="java.lang.String"/>
+	<parameter name="telefonoEstablecimiento" class="java.lang.String"/>
+	<parameter name="emailEstablecimiento" class="java.lang.String"/>
+	<parameter name="nombreDirectorCedente" class="java.lang.String"/>
+	<parameter name="dniDirectorCedente" class="java.lang.String"/>
+	<parameter name="nombreEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="cueEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="distritoEscolarCedente" class="java.lang.String"/>
+	<parameter name="ciudadEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="provinciaEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="domicilioEstablecimientoCedente" class="java.lang.String"/>
+	<parameter name="nombreAlumno" class="java.lang.String"/>
+	<parameter name="modeloNetbook" class="java.lang.String"/>
+	<parameter name="nroSerieNetbook" class="java.lang.String"/>
+	<parameter name="ciudadAlumno" class="java.lang.String"/>
+	<parameter name="provinciaAlumno" class="java.lang.String"/>
 	<title>
-		<band height="95" splitType="Stretch">
+		<band height="178" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="44" width="555" height="44" uuid="9d49aaec-1d59-40d4-b286-9fa232c666a1"/>
-				<textElement>
+				<reportElement x="31" y="134" width="472" height="44" uuid="9d49aaec-1d59-40d4-b286-9fa232c666a1"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Caladea" size="14"/>
 				</textElement>
-				<text><![CDATA[ACTA DE MIGRACION PARA ALUMNOS DEL PROGRAMA CONECTAR IGUALDAD DE LA JURISDICCION:]]></text>
+				<text><![CDATA[                    ACTA DE MIGRACION PARA ALUMNOS DEL PROGRAMA
+                               CONECTAR IGUALDAD DE LA JURISDICCION:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="7" y="18" width="367" height="20" uuid="295d229c-f3f8-4ac9-b46e-4fab61c639af"/>
+				<textElement>
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Establecimiento: "+$P{establecimiento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="50" width="67" height="20" uuid="b093ccd7-9d41-440f-940c-88cd444a9156"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="99" y="50" width="78" height="20" uuid="8e66048c-eaf8-4b86-876c-184fd2203eb4"/>
+				<textFieldExpression><![CDATA[$P{domicilio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="31" y="92" width="31" height="20" uuid="e783bab4-9416-4406-8071-fda6e3e0b775"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Tel:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="62" y="92" width="161" height="20" uuid="44009132-003e-4c42-9e99-f26dd5cc4963"/>
+				<textFieldExpression><![CDATA[$P{telefonoEstablecimiento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="242" y="92" width="35" height="20" uuid="93e9ab20-2319-41ea-b913-28d304af26e1"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="277" y="92" width="157" height="20" uuid="bc5100ba-43f6-4236-a3c7-aeb5db96bb26"/>
+				<textFieldExpression><![CDATA[$P{emailEstablecimiento}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<detail>
-		<band height="384" splitType="Stretch">
+		<band height="298" splitType="Stretch">
 			<textField>
-				<reportElement x="21" y="12" width="100" height="20" uuid="35aad0c2-23eb-499e-9aad-808367bc44ae"/>
-				<textFieldExpression><![CDATA[$P{DierctorCedente}]]></textFieldExpression>
+				<reportElement x="31" y="11" width="524" height="259" uuid="b3ac45e4-534b-47b9-ba92-352d9f2628f8"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["	Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a: "+$P{nombreDirectorEstablecimiento}+", DNI Nro "+$P{nroDniDirector}+", en su carácter de Director/a del Colegio "+$P{establecimiento}+", CUE: "+$P{cue}+" Distrito Escolar: "+$P{distrito}+"  de la ciudad de "+$P{localidad}+", con domicilio Calle: "+$P{domicilio}+"en adelante “EL CEDENTE” y por la otra parte la/el Sr./a: "+$P{nombreDirectorCedente}+" DNI Nro "+$P{dniDirectorCedente}+", en su carácter de Director/a del Colegio "+$P{nombreEstablecimientoCedente}+", CUE: "+$P{cueEstablecimientoCedente}+" Distrito Escolar: "+$P{distritoEscolarCedente}+" de la Ciudad de "+$P{ciudadEstablecimientoCedente}+" Provincia de "+$P{provinciaEstablecimientoCedente}+", con domicilio en "+$P{domicilioEstablecimientoCedente}+", en adelante “EL RECEPCIONISTA”, convienen por la presenta acta la migración  del alumno "+$P{nombreAlumno}+", CUIL Nro: "+$P{cuilAlumno}+", comodatario de la netbook modelo: "+$P{modeloNetbook}+", serie No: "+$P{nroSerieNetbook}+", del establecimiento con director/a CEDENTE al establecimiento con director/a RECEPCIONISTA a fin de ser incorporado en la planta de alumnos comodatarios del establecimiento con director “RECEPCIONISTA” y la registración en el servidor del mismo establecimiento para otorgar los correspondientes certificados de seguridad, dejando de estar vinculada en el establecimiento con director “CEDENTE”. En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un solo efecto, por EL CEDENTE y por EL RECEPCIONISTA en la ciudad "+$P{ciudadAlumno}+" Provincia de  "+$P{provinciaAlumno}+", a los ............................. días del mes de  ................................... de ............."]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="0" y="0" width="541" height="374" uuid="6597a5c8-0fbf-4b13-a565-caba8813f96c"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Entre la Autoridad Educativa Provincial representada en este acto por el Sr./a:....................................................................., DNI No……..........................., en su carácter de Director/a del Colegio ..................................., CUE: ......................................... Distrito Escolar: ...........................  de la .........................................................., con domicilio Calle :............................................................................
-en adelante “EL CEDENTE” y por la otra parte la/el Sr./a:.......................................................................
-DNI Nro .........................., en su carácter de Director/a del Colegio ....................................................................., Nro ..........................., CUE: .................................... Distrito Escolar: ............................ de la Ciudad de .........................
-Provincia de ……………………….........., con domicilio-……..........................................................................., en adelante “EL RECEPCIONISTA” , convienen por la presenta acta la migración  del alumno ...................................................................., CUIL Nro: …........................................, comodatario de la netbook modelo:.........................................., serie No:.................................................., del establecimiento con director/a CEDENTE al establecimiento con director/a RECEPCIONISTA a fin de ser incorporado en la planta de alumnos comodatarios del establecimiento con director “RECEPCIONISTA” y
-la registración en el servidor del mismo establecimiento para otorgar los correspondientes certificados de seguridad, dejando de estar vinculada en el establecimiento con director “CEDENTE”.
-
-En prueba de conformidad se firman TRES (3) ejemplares de un mismo tenor y a un solo efecto, por EL CEDENTE y por EL RECEPCIONISTA en la ciudad ............................................Provincia de  ..........................................., a los ............................. días del mes de  ................................... de .............
-]]></text>
-			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="158" splitType="Stretch">
+			<staticText>
+				<reportElement x="31" y="108" width="100" height="20" uuid="e8be8fa1-ee9a-4b32-9a9d-d3616a874cbf"/>
+				<text><![CDATA[Firma Cedente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="161" y="108" width="116" height="20" uuid="9a21ecea-9b72-486b-998f-50675ff21cd7"/>
+				<text><![CDATA[Firma Recepcionista]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="108" width="100" height="20" uuid="518aeebc-97e2-4f86-bbc5-2bc8d44f6a02"/>
+				<text><![CDATA[Firma Tutor]]></text>
+			</staticText>
+			<line>
+				<reportElement x="31" y="107" width="100" height="1" uuid="0c6227f1-d7a3-4872-a16c-ca8125b76436"/>
+			</line>
+			<line>
+				<reportElement x="161" y="106" width="100" height="1" uuid="3b1f0f00-d488-43da-8037-8421df51949e"/>
+			</line>
+			<line>
+				<reportElement x="332" y="105" width="100" height="1" uuid="b729ae9e-ae69-4a32-a39c-cde1424f508a"/>
+			</line>
+		</band>
 	</columnFooter>
 </jasperReport>

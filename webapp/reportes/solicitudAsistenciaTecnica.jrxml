@@ -19,6 +19,7 @@
 	<parameter name="cursoYdivision" class="java.lang.String"/>
 	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
 	<parameter name="motivoSolicitud" class="java.lang.String"/>
+	<parameter name="imagen" class="java.lang.Object"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -68,12 +69,12 @@
 				<textFieldExpression><![CDATA[$P{nombreInstitucion}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="2" y="52" width="291" height="20" uuid="48735c45-e8fe-4b1b-8f23-efc044106464"/>
-				<textFieldExpression><![CDATA[$P{direccionDeLaInstitucion}]]></textFieldExpression>
+				<reportElement x="1" y="52" width="292" height="20" uuid="48735c45-e8fe-4b1b-8f23-efc044106464"/>
+				<textFieldExpression><![CDATA["direccion: "+$P{direccionDeLaInstitucion}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="454" y="4" width="50" height="50" uuid="f3269e7b-0c0f-4801-aff2-21e052552d98"/>
-				<imageExpression><![CDATA["/home/matiasheredia/workspace/Estudiantina/webapp/reportes/escudoNeuquen.jpg"]]></imageExpression>
+				<reportElement x="407" y="2" width="100" height="50" uuid="3fbf1702-54a5-4c29-afd1-ed0d9416501e"/>
+				<imageExpression><![CDATA[$P{imagen}]]></imageExpression>
 			</image>
 		</band>
 	</title>

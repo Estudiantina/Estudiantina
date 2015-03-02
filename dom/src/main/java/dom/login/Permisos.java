@@ -1,3 +1,15 @@
+/*
+ *  
+ *
+ *  Copyright (C) 2014 Estudiantina, All Rights Reserved.
+ *  Autors:
+ *  Matias Nahuel Heredia
+ *  Jose Luis Troche
+ *  Andres Rabovich
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
 package dom.login;
 
 import javax.jdo.annotations.IdentityType;
@@ -16,5 +28,7 @@ public class Permisos {
 		this.permiso = permiso;
 	}
 	
-	
+   public String iconName() {
+    	 return "rol";
+   }
 }

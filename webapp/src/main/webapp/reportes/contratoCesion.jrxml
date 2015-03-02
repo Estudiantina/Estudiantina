@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratoCesion" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ca52da1-a8bd-468c-922e-1bc4ee5205e1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="7"/>
+	<style name="Heading 1" fontSize="22" isBold="true"/>
+	<style name="Default" isPdfEmbedded="true"/>
+	<style name="Heading 2" fontSize="14" isBold="true" isItalic="true"/>
+	<style name="Heading" fontSize="14" isBold="false"/>
+	<parameter name="nombreDirector" class="java.lang.String"/>
+	<parameter name="dniDirector" class="java.lang.String"/>
+	<parameter name="Instituto" class="java.lang.String"/>
+	<parameter name="distritoEscolar" class="java.lang.String"/>
+	<parameter name="ciudadDeEstablecimiento" class="java.lang.String"/>
+	<parameter name="provinciaDeEstablecimiento" class="java.lang.String"/>
+	<parameter name="domicilioEstablecimiento" class="java.lang.String"/>
+	<parameter name="cursoAlumno" class="java.lang.String"/>
+	<parameter name="divisionCursoAlumno" class="java.lang.String"/>
+	<parameter name="turnoCursoAlumno" class="java.lang.String"/>
+	<parameter name="marcaNetbook" class="java.lang.String"/>
+	<parameter name="modeloNetbook" class="java.lang.String"/>
+	<parameter name="numeroSerieNetbook" class="java.lang.String"/>
+	<parameter name="domicilioCiudadTutor" class="java.lang.String"/>
+	<parameter name="provinciaTutor" class="java.lang.String"/>
+	<parameter name="nombreTutor" class="java.lang.String"/>
+	<parameter name="dniTutor" class="java.lang.String"/>
+	<parameter name="domicilioTutor" class="java.lang.String"/>
+	<parameter name="alturaDomicilioTutor" class="java.lang.String"/>
+	<parameter name="domicilioPisoTutor" class="java.lang.String"/>
+	<parameter name="domicilioDepartamentoTutor" class="java.lang.String"/>
+	<parameter name="domicilioProvinciaTutor" class="java.lang.String"/>
+	<parameter name="nombreAlumno" class="java.lang.String"/>
+	<parameter name="dniAlumno" class="java.lang.String"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement style="Heading 1" x="0" y="17" width="572" height="24" uuid="f50decf5-1449-45c6-84b3-62090f6866f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[CONTRATO DE CESION PARA ALUMNOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="576" splitType="Stretch">
+			<textField>
+				<reportElement style="Heading" x="0" y="0" width="572" height="570" uuid="f32c2a9f-0bde-40fb-ba04-5144d375d363"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Entre la Autoridad Educativa Provincial representada en este acto por el \n"+
+"Sr./a: "+$P{nombreDirector}+" , DNI No "+$P{dniDirector}+" , en su carácter de \n"+
+"Director/a/Rector/a de la Escuela/Instituto "+$P{Instituto}+" , Distrito \n"+
+"Escolar:"+ $P{distritoEscolar} +"de la Ciudad de "+$P{ciudadDeEstablecimiento}+"Provincia de"+$P{provinciaDeEstablecimiento}+" \n"+
+"con domicilio en "+$P{domicilioEstablecimiento}+" , en adelante “EL CEDENTE” y \n"+
+"por la otra parte la/el Señora/Señor: "+$P{nombreTutor}+" DNI No"+$P{dniTutor}+", \n"+
+"con domicilio en la calle"+ $P{domicilioTutor}+" N° "+$P{alturaDomicilioTutor}+"piso"+$P{domicilioPisoTutor}+"dpto"+$P{domicilioDepartamentoTutor}+" , de la \n"+
+"ciudad"+$P{domicilioCiudadTutor}+"Provincia de "+$P{domicilioProvinciaTutor}+"; en su carácter \n"+
+"de alumna/o del curso"+$P{cursoAlumno}+", división"+$P{divisionCursoAlumno}+", turno "+$P{turnoCursoAlumno}+", (o en su carácter de \n "+
+"padre, madre, tutor o representante legal del alumna/o"+$P{nombreAlumno}+"\n "+
+"DNI No"+$P{dniAlumno}+"del curso"+$P{cursoAlumno}+"División"+$P{divisionCursoAlumno}+", turno"+$P{turnoCursoAlumno}+") del \n"+
+"establecimiento educativo mencionado, en adelante “EL CESIONARIO”, \n"+
+"ambos mayores de edad y hábiles para este acto, convienen en celebrar el \n"+
+"presente CONTRATO DE CESION EN PROPIEDAD, sujeto a las siguientes \n"+
+"cláusulas y condiciones:\n"+
+"PRIMERA: LA AUTORIDAD EDUCATIVA da en forma gratuita y definitiva en \n"+
+"PROPIEDAD al CESIONARIO y éste acepta, una laptop educativa Marca"+$P{marcaNetbook}+"\n"+
+"Modelo"+$P{modeloNetbook}+"Numero de Serie"+$P{numeroSerieNetbook}+", con cargo de destinarla a fines formativos y \n"+
+"de compartirla con su grupo familiar primario, comprometiéndose a no \n"+
+"enajenarla de ninguna forma y bajo ninguna circunstancia o concepto. \n"+
+"En prueba de conformidad se firman DOS (2) ejemplares de un mismo tenor \n"+
+"y a un solo efecto, por EL CEDENTE y por EL CESIONARIO en la ciudad \n"+
+$P{domicilioCiudadTutor}+"Provincia de "+$P{provinciaTutor} +" , a los \n"+
+"............................. días del mes de ................................... de 20....... \n"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

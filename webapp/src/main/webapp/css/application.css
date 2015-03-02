@@ -52,6 +52,7 @@ example: uncomment to hide the sliding bookmark panel
 
 .headerContainer {
         background-image: linear-gradient(rgb(105, 105, 105), rgb(47, 79, 79));
+	height: 130px;
 }
 
 body{
@@ -68,15 +69,63 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', end
 
 }
 
+.entityActions .cssMenuPanel .menuh a:link, .entityActions .cssMenuPanel .menuh a:visited, .entityActions .cssMenuPanel .menuh a:active, .entityActions .cssMenuPanel .menuh p {
+color: #46423C;
+line-height: 30px;
+font-weight: bold;
+text-transform: uppercase;
+font-size: 0.85em;    
+        
+        -moz-box-shadow: 0px 10px 14px -7px #276873;
+        -webkit-box-shadow: 0px 10px 14px -7px #276873;
+        box-shadow: 0px 10px 14px -7px #276873;
+        
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+        background:-moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background:-webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background:-o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background:-ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+        
+        background-color:#599bb3;
+        
+        -moz-border-radius:42px;
+        -webkit-border-radius:42px;
+        border-radius:42px;
+        
+        display:inline-block;
+        color:#ffffff;
+        font-family:arial;
+        font-size:12px;
+        font-weight:bold;
+        padding:6px 20px;
+        text-decoration:none;
+        
+        text-shadow:0px 1px 0px #3d768a;
+
+}
+
+
+
+
 #header {
-    background: url("/images/logo_conectar-igualdad.png") no-repeat scroll left center transparent;
+ 
+    background: url("images/logo.png") no-repeat scroll center;
+    
 }
 .actionPanel .myBlockContainer {
+	
     background-image: linear-gradient(rgb(255, 255, 255), rgb(47, 79, 79));
+    -webkit-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
 }
 .entityPropertiesPanel fieldset {
 	background-image: linear-gradient(rgb(255, 255, 255), rgb(47, 79, 79));
-    
+    	-webkit-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 42px 0px rgba(0,0,0,0.75);
 }
 
 .bookmarkedPagesPanel #bookmarkedPagesSlidingDiv
@@ -119,12 +168,14 @@ li.x-caution a {
     background-color:#20B5C2;
 }	
 
-/*.entityActions .cssMenuPanel .menuh a:hover*/
 
-.entityActions .cssMenuPanel .menuh li.x-highlight a,
-li.x-highlight a {
-    background-color: #51A95C;
+
+.scalarName, .collectionName
+{
+	color: white;
 }
+
+
 
 div.x-key span.scalarName {
 	color: red;

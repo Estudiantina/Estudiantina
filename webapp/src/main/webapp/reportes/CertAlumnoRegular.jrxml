@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CertAlumnoRegular" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d8d39d6-c4c7-4fa2-85d6-2ad42b6aab8d">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<variable name="alumno" class="java.lang.String"/>
+	<variable name="anoydivision" class="java.lang.String"/>
+	<variable name="presentar" class="java.lang.String"/>
+	<variable name="fechahoy" class="java.lang.String"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="126" y="0" width="562" height="34" uuid="59902c87-e2db-4ac2-bcf2-9b21dfc5a065"/>
+				<textElement textAlignment="Center">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSTANCIA DE ALUMNO REGULAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="34" width="562" height="34" uuid="033a1281-0033-45f3-a824-38ab7234a239"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTABLECIMIENTO:]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="0" width="802" height="79" uuid="8b938c37-fbeb-435e-b517-65c970ac6502"/>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="360" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="16" width="802" height="98" uuid="229e6393-928c-42e1-80f7-8b37d68c83f8"/>
+				<textElement textAlignment="Justified">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Se hace constar que ___________________________________________ es alumno/a del Establecimiento, matriculado en  el presente curso escolar en curso y división _____________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="114" width="802" height="65" uuid="d627d901-2ac0-4849-bfde-3011b1f3b9a0"/>
+				<textElement textAlignment="Justified">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[A pedido del interesado y a solo efecto de ser presentado ante __________________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="179" width="802" height="98" uuid="f113c41b-a58c-4105-b704-099cd20fc867"/>
+				<textElement textAlignment="Justified">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Se le extiende la presente constancia el día_________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="307" width="136" height="34" uuid="9825981a-655c-4b1b-8644-b53607087ebb"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sello]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="487" y="309" width="215" height="34" uuid="ff7f4d38-c5f8-43c8-9db0-a4d20d1ad3b1"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Firma Autorizada]]></text>
+			</staticText>
+			<line>
+				<reportElement x="487" y="297" width="215" height="1" uuid="6d2a0d40-dac5-4d69-bc72-cd518d7911cc"/>
+			</line>
+			<textField>
+				<reportElement x="252" y="21" width="511" height="20" uuid="0f74a7e4-7edd-4ad1-9a09-7d0eec809969"/>
+				<textFieldExpression><![CDATA[$P{alumno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="77" width="153" height="20" uuid="f9d3c0cc-fd39-4df9-9353-679be886da76"/>
+				<textFieldExpression><![CDATA[$P{anoydeivision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="144" width="790" height="20" uuid="8440130f-f8e1-4b0e-b473-77bbb4e4d25a"/>
+				<textFieldExpression><![CDATA[$P{presentar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="212" width="100" height="20" uuid="fb59e639-f26c-4b4f-be81-2c51a35d523b"/>
+				<textFieldExpression><![CDATA[$P{fechahoy}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,6 +1,17 @@
+/*
+ *  
+ *
+ *  Copyright (C) 2014 Estudiantina, All Rights Reserved.
+ *  Autors:
+ *  Matias Nahuel Heredia
+ *  Jose Luis Troche
+ *  Andres Rabovich
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
 package servicio.email;
 
-import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -10,9 +21,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import dom.Email.CuentaMail;
-
-
+import dom.email.CuentaMail;
 
 public class Email {
 	/**
@@ -26,9 +35,6 @@ public class Email {
 	 */
 	public static void enviarEmail(CuentaMail cuentaDeEmail,String from,String to,String Asunto,String mensajeActual)
 	{
-		
-		
-
 		Properties props = new Properties();
 		props.put("mail.smtp.host", cuentaDeEmail.getServidorDeMail().getHost());
         props.setProperty("mail.smtp.port", ""+cuentaDeEmail.getServidorDeMail().getPort());
@@ -45,8 +51,7 @@ public class Email {
 		 try{
 
 	         MimeMessage message = new MimeMessage(session);
-	         
-	         
+	         	         
 	         message.setFrom(new InternetAddress(from));
 	         message.addRecipient(Message.RecipientType.TO,
 	                                  new InternetAddress(to));
@@ -60,7 +65,5 @@ public class Email {
 		 }catch (MessagingException mex) {
 	         mex.printStackTrace();
 	      }
-	    
 	}
-	
 }

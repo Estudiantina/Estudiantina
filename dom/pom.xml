@@ -96,10 +96,6 @@
 	</build>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.apache.isis.core</groupId>
-			<artifactId>isis-core-applib</artifactId>
-		</dependency>
 		<!--dependencia spring beans  -->
 		   <dependency>
 		<groupId>org.springframework</groupId>
@@ -107,6 +103,13 @@
 		<version>3.2.3.RELEASE</version>
    		</dependency>
             
+       <dependency>
+    	<groupId>org.isisaddons.wicket.fullcalendar2</groupId>
+    	<artifactId>isis-wicket-fullcalendar2-cpt</artifactId>
+    	<version>1.6.0</version>
+	   </dependency>
+       
+       
    		<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-context</artifactId>
@@ -125,7 +128,7 @@
 		<groupId>net.sf.jasperreports</groupId>
 		<artifactId>jasperreports</artifactId>
 		<version>5.0.1</version>
-	</dependency>
+	    </dependency>
 
 	  <dependency>
         <groupId>org.codehaus.groovy</groupId>
@@ -134,18 +137,14 @@
 	</dependency>
 		<!-- fin de dependencias nesesarias para generar reportes  -->
 		
-		
+		<!-- DEPENDENCIAS PARA GRAFICOS -->
 		
 		<dependency>
-            <groupId>org.apache.isis.objectstore</groupId>
-			<artifactId>isis-objectstore-jdo-applib</artifactId>
+    		<groupId>org.isisaddons.wicket.wickedcharts</groupId>
+    		<artifactId>isis-wicket-wickedcharts-cpt</artifactId>
+    		<version>1.7.0</version>
 		</dependency>
         
-		<dependency>
-            <groupId>org.apache.isis.core</groupId>
-			<artifactId>isis-core-unittestsupport</artifactId>
-            <scope>test</scope>
-		</dependency>
 
 		<!--dependencias necesarias para ver los mapas  -->
 		<dependency>
@@ -159,21 +158,31 @@
     	</dependency>
 		    
         <!-- Bytecode libraries (for mocking) -->
-        <dependency>
-            <groupId>asm</groupId>
-            <artifactId>asm</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.objenesis</groupId>
-            <artifactId>objenesis</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib-nodep</artifactId>
-            <scope>test</scope>
-        </dependency>
+        
 
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-applib</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.isisaddons.module.security</groupId>
+        	<artifactId>isis-module-security-dom</artifactId>
+        	<version>1.6.2</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.mindrot</groupId>
+        	<artifactId>jbcrypt</artifactId>
+        	<version>0.3m</version>
+        </dependency>
+        <dependency>
+        	<groupId>org.apache.isis.core</groupId>
+        	<artifactId>isis-core-unittestsupport</artifactId>
+        	<scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.objenesis</groupId>
+        	<artifactId>objenesis</artifactId>
+        	<scope>test</scope>
+        </dependency>
 	</dependencies>
 </project>
