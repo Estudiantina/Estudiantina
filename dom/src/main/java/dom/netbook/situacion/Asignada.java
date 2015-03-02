@@ -201,7 +201,9 @@ public class Asignada implements ISituacionDeNetbook {
 			parametros.put("dniTutor",alumno.getTutor().getCuil().toString());
 			parametros.put("domicilio",alumno.getTutor().getDomicilio());
 			parametros.put("piso",alumno.getTutor().getPiso());
+			parametros.put("domicilioDpto",alumno.getTutor().getPiso());
 			parametros.put("ciudadTutor",alumno.getTutor().getLocalidad().toString());
+			parametros.put("ProvinciaTutor",alumno.getTutor().getLocalidad().getLocalidad());
 
 
 			Localidad localidadEstablecimiento = container.firstMatch(QueryDefault.create(Localidad.class, "traerPorCodigoPostal", "codigo",alumno.getEstablecimiento().getLocalidad().getCodigoPostal()));
