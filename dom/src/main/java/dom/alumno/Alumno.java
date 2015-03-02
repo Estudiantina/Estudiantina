@@ -83,7 +83,7 @@ public class Alumno extends PersonaGestionable implements Locatable,Comparable<A
 	 */
 	public String title()
 	{
-		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString();
+		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString()+" (Alumno)";
 		
 	}	
 	/**
