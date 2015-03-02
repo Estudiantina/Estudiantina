@@ -59,7 +59,7 @@ public class Docente extends PersonaGestionable implements Comparable<Docente>{
 	 */
 	public String title()
 	{
-		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString()+" (Directivo)";
+		return this.getCuil()+" "+this.getNombre().toString()+" "+this.getApellido().toString()+" (Docente)";
 	}
 
 	public Cargo cargo;
