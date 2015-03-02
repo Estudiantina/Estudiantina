@@ -123,9 +123,14 @@ public class DatosPruebaFixture extends FixtureScript {
 		Long cuilDirectivoDos = new Long(136585);
 		final Directivo directivodos =this.crearDirectivo(establecimientoDos,cuilDirectivoDos, "Norma", "Directora", "155555", "444444", "matias@informaticos.com", "Menguelle",1865 , null, localidad, fecha, Sexo.FEMENINO, executionContext);
 		this.crearLogin("directivodos", "directivodos",directivodos,repoLogin.buscarRol("usuario_directivo"), executionContext);
-		
+		//TECNICO PARA EL PRIMER ESTABLECIMIENTO
 		Long cuilTecnicoUno = new Long(1111);
 		final Tecnico tecnico =this.crearTecnico(establecimiento, cuilTecnicoUno, "Jose Luis", "Troche", "155555", "444444", "matias@informaticos.com", "Menguelle", 856, null, localidad, fecha, Sexo.MASCULINO, executionContext);
+		//TECNICO PARA EL SEGUNDO ESTABLECIMIENTO
+		Long cuilTecnicoDos = new Long(11156);
+		final Tecnico tecnicoDos =this.crearTecnico(establecimientoDos, cuilTecnicoDos, "Jorge Demian", "Modica", "155555", "444444", "matias@informaticos.com", "Bolivia", 856, null, localidad, fecha, Sexo.MASCULINO, executionContext);
+		this.crearLogin("tecnicodos", "tecnicodos",tecnicoDos,repoLogin.buscarRol("usuario_tecnico"), executionContext);
+		
 		Long cuil5 = new Long(1112);
 		this.crearLogin("tecnico", "tecnico",tecnico,repoLogin.buscarRol("usuario_tecnico"), executionContext);
 		final Docente docente = this.crearDocente(cuil5, "Amanda", "Ivancich", "155555", "444444", "matias@informaticos.com", "Santa Fe", 338, null, localidad, fecha,repoCargo.traerPorCargo("Profesor de Matematica") , Sexo.FEMENINO, executionContext);
