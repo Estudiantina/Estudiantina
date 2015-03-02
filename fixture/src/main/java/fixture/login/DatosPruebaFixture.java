@@ -113,7 +113,7 @@ public class DatosPruebaFixture extends FixtureScript {
 		
 		//CREACION DE ALUMNOS DE PRUEBA Establecimiento DOS
 		Long cuilEstablecimientoDos = new Long(9865472);
-		this.crearAlumno(establecimiento,cuilEstablecimientoDos, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
+		this.crearAlumno(establecimientoDos,cuilEstablecimientoDos, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
 		
 		
 		//CREAR DIRECTIVO DEL PRIMER ESTABLECIMIENTO
