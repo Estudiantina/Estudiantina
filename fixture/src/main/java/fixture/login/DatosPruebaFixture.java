@@ -58,7 +58,7 @@ public class DatosPruebaFixture extends FixtureScript {
 		if (estaVacio(executionContext)==true)
 		{
 		Establecimiento establecimiento =this.crearEstablecimiento("C.E.M 17", "Miguel Muñoz 1056", "02994777769 ", "cem17@mailtelefonica.com.ar", "Patagonia", "33569", "8300", executionContext);
-		this.crearEstablecimiento("C.E.M 15", "San Rafael 180", "02994791728", "cem15rn@yahoo.com.ar", "Patagonia", "33579", "8300", executionContext);
+		Establecimiento establecimientoDos =this.crearEstablecimiento("C.E.M 15", "San Rafael 180", "02994791728", "cem15rn@yahoo.com.ar", "Patagonia", "33579", "8300", executionContext);
 		Localidad localidad = repoLocalidad.obtenerLocalidadPorCodigo("8324");
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		Date fecha = new Date();
@@ -71,6 +71,7 @@ public class DatosPruebaFixture extends FixtureScript {
 		}
 		Long cuil = new Long(203568);
 		Tutor tutor = this.crearTutor(establecimiento, cuil, "Jorge", "perez", "1555555", "4444444", "matias@informaticos.com", "peru", 81, null, localidad, fecha, Sexo.MASCULINO, executionContext);
+		//CREAR CURSOS ESTABLECIMIENTO UNO
 		Curso curso = this.repoCurso.ingresarCurso(establecimiento, Anio.PRIMERO, Division.PRIMERA, 2015, Turno.Mañana);
 		this.repoCurso.ingresarCurso(establecimiento, Anio.PRIMERO, Division.SEGUNDA, 2015, Turno.Tarde);
 		this.repoCurso.ingresarCurso(establecimiento, Anio.PRIMERO, Division.TERCERA, 2015, Turno.Tarde);
@@ -83,13 +84,48 @@ public class DatosPruebaFixture extends FixtureScript {
 		this.repoCurso.ingresarCurso(establecimiento, Anio.CUARTO, Division.SEGUNDA, 2015, Turno.Mañana);
 		this.repoCurso.ingresarCurso(establecimiento, Anio.QUINTO, Division.PRIMERA, 2015, Turno.Mañana);
 		this.repoCurso.ingresarCurso(establecimiento, Anio.QUINTO, Division.SEGUNDA, 2015, Turno.Mañana);
+		//
+		Curso cursoDos = this.repoCurso.ingresarCurso(establecimientoDos, Anio.PRIMERO, Division.PRIMERA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.PRIMERO, Division.SEGUNDA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.PRIMERO, Division.TERCERA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.PRIMERO, Division.CUARTA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.SEGUNDO, Division.PRIMERA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.SEGUNDO, Division.SEGUNDA, 2015, Turno.Tarde);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.TERCERO, Division.PRIMERA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.TERCERO, Division.SEGUNDA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.CUARTO, Division.PRIMERA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.CUARTO, Division.SEGUNDA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.QUINTO, Division.PRIMERA, 2015, Turno.Mañana);
+		this.repoCurso.ingresarCurso(establecimientoDos, Anio.QUINTO, Division.SEGUNDA, 2015, Turno.Mañana);
+		
+		
+		//CREACION DE ALUMNOS DE PRUEBA Establecimiento UNO
 		Long cuil2 = new Long(33658);
 		this.crearAlumno(establecimiento,cuil2, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
+		cuil2 = new Long(3366875);
+		this.crearAlumno(establecimiento,cuil2, "Cristian", "Brabo", "155555", "4444444", "matias@informaticos.com", "Don Bosco", 818, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
+		cuil2 = new Long(24964567);
+		this.crearAlumno(establecimiento,cuil2, "Diego", "Espinosa", "155555", "4444444", "matias@informaticos.com", "Primeros Pobladores", 338, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
+		cuil2 = new Long(2496698);
+		this.crearAlumno(establecimiento,cuil2, "Gonzalo", "Rodriguez", "155555", "4444444", "matias@informaticos.com", "Esmeralda", 131, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
 		Long cuil3 = new Long(336585);
+		
+		
+		//CREACION DE ALUMNOS DE PRUEBA Establecimiento DOS
+		Long cuilEstablecimientoDos = new Long(9865472);
+		this.crearAlumno(establecimiento,cuilEstablecimientoDos, "Juan", "Perez", "155555", "4444444", "matias@informaticos.com", "peru", 81, "", localidad, fecha, new Date(), repoPaises.autoCompletarPais("Argentina").get(0), Sexo.MASCULINO, EstadoDeAlumno.REGULAR, tutor, curso, executionContext);
+		
+		
+		//CREAR DIRECTIVO DEL PRIMER ESTABLECIMIENTO
 		final Directivo directivo =this.crearDirectivo(establecimiento,cuil3, "Norma", "Directora", "155555", "444444", "matias@informaticos.com", "Menguelle",1865 , null, localidad, fecha, Sexo.FEMENINO, executionContext);
 		this.crearLogin("directivo", "directivo",directivo,repoLogin.buscarRol("usuario_directivo"), executionContext);
-		Long cuil4 = new Long(1111);
-		final Tecnico tecnico =this.crearTecnico(establecimiento, cuil4, "Jose Luis", "Troche", "155555", "444444", "matias@informaticos.com", "Menguelle", 856, null, localidad, fecha, Sexo.MASCULINO, executionContext);
+		//CREAR DIRECTIVO DEL SEGUNDO ESTABLECIMIENTO
+		Long cuilDirectivoDos = new Long(136585);
+		final Directivo directivodos =this.crearDirectivo(establecimientoDos,cuilDirectivoDos, "Norma", "Directora", "155555", "444444", "matias@informaticos.com", "Menguelle",1865 , null, localidad, fecha, Sexo.FEMENINO, executionContext);
+		this.crearLogin("directivodos", "directivodos",directivodos,repoLogin.buscarRol("usuario_directivo"), executionContext);
+		
+		Long cuilTecnicoUno = new Long(1111);
+		final Tecnico tecnico =this.crearTecnico(establecimiento, cuilTecnicoUno, "Jose Luis", "Troche", "155555", "444444", "matias@informaticos.com", "Menguelle", 856, null, localidad, fecha, Sexo.MASCULINO, executionContext);
 		Long cuil5 = new Long(1112);
 		this.crearLogin("tecnico", "tecnico",tecnico,repoLogin.buscarRol("usuario_tecnico"), executionContext);
 		final Docente docente = this.crearDocente(cuil5, "Amanda", "Ivancich", "155555", "444444", "matias@informaticos.com", "Santa Fe", 338, null, localidad, fecha,repoCargo.traerPorCargo("Profesor de Matematica") , Sexo.FEMENINO, executionContext);
